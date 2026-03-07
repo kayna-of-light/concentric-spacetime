@@ -1,0 +1,19 @@
+name: concentric
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - sympy
+  - matplotlib
+  - plotly
+  - jupyter
+  - jupyterlab
+  - pandas
+  - seaborn
+  - ipywidgets
+  - pip
+  - pip:
+    - nbformat
