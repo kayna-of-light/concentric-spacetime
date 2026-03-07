@@ -13,6 +13,7 @@ dependencies:
   - jupyterlab
   - pandas
   - seaborn
+  - scikit-learn
   - ipywidgets
   - pip
   - pip:
