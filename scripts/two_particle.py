@@ -636,3 +636,236 @@ def entanglement_sweep(H0, V, basis, n_sp, Z_values):
         results['entropies'][idx] = -np.sum(rho_eigs * np.log(rho_eigs)) if len(rho_eigs) > 0 else 0.0
 
     return results
+
+
+# ═══════════════════════════════════════════════════════════
+# Dipole matrix elements  (spectral properties)
+# ═══════════════════════════════════════════════════════════
+
+def radial_dipole_integral(n1, l1, n2, l2, R_scale=1.0, n_grid=2000):
+    """
+    Radial dipole integral: ∫₀^∞ R_{n1,l1}(r) × r × R_{n2,l2}(r) × r² dr.
+
+    The extra factor of r comes from the dipole operator.
+    R_scale controls the Bohr radius scaling from manifold curvature.
+    """
+    r_max = max(4 * max(n1, n2)**2, 60) * R_scale
+    r = np.linspace(0, r_max, n_grid)
+    r[0] = 1e-10
+    dr = np.diff(r)
+
+    r_scaled = r / R_scale
+    R1 = radial_wavefunction(n1, l1, r_scaled)
+    R2 = radial_wavefunction(n2, l2, r_scaled)
+
+    # Integrand: R1(r) * r * R2(r) * r²  (the r² is from volume element)
+    integrand = R1 * r * R2 * r**2
+    result = np.sum(0.5 * (integrand[:-1] + integrand[1:]) * dr)
+    return result
+
+
+def dipole_angular_coefficient(l1, m1, l2, m2, q):
+    """
+    Angular part of the dipole matrix element for polarization q.
+
+    ⟨l1,m1| C^1_q |l2,m2⟩  where C^1_q = √(4π/3) Y_1^q
+
+    The bra requires complex conjugation:
+        ∫ Y_{l1}^{m1*} Y_1^q Y_{l2}^{m2} dΩ
+      = (-1)^{m1} × ∫ Y_{l1}^{-m1} Y_1^q Y_{l2}^{m2} dΩ
+      = (-1)^{m1} × gaunt(l1, -m1, 1, q, l2, m2)
+
+    q = 0  → z-component (ΔM = 0)
+    q = ±1 → circular components (ΔM = ±1)
+    """
+    # Selection rule: m1 = m2 + q
+    if m1 != m2 + q:
+        return 0.0
+    # Triangle rule: |l1 - l2| ≤ 1 ≤ l1 + l2
+    if abs(l1 - l2) > 1 or l1 + l2 < 1:
+        return 0.0
+    # Parity rule: l1 + l2 must be odd (for dipole)
+    if (l1 + l2) % 2 == 0:
+        return 0.0
+
+    # Gaunt integral with proper bra conjugation: Y_{l1}^{m1*} = (-1)^{m1} Y_{l1}^{-m1}
+    g = (-1)**m1 * gaunt_coefficient(l1, -m1, 1, q, l2, m2)
+    return g
+
+
+def one_body_dipole_element(state_a, state_b, q, R_scale=1.0):
+    """
+    Single-particle dipole matrix element ⟨a| r_q |b⟩.
+
+    r_q = r × √(4π/3) × Y_1^q  (spherical component of position operator)
+
+    Returns the full matrix element (radial × angular).
+    """
+    na, la, ma, sa = state_a
+    nb, lb, mb, sb = state_b
+
+    # Spin orthogonality
+    if sa != sb:
+        return 0.0
+
+    ang = dipole_angular_coefficient(la, ma, lb, mb, q)
+    if abs(ang) < 1e-15:
+        return 0.0
+
+    rad = radial_dipole_integral(na, la, nb, lb, R_scale=R_scale)
+
+    # Factor √(4π/3) for spherical dipole convention
+    return np.sqrt(4 * np.pi / 3) * rad * ang
+
+
+def many_body_dipole_matrix(sp_states, basis, eigenvectors, q=0, R_scale=1.0):
+    """
+    Dipole matrix elements between CI eigenstates.
+
+    D[i,j] = ⟨Ψ_i| D_q |Ψ_j⟩
+
+    where D_q = Σ_k r_q(k) is the one-body dipole operator summed over electrons.
+
+    In second quantization over Slater determinants:
+        ⟨IJ| D_q |KL⟩ = d_{IK}δ_{JL} - d_{IL}δ_{JK} + d_{JL}δ_{IK} - d_{JK}δ_{IL}
+
+    where d_{ab} = ⟨a|r_q|b⟩ is the single-particle dipole element.
+    """
+    n_basis = len(basis)
+    n_states = eigenvectors.shape[1]
+
+    # Build one-body dipole matrix in spin-orbital basis
+    n_sp = len(sp_states)
+    d_1b = np.zeros((n_sp, n_sp))
+    for a in range(n_sp):
+        for b in range(n_sp):
+            d_1b[a, b] = one_body_dipole_element(
+                sp_states[a], sp_states[b], q, R_scale=R_scale
+            )
+
+    # Build dipole in Slater determinant basis
+    D_slater = np.zeros((n_basis, n_basis))
+    for row, (I, J) in enumerate(basis):
+        for col, (K, L) in enumerate(basis):
+            val = 0.0
+            # One-body operator between antisymmetrized determinants:
+            # ⟨IJ|_A  D  |KL⟩_A = d_IK δ_JL - d_IL δ_JK
+            #                     + d_JL δ_IK - d_JK δ_IL
+            if J == L:
+                val += d_1b[I, K]
+            if J == K:
+                val -= d_1b[I, L]
+            if I == K:
+                val += d_1b[J, L]
+            if I == L:
+                val -= d_1b[J, K]
+            D_slater[row, col] = val
+
+    # Transform to CI eigenstate basis: D_CI = V^T × D_slater × V
+    D_ci = eigenvectors.T @ D_slater @ eigenvectors
+    return D_ci
+
+
+def oscillator_strength(delta_E, dipole_sq):
+    """
+    Oscillator strength: f = (2/3) × ΔE × |⟨f|r|i⟩|²
+
+    delta_E: energy difference in Hartree (positive)
+    dipole_sq: |⟨f|r|i⟩|² summed over q = -1, 0, +1
+    """
+    return (2.0 / 3.0) * abs(delta_E) * dipole_sq
+
+
+def transition_wavelength_nm(delta_E_hartree):
+    """
+    Convert energy difference in Hartree to wavelength in nm.
+
+    λ = hc/ΔE
+
+    1 Hartree = 27.211386 eV = 4.359744 × 10⁻¹⁸ J
+    hc = 1239.8419 eV·nm
+
+    So λ(nm) = 1239.8419 / (ΔE_Ha × 27.211386) = 45.5634 / ΔE_Ha
+    """
+    if abs(delta_E_hartree) < 1e-15:
+        return np.inf
+    return 45.563353 / abs(delta_E_hartree)
+
+
+def classify_parity(eigenvector, basis, sp_states):
+    """
+    Determine parity of a CI eigenstate.
+
+    Parity P = (-1)^{l1+l2} for each Slater determinant.
+    For eigenstates with definite parity, all components should
+    have the same parity (to numerical precision).
+
+    Returns: +1 (even), -1 (odd), or 0 (mixed/undefined)
+    """
+    even_weight = 0.0
+    odd_weight = 0.0
+    for idx, (i, j) in enumerate(basis):
+        l1 = sp_states[i][1]
+        l2 = sp_states[j][1]
+        p = (-1) ** (l1 + l2)
+        w = eigenvector[idx] ** 2
+        if p > 0:
+            even_weight += w
+        else:
+            odd_weight += w
+    if even_weight > 0.99:
+        return +1
+    elif odd_weight > 0.99:
+        return -1
+    else:
+        return 0
+
+
+def classify_spin(eigenvector, basis, sp_states):
+    """
+    Estimate total spin of a CI eigenstate.
+
+    For two electrons, S_total = 0 (singlet) or 1 (triplet).
+    Compute ⟨S²⟩ = S(S+1): singlet → 0, triplet → 2.
+
+    S² = s₁² + s₂² + 2s₁·s₂ = 3/2 + 2s₁·s₂
+    ⟨s₁·s₂⟩ depends on whether spins are aligned.
+    """
+    S2_expect = 0.0
+    for row, (i, j) in enumerate(basis):
+        si, sj = sp_states[i][3], sp_states[j][3]
+        for col, (k, l) in enumerate(basis):
+            sk, sl = sp_states[k][3], sp_states[l][3]
+            c_row = eigenvector[row]
+            c_col = eigenvector[col]
+            if abs(c_row * c_col) < 1e-15:
+                continue
+            # S² matrix element between |ij⟩_A and |kl⟩_A
+            # For two-electron system: ⟨S²⟩ = s1(s1+1) + s2(s2+1) + 2⟨s1·s2⟩
+            # Direct: δ_ik δ_jl terms, Exchange: -δ_il δ_jk terms
+            val = 0.0
+            if i == k and j == l:
+                val += 0.75 + 0.75  # s(s+1) for each electron
+                # s1·s2 diagonal: s1z*s2z
+                val += 2 * si * sj
+            if i == l and j == k:
+                val -= 0.75 + 0.75
+                val -= 2 * si * sj
+            # Off-diagonal s1·s2 (spin flip terms)
+            # s₁₊s₂₋ + s₁₋s₂₊ : these connect |↑↓⟩ ↔ |↓↑⟩
+            # For determinant |ij⟩ → |kl⟩ via spin exchange:
+            ni, li, mi = sp_states[i][:3]
+            nj, lj, mj = sp_states[j][:3]
+            nk, lk, mk = sp_states[k][:3]
+            nl, ll, ml = sp_states[l][:3]
+            # Spatial parts must match for spin-flip contributions
+            if (ni, li, mi) == (nk, lk, mk) and (nj, lj, mj) == (nl, ll, ml):
+                if si != sk and sj != sl and si == -sk:
+                    val += 2 * 0.5  # ⟨↑|s₊|↓⟩⟨↓|s₋|↑⟩ = 1/2 each, factor 2
+            if (ni, li, mi) == (nl, ll, ml) and (nj, lj, mj) == (nk, lk, mk):
+                if si != sl and sj != sk and si == -sl:
+                    val -= 2 * 0.5
+            S2_expect += c_row * c_col * val
+    # S(S+1): singlet=0, triplet=2
+    S = (-1 + np.sqrt(1 + 4 * S2_expect)) / 2 if S2_expect > -0.1 else 0
+    return round(2 * S + 1)  # multiplicity: 1=singlet, 3=triplet
