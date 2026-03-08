@@ -639,6 +639,222 @@ def entanglement_sweep(H0, V, basis, n_sp, Z_values):
 
 
 # ═══════════════════════════════════════════════════════════
+# One-body operators in Slater determinant basis
+# (Zeeman, spin-orbit, Stark)
+# ═══════════════════════════════════════════════════════════
+
+def _one_body_op_slater(sp_states, basis, op_func):
+    """
+    Build a one-body operator O = Σ_i o(i) in the antisymmetrised
+    Slater-determinant basis using Slater–Condon rules.
+
+    op_func(a, b) returns the single-particle matrix element ⟨a|o|b⟩
+    where a, b are spin-orbital indices.
+
+    For a two-electron Slater determinant |ij⟩_A with i<j:
+        ⟨ij|O|kl⟩ = δ_jl ⟨i|o|k⟩ + δ_ik ⟨j|o|l⟩
+                   - δ_jk ⟨i|o|l⟩ - δ_il ⟨j|o|k⟩
+    """
+    N = len(basis)
+    mat = np.zeros((N, N))
+    for row, (i, j) in enumerate(basis):
+        for col, (k, l) in enumerate(basis):
+            val = 0.0
+            if j == l:
+                val += op_func(i, k)
+            if i == k:
+                val += op_func(j, l)
+            if j == k:
+                val -= op_func(i, l)
+            if i == l:
+                val -= op_func(j, k)
+            mat[row, col] = val
+    return mat
+
+
+def zeeman_matrix(sp_states, basis, B=1.0):
+    """
+    Zeeman perturbation in Slater determinant basis.
+
+    H_Z = (B/2) × (L_z + 2S_z)  [atomic units, μ_B = 1/2]
+
+    The single-particle matrix element is diagonal:
+        ⟨a|l_z + 2s_z|b⟩ = δ_{ab} × (m_a + 2s_a)
+    """
+    def op(a, b):
+        if a != b:
+            return 0.0
+        _, _, m_a, s_a = sp_states[a][:4]
+        return m_a + 2 * s_a
+
+    return (B / 2) * _one_body_op_slater(sp_states, basis, op)
+
+
+def total_mj_matrix(sp_states, basis):
+    """
+    Total M_J = M_L + M_S operator in Slater determinant basis.
+
+    Each spin-orbital contributes m_l + m_s (diagonal).
+    """
+    def op(a, b):
+        if a != b:
+            return 0.0
+        _, _, m_a, s_a = sp_states[a][:4]
+        return m_a + s_a
+
+    return _one_body_op_slater(sp_states, basis, op)
+
+
+def spin_orbit_radial_integral(n, l, Z=1, R_scale=1.0, n_grid=2000):
+    """
+    Radial part of spin-orbit coupling:
+        ξ_{nl} = (α²/2) × Z × ∫₀^∞ R_{nl}(r) × (1/r³) × R_{nl}(r) × r² dr
+
+    For hydrogen-like atoms: ξ_{nl} = (α² Z⁴) / (2 n³ l(l+½)(l+1))  [exact]
+    We use the analytic formula for efficiency and accuracy.
+
+    Returns ξ in Hartree.
+    """
+    if l == 0:
+        return 0.0  # L·S = 0 for s-orbitals (l=0 → no spin-orbit)
+    alpha = 1 / 137.035999  # fine structure constant
+    # Exact hydrogen-like result
+    xi = (alpha**2 * Z**4) / (2 * n**3 * l * (l + 0.5) * (l + 1))
+    return xi
+
+
+def _ls_single_particle(sp_states, a, b, Z=1):
+    """
+    Single-particle matrix element of L·S between spin-orbitals a and b.
+
+    L·S = L_z S_z + (L₊S₋ + L₋S₊)/2
+
+    Only connects states with same n, l and gives non-zero when:
+      - Same spatial orbital, same spin: L_z × S_z term
+      - Same n,l, m differs by ±1, spin flips: L₊S₋ or L₋S₊ terms
+    """
+    n_a, l_a, m_a, s_a = sp_states[a][:4]
+    n_b, l_b, m_b, s_b = sp_states[b][:4]
+
+    # L·S only couples states within same n, l subshell
+    if n_a != n_b or l_a != l_b:
+        return 0.0
+
+    val = 0.0
+
+    # L_z S_z term: diagonal in m_l and m_s
+    if m_a == m_b and s_a == s_b:
+        val += m_a * s_a
+
+    # L₊S₋ term: m_l increases by 1, m_s decreases by 1 (spin down)
+    # ⟨l,m+1| L₊ |l,m⟩ = √(l(l+1) - m(m+1))
+    # ⟨s,-½| S₋ |s,+½⟩ = 1  (for s=½)
+    if m_a == m_b + 1 and s_a == s_b - 1:
+        lp = np.sqrt(l_a * (l_a + 1) - m_b * (m_b + 1))
+        sm = 1.0  # √(s(s+1) - ms(ms-1)) = √(3/4 - ½×(-½)) = 1
+        val += 0.5 * lp * sm
+
+    # L₋S₊ term: m_l decreases by 1, m_s increases by 1 (spin up)
+    if m_a == m_b - 1 and s_a == s_b + 1:
+        lm = np.sqrt(l_a * (l_a + 1) - m_b * (m_b - 1))
+        sp = 1.0
+        val += 0.5 * lm * sp
+
+    return val
+
+
+def spin_orbit_matrix(sp_states, basis, Z=1):
+    """
+    Spin-orbit coupling H_SO = Σ_i ξ(r_i) × L_i · S_i  in Slater det basis.
+
+    For hydrogen-like systems:
+        ξ_{nl} = (α² Z⁴) / (2 n³ l(l+½)(l+1))
+
+    The matrix in CI eigenstate basis:  V_SO_CI = U^T × V_SO_slater × U
+    """
+    # Precompute ξ for each (n,l) subshell
+    xi_cache = {}
+    for st in sp_states:
+        n, l = st[0], st[1]
+        key = (n, l)
+        if key not in xi_cache:
+            xi_cache[key] = spin_orbit_radial_integral(n, l, Z=Z)
+
+    def op(a, b):
+        n_a, l_a = sp_states[a][0], sp_states[a][1]
+        xi = xi_cache[(n_a, l_a)]
+        if xi == 0.0:
+            return 0.0
+        return xi * _ls_single_particle(sp_states, a, b, Z=Z)
+
+    return _one_body_op_slater(sp_states, basis, op)
+
+
+def stark_matrix(sp_states, basis, F=1.0, R_scale=1.0, n_grid=2000):
+    """
+    Stark effect perturbation: H_E = F × z = F × r × cos(θ)
+
+    This is the q=0 component of the dipole operator scaled by F.
+    Reuses the dipole machinery: ⟨a|z|b⟩ = ⟨a|r cos θ|b⟩
+
+    Returns the perturbation matrix in the Slater determinant basis.
+    """
+    def op(a, b):
+        n_a, l_a, m_a, s_a = sp_states[a][:4]
+        n_b, l_b, m_b, s_b = sp_states[b][:4]
+        if s_a != s_b:
+            return 0.0  # dipole doesn't flip spin
+        # z = r cos θ  →  q=0 component
+        ang = dipole_angular_coefficient(l_a, m_a, l_b, m_b, q=0)
+        if abs(ang) < 1e-15:
+            return 0.0
+        rad = radial_dipole_integral(n_a, l_a, n_b, l_b,
+                                      R_scale=R_scale, n_grid=n_grid)
+        return np.sqrt(4 * np.pi / 3) * rad * ang
+
+    return F * _one_body_op_slater(sp_states, basis, op)
+
+
+def lande_g_factor(eigenvector, basis, sp_states, H0, V, Z,
+                   B_values=None):
+    """
+    Compute the Landé g-factor for a CI eigenstate by measuring the
+    linear Zeeman slope: dE/dB = g × M_J × μ_B.
+
+    Uses numerical differentiation of eigenvalue vs B.
+    """
+    if B_values is None:
+        B_values = np.array([0.0, 1e-6, 2e-6])
+
+    H_base = hamiltonian_at_Z(H0, V, Z)
+
+    # Find index of the target state at B=0
+    evals_0, evecs_0 = np.linalg.eigh(H_base)
+    overlaps = np.abs(evecs_0.T @ eigenvector)
+    target_idx = np.argmax(overlaps)
+
+    energies = []
+    for B in B_values:
+        H_B = H_base + zeeman_matrix(sp_states, basis, B)
+        evals_B = np.linalg.eigvalsh(H_B)
+        energies.append(evals_B[target_idx])
+
+    energies = np.array(energies)
+    # dE/dB via finite difference
+    dEdB = (energies[-1] - energies[0]) / (B_values[-1] - B_values[0])
+
+    # M_J for this state
+    MJ_mat = total_mj_matrix(sp_states, basis)
+    MJ = eigenvector @ MJ_mat @ eigenvector
+
+    if abs(MJ) < 1e-10:
+        return 0.0  # M_J = 0, can't determine g
+    # dE/dB = g × M_J / 2  (atomic units, μ_B = 1/2)
+    g = 2 * dEdB / MJ
+    return g
+
+
+# ═══════════════════════════════════════════════════════════
 # Dipole matrix elements  (spectral properties)
 # ═══════════════════════════════════════════════════════════
 
