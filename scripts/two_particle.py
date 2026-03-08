@@ -1085,3 +1085,145 @@ def classify_spin(eigenvector, basis, sp_states):
     # S(S+1): singlet=0, triplet=2
     S = (-1 + np.sqrt(1 + 4 * S2_expect)) / 2 if S2_expect > -0.1 else 0
     return round(2 * S + 1)  # multiplicity: 1=singlet, 3=triplet
+
+
+# ── Multi-electron approximate methods (Slater shielding) ──────────────
+
+# Aufbau filling order: (n, l) sorted by (n+l, n)
+FILLING_ORDER = [
+    (1, 0), (2, 0), (2, 1), (3, 0), (3, 1), (4, 0), (3, 2), (4, 1),
+    (5, 0), (4, 2), (5, 1), (6, 0), (4, 3), (5, 2), (6, 1), (7, 0),
+]
+
+MAX_OCCUPATION = {0: 2, 1: 6, 2: 10, 3: 14}
+
+EFFECTIVE_N = {1: 1.0, 2: 2.0, 3: 3.0, 4: 3.7, 5: 4.0, 6: 4.2, 7: 4.4}
+
+ORBITAL_LABEL = {0: 's', 1: 'p', 2: 'd', 3: 'f'}
+
+# Slater groups in order from inner to outer
+SLATER_GROUPS = [
+    [(1, 0)],
+    [(2, 0), (2, 1)],
+    [(3, 0), (3, 1)],
+    [(3, 2)],
+    [(4, 0), (4, 1)],
+    [(4, 2)],
+    [(4, 3)],
+    [(5, 0), (5, 1)],
+    [(5, 2)],
+    [(5, 3)],
+    [(6, 0), (6, 1)],
+    [(6, 2)],
+    [(7, 0), (7, 1)],
+]
+
+_NL_TO_GROUP = {}
+for _gi, _grp in enumerate(SLATER_GROUPS):
+    for _nl in _grp:
+        _NL_TO_GROUP[_nl] = _gi
+
+
+def ground_state_config(Z):
+    """Return ground-state electron configuration as {(n, l): count}."""
+    config = {}
+    remaining = Z
+    for n, l in FILLING_ORDER:
+        if remaining <= 0:
+            break
+        occupy = min(remaining, MAX_OCCUPATION[l])
+        config[(n, l)] = occupy
+        remaining -= occupy
+    return config
+
+
+def config_string(config):
+    """Human-readable configuration string like '1s² 2s² 2p⁶'."""
+    superscripts = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+    parts = []
+    for n, l in FILLING_ORDER:
+        if (n, l) in config:
+            count = config[(n, l)]
+            parts.append(f'{n}{ORBITAL_LABEL[l]}{str(count).translate(superscripts)}')
+    return ' '.join(parts)
+
+
+def slater_zeff(Z, config, target_nl):
+    """Effective nuclear charge for orbital target_nl using Slater's rules.
+
+    Parameters
+    ----------
+    Z : int — nuclear charge
+    config : dict — {(n, l): electron_count}
+    target_nl : tuple — (n, l) of the orbital
+    """
+    n_t, l_t = target_nl
+    g_t = _NL_TO_GROUP[target_nl]
+    sigma = 0.0
+
+    for (n, l), count in config.items():
+        if (n, l) not in _NL_TO_GROUP:
+            continue
+        g = _NL_TO_GROUP[(n, l)]
+
+        if g > g_t:
+            continue  # outer electrons don't shield
+
+        if g == g_t:
+            # Same Slater group: 0.35 (0.30 for 1s)
+            n_same = count - (1 if (n, l) == target_nl else 0)
+            sigma += n_same * (0.30 if g_t == 0 else 0.35)
+        elif l_t <= 1:
+            # Target is s/p: (n-1) shell → 0.85, deeper → 1.00
+            if n == n_t - 1:
+                sigma += count * 0.85
+            else:
+                sigma += count * 1.00
+        else:
+            # Target is d/f: all inner → 1.00
+            sigma += count * 1.00
+
+    return Z - sigma
+
+
+def slater_orbital_energy(Z, config, target_nl):
+    """One-electron orbital energy (Hartree) using Slater's rules."""
+    n = target_nl[0]
+    z_eff = slater_zeff(Z, config, target_nl)
+    n_star = EFFECTIVE_N[n]
+    return -z_eff ** 2 / (2 * n_star ** 2)
+
+
+def slater_total_energy(Z, config=None):
+    """Total electronic energy (Hartree) from Slater's rules."""
+    if config is None:
+        config = ground_state_config(Z)
+    E = 0.0
+    for (n, l), count in config.items():
+        E += count * slater_orbital_energy(Z, config, (n, l))
+    return E
+
+
+def slater_ionization_energy(Z):
+    """First ionization energy (Hartree) via total energy difference."""
+    config_N = ground_state_config(Z)
+
+    # Remove one electron from the outermost orbital
+    config_Nm1 = dict(config_N)
+    outermost = None
+    for n, l in reversed(FILLING_ORDER):
+        if (n, l) in config_Nm1 and config_Nm1[(n, l)] > 0:
+            outermost = (n, l)
+            break
+    config_Nm1[outermost] -= 1
+    if config_Nm1[outermost] == 0:
+        del config_Nm1[outermost]
+
+    E_N = slater_total_energy(Z, config_N)
+    E_Nm1 = slater_total_energy(Z, config_Nm1)
+    return E_Nm1 - E_N
+
+
+def expected_radius(n, l, Z_eff):
+    """Expected radius ⟨r⟩ for hydrogen-like orbital (atomic units)."""
+    return (3 * n ** 2 - l * (l + 1)) / (2 * Z_eff)
