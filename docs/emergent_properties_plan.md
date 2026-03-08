@@ -387,9 +387,244 @@ four-prime geometry on S² × R⁺, not from postulating quantum mechanics."
 
 ---
 
+---
+
+## Tier 5: Gravitational Quantum States (NB17)
+
+### Core Idea
+
+In 2002, Nesvizhevsky et al. at ILL Grenoble observed something remarkable: ultra-cold
+neutrons bouncing above a mirror in Earth's gravity occupy **discrete quantum energy levels**.
+The neutron doesn't roll smoothly — it hops between quantized heights, the lowest at just
+13.7 μm above the surface.
+
+This is gravity quantized. The potential is the simplest possible — a linear ramp V(z) = mgz
+above a hard wall — and the solutions are **Airy functions**, the eigenfunctions of the
+linear potential on R⁺.
+
+If these quantized bouncing heights emerge from a linear potential on our manifold, it means
+**even gravity — the first force humans experience — quantizes on R⁺**.
+
+### Tests
+
+#### Test 1: Airy Eigenvalues
+- Schrödinger equation: -ℏ²/(2m) d²ψ/dz² + mgz ψ = E ψ, with ψ(0) = 0
+- Substitution z = (ℏ²/2m²g)^{1/3} × ξ converts to the Airy equation
+- Eigenvalues: E_n = (m g² ℏ²/2)^{1/3} × |a_n|, where a_n are zeros of Ai(x)
+- Characteristic length scale: z₀ = (ℏ²/2m²g)^{1/3} ≈ 5.87 μm for neutrons
+- Compare first 5+ eigenvalues to:
+  - E₁ = 1.407 peV (z₁ = 13.7 μm)
+  - E₂ = 2.461 peV (z₂ = 24.0 μm)
+  - E₃ = 3.321 peV (z₃ = 32.4 μm)
+- Source: Nesvizhevsky et al., Nature 415:297 (2002); Jenke et al., Nature Physics 7:468 (2011)
+
+#### Test 2: Wavefunctions and Turning Points
+- Compute ψ_n(z) = Ai(z/z₀ - |a_n|) for each level
+- Classical turning points: z_n = E_n/(mg) — heights where the neutron "bounces"
+- Visualize: wavefunctions overlaid on the linear potential
+- Show exponential decay beyond classical turning point (tunneling region)
+
+#### Test 3: Transition Energies
+- ΔE_{n→m} between levels
+- Compare to qBounce resonance spectroscopy data (Jenke et al. 2011):
+  measured transitions between levels 1→3 and 1→4
+- Transition frequencies in the ~Hz range (pico-eV scale)
+
+#### Test 4: WKB Semiclassical Comparison
+- WKB approximation: E_n^{WKB} ∝ [(n - 1/4)π]^{2/3}
+- Compare WKB to exact Airy results
+- Shows how classical and quantum pictures merge at high n
+
+### What's Needed in Code
+
+1. **Airy function zeros**: scipy.special.airy or analytical tables
+2. **Energy level computation**: Direct from Airy zeros + physical constants
+3. **Wavefunction construction**: Airy functions evaluated on a grid
+4. **Unit conversion**: atomic units ↔ SI (peV, μm, Hz)
+
+### Expected Outcome
+
+Exact agreement with the Airy eigenvalues (this is a solved problem — the test is whether
+our manifold formulation produces the same result). The punchline: the linear potential on R⁺
+quantizes gravity. The same radial coordinate that gives hydrogen shells also gives neutron
+bouncing heights.
+
+---
+
+## Tier 6: Scattering Cross-Sections (NB18)
+
+### Core Idea
+
+When two particles approach each other, they scatter. The angular pattern of scattering
+encodes the interaction potential. In quantum mechanics, scattering is decomposed into
+**partial waves** — each angular momentum channel l on S² contributes independently.
+
+The partial wave expansion is inherently an S² decomposition: the scattering amplitude is
+a sum over spherical harmonics, each weighted by a **phase shift** δ_l that encodes how
+the radial wavefunction on R⁺ is modified by the potential.
+
+If the Rutherford cross-section (Coulomb scattering), hard-sphere scattering, and resonance
+phenomena emerge from phase shifts computed on S² × R⁺, it means **how particles interact
+is dictated by angular momentum on the sphere**.
+
+### Tests
+
+#### Test 1: Hard-Sphere Scattering
+- Potential: V(r) = ∞ for r < a, 0 for r > a
+- Phase shifts: tan(δ_l) = j_l(ka) / n_l(ka)
+- Total cross-section: σ = (4π/k²) Σ (2l+1) sin²(δ_l)
+- Low energy limit: σ → 4πa² (four times geometric area — wave optics!)
+- High energy limit: σ → 2πa² (geometric + diffraction)
+- Compare: analytical result at all energies
+
+#### Test 2: Coulomb Scattering (Rutherford Formula)
+- Potential: V(r) = Z₁Z₂e²/r (pure Coulomb on R⁺)
+- Exact solution: Coulomb phase shifts σ_l = arg Γ(l+1+iη), η = Z₁Z₂e²m/(ℏ²k)
+- Differential cross-section: dσ/dΩ = |f(θ)|²
+- Must reproduce Rutherford formula: dσ/dΩ = (a/4)² / sin⁴(θ/2)
+  where a = Z₁Z₂e²/(4E)
+- This is one of the most famous formulas in physics
+
+#### Test 3: Resonance Scattering
+- Add a finite square well: V(r) = -V₀ for r < a, 0 for r > a
+- At specific energies, a partial wave δ_l passes through π/2 → resonance
+- Cross-section shows sharp peaks (Breit-Wigner shape)
+- Demonstrates: bound states that become unbound = resonances
+- The angular momentum barrier l(l+1)/r² on S² creates the resonance structure
+
+#### Test 4: Optical Theorem
+- Verify: σ_total = (4π/k) Im[f(θ=0)]
+- This is a conservation law (unitarity) — should emerge exactly from S² completeness
+
+### What's Needed in Code
+
+1. **Spherical Bessel functions**: j_l, n_l, h_l from scipy.special
+2. **Phase shift computation**: Match interior/exterior radial wavefunctions
+3. **Partial wave summation**: f(θ) = Σ (2l+1) e^{iδ_l} sin(δ_l) P_l(cos θ) / k
+4. **Coulomb functions**: Regular/irregular Coulomb wavefunctions F_l, G_l
+5. **Cross-section integration**: σ = ∫ |f(θ)|² dΩ
+
+### Expected Outcome
+
+Rutherford formula reproduced exactly (it must — the Coulomb phase shifts are analytical).
+Hard-sphere shows the 4πa² limit (wave-mechanical doubling of classical cross-section).
+Resonances demonstrate that angular momentum barriers on S² create quasi-bound states.
+
+---
+
+## Tier 7: Band Structure & Solid-State Physics (NB19)
+
+### Core Idea
+
+When atoms arrange in a periodic lattice, the allowed energies form **bands** separated
+by **gaps**. Electrons in a band can move (conductor); electrons in a full band below a gap
+cannot (insulator). The distinction between metals and insulators — the foundation of all
+electronics — comes from the interaction of electron waves with a periodic potential.
+
+The simplest model is Kronig-Penney: periodic square wells on R⁺. This is our radial
+coordinate with a repeating potential. Bloch's theorem guarantees the solutions have the
+form ψ(x) = e^{ikx} u(x), where u has the periodicity of the lattice.
+
+If band gaps emerge from a periodic potential on our manifold, it means **the difference
+between a conductor and an insulator is encoded in the periodicity of R⁺**.
+
+### Tests
+
+#### Test 1: Kronig-Penney Model
+- 1D periodic potential: V(x) = V₀ for 0 < x < b, 0 for b < x < a (repeated)
+- Dispersion relation from transfer matrix:
+  cos(ka) = cos(αa)cos(βb) - ½(α/β + β/α)sin(αa)sin(βb)
+  where α² = 2mE/ℏ², β² = 2m(V₀-E)/ℏ²
+- Plot E(k) band structure: allowed bands (|RHS| ≤ 1) and forbidden gaps
+- Compare: width of first gap as function of V₀
+
+#### Test 2: Nearly-Free Electron Model
+- Weak periodic potential V(x) = 2V₁ cos(2πx/a)
+- First-order perturbation theory: gaps open at zone boundaries k = nπ/a
+- Gap width ΔE = 2|V₁| (first gap)
+- Compare perturbation theory to exact Kronig-Penney result
+
+#### Test 3: Tight-Binding Model
+- Opposite limit: electrons tightly bound to atoms, with small hopping t
+- Band width W = 4t (1D), energy: E(k) = E₀ - 2t cos(ka)
+- Compare: band structure shape matches Kronig-Penney in deep-well limit
+
+#### Test 4: Effective Mass
+- m* = ℏ² / (d²E/dk²) at band edges
+- Negative effective mass at zone boundary top → hole conduction
+- Shows how lattice periodicity on R⁺ modifies inertia
+
+#### Test 5: Density of States
+- DOS g(E) = (1/π) |dk/dE| for 1D
+- Van Hove singularities at band edges
+- Determines which states are available for occupation → conductor vs insulator
+
+### What's Needed in Code
+
+1. **Transfer matrix method**: Propagate solutions through one period
+2. **Dispersion relation solver**: Find E(k) from determinantal equation
+3. **Band plotting**: E vs k in reduced zone scheme
+4. **Perturbation theory**: First-order correction at zone boundaries
+5. **Tight-binding parametrization**: Extract hopping integral from exact bands
+6. **Effective mass and DOS**: Second derivatives and inverse group velocity
+
+### Expected Outcome
+
+Band gaps from periodicity on R⁺. The Kronig-Penney dispersion reproduces the textbook
+result.  The transition from free-electron (no potential) to insulator (strong potential)
+is continuous and controllable. The effective mass at band edges shows how periodicity on
+R⁺ creates quasiparticles with modified inertia.
+
+---
+
+## Extended Implementation Strategy
+
+### Build Order (Tiers 5–7)
+
+```
+NB17: Gravitational Quantum States  ← linear potential on R⁺
+  │
+  ├── airy_eigenvalues()              NEW in new gravity.py module
+  ├── airy_wavefunctions()            NEW
+  ├── neutron_bouncing_heights()      NEW
+  └── transition_energies()           NEW
+  │
+NB18: Scattering Cross-Sections     ← partial waves on S² × R⁺
+  │
+  ├── phase_shifts(V, k, l_max)       NEW in new scattering.py module
+  ├── scattering_amplitude(θ)         NEW
+  ├── differential_cross_section()    NEW
+  ├── total_cross_section()           NEW
+  ├── coulomb_phase_shifts()          NEW
+  └── rutherford_formula()            NEW
+  │
+NB19: Band Structure                 ← periodic potential on R⁺
+  │
+  ├── kronig_penney_dispersion()      NEW in new solid_state.py module
+  ├── band_structure(V0, a, b)        NEW
+  ├── nearly_free_electron()          NEW
+  ├── tight_binding()                 NEW
+  ├── effective_mass()                NEW
+  └── density_of_states()             NEW
+```
+
+### Quality Criteria (Extended)
+
+| Criterion | Target |
+|-----------|--------|
+| Airy eigenvalues | Exact (analytical solution) |
+| Neutron bouncing heights | Match qBounce data within numerical precision |
+| Rutherford formula | Exact reproduction |
+| Hard-sphere low-E limit | σ → 4πa² |
+| Optical theorem | Satisfied to machine precision |
+| Band gap (Kronig-Penney) | Match analytical dispersion relation |
+| Effective mass at zone boundary | Correct sign and magnitude |
+
+---
+
 ## The Cumulative Argument
 
-When complete, the sequence NB09–NB16 will have demonstrated:
+When complete, the sequence NB09–NB19 will have demonstrated:
 
 | Property | Source | Status |
 |----------|--------|--------|
@@ -398,23 +633,30 @@ When complete, the sequence NB09–NB16 will have demonstrated:
 | Ionization energies (r=1.000 vs NIST) | Z-scaling on S² × R⁺ | ✅ NB12 |
 | Selection rules (Δl=±1, exact) | Gaunt integrals on S² | ✅ NB12 |
 | Exchange splitting (Hund's Rule) | Antisymmetry + Coulomb on S² | ✅ NB12 |
-| **Spectral line wavelengths** | Energy differences → λ = hc/ΔE | 🔲 NB13 |
-| **Oscillator strengths** | Dipole matrix elements on S² | 🔲 NB13 |
-| **Parity conservation** | (-1)^{l₁+l₂} from S² | 🔲 NB13 |
-| **Fine structure** | Spin-orbit on S² | 🔲 NB14 |
-| **Zeeman splitting** | Angular momentum algebra on S² | 🔲 NB14 |
-| **Electric polarizability** | Quadratic Stark on S² | 🔲 NB14 |
-| **Periodic table** | Shell filling on S² × R⁺ | 🔲 NB15 |
-| **Ionization periodicity** | Shielding + shell structure | 🔲 NB15 |
-| **Chemical bond** | Shared curvature between centers | 🔲 NB16 |
-| **Bond length & energy** | Minimum of E(R) | 🔲 NB16 |
-| **Vibrational frequency** | Curvature of potential well | 🔲 NB16 |
+| Spectral line wavelengths (r=0.9997) | Energy differences → λ | ✅ NB13 |
+| Oscillator strengths | Dipole matrix elements on S² | ✅ NB13 |
+| Parity conservation (0 violations) | (-1)^{l₁+l₂} from S² | ✅ NB13 |
+| Fine structure (interval ratio=2.0) | Spin-orbit on S² | ✅ NB14 |
+| Zeeman splitting (exact g-factors) | Angular momentum algebra on S² | ✅ NB14 |
+| Electric polarizability | Quadratic Stark on S² | ✅ NB14 |
+| Periodic table (exact shell closures) | Shell filling on S² × R⁺ | ✅ NB15 |
+| Ionization periodicity | Shielding + shell structure | ✅ NB15 |
+| Chemical bond (R_eq within 2.4%) | Shared curvature between centers | ✅ NB16 |
+| Dissociation energy (within 15%) | Minimum of E(R) | ✅ NB16 |
+| Vibrational frequency (within 5%) | Curvature of potential well | ✅ NB16 |
+| **Gravitational quantization** | Linear potential on R⁺ | 🔲 NB17 |
+| **Neutron bouncing heights** | Airy eigenvalues | 🔲 NB17 |
+| **Rutherford cross-section** | Coulomb phase shifts on S² | 🔲 NB18 |
+| **Scattering resonances** | Angular momentum barriers on S² | 🔲 NB18 |
+| **Band gaps** | Periodic potential on R⁺ | 🔲 NB19 |
+| **Conductor/insulator distinction** | Band filling | 🔲 NB19 |
+| **Effective mass** | Band curvature on R⁺ | 🔲 NB19 |
 
 Each ✅ is a property of the physical world that was not postulated but **emerged**
 from the manifold S² × R⁺ with four-prime coordinate structure.
 
 The question this sequence answers: *Is the geometry of four primes on a curved manifold
-sufficient to produce atomic physics, or is it merely a mathematical analogy?*
+sufficient to produce physics from atoms to solids, or is it merely a mathematical analogy?*
 
-If the wavelengths, bond lengths, and periodic table emerge — it is not analogy.
-It is identity.
+If the wavelengths, bond lengths, periodic table, gravitational quantization, scattering
+patterns, and band structure all emerge — it is not analogy. It is identity.
