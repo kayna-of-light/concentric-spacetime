@@ -659,8 +659,216 @@ When complete, the sequence NB09–NB19 will have demonstrated:
 Each ✅ is a property of the physical world that was not postulated but **emerged**
 from the manifold S² × R⁺ with four-prime coordinate structure.
 
-The question this sequence answers: *Is the geometry of four primes on a curved manifold
-sufficient to produce physics from atoms to solids, or is it merely a mathematical analogy?*
+---
 
-If the wavelengths, bond lengths, periodic table, gravitational quantization, scattering
-patterns, and band structure all emerge — it is not analogy. It is identity.
+## Tier 8: Nuclear Shell Model (NB20)
+
+### Nuclear Magic Numbers from S²
+
+The atomic periodic table (shell closures at 2, 10, 18, 36) emerged from filling
+angular momentum states on S² with a Coulomb potential on R⁺. The **nuclear** shell
+model has its own magic numbers: **2, 8, 20, 28, 50, 82, 126**. These come from:
+
+1. A **Woods-Saxon potential** on R⁺ (not Coulomb — nucleons feel a short-range mean field)
+2. A **strong spin-orbit coupling** on S² (much stronger than in atoms)
+
+If the same S² that gives atomic shells also gives nuclear magic numbers — just by
+changing the potential on R⁺ and the spin-orbit strength — then one geometry explains
+structure at **both** the atomic and nuclear scale.
+
+### Implementation
+
+```
+scripts/nuclear.py:
+  ├── woods_saxon_potential(r, V0, R, a)     # Mean field potential
+  ├── nuclear_radial_solver(l, j, V0, R, a)  # Eigenvalues on R⁺
+  ├── spin_orbit_splitting(l, V_so)           # j = l ± 1/2 splitting
+  ├── nuclear_shell_filling(A)                # Fill levels, find closures
+  └── magic_number_check()                    # Compare to 2,8,20,28,50,82,126
+```
+
+### Tests
+
+| Test | Method | Target |
+|------|--------|--------|
+| **1. Harmonic oscillator magic** | V = ½mω²r² on R⁺ | Shell closures at 2, 8, 20, 40, 70, 112 |
+| **2. + Spin-orbit → real magic** | Add strong l·s coupling | Split 1f → 1f₇/₂ below 2p; produces 28 |
+| **3. Nucleon filling** | Fill levels for ⁴⁰Ca, ²⁰⁸Pb | Doubly magic nuclei stable |
+| **4. Woods-Saxon spectrum** | Realistic potential | Level ordering matches Mayer-Jensen scheme |
+
+### Quality Criteria
+
+| Criterion | Target |
+|-----------|--------|
+| HO magic numbers (no spin-orbit) | Exact: 2, 8, 20, 40, 70, 112 |
+| Full magic numbers (with spin-orbit) | All 7: 2, 8, 20, 28, 50, 82, 126 |
+| Level ordering | Match standard nuclear shell diagram |
+
+---
+
+## Tier 9: Tunneling & Alpha Decay (NB21)
+
+### Barrier Penetration on R⁺
+
+Alpha decay is quantum tunneling through the Coulomb barrier on R⁺. The
+transmission coefficient T is exponentially suppressed by the Gamow factor:
+
+$$T \sim e^{-2\gamma}, \quad \gamma = \int_{R}^{b} \sqrt{\frac{2m}{\hbar^2}\left(V(r) - E\right)} \, dr$$
+
+This is a pure R⁺ calculation. If we reproduce the **Geiger-Nuttall law** — the
+linear relationship between log(half-life) and 1/√E — from WKB on R⁺,
+then radioactive decay timescales are encoded in the radial half-line.
+
+### Implementation
+
+```
+scripts/tunneling.py:
+  ├── coulomb_barrier(Z1, Z2, R)              # V(r) = Z1*Z2*e²/r for r > R
+  ├── gamow_factor(E, Z1, Z2, R, A)           # WKB integral on R⁺
+  ├── transmission_coefficient(E, Z1, Z2, R)  # T = e^{-2γ}
+  ├── decay_half_life(E, Z1, Z2, R, A)        # t½ from assault frequency × T
+  ├── geiger_nuttall_plot(isotopes)            # log(t½) vs Q^{-1/2}
+  └── rectangular_barrier_exact(E, V0, a)      # Textbook comparison
+```
+
+### Tests
+
+| Test | Method | Target |
+|------|--------|--------|
+| **1. Rectangular barrier** | Exact transmission formula | Match textbook T(E) |
+| **2. Gamow factor** | WKB for ²¹²Po, ²³⁸U, ¹⁴⁴Nd | Correct order of magnitude for half-lives |
+| **3. Geiger-Nuttall law** | Plot log(t½) vs Q⁻¹/² for Po, Rn, Ra, Th, U | Linear relationship |
+| **4. Superheavy prediction** | Extrapolate beyond uranium | Island of stability region |
+
+### Quality Criteria
+
+| Criterion | Target |
+|-----------|--------|
+| Rectangular barrier | Exact analytical match |
+| Alpha half-lives | Correct to within 1-2 orders of magnitude |
+| Geiger-Nuttall slope | Linear fit R² > 0.9 |
+
+---
+
+## Tier 10: Quantum Hall Effect — Landau Levels on S² (NB22)
+
+### Haldane's Sphere IS Our Sphere
+
+In 1983, Haldane placed the quantum Hall problem on a sphere specifically because
+S² is the **natural setting** — it eliminates edge effects and makes the magnetic
+monopole (at the center) the source of quantized flux through the surface.
+
+Our manifold S² × R⁺ already has this structure. A magnetic monopole at the center
+of S² threads flux 2πΦ₀ through the sphere. Landau levels (quantized cyclotron
+orbits) on S² are monopole harmonics $Y_{q,l,m}$ — a generalization of spherical
+harmonics where q = eB/(2ℏc) is the monopole strength.
+
+If quantized Hall conductance $\sigma_{xy} = \nu \cdot e^2/h$ emerges from our S²
+topology, that connects our geometry to topological quantum physics.
+
+### Implementation
+
+```
+scripts/quantum_hall.py:
+  ├── monopole_harmonics(q, l, m, theta, phi)  # Generalized Y on S²
+  ├── landau_levels_sphere(q, N_phi)            # E_n on S² with monopole
+  ├── landau_levels_plane(B, n_max)             # Standard (ℏω_c)(n+½)
+  ├── filling_fraction(N_e, N_phi)              # ν = N_e / N_phi
+  ├── hall_conductance(nu)                       # σ_xy = ν·e²/h
+  ├── berry_phase_loop(state, path)              # Geometric phase on S²
+  └── chern_number(band)                         # Topological invariant
+```
+
+### Tests
+
+| Test | Method | Target |
+|------|--------|--------|
+| **1. Landau levels** | Monopole field on S² | E_n = ℏω_c(n + ½) in planar limit |
+| **2. Degeneracy** | Count states per level | N_φ + 1 = 2q + 1 states |
+| **3. Hall conductance** | Integer filling ν = 1,2,3 | σ_xy = ν·e²/h exactly |
+| **4. Berry phase** | Loop around S² | Phase = solid angle × monopole strength |
+| **5. Chern number** | Integrate Berry curvature | C = 1 for lowest Landau level |
+
+### Quality Criteria
+
+| Criterion | Target |
+|-----------|--------|
+| Landau level energies | Exact: match standard (n+½)ℏω_c |
+| Level degeneracy | Exact: 2q+1 per level |
+| Hall conductance quantization | Exact integer multiples of e²/h |
+| Berry phase | Exact: 2πq for full sphere |
+| Chern number | Exact integer |
+
+---
+
+## Function Dependency Chain (Extended)
+
+```
+scripts/two_particle.py   ← NB09-NB15 (atomic physics)
+       │
+scripts/molecular.py      ← NB16 (chemistry)
+       │
+scripts/gravity.py        ← NB17 (gravitational quantization)
+       │
+scripts/scattering.py     ← NB18 (nuclear scattering)
+       │
+scripts/solid_state.py    ← NB19 (band structure)
+       │
+scripts/nuclear.py        ← NB20 (nuclear shells)     NEW
+       │
+scripts/tunneling.py      ← NB21 (alpha decay)        NEW
+       │
+scripts/quantum_hall.py   ← NB22 (Landau levels)      NEW
+```
+
+---
+
+## The Cumulative Argument (Updated)
+
+The sequence NB09–NB22 demonstrates:
+
+| Property | Source | Status |
+|----------|--------|--------|
+| Nesting constraints (|m|≤l<n) | S² geometry | ✅ NB09 |
+| Entanglement from shared manifold | Curvature | ✅ NB10 |
+| Ionization energies (r=1.000 vs NIST) | Z-scaling on S² × R⁺ | ✅ NB12 |
+| Selection rules (Δl=±1, exact) | Gaunt integrals on S² | ✅ NB12 |
+| Exchange splitting (Hund's Rule) | Antisymmetry + Coulomb on S² | ✅ NB12 |
+| Spectral line wavelengths (r=0.9997) | Energy differences → λ | ✅ NB13 |
+| Oscillator strengths | Dipole matrix elements on S² | ✅ NB13 |
+| Parity conservation (0 violations) | (-1)^{l₁+l₂} from S² | ✅ NB13 |
+| Fine structure (interval ratio=2.0) | Spin-orbit on S² | ✅ NB14 |
+| Zeeman splitting (exact g-factors) | Angular momentum algebra on S² | ✅ NB14 |
+| Electric polarizability | Quadratic Stark on S² | ✅ NB14 |
+| Periodic table (exact shell closures) | Shell filling on S² × R⁺ | ✅ NB15 |
+| Ionization periodicity | Shielding + shell structure | ✅ NB15 |
+| Chemical bond (R_eq within 2.4%) | Shared curvature between centers | ✅ NB16 |
+| Dissociation energy (within 15%) | Minimum of E(R) | ✅ NB16 |
+| Vibrational frequency (within 5%) | Curvature of potential well | ✅ NB16 |
+| Gravitational quantization | Linear potential on R⁺ | ✅ NB17 |
+| Neutron bouncing heights | Airy eigenvalues | ✅ NB17 |
+| Rutherford cross-section (exact) | Coulomb phase shifts on S² | ✅ NB18 |
+| Scattering resonances | Angular momentum barriers on S² | ✅ NB18 |
+| Optical theorem (machine precision) | Unitarity on S² | ✅ NB18 |
+| Hard-sphere limit (σ→4πa²) | Partial waves on S² | ✅ NB18 |
+| Band gaps (Kronig-Penney) | Periodic potential on R⁺ | ✅ NB19 |
+| Gap = 2|V₁| (exact) | Nearly-free electron on R⁺ | ✅ NB19 |
+| Tight-binding bands (W=4t, exact) | Deep wells on R⁺ | ✅ NB19 |
+| Effective mass (electron/hole) | Band curvature on R⁺ | ✅ NB19 |
+| Van Hove singularities | DOS from band structure | ✅ NB19 |
+| Nuclear magic numbers | Spin-orbit on S² + Woods-Saxon on R⁺ | 🔲 NB20 |
+| Nuclear shell ordering | Same S² as atoms, different V(r) | 🔲 NB20 |
+| Rectangular barrier transmission | WKB on R⁺ | 🔲 NB21 |
+| Alpha decay half-lives | Gamow factor on R⁺ | 🔲 NB21 |
+| Geiger-Nuttall law | Linear log(t½) vs Q⁻¹/² | 🔲 NB21 |
+| Landau level quantization | Monopole harmonics on S² | 🔲 NB22 |
+| Hall conductance (exact) | S² topology → σ_xy = νe²/h | 🔲 NB22 |
+| Berry phase | Geometric phase on S² | 🔲 NB22 |
+| Chern number (topological invariant) | Curvature integral on S² | 🔲 NB22 |
+
+The question this sequence answers: *Is the geometry of four primes on a curved manifold
+sufficient to produce physics from atoms to nuclei to topology, or is it merely a
+mathematical analogy?*
+
+If atomic shells, nuclear shells, radioactive decay, and topological quantization all
+emerge from the same S² × R⁺ — it is not analogy. It is identity.
