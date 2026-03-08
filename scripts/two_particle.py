@@ -168,19 +168,19 @@ def angular_coulomb_coefficient(l1, m1, l2, m2, la, ma, lb, mb):
     result = {}  # k -> angular coefficient (to pair with Slater R^k)
 
     for k in range(0, k_max + 1):
-        q = ma - m1  # selection rule from first Gaunt integral
+        q = ma - m1  # selection rule: (-m1) + (-q) + ma = 0
         if abs(q) > k:
             continue
         # Second Gaunt requires q = m2 - mb (total m conservation)
         if q != m2 - mb:
             continue
 
-        # First Gaunt: ∫ Y_{l1}^{m1*} Y_k^{q*} Y_{la}^{ma} dΩ
-        #   = (-1)^q × gaunt(l1, k, la, m1, -q, ma)
-        # Second Gaunt: ∫ Y_{l2}^{m2*} Y_k^q Y_{lb}^{mb} dΩ
-        #   = gaunt(l2, k, lb, m2, q, mb)
-        g1 = (-1)**q * gaunt_coefficient(l1, m1, k, -q, la, ma)
-        g2 = gaunt_coefficient(l2, m2, k, q, lb, mb)
+        # First angular: ⟨l1,m1| Y_k^{q*} |la,ma⟩
+        #   = (-1)^{q+m1} × gaunt(l1, k, la; -m1, -q, ma)
+        # Second angular: ⟨l2,m2| Y_k^q |lb,mb⟩
+        #   = (-1)^{m2} × gaunt(l2, k, lb; -m2, q, mb)
+        g1 = (-1)**(q + m1) * gaunt_coefficient(l1, -m1, k, -q, la, ma)
+        g2 = (-1)**m2 * gaunt_coefficient(l2, -m2, k, q, lb, mb)
 
         if abs(g1) > 1e-15 and abs(g2) > 1e-15:
             factor = 4 * np.pi / (2 * k + 1)
@@ -398,6 +398,61 @@ def von_neumann_entropy(rho):
     """
     eigenvalues = np.linalg.eigvalsh(rho)
     # Filter out numerical noise
+    eigenvalues = eigenvalues[eigenvalues > 1e-14]
+    if len(eigenvalues) == 0:
+        return 0.0
+    return -np.sum(eigenvalues * np.log(eigenvalues))
+
+
+def spatial_reduced_density_matrix(eigenvector, basis, sp_states):
+    """
+    Spatial (orbital-only) 1-RDM: trace over both particle-2 AND spin.
+
+        γ^spatial[α,β] = Σ_σ  γ^spinorbital[α σ, β σ]
+
+    where α, β are spatial orbital indices (n, l, m).
+    Eigenvalues are natural orbital occupation numbers (sum to N=2).
+    """
+    n_sp = len(sp_states)
+    # Build spin-orbital 1-RDM
+    rho_sp = reduced_density_matrix(eigenvector, basis, n_sp)
+
+    # Map spin-orbital indices → spatial orbital indices
+    spatial_orbs = []
+    sp_to_spatial = {}
+    for i, (n, l, m, s) in enumerate(sp_states):
+        key = (n, l, m)
+        if key not in spatial_orbs:
+            spatial_orbs.append(key)
+        sp_to_spatial[i] = spatial_orbs.index(key)
+
+    n_spatial = len(spatial_orbs)
+    gamma = np.zeros((n_spatial, n_spatial))
+    for a in range(n_sp):
+        for b in range(n_sp):
+            # Only sum if same spin (orthogonality of spin functions)
+            if sp_states[a][3] == sp_states[b][3]:
+                gamma[sp_to_spatial[a], sp_to_spatial[b]] += rho_sp[a, b]
+
+    return gamma
+
+
+def spatial_entanglement_entropy(eigenvector, basis, sp_states):
+    """
+    Orbital entanglement entropy: von Neumann entropy of the
+    normalized spatial 1-RDM.
+
+    The spatial 1-RDM has Tr = N (number of electrons).
+    Normalizing by N gives a proper density matrix whose
+    entropy measures spatial (orbital) correlation only,
+    excluding trivial spin entanglement from antisymmetrization.
+    """
+    gamma = spatial_reduced_density_matrix(eigenvector, basis, sp_states)
+    N = np.trace(gamma)
+    if N < 1e-14:
+        return 0.0
+    rho_norm = gamma / N
+    eigenvalues = np.linalg.eigvalsh(rho_norm)
     eigenvalues = eigenvalues[eigenvalues > 1e-14]
     if len(eigenvalues) == 0:
         return 0.0
