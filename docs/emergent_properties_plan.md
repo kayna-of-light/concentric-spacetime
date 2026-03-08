@@ -644,13 +644,17 @@ When complete, the sequence NB09–NB19 will have demonstrated:
 | Chemical bond (R_eq within 2.4%) | Shared curvature between centers | ✅ NB16 |
 | Dissociation energy (within 15%) | Minimum of E(R) | ✅ NB16 |
 | Vibrational frequency (within 5%) | Curvature of potential well | ✅ NB16 |
-| **Gravitational quantization** | Linear potential on R⁺ | 🔲 NB17 |
-| **Neutron bouncing heights** | Airy eigenvalues | 🔲 NB17 |
-| **Rutherford cross-section** | Coulomb phase shifts on S² | 🔲 NB18 |
-| **Scattering resonances** | Angular momentum barriers on S² | 🔲 NB18 |
-| **Band gaps** | Periodic potential on R⁺ | 🔲 NB19 |
-| **Conductor/insulator distinction** | Band filling | 🔲 NB19 |
-| **Effective mass** | Band curvature on R⁺ | 🔲 NB19 |
+| Gravitational quantization | Linear potential on R⁺ | ✅ NB17 |
+| Neutron bouncing heights | Airy eigenvalues | ✅ NB17 |
+| Rutherford cross-section (exact) | Coulomb phase shifts on S² | ✅ NB18 |
+| Scattering resonances | Angular momentum barriers on S² | ✅ NB18 |
+| Optical theorem (machine precision) | Unitarity on S² | ✅ NB18 |
+| Hard-sphere limit (σ→4πa²) | Partial waves on S² | ✅ NB18 |
+| Band gaps (Kronig-Penney) | Periodic potential on R⁺ | ✅ NB19 |
+| Gap = 2|V₁| (exact) | Nearly-free electron on R⁺ | ✅ NB19 |
+| Tight-binding bands (W=4t, exact) | Deep wells on R⁺ | ✅ NB19 |
+| Effective mass (electron/hole) | Band curvature on R⁺ | ✅ NB19 |
+| Van Hove singularities | DOS from band structure | ✅ NB19 |
 
 Each ✅ is a property of the physical world that was not postulated but **emerged**
 from the manifold S² × R⁺ with four-prime coordinate structure.
