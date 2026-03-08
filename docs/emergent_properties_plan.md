@@ -661,7 +661,7 @@ from the manifold S² × R⁺ with four-prime coordinate structure.
 
 ---
 
-## Tier 8: Nuclear Shell Model (NB20)
+## Tier 8: Nuclear Shell Model (NB20) ✅
 
 ### Nuclear Magic Numbers from S²
 
@@ -706,7 +706,7 @@ scripts/nuclear.py:
 
 ---
 
-## Tier 9: Tunneling & Alpha Decay (NB21)
+## Tier 9: Tunneling & Alpha Decay (NB21) ✅
 
 ### Barrier Penetration on R⁺
 
@@ -750,7 +750,7 @@ scripts/tunneling.py:
 
 ---
 
-## Tier 10: Quantum Hall Effect — Landau Levels on S² (NB22)
+## Tier 10: Quantum Hall Effect — Landau Levels on S² (NB22) ✅
 
 ### Haldane's Sphere IS Our Sphere
 
@@ -856,15 +856,16 @@ The sequence NB09–NB22 demonstrates:
 | Tight-binding bands (W=4t, exact) | Deep wells on R⁺ | ✅ NB19 |
 | Effective mass (electron/hole) | Band curvature on R⁺ | ✅ NB19 |
 | Van Hove singularities | DOS from band structure | ✅ NB19 |
-| Nuclear magic numbers | Spin-orbit on S² + Woods-Saxon on R⁺ | 🔲 NB20 |
-| Nuclear shell ordering | Same S² as atoms, different V(r) | 🔲 NB20 |
-| Rectangular barrier transmission | WKB on R⁺ | 🔲 NB21 |
-| Alpha decay half-lives | Gamow factor on R⁺ | 🔲 NB21 |
-| Geiger-Nuttall law | Linear log(t½) vs Q⁻¹/² | 🔲 NB21 |
-| Landau level quantization | Monopole harmonics on S² | 🔲 NB22 |
-| Hall conductance (exact) | S² topology → σ_xy = νe²/h | 🔲 NB22 |
-| Berry phase | Geometric phase on S² | 🔲 NB22 |
-| Chern number (topological invariant) | Curvature integral on S² | 🔲 NB22 |
+| Nuclear magic numbers | Spin-orbit on S² + Woods-Saxon on R⁺ | ✅ NB20 |
+| Nuclear shell ordering | Same S² as atoms, different V(r) | ✅ NB20 |
+| Rectangular barrier transmission | WKB on R⁺ | ✅ NB21 |
+| Alpha decay half-lives | Gamow factor on R⁺ | ✅ NB21 |
+| Geiger-Nuttall law | Linear log(t½) vs Q⁻¹/² | ✅ NB21 |
+| Landau level quantization | Monopole harmonics on S² | ✅ NB22 |
+| Hall conductance (exact) | S² topology → σ_xy = νe²/h | ✅ NB22 |
+| Berry phase | Geometric phase on S² | ✅ NB22 |
+| Chern number (topological invariant) | Curvature integral on S² | ✅ NB22 |
+| Landau level degeneracy (2q+1) | Angular momentum on S² | ✅ NB22 |
 
 The question this sequence answers: *Is the geometry of four primes on a curved manifold
 sufficient to produce physics from atoms to nuclei to topology, or is it merely a
