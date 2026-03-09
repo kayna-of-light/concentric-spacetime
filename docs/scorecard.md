@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB46.
+> Last updated after NB47.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 58 |
+| **Structural identities** | 64 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 46 (NB01–NB46) |
+| **Notebooks** | 47 (NB01–NB47) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -27,6 +27,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Solenoid Discovery** | NB23–NB28 | Identifying the structure | The (2,3,5,7)-solenoid, iterated covering maps, Cantor-set cross-section |
 | **SM Predictions** | NB29–NB40 | Quantitative predictions from number theory | 28 identities: SM constants, cosmological parameters, exceptional Lie groups |
 | **Algebraic Dynamics** | NB41–NB45 | Characters, Lagrangian, thermodynamics | 27 identities: +1 cost, frequency hierarchy, spectral analysis, heat trace |
+| **Metric & Modular** | NB46–NB47 | Cayley metric, modular form bridge | 9 identities: Ricci-flat Cayley graph, Metric Separation Principle, E₄ bridge, Modular-Solenoid Dictionary |
 
 ---
 
@@ -190,6 +191,27 @@ The +1 is the Cartan subalgebra: the self-referential component that allows the 
 
 **Metric Separation Principle**: The algebraic sector (Cayley graph) is Ricci-flat; all curvature resides in the geometric sector (radial nesting κ_k = 1/P_k²). The gravity hierarchy M_Pl/M_Z = 240⁴ · 7⁹ couples spectral invariants (240⁴) to geometric invariants (7⁹).
 
+### The E₄ Bridge (NB47)
+
+| # | Identity | Statement |
+|---|---------|----------|
+| 59 | Spectral-modular bridge | Tr(L) = c₁(E₄) = |Φ(E₈)| = 240 — the Cayley Laplacian trace equals the first Fourier coefficient of the Eisenstein series E₄ |
+| 60 | E₄ weight = prime count | wt(E₄) = ω(P₄) = 4 — the unique smallest weight in M_*(SL(2,Z)) equals the number of prime factors |
+| 61 | E₆–Kirchhoff connection | |c₁(E₆)| = 504 = den(K) — E₆ first coefficient equals the denominator of the Kirchhoff index |
+| 62 | Discriminant weight = Carmichael | wt(Δ) = λ(P₄) = 12 — the modular discriminant weight equals the group exponent |
+| 63 | j-normalizer = Carmichael cube | 1728 = λ(P₄)³ — the j-invariant normalization constant is the cube of the Carmichael function |
+| 64 | Modular-Solenoid Dictionary | Ring M_*(SL(2,Z)) = C[E₄, E₆] fully encoded in {2,3,5,7}: weights, coefficients, discriminant, j-invariant all map to solenoid invariants |
+
+**E₄ Reading of the Hierarchy**: The gravity ratio gains a fourth structural reading:
+
+M_Pl/M_Z = c₁(E₄)^{wt(E₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹
+
+where c₁(E₄) = 240 is the spectral-modular bridge, wt(E₄) = 4 = ω(P₄), and σ₃(p₁) = σ₃(2) = 9 = c₂/c₁ (the ratio of E₄ Fourier coefficients). Deviation: 0.0031% (1.4 σ_G).
+
+Derivation chain status: 5/6 steps proved from first principles, 1/6 remains structural identification (the mechanism selecting c₁^{wt} × p₄^{c₂/c₁} among all possible combinations). Five candidate mechanisms tested (spectral action, det′(L), per-ω channel, E₄ evaluation, dimensional argument) — none fully deductive.
+
+**Spectral Moments**: Tr(L^n)/c_n(E₄) = {1, 2/3, 10/7, ...} — the ratios at n ≥ 2 factor through solenoid primes, suggesting a deeper spectral-modular correspondence.
+
 ---
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
@@ -304,6 +326,9 @@ The arithmetic of P₄ = 210 is **closed over** the Standard Model:
 - P₄ + P₃ = 210 + 30 = 240
 - E₈ lattice decomposition: 240 = d(P₄) × p₄ + P₁^p₄ = 16 × 7 + 2⁷ = 112 (D₈ roots) + 128 (half-spin)
 - M_Pl/M_Z = 240⁴ × 7⁹
+- **Tr(L) = 240** — the Cayley Laplacian trace (NB45 ζ(−1), NB47 #59)
+- **c₁(E₄) = 240** — the first Fourier coefficient of the Eisenstein series E₄ (NB47 #59)
+- The spectral-modular bridge: Tr(L) = c₁(E₄) connects the solenoid's algebraic spectrum to modular forms for SL(2,Z)
 
 ### Spectral Determinant Factorization
 
@@ -316,11 +341,11 @@ det′(L) = 2²⁵ · 3¹⁶ · 5¹³ · 7⁸ — the prime exponents {25, 16, 1
 Five threads remain open from the dynamics phase:
 
 ### 1. Solenoid Metric and Geodesics
-**Partially addressed in NB46.** The Cayley graph word metric, ball-growth polynomial, and Ollivier-Ricci curvature are now computed. Key finding: the Cayley graph is **Ricci-flat** (κ_OR = 0 everywhere), establishing the Metric Separation Principle — all curvature resides in the geometric sector (radial nesting), not the algebraic sector.
+**Partially addressed in NB46 and NB47.** NB46 established the Cayley graph word metric, ball-growth polynomial, and Ollivier-Ricci curvature (Ricci-flat, κ_OR = 0). NB47 established the E₄ bridge — the complete Modular-Solenoid Dictionary connecting Tr(L) = c₁(E₄) = 240, and the E₄ reading of the hierarchy: M_Pl/M_Z = c₁(E₄)^{wt(E₄)} × p₄^{σ₃(p₁)}. Five of six derivation chain steps now proved from first principles.
 
-**Remaining**: Derive the Riemannian metric on S² × R⁺ from the nesting constraint. Compute geodesics. Extract G_N as a geometric quantity via a variational principle that **couples** the flat spectral sector (Tr(L) = 240) to the curved geometric sector (κ_k = 1/P_k²). This would promote 240⁴ × 7⁹ from post-hoc identification to derived prediction.
+**Remaining**: (a) Derive the Riemannian metric on S² × R⁺ from the nesting constraint. (b) Compute geodesics. (c) Identify the mechanism for step 6 of the derivation chain — why the hierarchy takes the specific form c₁^{wt} × p₄^{c₂/c₁}. Five candidate mechanisms tested in NB47 (spectral action, det′(L), per-ω channel, E₄ evaluation, dimensional argument) — none fully deductive.
 
-*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation established).*
+*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge).*
 
 ### 2. Character-Theoretic Mass Channel
 The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenvalue spectrum). Investigate whether these gaps generate the observed fermion mass hierarchy (the NB36 open problem). The coupling maps Z → Z[√3] (NB44 identity #49), which may provide the irrational ratios needed.
@@ -333,9 +358,9 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 - ζ(−1) = 240 = Tr(L) = φ(210) × |S| = 48 × 5 = |Φ(E₈)|
 - ζ′(0) = −log det′(L) (verified against Identity 54)
 
-The ζ(−1) = 240 coincidence with |Φ(E₈)| may connect spectral theory to the exceptional correspondence. Investigate whether this is structural or arithmetic.
+The ζ(−1) = 240 coincidence with |Φ(E₈)| is now understood as structural: **Tr(L) = c₁(E₄)** (NB47 Identity #59). The spectral-modular bridge connects the zeta function at s = −1 to the Eisenstein series E₄ for SL(2,Z).
 
-*Source: NB45 §8½ (computed). NB44 frontier (identified).*
+*Source: NB45 §8½ (computed). NB44 frontier (identified). NB47 (bridge established).*
 
 ### 4. Product 179/180 = 1 − 1/P₃
 The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180 = P₃ × P₂ is deeply structural. Relate this analytically to the prime cascade.
