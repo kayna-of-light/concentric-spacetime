@@ -22,9 +22,9 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 
 | Phase | Notebooks | Focus | Key Result |
 |-------|-----------|-------|------------|
-| **Geometry** | NB01–NB12 | S² × R⁺ as fundamental arena | Wave equation structurally identical to hydrogen atom |
-| **Emergent Physics** | NB13–NB22 | Deriving known physics | Spectral lines, shell structure, magic numbers, quantum Hall — all emerge |
-| **Solenoid Discovery** | NB23–NB28 | Identifying the mathematical structure | The (2,3,5,7)-solenoid, iterated covering maps, Cantor-set cross-section |
+| **Geometry** | NB01–NB12 | Exploring S² × R⁺ | Early model (T⁴) abandoned; S² × R⁺ established in NB09; no predictions |
+| **Standard QM** | NB13–NB22 | Consistency checks | Reproduces known QM on S² × R⁺ — no new predictions |
+| **Solenoid Discovery** | NB23–NB28 | Identifying the structure | The (2,3,5,7)-solenoid, iterated covering maps, Cantor-set cross-section |
 | **SM Predictions** | NB29–NB40 | Quantitative predictions from number theory | 28 identities: SM constants, cosmological parameters, exceptional Lie groups |
 | **Algebraic Dynamics** | NB41–NB45 | Characters, Lagrangian, thermodynamics | 27 identities: +1 cost, frequency hierarchy, spectral analysis, heat trace |
 
@@ -184,39 +184,43 @@ The +1 is the Cartan subalgebra: the self-referential component that allows the 
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
 
-These notebooks do not carry numbered identities — they establish the mathematical foundation from which predictions follow. Key findings:
+These notebooks do not carry numbered identities. They document the discovery process — including an incorrect early model — and establish that S² × R⁺ reproduces standard quantum mechanics. Neither phase contains original predictions.
 
 ### Phase 1: Geometry (NB01–NB12)
 
-| NB | Title | Key Finding |
-|----|-------|-------------|
-| 01 | Nested Oscillators | Frequencies ω_i = 2π√p_i are incommensurate; complexity gradient confirmed |
-| 02 | Recurrence Threshold | No exact return exists for the nested system (irrationality barrier) |
-| 03 | Quantum-Prime Correspondence | Quantum numbers map to prime factors |
-| 04 | Curvature Harmonics | Spherical harmonics on S² emerge from curvature |
-| 05 | Metric Signature Emergence | (−,+,+,+) emerges as observer-projection artifact, not fundamental |
-| 06 | Prime vs Composite Nesting | Primes produce zero resonant pairs; composites produce many. Primality does computational work |
-| 07 | Cartesian Recovery | FAILS — concentric geometry is genuinely different, not alternative coordinates |
-| 08 | Distance as State | Distance = state-difference, not spatial separation |
-| 09 | Complete Nested System | Wave equation on S² × R⁺ structurally identical to hydrogen atom |
-| 10 | Entanglement from Curvature | Partial hit: three regimes (asymptotic, power-law, asymmetry) |
-| 11 | Empirical Validation | Helium isoelectronic sequence validated against NIST data |
-| 12 | Emergent Properties | Spectral lines, spin-orbit coupling, Lamb shift — all emerge |
+**Caveat**: NB01–NB08 used a preliminary model (nested torus T⁴ with ad hoc radius assignments) that was subsequently abandoned. NB07 explicitly fails Cartesian recovery, confirming the concentric geometry is genuinely different — not an alternative coordinate system. The correct manifold S² × R⁺ is established in NB09. NB09–NB12 are on the right manifold but pre-solenoid.
 
-### Phase 2: Emergent Physics (NB13–NB22)
+| NB | Title | Status | Note |
+|----|-------|--------|------|
+| 01 | Nested Oscillators | Exploratory | Preliminary model; complexity gradient is real |
+| 02 | Recurrence Threshold | Exploratory | Irrationality barrier holds on any model |
+| 03 | Quantum-Prime Correspondence | Exploratory | Heuristic mapping, not derived |
+| 04 | Curvature Harmonics | Exploratory | Standard Y_lm on S² — not a finding |
+| 05 | Metric Signature Emergence | Conceptual | Argument about observer projection; not a calculation |
+| 06 | Prime vs Composite Nesting | Valid | Primality produces zero resonant pairs — this is model-independent |
+| 07 | Cartesian Recovery | ❌ FAIL | Proves the geometry is genuinely different |
+| 08 | Distance as State | Conceptual | Re-interprets distance; no testable prediction |
+| 09 | Complete Nested System | **Pivot** | Establishes S² × R⁺ as the correct manifold; wave equation ≡ hydrogen atom |
+| 10 | Entanglement from Curvature | Partial | Three regimes found but not quantitatively matched |
+| 11 | Empirical Validation | Valid | Helium isoelectronic sequence vs NIST — genuine empirical check |
+| 12 | Emergent Properties | Valid | Establishes that S² × R⁺ reproduces known atomic properties |
 
-| NB | Title | Key Finding |
-|----|-------|-------------|
-| 13 | Spectral Lines | Hydrogen spectral series from concentric geometry |
-| 14 | Fine Structure | Spin-orbit coupling emerges from nested curvature |
-| 15 | Shell Structure | Periodic table shell filling from concentric orbits |
-| 16 | Molecular Binding | Covalent/ionic binding from shared curvature |
-| 17 | Gravitational Quantum States | EXACT match against qBounce experimental data |
-| 18 | Scattering | EXACT optical theorem from concentric geometry |
-| 19 | Band Structure | Solid-state band gaps from periodic nesting |
-| 20 | Nuclear Magic Numbers | Nuclear shell structure from prime nesting |
-| 21 | Tunneling & Alpha Decay | Barrier penetration from curvature continuation |
-| 22 | Quantum Hall | Integer quantum Hall effect from nested Landau levels |
+### Phase 2: Standard QM on S² × R⁺ (NB13–NB22)
+
+**Caveat**: These notebooks demonstrate that standard quantum mechanics calculations reproduce correctly on S² × R⁺. They are **consistency checks**, not predictions. The "EXACT" results (qBounce, optical theorem, etc.) are exact because the underlying QM is exact — the framework adds no new content here. Their value is showing that S² × R⁺ is a valid arena for known physics, not that it predicts new physics.
+
+| NB | Title | What It Shows |
+|----|-------|---------------|
+| 13 | Spectral Lines | Standard Rydberg formula reproduced on S² × R⁺ |
+| 14 | Fine Structure | Standard spin-orbit coupling reproduced |
+| 15 | Shell Structure | Standard Aufbau principle reproduced |
+| 16 | Molecular Binding | Standard LCAO/covalent binding reproduced |
+| 17 | Gravitational Quantum States | Standard Airy-function solution reproduced (matches qBounce) |
+| 18 | Scattering | Standard partial-wave analysis reproduced (optical theorem exact) |
+| 19 | Band Structure | Standard Kronig-Penney / tight-binding reproduced |
+| 20 | Nuclear Magic Numbers | Standard nuclear shell model reproduced on S² |
+| 21 | Tunneling & Alpha Decay | Standard WKB tunneling reproduced |
+| 22 | Quantum Hall | Standard Haldane sphere construction reproduced |
 
 ### Phase 3: Solenoid Discovery (NB23–NB28)
 
