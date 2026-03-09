@@ -46,10 +46,12 @@ concentric-spacetime/
 │   ├── ...
 │   └── 45_thermal_dynamics.ipynb
 ├── scripts/
-│   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ operations)
-│   ├── concentric_system.py   # S² × R⁺ geometry utilities
-│   ├── nested_system.py       # Nested oscillator simulation
-│   └── two_particle.py        # Two-particle interaction on S²
+│   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ operations) — ACTIVE
+│   ├── solenoid_system.py     # Solenoid dynamics utilities — ACTIVE
+│   ├── concentric_system.py   # [LEGACY] S² × R⁺ geometry (Phase 1)
+│   ├── nested_system.py       # [LEGACY] Nested oscillator simulation (Phase 1)
+│   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
+│   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
 ├── docs/
 │   ├── scorecard.md           # Living scorecard: all 55 identities
 │   └── research_directions.md # Early-phase research directions (partially superseded)
@@ -59,7 +61,7 @@ concentric-spacetime/
 
 ## Key Modules
 
-### `scripts/solenoid_algebra.py`
+### `scripts/solenoid_algebra.py` — ACTIVE
 The core algebraic module. Provides:
 - `SA` — pre-built `SolenoidAlgebra` instance for P₄ = 210
 - `SA.Z_star` — the 48 elements of Z*₂₁₀
@@ -67,8 +69,17 @@ The core algebraic module. Provides:
 - `SA.character(chi_index, k)` — evaluates character χ at group element k
 - `SA.primes`, `SA.N`, `SA.phi_N`, etc.
 
-### `scripts/concentric_system.py`
-Implements S² × R⁺ geometry: wave equations, radial Schrödinger-like operators, angular momentum coupling.
+### `scripts/solenoid_system.py` — ACTIVE
+Solenoid dynamics: Lagrangian construction, kinetic matrix, Cayley graph Laplacian, spectral analysis.
+
+### Legacy Scripts (Phase 1–2)
+The following modules were used by NB01–NB22 and are **not imported by any solenoid-phase notebook**:
+- `concentric_system.py` — S² × R⁺ geometry (Phase 1)
+- `nested_system.py` — nested oscillator simulation (Phase 1)
+- `two_particle.py` — two-particle Coulomb integrals (Phase 1–2)
+- `gravity.py`, `scattering.py`, `solid_state.py`, `nuclear.py`, `quantum_hall.py`, `tunneling.py`, `molecular.py` — Phase 2 domain modules (standard QM calculations)
+
+These are retained for reference but are not part of the active framework.
 
 ## Notebook Conventions
 
