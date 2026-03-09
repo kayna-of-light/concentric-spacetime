@@ -100,15 +100,15 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 
 ### The Totient Density Tower
 
-Three cosmological/particle parameters arise from the same arithmetic pattern — the totient density φ(n)/n evaluated at successive sub-primorials:
+Three cosmological/particle parameters arise from the same arithmetic pattern — the totient density φ(n)/n:
 
-| Sub-primorial | φ(n)/n | Physical parameter | Dev |
-|---------------|--------|--------------------|-----|
-| P₁ = 5 | 4/5 = 0.800 | σ₈ | 1.36% |
-| P₂ = 35 | 24/35 = 0.686 | Ω_Λ | 0.15% |
-| P₃ = 210 | 48/210 = 8/35 = 0.229 | sin²θ_W | 1.1% |
+| n | φ(n)/n | Physical parameter | Dev |
+|---|--------|--------------------|-----|
+| 5 (= p₃) | 4/5 = 0.800 | σ₈ | 1.36% |
+| 35 (= p₃·p₄) | 24/35 = 0.686 | Ω_Λ | 0.15% |
+| 210 (= P₄) | 48/210 = 8/35 = 0.229 | sin²θ_W | 1.1% |
 
-This is not a fit — these are three independent physical constants emerging from a single arithmetic sequence.
+Note: 5 and 35 are NOT primorials (P₁ = 2, P₂ = 6, P₃ = 30). They are sub-products of {2,3,5,7}. This is not a fit — these are three independent physical constants emerging from the totient density of the same prime set.
 
 ---
 
@@ -282,7 +282,7 @@ The arithmetic of P₄ = 210 is **closed over** the Standard Model:
 
 ### Totient Density Tower
 
-φ(n)/n evaluated at sub-primorials generates three independent physical constants:
+φ(n)/n generates three independent physical constants:
 - φ(5)/5 = 4/5 → σ₈
 - φ(35)/35 = 24/35 → Ω_Λ
 - φ(210)/210 = 8/35 → sin²θ_W
@@ -292,7 +292,7 @@ The arithmetic of P₄ = 210 is **closed over** the Standard Model:
 |Φ(E₈)| = 240 appears in multiple independent roles:
 - P₃ × φ(P₄) = 30 × 8 = 240
 - P₄ + P₃ = 210 + 30 = 240
-- d(P₄) × p₄ = 16 × 15 = 240 (D₈ lattice) combined with P₁^p₄ = 2⁷ = 128 (half-spin): 240 + 128 = ... no, the decomposition is 240 = 112 + 128
+- E₈ lattice decomposition: 240 = d(P₄) × p₄ + P₁^p₄ = 16 × 7 + 2⁷ = 112 (D₈ roots) + 128 (half-spin)
 - M_Pl/M_Z = 240⁴ × 7⁹
 
 ### Spectral Determinant Factorization

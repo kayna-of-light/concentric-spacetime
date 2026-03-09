@@ -112,18 +112,20 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 
 1. **No free parameters**: Every prediction must derive from {2, 3, 5, 7} (or equivalently P₄ = 210) plus the single anchor M_Z. If a fit parameter is needed, it's not a prediction.
 
-2. **Honest nulls**: When a test fails, classify it honestly:
+2. **Phase 1/2 are NOT results**: NB01–NB08 used a preliminary model (nested torus T⁴) that was abandoned. NB13–NB22 reproduce standard QM textbook calculations on S² × R⁺ — they are consistency checks, not predictions. Do NOT cite Phase 1/2 notebook verdicts ("EXACT match", "PASS") as framework findings. All 55 identities come from NB29–NB45 (solenoid arithmetic). See `docs/scorecard.md` §V for details.
+
+3. **Honest nulls**: When a test fails, classify it honestly:
    - **Genuine null**: The framework predicts X, data shows not-X → report as failure
    - **Scope boundary**: The framework correctly identifies that the question requires a deeper layer (e.g., dynamics rather than statics)
    - **Methodological**: The test wasn't discriminating enough
 
-3. **The Cartesian artifact**: 3+1 dimensionality is NOT a prediction of this framework. It is what Cartesian-trained observers project onto the concentric nesting. Do NOT propose "testing" whether 3+1 emerges — that is circular. See the four-prime theses for the full argument.
+4. **The Cartesian artifact**: 3+1 dimensionality is NOT a prediction of this framework. It is what Cartesian-trained observers project onto the concentric nesting. Do NOT propose "testing" whether 3+1 emerges — that is circular. See the four-prime theses for the full argument.
 
-4. **Per-prime generators**: When working with Z*₂₁₀, use the CRT decomposition. The four cyclic factors {Z₁, Z₂, Z₄, Z₆} correspond to the four primes {2, 3, 5, 7}. Characters factor per-prime.
+5. **Per-prime generators**: When working with Z*₂₁₀, use the CRT decomposition. The four cyclic factors {Z₁, Z₂, Z₄, Z₆} correspond to the four primes {2, 3, 5, 7}. Characters factor per-prime.
 
-5. **Pre-commit workflow**: Always save all files (`workbench.action.files.saveAll`) before `git add`/`git commit`. VS Code may hold unsaved buffer state.
+6. **Pre-commit workflow**: Always save all files (`workbench.action.files.saveAll`) before `git add`/`git commit`. VS Code may hold unsaved buffer state.
 
-6. **Conda environment**: `concentric` (Python 3.12). Dependencies: numpy, scipy, matplotlib, sympy, jupyter.
+7. **Conda environment**: `concentric` (Python 3.12). Dependencies: numpy, scipy, matplotlib, sympy, jupyter.
 
 ## Connection to Literary Compilation
 
