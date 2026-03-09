@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB45.
+> Last updated after NB46.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 55 |
+| **Structural identities** | 58 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 45 (NB01–NB45) |
+| **Notebooks** | 46 (NB01–NB46) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -136,7 +136,7 @@ The +1 is the Cartan subalgebra: the self-referential component that allows the 
 
 ---
 
-## IV. Algebraic Dynamics (Identities #34–#55)
+## IV. Algebraic Dynamics (Identities #34–#58)
 
 ### Dynamics of Influx (NB42)
 
@@ -179,6 +179,16 @@ The +1 is the Cartan subalgebra: the self-referential component that allows the 
 | 53 | Partition function closed form | Z_sep = (1 + e^{−2β})³ · f₁(β) · f₂(β) |
 | 54 | Spectral determinant | det′(L) = 2²⁵ · 3¹⁶ · 5¹³ · 7⁸ — each prime's exponent decreasing |
 | 55 | Q(√3) universality | All coupled eigenvalues live in Z[√3], inherited from λ(210) = 12 |
+
+### Solenoid Metric (NB46)
+
+| # | Identity | Statement |
+|---|---------|-----------|
+| 56 | Cayley diameter = T₃ | diam = Σ⌊(p_k−1)/2⌋ = 0+1+2+3 = 6 = T₃ (3rd triangular number) |
+| 57 | Ball-growth polynomial | P(x) = (1+x)^{ω(P₄)} · Φ₃(x); cyclotomic factorization through ω = 4 primes |
+| 58 | Ricci-flat Cayley graph | κ_OR = 0 for all 240 edges; separable generators → global Ricci-flatness |
+
+**Metric Separation Principle**: The algebraic sector (Cayley graph) is Ricci-flat; all curvature resides in the geometric sector (radial nesting κ_k = 1/P_k²). The gravity hierarchy M_Pl/M_Z = 240⁴ · 7⁹ couples spectral invariants (240⁴) to geometric invariants (7⁹).
 
 ---
 
@@ -306,9 +316,11 @@ det′(L) = 2²⁵ · 3¹⁶ · 5¹³ · 7⁸ — the prime exponents {25, 16, 1
 Five threads remain open from the dynamics phase:
 
 ### 1. Solenoid Metric and Geodesics
-Derive the Riemannian metric on S² × R⁺ from the nesting constraint. Compute geodesics. Extract the gravitational constant G_N as a geometric quantity. This would promote the 240⁴ × 7⁹ hierarchy factor (NB39) from post-hoc identification to derived prediction.
+**Partially addressed in NB46.** The Cayley graph word metric, ball-growth polynomial, and Ollivier-Ricci curvature are now computed. Key finding: the Cayley graph is **Ricci-flat** (κ_OR = 0 everywhere), establishing the Metric Separation Principle — all curvature resides in the geometric sector (radial nesting), not the algebraic sector.
 
-*Source: NB42, NB43, NB44 — all call for this.*
+**Remaining**: Derive the Riemannian metric on S² × R⁺ from the nesting constraint. Compute geodesics. Extract G_N as a geometric quantity via a variational principle that **couples** the flat spectral sector (Tr(L) = 240) to the curved geometric sector (κ_k = 1/P_k²). This would promote 240⁴ × 7⁹ from post-hoc identification to derived prediction.
+
+*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation established).*
 
 ### 2. Character-Theoretic Mass Channel
 The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenvalue spectrum). Investigate whether these gaps generate the observed fermion mass hierarchy (the NB36 open problem). The coupling maps Z → Z[√3] (NB44 identity #49), which may provide the irrational ratios needed.
