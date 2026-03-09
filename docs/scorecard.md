@@ -316,13 +316,14 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 *Source: NB43 frontier.*
 
 ### 3. Spectral Zeta Function
-ζ_L(s) = Σ λ^{−s} evaluated at special points:
-- ζ(0) = 47 (meaning TBD)
-- ζ(−1) = 240 = |Φ(E₈)|
+ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
+- ζ(0) = 47 = |G| − 1 (count of nonzero eigenvalues)
+- ζ(−1) = 240 = Tr(L) = φ(210) × |S| = 48 × 5 = |Φ(E₈)|
+- ζ′(0) = −log det′(L) (verified against Identity 54)
 
-This is a striking coincidence that may connect spectral theory to the exceptional correspondence. Investigate whether this is structural.
+The ζ(−1) = 240 coincidence with |Φ(E₈)| may connect spectral theory to the exceptional correspondence. Investigate whether this is structural or arithmetic.
 
-*Source: NB44, NB45 frontier.*
+*Source: NB45 §8½ (computed). NB44 frontier (identified).*
 
 ### 4. Product 179/180 = 1 − 1/P₃
 The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180 = P₃ × P₂ is deeply structural. Relate this analytically to the prime cascade.
