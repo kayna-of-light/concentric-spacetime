@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB47.
+> Last updated after NB48.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 64 |
+| **Structural identities** | 69 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 47 (NB01–NB47) |
+| **Notebooks** | 48 (NB01–NB48) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -27,7 +27,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Solenoid Discovery** | NB23–NB28 | Identifying the structure | The (2,3,5,7)-solenoid, iterated covering maps, Cantor-set cross-section |
 | **SM Predictions** | NB29–NB40 | Quantitative predictions from number theory | 28 identities: SM constants, cosmological parameters, exceptional Lie groups |
 | **Algebraic Dynamics** | NB41–NB45 | Characters, Lagrangian, thermodynamics | 27 identities: +1 cost, frequency hierarchy, spectral analysis, heat trace |
-| **Metric & Modular** | NB46–NB47 | Cayley metric, modular form bridge | 9 identities: Ricci-flat Cayley graph, Metric Separation Principle, E₄ bridge, Modular-Solenoid Dictionary |
+| **Metric & Modular** | NB46–NB48 | Cayley metric, modular form bridge, palindromic structure | 14 identities: Ricci-flat Cayley graph, Metric Separation Principle, E₄ bridge, Modular-Solenoid Dictionary, palindromic spectrum, parity split |
 
 ---
 
@@ -211,6 +211,20 @@ where c₁(E₄) = 240 is the spectral-modular bridge, wt(E₄) = 4 = ω(P₄), 
 Derivation chain status: 5/6 steps proved from first principles, 1/6 remains structural identification (the mechanism selecting c₁^{wt} × p₄^{c₂/c₁} among all possible combinations). Five candidate mechanisms tested (spectral action, det′(L), per-ω channel, E₄ evaluation, dimensional argument) — none fully deductive.
 
 **Spectral Moments**: Tr(L^n)/c_n(E₄) = {1, 2/3, 10/7, ...} — the ratios at n ≥ 2 factor through solenoid primes, suggesting a deeper spectral-modular correspondence.
+
+### Palindromic Spectrum (NB48)
+
+| # | Identity | Statement |
+|---|---------|----------|
+| 65 | Palindromic spectrum | d_k = d_{10−k}: Cayley graph is bipartite via the Z₂ factor of Z*₂₁₀ ≅ Z₁ × Z₂ × Z₄ × Z₆ |
+| 66 | P(−1) = −d(P₄) | Alternating eigenvalue multiplicity sum = −16 = negative divisor count |
+| 67 | Even-eigenvalue states = d(P₄) | 16 states at even eigenvalues = d(210) = dim(SO(10) spinor); odd states = φ − d = 32 |
+| 68 | Q(y) = y³(y² + 2y − 2) | Palindromic reduction via y = x + 1/x; roots −1 ± √3 reconnect to Z[√3] universality (NB44 #55) |
+| 69 | d_{|S|} = λ(P₄) = 12 | Central eigenvalue multiplicity = Carmichael function = 1/ω of all states (triple root at y = 0) |
+
+**Parity Structure**: The eigenvalue polynomial P(x) = Σ d_k x^k encodes number theory at its boundary values: P(1) = φ(P₄) = 48, P(−1) = −d(P₄) = −16, P′(1) = Tr(L) = 240 = c₁(E₄). The ratio φ/d = 3 = p₂ (for squarefree n: φ/d = Π(p−1)/2). The palindromic reduction Q(y) = y³(y² + 2y − 2) through y = x + 1/x localizes the non-trivial spectral information in a degree-5 polynomial whose quadratic factor has roots −1 ± √3, structurally requiring the same algebraic number field Z[√3] that appears in the coupled eigenvalue spectrum (NB44 #49).
+
+**Spectral Dimension Hint**: d_s peaks at ≈ 2.863 at t ≈ 0.687. Candidates 20/7 (0.19% dev) and ln(2) (0.93% dev) are suggestive but unproven — not numbered identities.
 
 ---
 
