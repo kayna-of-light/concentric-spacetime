@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB57.
+> Last updated after NB58.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 97 |
+| **Structural identities** | 99 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 57 (NB01–NB57) |
+| **Notebooks** | 58 (NB01–NB58) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -37,6 +37,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Higgs Potential Equilibrium** | NB55 | Scalar VEV dynamics on covering tower, intra-level constancy, scope boundary | 3 identities: intra-level VEV constancy theorem, explicit asymmetry amplification, scalar potential scope boundary |
 | **Character-Tower Mass Channel** | NB56 | Character eigenvalues as VEV exponents, generation gap, exponential amplification | 3 identities: per-level eigenvalue decomposition, generation gap from palindromic symmetry, tower product mass channel |
 | **Conjugation Protection** | NB57 | Coupled generators vs generation degeneracy, spectral wall | 2 identities: character conjugation theorem, tower product protection persistence |
+| **Real Potential Protection** | NB58 | Real diagonal potentials, fifth spectral wall layer, CKM pointer | 2 identities: real potential protection theorem, complete spectral wall |
 
 ---
 
@@ -363,6 +364,25 @@ Derivation chain status: 5/6 steps proved from first principles, 1/6 remains str
 
 Each layer is strictly stronger. Coupled generators breach the first but cannot touch the third. No spectral (Cayley-based) mechanism can split generations. The Higgs mechanism (NB53, non-constant fiber VEV) is the **only** passage through the wall.
 
+### Real Potential Protection — The Fifth Layer (NB58)
+
+| # | Identity | Description |
+|---|----------|-------------|
+| 98 | Real Potential Protection Theorem | For ANY real diagonal potential V(k) on Z*₂₁₀, the combined operator H = L + diag(V) preserves per-eigenvector generation weight equality w_Gen1(v) = w_Gen2(v). Two-line proof: (1) H real symmetric ⟹ eigenvectors v are real; (2) For real v: (Fv)_χ̄ = conj((Fv)_χ), hence |…|² invariant under χ→χ̄. Verified across 4 structural tests (pure L, asymmetric p=5 fiber, joint p5×p7, inversion-asymmetric) and 10 random real potentials. Max |w1−w2| = 5.55×10⁻¹⁶ (machine epsilon) |
+| 99 | Complete Spectral Wall (5 Layers) | The generation protection hierarchy is now complete with 5 layers: (1) Palindromic — broken by coupled generators; (2) Time-reversal — broken by non-Hermitian operators; (3) Conjugation — protects generation multisets for ALL Cayley Laplacians; (4) Tower product — protects tower mass through per-level independence; (5) Real potential — protects generation weights for L+V(real). Control test: complex Hermitian perturbation breaks protection (max |w1−w2| = 0.31). The ONLY passage through all five layers is a non-real mass operator (CKM-type mechanism: two misaligned Yukawa sectors) |
+
+**The Complete Spectral Wall** (updated from NB57):
+
+| Layer | Symmetry | What it protects | What breaks it |
+|-------|----------|------------------|----------------|
+| Palindromic (NB50) | λ₇(a) = λ₇(−a mod 6) | Per-pair eigenvalues under separable generators | Coupled generators |
+| Time-reversal (NB51-52) | Σ: real-symmetric Hamiltonian | Per-pair eigenvalues under ALL real couplings | Complex (non-Hermitian) operators |
+| Conjugation (NB57) | χ → χ̄: bijection Gen1↔Gen2 | Generation multisets under ALL Cayley Laplacians | Site-dependent VEV (NB53) |
+| Tower product (NB57) | Per-level conjugation independence | Tower product mass multisets | Fiber-position-dependent VEV (NB53) |
+| Real potential (NB58) | H real ⟹ v real ⟹ |(Fv)_χ̄|² = |(Fv)_χ|² | Per-eigenvector generation weights for L + V(real) | Complex (non-real) mass operator |
+
+The wall is now five layers deep. The only exit is a **non-real mass operator** — physically, this corresponds to the CKM mechanism: two Yukawa sectors (up-type and down-type) whose eigenbases are misaligned, introducing irreducible complex phases.
+
 ---
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
@@ -511,9 +531,11 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB56 update**: The character-theoretic channel is now established. Character eigenvalues at each tower level act as EXPONENTS of the VEV magnitude, generating exponential mass gaps from integer arithmetic. The tower-weighted bandwidth is 16 = d(210), giving mass ratio v^16. At v ≈ 2.025 this exactly reproduces the SM's ~80,000× (m_t/m_u). Generations partition cleanly — 3 × 16 via a7 mod 3 — with Gen 0 (even spectrum, E range [2,18]) distinct from Gens 1&2 (odd spectrum, E range [2,16]), which are EXACTLY degenerate via palindromic Z₆ symmetry. The remaining frontier: Gen 1-2 splitting via coupled generators or non-separable dynamics.
 
-**NB57 update**: Coupled generators are a NEGATIVE result for Gen 1-2 splitting. While they break 8/16 per-pair palindromic symmetries (splits living in Z[√3], values ±2√3 and ±6√3), complex conjugation χ→χ̄ preserves eigenvalues and maps Gen1↔Gen2 by flipping BOTH a₅ and a₇. The a₅ flip compensates the a₇ flip, guaranteeing multiset equality even when individual pairs are split. This holds independently at each tower level and extends to the tower product mass. The Spectral Wall is established: NO choice of generators, coupling constants, or VEV magnitudes can break generation mass degeneracy through the Cayley Laplacian alone. The ONLY route is Σ-breaking via site-dependent fiber VEV (NB53). The next frontier is the intersection: fiber VEV profiles that act as character-dependent mass corrections within the tower product framework.
+**NB57 update**: Coupled generators are a NEGATIVE result for Gen 1-2 splitting. While they break 8/16 per-pair palindromic symmetries (splits living in Z[√3], values ±2√3 and ±6√3), complex conjugation χ→χ̄ preserves eigenvalues and maps Gen1↔Gen2 by flipping BOTH a₅ and a₇. The a₅ flip compensates the a₇ flip, guaranteeing multiset equality even when individual pairs are split. This holds independently at each tower level and extends to the tower product mass. The Spectral Wall is established: NO choice of generators, coupling constants, or VEV magnitudes can break generation mass degeneracy through the Cayley Laplacian alone. The ONLY route is Σ-breaking via site-dependent fiber VEV (NB53).
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall).*
+**NB58 update**: Real diagonal potentials are ALSO a negative result. Adding ANY real V(k) to the Cayley Laplacian cannot break Gen1=Gen2 generation weights, because H = L + diag(V) is real symmetric ⟹ eigenvectors are real ⟹ Fourier conjugation symmetry is exact. This is the fifth and final layer of the spectral wall. The ONLY passage through all five layers is a non-real mass operator — the CKM mechanism, where two misaligned Yukawa sectors (up-type and down-type) introduce irreducible complex phases. The next frontier: construct the two-Yukawa-sector model on Z*₂₁₀ and derive the CKM matrix from the misalignment angle.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
