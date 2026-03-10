@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB52.
+> Last updated after NB53.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 83 |
+| **Structural identities** | 86 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 52 (NB01–NB52) |
+| **Notebooks** | 53 (NB01–NB53) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -32,6 +32,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Palindrome Protection** | NB50 | Cross-section dynamics, generation degeneracy theorem | 3 identities: palindrome protection theorem, two-mass theorem, type-dependent coupling hierarchy |
 | **Time-Reversal Protection** | NB51 | Anti-unitary symmetry, gauge-Higgs localization | 2 identities: time-reversal palindrome protection, gauge-Higgs localization |
 | **Generation Protection** | NB52 | Combined time-reversal, covering tower, profinite structure | 5 identities: momentum anti-palindrome, combined T protection, generation protection theorem, covering tower persistence, profinite self-similarity |
+| **Higgs-Generation Entanglement** | NB53 | Radial fiber dynamics, Higgs-generation coupling | 3 identities: radial Σ-even extension, Higgs-generation entanglement theorem, bilateral exemption |
 
 ---
 
@@ -282,6 +283,20 @@ Derivation chain status: 5/6 steps proved from first principles, 1/6 remains str
 
 **Covering Tower and Profinite Structure**: The level-2 covering C₆ → C₄₂ (branching factor 7) shows that palindrome protection persists under refinement — all 14 generation pairs remain exactly degenerate. Each generation gains 7 sub-states (one per sheet of the 7-fold cover), with fine-structure ratios spanning 1:175. The profinite tower C_{7^L·6} confirms spectral self-similarity: the gap ratio between consecutive levels converges to exactly 7.0000, and Gen1=Gen2 holds at every level of the tower. This is the algebraic backbone of the profinite limit.
 
+### Higgs-Generation Entanglement Theorem (NB53)
+
+| # | Identity | Statement |
+|---|---------|----------|
+| 84 | Radial Σ-Even Extension | All Hermitian covering-tower operators (identity, level potential, fiber Laplacian, fiber p², cross-term, covering Laplacian) are Σ-even. The combined time-reversal Σ extends from the angular cross-section to the full two-level radial system L0=C₆, L1=C₄₂ — no natural radial coupling breaks Gen1=Gen2 |
+| 85 | Higgs-Generation Entanglement Theorem | For p-fold covering C_{np}→C_n (p≥3 prime), the ONLY diagonal fiber VEV commuting with Σ is the constant VEV. Proof: Σ on C_{np} maps (base b, fiber f) with different reflections per base — base 0 uses f→(p-f)%p (center at f=0), bases b≥1 use f→(p-1-f) (center at (p-1)/2). These incompatible reflections force all fiber values equal. Verified computationally: constant VEVs preserve Gen1=Gen2 exactly; ANY non-constant VEV (including 0.1% asymmetry) breaks it |
+| 86 | Bilateral Exemption (p=2) | The constant-VEV theorem holds for p=3,5,7 but NOT p=2. At p=2, Σ acts as identity on the 2-element fiber (both elements are Σ-fixed points), giving 2 free parameters. Physical interpretation: the bilateral degree (love/wisdom polarity) can carry non-trivial VEV without breaking generation degeneracy; the three higher degrees (p=3,5,7) enforce Higgs-generation coupling |
+
+**Higgs-Generation Entanglement**: The constant-VEV theorem resolves the central open problem from NB49–NB52: HOW does the radial direction break Gen1=Gen2? The answer: any non-trivial scalar field profile on the p≥3 fiber automatically breaks the combined time-reversal Σ, which was the ONLY symmetry protecting generation degeneracy. The Higgs mechanism is not imposed — it is forced by the topology of the covering tower.
+
+**Base-Fiber Entanglement**: The key insight is that Σ on C₄₂ does NOT decompose as independent base × fiber reflections. The fiber reflection DEPENDS on which base you're at (center at f=0 for base 0, center at f=3 for bases 1-5). This entanglement between base and fiber indices is what forces the constant-only constraint.
+
+**Mass Spectrum Preview**: Fiber Fourier eigenmode m=0 (constant) preserves Gen1=Gen2 exactly. Eigenmodes m=1,2,3 break it with increasing severity: m=1 gives fine splitting (0.027), m=2 gives moderate splitting (0.830), m=3 gives maximal splitting (1.587). The mass hierarchy comes from the eigenmode spectrum of the fiber Laplacian.
+
 ---
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
@@ -420,9 +435,11 @@ Five threads remain open from the dynamics phase:
 ### 2. Character-Theoretic Mass Channel
 The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenvalue spectrum). Investigate whether these gaps generate the observed fermion mass hierarchy (the NB36 open problem). The coupling maps Z → Z[√3] (NB44 identity #49), which may provide the irrational ratios needed.
 
-**NB49 update**: The covering tower gives a natural mixed-radix mass M_cov = 35λ₃ + 7λ₅ + λ₇ with 24 levels and 102:1 range. The multiplicative formula Π p_k^{λ_k} spans ~10⁷. But the generation degeneracy (#73) proves that cross-section eigenvalues alone CANNOT split all three generations — the mass channel requires dynamics beyond the flat cross-section. This is the central open problem.
+**NB49 update**: The covering tower gives a natural mixed-radix mass M_cov = 35λ₃ + 7λ₅ + λ₇ with 24 levels and 102:1 range. The multiplicative formula Π p_k^{λ_k} spans ~10⁷. But the generation degeneracy (#73) proves that cross-section eigenvalues alone CANNOT split all three generations — the mass channel requires dynamics beyond the flat cross-section.
 
-*Source: NB43 frontier. NB49 (generation degeneracy).*
+**NB53 update**: The Higgs-Generation Entanglement Theorem (#85) resolves HOW the radial direction breaks Gen1=Gen2: any non-constant fiber VEV on a p≥3 covering automatically breaks the combined time-reversal Σ. The mass spectrum from fiber eigenmodes shows eigenmode-dependent splitting (m=0 preserved, m=1,2,3 broken with increasing severity). The bilateral exemption (#86) shows p=2 is special — it can carry non-trivial VEV without breaking generation degeneracy. The remaining task is to connect the fiber eigenmode spectrum to observed fermion mass ratios.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
