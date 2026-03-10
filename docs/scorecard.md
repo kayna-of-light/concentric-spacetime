@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB51.
+> Last updated after NB52.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 78 |
+| **Structural identities** | 83 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 51 (NB01–NB51) |
+| **Notebooks** | 52 (NB01–NB52) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -31,6 +31,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Covering Tower** | NB49 | Covering maps, generation structure, mixed-radix mass | 4 identities: Z₆ = Z₂ × Z₃ generation mechanism, covering amplification, Z₃ localization at p=7, generation degeneracy scope boundary |
 | **Palindrome Protection** | NB50 | Cross-section dynamics, generation degeneracy theorem | 3 identities: palindrome protection theorem, two-mass theorem, type-dependent coupling hierarchy |
 | **Time-Reversal Protection** | NB51 | Anti-unitary symmetry, gauge-Higgs localization | 2 identities: time-reversal palindrome protection, gauge-Higgs localization |
+| **Generation Protection** | NB52 | Combined time-reversal, covering tower, profinite structure | 5 identities: momentum anti-palindrome, combined T protection, generation protection theorem, covering tower persistence, profinite self-similarity |
 
 ---
 
@@ -266,6 +267,20 @@ Derivation chain status: 5/6 steps proved from first principles, 1/6 remains str
 **Universality**: Tested with 100 random real symmetric potentials on C₆ — maximum splitting = 0 (below machine epsilon). Control test: 49/50 complex Hermitian potentials DO break the palindrome, confirming the protection is specifically time-reversal (reality in site basis).
 
 **Gauge-Higgs Localization**: The cross-section (angular directions) determines type structure, generation count, gross hierarchy, and gauge parameters. It CANNOT determine generation mass splitting. The Higgs mechanism — the source of Gen1 ≠ Gen2 — must live in the radial (R⁺) fiber direction, the discrete-degree direction of the covering tower. In correspondential terms: angular = form (pattern of distinctions); radial = degree (quantitative differentiation).
+
+### Generation Protection Theorem and Profinite Structure (NB52)
+
+| # | Identity | Statement |
+|---|---------|----------|
+| 79 | Momentum Anti-Palindrome | p̂₇ = −i(T⁺−T⁻)/2 is purely imaginary in site basis with Fourier eigenvalues p(k) = −sin(2πk/6). The anti-palindrome property p(k) = −p(n−k) holds for ALL non-self-conjugate pairs: the momentum operator reverses sign under generation exchange |
+| 80 | Combined Time-Reversal Protection | The combined time-reversal operator Σ = ⊗_p σ_p (where σ_p: a → −a mod (p−1)) satisfies Σ² = I and [H₀, Σ] = 0. ALL physical solenoid couplings — kinetic (p̂²), potential cos(pθ−θ), gauge sin(θ)·p̂ — are Σ-even: each is a product of per-prime factors with matching T-parities |
+| 81 | Generation Protection Theorem | For ANY physical Hamiltonian H = H₀ + η_p V_phase + η_g V_gauge: Gen1 ≡ Gen2 exactly at ALL coupling strengths. Verified across 18 (η_p, η_g) combinations with max\|Gen1−Gen2\| = 0 to machine precision. Control: Σ-odd coupling sin(θ₅)·L₇ breaks palindrome (split = 0.104, 25/48 unpaired) |
+| 82 | Covering Tower Palindrome Persistence | At level-2 covering C₄₂ (branching factor 7), ALL 14 Gen1↔Gen2 pairs remain degenerate at machine epsilon. Each generation carries 7 sub-states with rich fine structure (ratio range 1:175) |
+| 83 | Profinite Spectral Self-Similarity | The p=7 profinite tower C_{7^L·6} for L=1..4 shows: (a) gap ratio converges to exactly 7.0000 (the covering degree), (b) Gen1=Gen2 exact at ALL levels, (c) unique eigenvalues grow as 7^L − 4·7^{L−1} + 2 |
+
+**The Generation Protection Theorem**: NB50 proved palindrome protection for couplings diagonal in k₇. NB51 extended this to all real Hamiltonians via time-reversal. NB52 completes the picture by showing the protection operates through the **combined time-reversal** Σ = ⊗_p σ_p acting simultaneously across all four primes. The key insight is parity arithmetic: every physical solenoid coupling is a product of per-prime factors whose T-parities cancel to even. The gauge coupling sin(θ₅)·p̂₇ is (T-odd)(T-odd) = T-even; the potential cos(7θ₅−θ₇) is inherently T-even; the kinetic p̂² is (T-odd)² = T-even.
+
+**Covering Tower and Profinite Structure**: The level-2 covering C₆ → C₄₂ (branching factor 7) shows that palindrome protection persists under refinement — all 14 generation pairs remain exactly degenerate. Each generation gains 7 sub-states (one per sheet of the 7-fold cover), with fine-structure ratios spanning 1:175. The profinite tower C_{7^L·6} confirms spectral self-similarity: the gap ratio between consecutive levels converges to exactly 7.0000, and Gen1=Gen2 holds at every level of the tower. This is the algebraic backbone of the profinite limit.
 
 ---
 
