@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB56.
+> Last updated after NB57.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 95 |
+| **Structural identities** | 97 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 56 (NB01–NB56) |
+| **Notebooks** | 57 (NB01–NB57) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -36,6 +36,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Fiber Eigenvalue Mass Landscape** | NB54 | Fiber algebra, golden ratio, mass hierarchy scope | 3 identities: fiber power law, golden ratio fiber eigenvalue, mass hierarchy scope boundary |
 | **Higgs Potential Equilibrium** | NB55 | Scalar VEV dynamics on covering tower, intra-level constancy, scope boundary | 3 identities: intra-level VEV constancy theorem, explicit asymmetry amplification, scalar potential scope boundary |
 | **Character-Tower Mass Channel** | NB56 | Character eigenvalues as VEV exponents, generation gap, exponential amplification | 3 identities: per-level eigenvalue decomposition, generation gap from palindromic symmetry, tower product mass channel |
+| **Conjugation Protection** | NB57 | Coupled generators vs generation degeneracy, spectral wall | 2 identities: character conjugation theorem, tower product protection persistence |
 
 ---
 
@@ -344,6 +345,24 @@ Derivation chain status: 5/6 steps proved from first principles, 1/6 remains str
 
 **Scope Boundary**: The bandwidth = 16 = d(210) is parameter-free. The mass ratio v^16 exactly spans the SM hierarchy at v ≈ 2.025. But the exact Gen 1-2 degeneracy means this channel alone cannot distinguish all three generations — coupled generators or non-separable dynamics are needed for the last splitting.
 
+### Conjugation Protection and the Spectral Wall (NB57)
+
+| # | Identity | Description |
+|---|----------|-------------|
+| 96 | Character Conjugation Theorem | For ANY symmetric Cayley graph on Z*₂₁₀ (separable or coupled), complex conjugation χ → χ̄ preserves eigenvalues and maps Gen1↔Gen2 by flipping both a₅ and a₇. Coupled generators break the per-pair palindrome (8/16 pairs split, values in Z[√3]: 0, ±2√3, ±6√3), but the generation-level eigenvalue multisets remain IDENTICAL. The protection is deeper than palindromic: it is time-reversal (real symmetry) of the Laplacian |
+| 97 | Tower Product Protection Persistence | The conjugation protection holds independently at each tower level (C₆, C₄₂, C₂₁₀). The tower product mass m_χ = Π|v_k|^{λ_k(χ)} preserves Gen1=Gen2 for ANY per-level VEV magnitudes and ANY symmetric generating set. Verified across 10 random generating sets. Relative mass multiset difference: 3.5×10⁻¹⁵ (machine epsilon) |
+
+**The Spectral Wall**: NB57 establishes a strict hierarchy of generation protection:
+
+| Layer | Symmetry | What it protects | What breaks it |
+|-------|----------|------------------|----------------|
+| Palindromic (NB50) | λ₇(a) = λ₇(−a mod 6) | Per-pair eigenvalues under separable generators | Coupled generators |
+| Time-reversal (NB51-52) | Σ: real-symmetric Hamiltonian | Per-pair eigenvalues under ALL real couplings | Complex (non-Hermitian) operators |
+| Conjugation (NB57) | χ → χ̄: bijection Gen1↔Gen2 | Generation multisets under ALL Cayley Laplacians | Site-dependent VEV (NB53) |
+| Tower product (NB57) | Per-level conjugation independence | Tower product mass multisets | Fiber-position-dependent VEV (NB53) |
+
+Each layer is strictly stronger. Coupled generators breach the first but cannot touch the third. No spectral (Cayley-based) mechanism can split generations. The Higgs mechanism (NB53, non-constant fiber VEV) is the **only** passage through the wall.
+
 ---
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
@@ -492,7 +511,9 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB56 update**: The character-theoretic channel is now established. Character eigenvalues at each tower level act as EXPONENTS of the VEV magnitude, generating exponential mass gaps from integer arithmetic. The tower-weighted bandwidth is 16 = d(210), giving mass ratio v^16. At v ≈ 2.025 this exactly reproduces the SM's ~80,000× (m_t/m_u). Generations partition cleanly — 3 × 16 via a7 mod 3 — with Gen 0 (even spectrum, E range [2,18]) distinct from Gens 1&2 (odd spectrum, E range [2,16]), which are EXACTLY degenerate via palindromic Z₆ symmetry. The remaining frontier: Gen 1-2 splitting via coupled generators or non-separable dynamics.
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel).*
+**NB57 update**: Coupled generators are a NEGATIVE result for Gen 1-2 splitting. While they break 8/16 per-pair palindromic symmetries (splits living in Z[√3], values ±2√3 and ±6√3), complex conjugation χ→χ̄ preserves eigenvalues and maps Gen1↔Gen2 by flipping BOTH a₅ and a₇. The a₅ flip compensates the a₇ flip, guaranteeing multiset equality even when individual pairs are split. This holds independently at each tower level and extends to the tower product mass. The Spectral Wall is established: NO choice of generators, coupling constants, or VEV magnitudes can break generation mass degeneracy through the Cayley Laplacian alone. The ONLY route is Σ-breaking via site-dependent fiber VEV (NB53). The next frontier is the intersection: fiber VEV profiles that act as character-dependent mass corrections within the tower product framework.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
