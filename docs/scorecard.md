@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB54.
+> Last updated after NB55.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 89 |
+| **Structural identities** | 92 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 54 (NB01–NB54) |
+| **Notebooks** | 55 (NB01–NB55) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -34,6 +34,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Generation Protection** | NB52 | Combined time-reversal, covering tower, profinite structure | 5 identities: momentum anti-palindrome, combined T protection, generation protection theorem, covering tower persistence, profinite self-similarity |
 | **Higgs-Generation Entanglement** | NB53 | Radial fiber dynamics, Higgs-generation coupling | 3 identities: radial Σ-even extension, Higgs-generation entanglement theorem, bilateral exemption |
 | **Fiber Eigenvalue Mass Landscape** | NB54 | Fiber algebra, golden ratio, mass hierarchy scope | 3 identities: fiber power law, golden ratio fiber eigenvalue, mass hierarchy scope boundary |
+| **Higgs Potential Equilibrium** | NB55 | Scalar VEV dynamics on covering tower, intra-level constancy, scope boundary | 3 identities: intra-level VEV constancy theorem, explicit asymmetry amplification, scalar potential scope boundary |
 
 ---
 
@@ -312,6 +313,20 @@ Derivation chain status: 5/6 steps proved from first principles, 1/6 remains str
 
 **Scope Boundary**: The static fiber analysis provides the mass-splitting MECHANISM (from NB53: any non-constant VEV breaks Σ) and quantifies the ALGEBRAIC RANGE (~13× from eigenvalue ratios). The specific mass RATIOS (τ/μ ≈ 17, t/c ≈ 136, μ/e ≈ 207) require dynamical input — specifically, solving for the equilibrium VEV profile on the covering tower. This parallels the SM: the Higgs mechanism explains WHY masses differ (Yukawa couplings), but the specific coupling values require additional physics.
 
+### Higgs Potential Equilibrium (NB55)
+
+| # | Identity | Description |
+|---|----------|-------------|
+| 90 | Intra-Level VEV Constancy Theorem | On the covering tower C₆ → C₄₂ → C₂₁₀ with Mexican-hat potential V(φ) = −½μ²φ² + ¼λφ⁴, Σ-invariance forces the equilibrium VEV to be constant WITHIN each covering level (per-level variation < 10⁻⁶), but allows different magnitudes and alternating signs BETWEEN levels. The inter-level kinetic coupling A[k,l] = Σ H_kin[i∈k, j∈l] is strictly positive for adjacent levels, driving sign alternation. The 258-dim problem reduces exactly to 3 variables (one per level). Σ pairs remain exactly protected (0 broken, max split ≈ 10⁻¹⁴) |
+| 91 | Explicit Asymmetry Amplification | When explicit site-dependent tilt h(j) = h₀·cos(2πf/7) is applied to the C₄₂ fiber, the mass eigenvalue max/min ratio reaches ~11,000× at h₀ = 0.1 (10% tilt amplitude). The tilt breaks both the per-level constancy and Σ protection (14 of 48 Σ pairs broken on C₄₂), concentrating VEV variance on the tilted level while leaving other levels approximately constant |
+| 92 | Scalar Potential Scope Boundary | The scalar potential alone (Mexican-hat + kinetic) produces a hierarchy of 10²–10⁴× with explicit asymmetry, vs SM requirement of ~80,000× (m_t/m_u). The scalar path is necessary (provides the VEV profile that breaks Σ) but insufficient for the full mass hierarchy. The character-theoretic channel — Fourier analysis on Z*₂₁₀ where different characters see different eigenvalues — is the required next layer. No Goldstone modes exist (discrete Z₂ symmetry, not continuous U(1)) |
+
+**Intra-Level Constancy**: The key discovery is that the Σ-invariance theorem from NB53 has a precise dynamical realization: equilibrium VEV is forced constant on each covering level, but the MAGNITUDES differ between levels. The reduced A matrix (3×3 inter-level quadratic form) has zero diagonal and positive off-diagonals, creating an anti-ferromagnetic coupling between adjacent levels. The 3-level equilibrium VEV at μ² = 5 is v = [+2.51, −2.49, +2.29] — alternating signs, decreasing magnitudes with depth.
+
+**Σ Protection at Equilibrium**: At the exact per-level-constant equilibrium, the mass matrix M = H_kin + diag(−μ² + 3λv_k²) commutes exactly with Σ because: (1) H_kin commutes with Σ (NB53), and (2) the diagonal mass correction is uniform within each level. All 258 Σ eigenvalue pairs have splitting < 10⁻¹⁴ (machine epsilon). Breaking requires explicit spatial modulation.
+
+**Scope Closure**: NB54 showed the static algebraic range is ~13×. NB55 shows the scalar potential extends this to 10²−10⁴× with explicit tilt, but closes the scalar path: the full SM hierarchy requires the character-theoretic mass channel (open frontier #2).
+
 ---
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
@@ -456,7 +471,9 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB54 update**: The fiber eigenvalue algebra is now fully characterized. The P₄ odd primes {3,5,7} have maximally simple (pure binomial) minimal polynomials — this fails for p ≥ 11. The p=5 fiber generates the golden ratio (φ²) as its characteristic eigenvalue ratio. The static cross-fiber range is ~13×, far short of SM requirements (200–80,000×). The covering tower DILUTES rather than amplifies L1 VEV effects at deeper levels (mean split decreases with tower depth). Multi-level VEVs combine sub-additively. Full mass ratios require solving the Higgs potential on the covering tower — the equilibrium VEV profile that minimizes energy.
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary).*
+**NB55 update**: The Higgs potential has now been solved on the covering tower. The equilibrium VEV is constant within each level but with different magnitudes and alternating signs between levels (anti-ferromagnetic inter-level coupling). The 258-dim problem reduces exactly to 3 variables. Σ pairs remain exactly protected at equilibrium. With explicit asymmetry (10% tilt), mass ratios reach ~11,000× — still short of the SM's ~80,000×. The scalar potential path is now CLOSED as a standalone mechanism. The character-theoretic channel — where different Fourier characters of Z*₂₁₀ naturally see different eigenvalues — is confirmed as the required next layer.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
