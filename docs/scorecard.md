@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB53.
+> Last updated after NB54.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 86 |
+| **Structural identities** | 89 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 53 (NB01–NB53) |
+| **Notebooks** | 54 (NB01–NB54) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -33,6 +33,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Time-Reversal Protection** | NB51 | Anti-unitary symmetry, gauge-Higgs localization | 2 identities: time-reversal palindrome protection, gauge-Higgs localization |
 | **Generation Protection** | NB52 | Combined time-reversal, covering tower, profinite structure | 5 identities: momentum anti-palindrome, combined T protection, generation protection theorem, covering tower persistence, profinite self-similarity |
 | **Higgs-Generation Entanglement** | NB53 | Radial fiber dynamics, Higgs-generation coupling | 3 identities: radial Σ-even extension, Higgs-generation entanglement theorem, bilateral exemption |
+| **Fiber Eigenvalue Mass Landscape** | NB54 | Fiber algebra, golden ratio, mass hierarchy scope | 3 identities: fiber power law, golden ratio fiber eigenvalue, mass hierarchy scope boundary |
 
 ---
 
@@ -297,6 +298,20 @@ Derivation chain status: 5/6 steps proved from first principles, 1/6 remains str
 
 **Mass Spectrum Preview**: Fiber Fourier eigenmode m=0 (constant) preserves Gen1=Gen2 exactly. Eigenmodes m=1,2,3 break it with increasing severity: m=1 gives fine splitting (0.027), m=2 gives moderate splitting (0.830), m=3 gives maximal splitting (1.587). The mass hierarchy comes from the eigenmode spectrum of the fiber Laplacian.
 
+### Fiber Eigenvalue Mass Landscape (NB54)
+
+| # | Identity | Description |
+|---|----------|-------------|
+| 87 | Fiber Eigenvalue Power Law | For each P₄ odd prime p ∈ {3,5,7}, the (p−1)/2 palindrome-reduced fiber Laplacian eigenvalues satisfy the pure binomial minimal polynomial λ^d = p·(λ−1)^{d−1} where d = (p−1)/2. This FAILS for all primes p ≥ 11 — the characteristic polynomial acquires additional algebraic structure beyond the binomial expansion. The P₄ primes are exactly those with maximally simple fiber algebra |
+| 88 | Golden Ratio Fiber Eigenvalue | For p=5 (the rational faculty prime), the fiber eigenvalue ratio is λ₂/λ₁ = φ² = (3+√5)/2 ≈ 2.618 (golden ratio squared). The eigenvalues satisfy t² − 5t + 5 = 0, directly connecting the golden ratio to the p=5 fiber. Corollary: p=3 has only ONE distinct nonzero eigenvalue (λ₁ = λ₂ = 3), contributing no intrinsic hierarchy — the generation direction is maximally degenerate. For all odd primes: sum = product = p (Kirchhoff/Matrix Tree theorem) |
+| 89 | Mass Hierarchy Scope Boundary | The static cross-fiber eigenvalue range is R₇ × R₅ = 5.05 × 2.62 ≈ 13.2× (p=3 contributes 1.0×). The pair-split distribution at fixed tower size reaches 200–14,000× max/min ratios from eigenstate-selective coupling, but these depend on VEV amplitude η. The full SM hierarchy (207× to 80,000×) requires: (1) solving the Higgs potential on the covering tower, (2) RG running, (3) dynamical content of the solenoid Lagrangian. The covering tower is a FILTER (dilution with depth), not an amplifier. Multi-level VEV effects are sub-additive |
+
+**Fiber Power Law Exclusivity**: The pure binomial form λ^d = p·(λ−1)^{d−1} holds if and only if p ∈ {3,5,7}. For p = 11, the characteristic polynomial already has five terms that differ from binomial coefficients. This provides an algebraic characterization of WHY these specific primes are special: they are the ones whose cyclic fiber carries maximal algebraic simplicity.
+
+**Golden Ratio at p=5**: The rational faculty prime generates the golden ratio as its characteristic eigenvalue ratio. Combined with φ(5)/5 = 4/5 (which feeds into sin²θ_W = 8/35), this makes p=5 the prime most deeply connected to irrational scaling in the framework.
+
+**Scope Boundary**: The static fiber analysis provides the mass-splitting MECHANISM (from NB53: any non-constant VEV breaks Σ) and quantifies the ALGEBRAIC RANGE (~13× from eigenvalue ratios). The specific mass RATIOS (τ/μ ≈ 17, t/c ≈ 136, μ/e ≈ 207) require dynamical input — specifically, solving for the equilibrium VEV profile on the covering tower. This parallels the SM: the Higgs mechanism explains WHY masses differ (Yukawa couplings), but the specific coupling values require additional physics.
+
 ---
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
@@ -437,9 +452,11 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB49 update**: The covering tower gives a natural mixed-radix mass M_cov = 35λ₃ + 7λ₅ + λ₇ with 24 levels and 102:1 range. The multiplicative formula Π p_k^{λ_k} spans ~10⁷. But the generation degeneracy (#73) proves that cross-section eigenvalues alone CANNOT split all three generations — the mass channel requires dynamics beyond the flat cross-section.
 
-**NB53 update**: The Higgs-Generation Entanglement Theorem (#85) resolves HOW the radial direction breaks Gen1=Gen2: any non-constant fiber VEV on a p≥3 covering automatically breaks the combined time-reversal Σ. The mass spectrum from fiber eigenmodes shows eigenmode-dependent splitting (m=0 preserved, m=1,2,3 broken with increasing severity). The bilateral exemption (#86) shows p=2 is special — it can carry non-trivial VEV without breaking generation degeneracy. The remaining task is to connect the fiber eigenmode spectrum to observed fermion mass ratios.
+**NB53 update**: The Higgs-Generation Entanglement Theorem (#85) resolves HOW the radial direction breaks Gen1=Gen2: any non-constant fiber VEV on a p≥3 covering automatically breaks the combined time-reversal Σ. The mass spectrum from fiber eigenmodes shows eigenmode-dependent splitting (m=0 preserved, m=1,2,3 broken with increasing severity). The bilateral exemption (#86) shows p=2 is special — it can carry non-trivial VEV without breaking generation degeneracy.
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement).*
+**NB54 update**: The fiber eigenvalue algebra is now fully characterized. The P₄ odd primes {3,5,7} have maximally simple (pure binomial) minimal polynomials — this fails for p ≥ 11. The p=5 fiber generates the golden ratio (φ²) as its characteristic eigenvalue ratio. The static cross-fiber range is ~13×, far short of SM requirements (200–80,000×). The covering tower DILUTES rather than amplifies L1 VEV effects at deeper levels (mean split decreases with tower depth). Multi-level VEVs combine sub-additively. Full mass ratios require solving the Higgs potential on the covering tower — the equilibrium VEV profile that minimizes energy.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
