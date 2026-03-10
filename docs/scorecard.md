@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB58.
+> Last updated after NB59.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 99 |
+| **Structural identities** | 101 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 58 (NB01–NB58) |
+| **Notebooks** | 59 (NB01–NB59) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -38,6 +38,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Character-Tower Mass Channel** | NB56 | Character eigenvalues as VEV exponents, generation gap, exponential amplification | 3 identities: per-level eigenvalue decomposition, generation gap from palindromic symmetry, tower product mass channel |
 | **Conjugation Protection** | NB57 | Coupled generators vs generation degeneracy, spectral wall | 2 identities: character conjugation theorem, tower product protection persistence |
 | **Real Potential Protection** | NB58 | Real diagonal potentials, fifth spectral wall layer, CKM pointer | 2 identities: real potential protection theorem, complete spectral wall |
+| **Directed Cayley Perturbation** | NB59 | Directed generators, conjugation partition, exact analytic gateway | 2 identities: conjugation partition theorem, directed Cayley splitting theorem |
 
 ---
 
@@ -383,6 +384,15 @@ Each layer is strictly stronger. Coupled generators breach the first but cannot 
 
 The wall is now five layers deep. The only exit is a **non-real mass operator** — physically, this corresponds to the CKM mechanism: two Yukawa sectors (up-type and down-type) whose eigenbases are misaligned, introducing irreducible complex phases.
 
+### Directed Cayley Perturbation — Splitting Through the Wall (NB59)
+
+| # | Identity | Description |
+|---|----------|-------------|
+| 100 | Conjugation Partition Theorem | The 48 characters partition into three conjugation classes: 8 self-conjugate (ALL in Gen0, the "real spine"), 4 intra-Gen0 pairs, and 16 inter-Gen1↔Gen2 pairs. Gen1 and Gen2 have ZERO self-conjugate characters — every Gen1 character pairs with a Gen2 character. Total: 8 + 2×4 + 2×16 = 48. Gen0 is structurally unique as the generation containing all real (self-conjugate) characters |
+| 101 | Directed Cayley Splitting Theorem | For generator g ∈ Z*₂₁₀ and directed perturbation A_g = B_g − B_{g⁻¹}, the operator H = L + iεA_g has EXACT analytic eigenvalues E(χ) = λ_L(χ) + 2ε Im(χ(g)), diagonal in character basis. Conjugation-pair split: Δ(χ) = 4ε Im(χ(g)). Verified: analytic/numerical agreement within 10⁻¹⁴ for all three coupled generators {17, 23, 37}. Combined 3-generator split spectrum: 4 distinct magnitudes {1, √3, 3, 3√3} with multiplicities {6, 6, 2, 2} — a geometric progression in √3 (the same Z[√3] ring from NB57). Tower mass ratio: v^Δ gives exponential Gen1-Gen2 splitting from linear eigenvalue shifts |
+
+**The Gateway**: NB59 identifies the EXACT mechanism that passes through the spectral wall. The directed Cayley operator A_g = B_g − B_{g⁻¹} breaks the real-symmetry requirement (NB58's fifth layer) by introducing imaginary components while preserving Hermiticity. In character basis, H remains diagonal — the perturbation shifts eigenvalues without mixing characters. The Z[√3] algebraic ring governs the splitting spectrum, connecting back to the palindromic splits discovered in NB57.
+
 ---
 
 ## V. Geometry & Emergent Physics (NB01–NB28)
@@ -533,9 +543,11 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB57 update**: Coupled generators are a NEGATIVE result for Gen 1-2 splitting. While they break 8/16 per-pair palindromic symmetries (splits living in Z[√3], values ±2√3 and ±6√3), complex conjugation χ→χ̄ preserves eigenvalues and maps Gen1↔Gen2 by flipping BOTH a₅ and a₇. The a₅ flip compensates the a₇ flip, guaranteeing multiset equality even when individual pairs are split. This holds independently at each tower level and extends to the tower product mass. The Spectral Wall is established: NO choice of generators, coupling constants, or VEV magnitudes can break generation mass degeneracy through the Cayley Laplacian alone. The ONLY route is Σ-breaking via site-dependent fiber VEV (NB53).
 
-**NB58 update**: Real diagonal potentials are ALSO a negative result. Adding ANY real V(k) to the Cayley Laplacian cannot break Gen1=Gen2 generation weights, because H = L + diag(V) is real symmetric ⟹ eigenvectors are real ⟹ Fourier conjugation symmetry is exact. This is the fifth and final layer of the spectral wall. The ONLY passage through all five layers is a non-real mass operator — the CKM mechanism, where two misaligned Yukawa sectors (up-type and down-type) introduce irreducible complex phases. The next frontier: construct the two-Yukawa-sector model on Z*₂₁₀ and derive the CKM matrix from the misalignment angle.
+**NB58 update**: Real diagonal potentials are ALSO a negative result. Adding ANY real V(k) to the Cayley Laplacian cannot break Gen1=Gen2 generation weights, because H = L + diag(V) is real symmetric ⟹ eigenvectors are real ⟹ Fourier conjugation symmetry is exact. This is the fifth and final layer of the spectral wall. The ONLY passage through all five layers is a non-real mass operator — the CKM mechanism, where two misaligned Yukawa sectors (up-type and down-type) introduce irreducible complex phases.
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection).*
+**NB59 update**: The directed Cayley operator A_g = B_g − B_{g⁻¹} is the EXACT gateway through the spectral wall. Using generator g but NOT g⁻¹ creates an antisymmetric (hence imaginary) perturbation that breaks the real-symmetry protection while preserving Hermiticity. In character basis, H = L + iεA_g is diagonal with exact eigenvalues E(χ) = λ_L(χ) + 2ε Im(χ(g)). The conjugation partition (#100) reveals that Gen0 contains ALL 8 self-conjugate characters — the "real spine" immune to imaginary shifts — while Gen1↔Gen2 are fully paired (16 pairs, zero self-conjugates). The combined 3-generator split spectrum has 4 distinct magnitudes forming a geometric progression in √3: {1, √3, 3, 3√3} with multiplicities {6, 6, 2, 2}. Through the tower mass formula m ∝ v^E, linear eigenvalue splits become exponential mass ratios. The remaining frontier: derive the perturbation strength ε from Z*₂₁₀ arithmetic to make the Gen1-Gen2 mass ratio a zero-parameter prediction.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
