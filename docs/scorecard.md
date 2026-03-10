@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB50.
+> Last updated after NB51.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 76 |
+| **Structural identities** | 78 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 50 (NB01–NB50) |
+| **Notebooks** | 51 (NB01–NB51) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -30,6 +30,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Metric & Modular** | NB46–NB48 | Cayley metric, modular form bridge, palindromic structure | 14 identities: Ricci-flat Cayley graph, Metric Separation Principle, E₄ bridge, Modular-Solenoid Dictionary, palindromic spectrum, parity split |
 | **Covering Tower** | NB49 | Covering maps, generation structure, mixed-radix mass | 4 identities: Z₆ = Z₂ × Z₃ generation mechanism, covering amplification, Z₃ localization at p=7, generation degeneracy scope boundary |
 | **Palindrome Protection** | NB50 | Cross-section dynamics, generation degeneracy theorem | 3 identities: palindrome protection theorem, two-mass theorem, type-dependent coupling hierarchy |
+| **Time-Reversal Protection** | NB51 | Anti-unitary symmetry, gauge-Higgs localization | 2 identities: time-reversal palindrome protection, gauge-Higgs localization |
 
 ---
 
@@ -252,6 +253,19 @@ Derivation chain status: 5/6 steps proved from first principles, 1/6 remains str
 **Palindrome Protection**: The C₆ cycle eigenvalues satisfy the palindrome symmetry λ(k) = λ(n−k) from cos(2πk/n) = cos(2π(n−k)/n). The geometric coupling sin(πa₅/2) ⊗ L₇ transforms to I₃ ⊗ S₅ ⊗ D₇ in the Fourier basis, where D₇ = diag(λ₇) is diagonal. This means k₇ is a conserved quantum number under any cross-section coupling. Since Gen1 and Gen2 share the same λ₇ (by the palindrome), their effective 4×4 Hamiltonians over k₅ are **identical matrices** — not approximately equal, but operator-equal at all coupling strengths. Verified for geometric, influx (ℓ₅·L₇), and full nesting (3-term) coupling channels.
 
 **Division of Labor**: The cross-section provides the skeleton (16 types × 2 mass levels), while radial/leaf dynamics must provide the fine structure (splitting Gen1 from Gen2). This cleanly separates the mass spectrum into algebraic structure (cross-section) and geometric structure (solenoid fiber).
+
+### Time-Reversal Protection and Gauge-Higgs Localization (NB51)
+
+| # | Identity | Statement |
+|---|---------|----------|
+| 77 | Time-Reversal Palindrome Protection | The map a₇ → −a₇ mod 6 acts as complex conjugation in the Fourier basis of C₆. Any Hamiltonian real in the site basis satisfies E(k₇) = E(6−k₇), protecting Gen1 = Gen2 exactly. This extends NB50 from diagonal couplings to ALL real couplings, including off-diagonal phase couplings |
+| 78 | Gauge-Higgs Localization | No real coupling on the cross-section C₁ × C₂ × C₄ × C₆ can split Gen1 from Gen2. Generation mass splitting is structurally confined to the radial (R⁺) fiber direction. Gauge physics = angular; Higgs physics = radial |
+
+**Time-Reversal Mechanism**: NB50 proved that couplings *diagonal* in k₇ preserve the palindrome. NB51 asks: what about couplings that are *off-diagonal* in k₇? The Lagrangian phase coupling cos(7θ₅ − θ₇) decomposes into cos·cos (diagonal) and sin·sin (off-diagonal, shifting k₇ by ±1). Despite 96 off-k₇-diagonal matrix elements, it produces **zero** Gen1/Gen2 splitting at all coupling strengths. The reason: the map σ: a₇ → −a₇ mod 6 is an anti-unitary symmetry (complex conjugation in Fourier) that holds for ANY real Hamiltonian. Since Gen1 ↔ Gen2 under σ, their eigenvalues are guaranteed equal.
+
+**Universality**: Tested with 100 random real symmetric potentials on C₆ — maximum splitting = 0 (below machine epsilon). Control test: 49/50 complex Hermitian potentials DO break the palindrome, confirming the protection is specifically time-reversal (reality in site basis).
+
+**Gauge-Higgs Localization**: The cross-section (angular directions) determines type structure, generation count, gross hierarchy, and gauge parameters. It CANNOT determine generation mass splitting. The Higgs mechanism — the source of Gen1 ≠ Gen2 — must live in the radial (R⁺) fiber direction, the discrete-degree direction of the covering tower. In correspondential terms: angular = form (pattern of distinctions); radial = degree (quantitative differentiation).
 
 ---
 
