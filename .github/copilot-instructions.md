@@ -327,6 +327,8 @@ See `docs/scorecard.md` for the complete phase map and identity details.
 
 10. **One identity per claim**: Each identity must be a single, verifiable statement. Do not bundle multiple claims into one identity number.
 
+11. **Parallelization**: When writing out calculations, whenever possible use parallelization in code to speed up execution. This is especially important for notebooks that involve large computations.
+
 ## Connection to Literary Compilation
 
 This project provides the computational verification for claims in the `literary-compilation` repository, specifically:
