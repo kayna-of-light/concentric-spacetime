@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB64.
+> Last updated after NB65.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 112 |
+| **Structural identities** | 115 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 64 (NB01–NB64) |
+| **Notebooks** | 65 (NB01–NB65) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -44,6 +44,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Complete Fermion Map** | NB62 | All 48 characters mapped to SM fermion types | 2 identities: level 1 color theorem, chirality gap from p=3 |
 | **Z₄ Sector Algebra** | NB63 | Z₄ cycle from p=5, sector coupling structure | 2 identities: half-integer sector coupling, rational product identity |
 | **Primorial VEV Ratio** | NB64 | Derive ρ = 1/√P₄ from first principles, zero-parameter mass prediction | 3 identities: norm sum rule, rational-irrational 3:1 partition, primorial VEV ratio |
+| **Sector Quadratic Form** | NB65 | Gram matrix of (Im₁, β) sector algebra, group-theoretic invariants | 3 identities: sector cross-term √3, Gram determinant = φ(35), Gram discriminant = φ(P₄) |
 
 ---
 
@@ -471,6 +472,21 @@ The irrational Im₁ part (from p=3 and p=7 cyclotomics) and the rational β par
 | 111 | Rational-Irrational 3:1 Partition | Σ Im₁² / Σ β² = 9/3 = 3. The irrational (Im₁) and rational (β) sectors of the norm sum rule partition in a 3:1 ratio — the same 3+1 that appears in the color-lepton structure. Furthermore: Σ Im₁² = (3/4) · λ(210) and Σ β² = (1/4) · λ(210) |
 | 112 | Primorial VEV Ratio | ρ = 1/√P₄ = 1/√210 = 0.069007. Substituting into the VEV-corrected mass formula: log(m_μ/m_e)/log(m_s/m_d) = 3(ρ+1)/(ρ+√3) = 1.7806. Prediction: m_s/m_d = 19.97 (PDG 2024: 20.0 ± 2.5, deviation −0.012σ). MILESTONE: the last fit parameter (ρ from NB61) is now eliminated. The complete fermion mass formula has ZERO free parameters |
 
+### Sector Quadratic Form (NB65)
+
+| # | Identity | Description |
+|---|----------|-------------|
+| 113 | Sector Cross-Term | Σ(Im₁ · β) = √3 = √p₂. The off-diagonal entry of the sector Gram matrix is controlled by the cyclotomic prime p₂ = 3. Each Im₁·β lies in √3/4 · Z; the sum over 4 sector keys simplifies to √3 |
+| 114 | Gram Determinant = φ(P₃·p₄) | det(M) = 9·3 − (√3)² = 24 = φ(35) = φ(5·7). The determinant of the sector Gram matrix equals the totient of the heavy primorial quotient 35 = P₄/(p₁·p₂). Also: 24/35 = Ω_Λ (NB37 dark energy fraction) |
+| 115 | Gram Discriminant = φ(P₄) | Δ(M) = tr² − 4·det = 144 − 96 = 48 = φ(210) = |Z*₂₁₀|. The discriminant of the Gram matrix equals the full group order — the number of characters |
+
+**Sector Gram Matrix**: NB65 assembles the complete bilinear structure of the (Im₁, β) sector algebra into the 2×2 Gram matrix M = [[9, √3], [√3, 3]]. Three matrix invariants correspond to three group-theoretic functions:
+- tr(M) = 12 = λ(210) — Carmichael function (already #110)
+- det(M) = 24 = φ(35) — heavy-pair totient (**#114**)
+- Δ(M) = 48 = φ(210) = |Z*₂₁₀| — full group order (**#115**)
+
+Eigenvalues: λ± = 6 ± 2√3, ratio = 2 + √3 = tan(75°), an algebraic unit in Z[√3] with norm 1. The VEV quadratic form S²_eff(ρ) = 9ρ² + 2√3ρ + 3 takes palindromic form (3, 2, 3) under t = ρ√3 = 1/√70. Four systematic approaches to derive ρ from M were tested — all negative. The Gram matrix captures the **geometry** of the sector algebra (static spectral statistics), while ρ = 1/√P₄ captures the **dynamics** of tower-level coupling. They are complementary, not redundant.
+
 **Zero-Parameter Mass Prediction**: NB64 derives ρ from first principles by identifying it as 1/√P₄ — the primorial VEV ratio. The systematic scan of all P₄-arithmetic candidates shows 1/√210 is the second-closest after the numerical best-fit (0.067677), but is the ONLY candidate derivable from the primorial without fit parameters. The complete formula:
 
 $$\frac{\log(m_\mu/m_e)}{\log(m_s/m_d)} = \frac{3(1 + 1/\sqrt{210})}{1/\sqrt{210} + \sqrt{3}} = \frac{3(\sqrt{210} + 1)}{1 + \sqrt{630}} = 1.780632$$
@@ -648,7 +664,9 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB64 update**: The norm sum rule Σ(Im₁² + β²) = λ(210) = 12 (#110) and 3:1 rational-irrational partition (#111) connect the sector algebra back to the Carmichael function. The primorial VEV ratio ρ = 1/√P₄ = 1/√210 (#112) eliminates the last free parameter from the mass formula. **MILESTONE**: The zero-parameter prediction m_s/m_d = 19.97 sits at −0.012σ from PDG central (20.0 ± 2.5). The complete framework now derives fermion mass ratios from {2,3,5,7} + M_Z with no fit parameters.
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio).*
+**NB65 update**: The sector Gram matrix M = [[9, √3], [√3, 3]] completes the bilinear algebra. Three invariants map to three group-theoretic functions: tr = λ(210), det = φ(35), Δ = φ(P₄). The eigenvalue ratio 2+√3 = tan(75°) is an algebraic unit in Z[√3]. The VEV quadratic form S²_eff = 9ρ² + 2√3ρ + 3 is palindromic under t = ρ√3 but does NOT independently determine ρ — confirming this as a scope boundary between static spectral geometry and dynamical tower coupling.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -674,7 +692,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180
 
 ## IX. What Is NOT Claimed
 
-- **Fermion mass ratios** have a zero-parameter prediction: m_s/m_d = 19.97 at −0.012σ (NB64), with ρ = 1/√210 derived from first principles. The full mass matrix (all 3 generations × all fermion types) is not yet derived (open frontier #2)
+- **Fermion mass ratios** have a zero-parameter prediction: m_s/m_d = 19.97 at −0.012σ (NB64), with ρ = 1/√210 derived from first principles. The sector Gram matrix (NB65) completes the bilinear structure but does not independently determine ρ. The full mass matrix (all 3 generations × all fermion types) is not yet derived (open frontier #2)
 - **H₀** (Hubble parameter) is not claimed (requires solenoid metric — open frontier #1)
 - **Baryon/DM split** is not claimed (dynamical, not structural)
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
