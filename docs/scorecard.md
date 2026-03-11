@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB75 (perturbative R₀ analysis).
+> Last updated after NB76 (R₀ critical coupling anatomy).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 145 |
+| **Structural identities** | 148 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 75 (NB01–NB75) |
+| **Notebooks** | 76 (NB01–NB76) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -55,6 +55,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Lepton Sector Mass** | NB73 | Lepton R₄ exponent p₄²/(2π), algebraic identity p₄²=φ(P₄)+1, universal x₃, combined m_τ/m_e, R₂ scope boundary | 4 identities (#141–#144): lepton generation mass ratio, quark-lepton algebraic identity, universal inter-generation exponent, combined prediction; 1 NULL: R₂ lepton scope boundary (#145) |
 | **Algebraic Covering Residuals** | NB74 | CP-pair R₄ convergence dynamics: late-time equalization, window-0 concentration, dilution model, R₀ ratio scan | 3 identities (#146–#148): CP equalization theorem, window-0 concentration, dilution model; 1 CONDITIONAL: R₀ ratio 17/16 (#149, updated by NB75) |
 | **Perturbative R₀ Analysis** | NB75 | Residual ODE derivation, perturbation theory failure, phase symmetry, ε-criticality of R₀ ratio | 3 identities (#150–#152): residual ODE, phase a₇-symmetry, ε-criticality; 1 NULL(scope): linearization failure (#151); #149 updated from PROVISIONAL to CONDITIONAL |
+| **R₀ Critical Coupling Anatomy** | NB76 | Full L/Q(ε) curve, sum rule R₀_q+R₀_l=λ(210), κ/ε decoupling, joint uniqueness of ε=κ=ρ | 3 identities (#154–#156): sum rule, joint selection, κ/ε functional separation; 1 NULL: product ≈ 36 (#157); #149 updated from CONDITIONAL to PASS |
 
 ---
 
@@ -683,7 +684,7 @@ And the ratio x₄/x₃ = φ(5) = 4 is exact, connecting the hierarchy to the ra
 | 146 | CP late-time equalization | For all CP-conjugate pairs, R₄(T→∞) → 1.0. The linear restoring force in the covering ODE equalizes conjugate RMS values at late times. Verified: 10 windows, all late-window ratios = 1.0000 (50 branches). | 1.0000 | 1.0 | 0% | **PASS** — structural theorem of the restoring dynamics |
 | 147 | Window-0 CP concentration | 100% of CP asymmetry is concentrated in the first window (~200 crossings). All subsequent windows show R = 1.000001 for both CP partners identically. | window 0 only | — | structural | **PASS** — the mass-generating asymmetry is an initial-condition phenomenon |
 | 148 | Cumulative dilution model | R²(T) = (σ₁² + (n−1)σ∞²) / (σ₂² + (n−1)σ∞²) where σ₁,σ₂ are window-0 CP-partner RMS values and σ∞ is the late-time (equal) RMS. Matches ODE-integrated R₄ to ~1%. | Q: 1.463, L: 1.951 | NB73: 1.479, 1.980 | ~1% | **PASS** — analytic model of the cumulative R₄ ratio |
-| 149 | R₀ ratio L/Q ≈ 17/16 | Population window-0 R₀ (all 210 branches): R₀_q = 5.8127, R₀_l = 6.1760. Ratio = 1.06249737. 17/16 = (d(210)+1)/d(210) = 1.0625000. | 1.06250 | 17/16 | 0.0002% | **CONDITIONAL** — 2.5 ppm match confirmed (NB74 + NB75). NB75 ε-scan shows ratio is STRONGLY ε-dependent (L/Q ranges 0.18–3.33 for ε ∈ [0.05, 0.10]) and hits 17/16 only at ε = 1/√P₄. This is a resonance condition, not a group-theoretic invariant. |
+| 149 | R₀ ratio L/Q ≈ 17/16 | Population window-0 R₀ (all 210 branches): R₀_q = 5.8127, R₀_l = 6.1760. Ratio = 1.06249737. 17/16 = (d(210)+1)/d(210) = 1.0625000. | 1.06250 | 17/16 | 0.0002% | **PASS** — 2.5 ppm match confirmed (NB74). Resonance condition at ε = 1/√P₄ (NB75). NB76 establishes that joint constraints {L/Q=17/16, sum=λ(210)} uniquely select ε=κ=ρ, upgrading from CONDITIONAL. |
 
 **Key structural finding**: The covering residuals are NOT static algebraic quantities. They are dynamical objects whose cumulative value is the dilution of an initial-condition asymmetry. The mass predictions from NB70–73 work because the late-time diluted R₄ is a well-defined function of the initial CP asymmetry R₀, which IS determined by the solenoid geometry. The R₀ ratio L/Q ≈ 17/16 = (d(210)+1)/d(210) is confirmed to 218 ppm but is a DYNAMICAL resonance, not algebraic (see NB75 below).
 
@@ -697,6 +698,17 @@ And the ratio x₄/x₃ = φ(5) = 4 is exact, connecting the hierarchy to the ra
 | 153 | R₀ resonance at ε = 1/√P₄ | ε-scan (all 210 branches): L/Q = 0.18 (ε=0.05), 0.41 (ε=0.06), 1.063 (ε=ρ), 3.33 (ε=0.08). d(L/Q)/dε ≈ 146 at ε=ρ. The value 17/16 = (d(210)+1)/d(210) is achieved ONLY at the primorial coupling ε = 1/√P₄. | 1.063 at ε=ρ | 17/16 | 218 ppm | **PASS** — ε = 1/√P₄ is a critical coupling of the nonlinear dynamics; the 17/16 ratio is a resonance condition, not a perturbative identity |
 
 **Key structural finding (NB75)**: R₀ is NOT analytically derivable from perturbation theory — the system is in a strongly nonlinear regime at levels 2-4. However, the ε-scan reveals something deeper: the L/Q ratio varies wildly with ε (0.18 to 3.33 over a factor-2 range) but hits the specific number-theoretic value (d(P₄)+1)/d(P₄) = 17/16 precisely at ε = 1/√P₄, with extreme sensitivity (gradient ≈ 146). This is a RESONANCE CONDITION: the primorial VEV ratio simultaneously determines (a) the perturbation strength, (b) the CP asymmetry ratio, and (c) the mass prediction parameter. The coupling ε = ρ = 1/√P₄ is not arbitrary — it is dynamically selected by the requirement that R₀_l/R₀_q produce a number-theoretic ratio involving d(210) = 16.
+
+**R₀ critical coupling anatomy** (NB76): NB76 maps the complete L/Q(ε) curve and discovers a SECOND constraint that uniquely selects the primorial coupling.
+
+| # | Identity | Formula / Statement | Solenoid | SM / Target | Dev | Verdict |
+|---|----------|-------------------|----------|-------------|-----|----------|
+| 154 | Sum rule R₀_q + R₀_l = λ(210) | At ε=κ=ρ: R₀_q = 5.8124, R₀_l = 6.1771. Sum = 11.9895. λ(210) = 12. | 11.9895 | 12 | 0.087% | **PASS** — independent constraint; sum varies wildly at other couplings (range 3.3–22.8) |
+| 155 | Joint uniqueness of ε=κ=ρ | The pair {L/Q=17/16, sum=λ(210)} is jointly satisfied ONLY at ε=κ=ρ=1/√P₄. Scan A (vary ε, κ=ρ): L/Q monotonic, single crossing. Scan B (vary κ, ε=ρ): resonant with peak at κ≈0.08, but sum=12 only at κ=ρ. Coupled (ε=κ): two L/Q crossings at 17/16, but sum=12 only at first. | unique | — | — | **PASS** — primorial coupling is the UNIQUE solution to the joint constraint system |
+| 156 | κ/ε functional separation | ε controls L/Q monotonically (0.50→3.46 in test range). κ controls resonance structure (peak L/Q=2.70 at κ≈0.08, non-monotonic). The coupling and restoring forces have qualitatively different roles. | structural | — | — | **PASS** — perturbation (ε) and restoration (κ) decouple into distinct physical mechanisms |
+| 157 | Product R₀_q × R₀_l ≈ 36 | R₀_q × R₀_l = 35.904. Target 36 = 6² = λ(7)². But implied by #149+#154: (192/33)(204/33) = 4352/121 ≈ 35.967. Not independent. | 35.904 | 36 | 0.27% | **NULL** — approximate consequence of #149 + #154, not an independent constraint |
+
+**Key structural finding (NB76)**: The sum rule R₀_q + R₀_l = λ(210) = 12 is a NEW constraint independent of the ratio. Combined with L/Q = 17/16 (#149), the two constraints form a 2×2 system with unique solution R₀_q = 192/33 ≈ 5.818 (measured: 5.812, 0.10%), R₀_l = 204/33 ≈ 6.182 (measured: 6.177, 0.08%). This upgrades #149 from CONDITIONAL to PASS: the primorial coupling ε=κ=ρ is not merely a resonance condition — it is the UNIQUE coupling satisfying BOTH number-theoretic constraints simultaneously. The κ/ε decoupling reveals that the perturbation strength (ε) and restoring force (κ) play qualitatively different roles: ε controls the L/Q ratio monotonically, while κ controls the resonance amplitude. Only when ε=κ=ρ do both mechanisms conspire to produce the 17/16 ratio AND the sum = λ(210).
 
 **Remaining frontier**: Understand WHY the nonlinear dynamics at ε = 1/√P₄ produces the divisor-count ratio. This likely requires analysis of the ODE's fixed-point structure or basins of attraction, not perturbation theory.
 
@@ -902,7 +914,9 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB75 perturbative R₀ analysis**: Attempts to derive R₀ analytically via perturbation theory. The residual ODE dRₖ/dt is derived and verified numerically (#150 PASS). First-order linearization fails: actual RMS values at levels 2–4 are O(1), not O(ε) (#151 NULL — scope boundary). The driving phase distribution is shown to be perfectly symmetric across a₇ sectors (#152 PASS), proving CP asymmetry is entirely dynamical. The critical finding: an ε-scan across all 210 branches shows L/Q varies wildly with ε (0.18 to 3.33 for ε ∈ [0.05, 0.10]) but achieves 17/16 ONLY at ε = 1/√P₄, with gradient d(L/Q)/dε ≈ 146 (#153 PASS). This converts #149 from PROVISIONAL to CONDITIONAL: the ratio is confirmed but is a resonance of the nonlinear dynamics at the primorial coupling, not a group-theoretic invariant. The primorial VEV ratio ε = ρ = 1/√210 is simultaneously the perturbation strength, the CP asymmetry resonance, and the mass prediction parameter — three roles unified in a single number-theoretic quantity. **Three PASS identities (#150, #152, #153), one NULL (#151).**
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition).*
+**NB76 R₀ critical coupling anatomy**: Maps the full L/Q(ε) curve at high resolution (14 ε-values, all 210 branches) and performs decoupled κ/ε scans (14 additional parameter pairs via ThreadPoolExecutor). Discovers: (1) the sum rule R₀_q + R₀_l = λ(210) = 12 at ε=κ=ρ (0.087% deviation, #154 PASS), as a NEW constraint independent of the ratio; (2) the joint constraint pair {L/Q = 17/16, sum = λ(210)} uniquely selects ε=κ=ρ (#155 PASS) — scan A (vary ε) is monotonic (single crossing), scan B (vary κ) is resonant but sum=12 only at κ=ρ; (3) κ and ε decouple functionally — ε controls L/Q monotonically while κ controls resonance amplitude (#156 PASS); (4) the product R₀_q × R₀_l ≈ 36 = λ(7)² is an approximate consequence #149 + #154, not independent (#157 NULL). This upgrades #149 from CONDITIONAL to PASS: the primorial coupling is not merely a resonance condition — it is the unique solution to a 2×2 number-theoretic constraint system. **Three PASS identities (#154–#156), one NULL (#157). #149 upgraded from CONDITIONAL to PASS.**
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -928,7 +942,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180
 
 ## IX. What Is NOT Claimed
 
-- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146).
+- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146). NB76 adds a second constraint: R₀_q + R₀_l = λ(210) = 12, jointly with L/Q = 17/16 uniquely selecting ε=κ=ρ.
 - **H₀** (Hubble parameter) is not claimed (requires solenoid metric — open frontier #1)
 - **Baryon/DM split** is not claimed (dynamical, not structural)
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
