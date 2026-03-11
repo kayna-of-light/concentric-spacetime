@@ -19,6 +19,26 @@ The primes {2, 3, 5, 7} are not chosen — they are the unique set that generate
 
 ## Mathematical Framework
 
+### The Solenoid as Dynamical System
+
+The (2,3,5,7)-solenoid is the inverse limit of covering maps on circles:
+
+```
+S¹ ←—2—— S¹ ←—3—— S¹ ←—5—— S¹ ←—7—— S¹
+```
+
+Each covering map wraps p_k times: `p_k · θ_k = θ_{k-1} (mod 2π)`. The inverse limit has a **Cantor-set fiber** over each point of S¹.
+
+- **Exact solenoid frequencies**: ω/P_k where P_k is the k-th primorial
+- **Poincaré section**: exactly P₄ = 210 discrete return points
+- **Alignment structure**: levels align at primorial multiples (2, 6, 30, 210)
+- **Perturbation** (ε > 0): dissolves discrete structure toward flat T⁴ — proves primes are irreplaceable
+- **Covering constraint residuals**: R_k = p_k·θ_k − θ_{k-1} (mod 2π) ≈ 0 on exact solenoid
+
+The dynamics demonstrates that the coprimality of {2, 3, 5, 7} is what generates the 210-point quantized structure. Replace any prime with a composite and the structure collapses.
+
+### Algebraic Structure
+
 - **Arena**: S² × R⁺ (sphere × positive radial half-line), not R³⁺¹
 - **Structure**: The (2,3,5,7)-solenoid, with cross-section a Cantor set
 - **Symmetry group**: Z*₂₁₀, the 48-element multiplicative group of units mod 210
@@ -37,14 +57,56 @@ Key arithmetic functions of 210:
 | φ/d | 3 | Fermion generations |
 | φ/N = 8/35 | 0.2286 | sin²θ_W |
 
+## Current Mathematical Infrastructure
+
+Beyond the base Z*₂₁₀ algebra, the following structures have been established and are used by notebooks NB49+:
+
+### Covering Tower (NB49+)
+A 3-level covering tower with progressive prime activation:
+
+| Level | Active Primes | Group | Order | Role |
+|-------|--------------|-------|-------|------|
+| 0 | {3} | C₆ | 6 | Generation seed |
+| 1 | {3, 7} | C₄₂ | 42 | Color emergence |
+| 2 | {3, 5, 7} | C₂₁₀ | 210 | Full SM spectrum |
+
+The tower is constructed with `ACTIVE_PRIMES = [[3], [3,7], [3,5,7]]`.
+
+### SM Quantum Number Dictionary (NB62)
+Each CRT component maps to a specific SM quantum number:
+
+| CRT Factor | Prime | SM Interpretation |
+|------------|-------|-------------------|
+| a₂ (Z₁) | p=2 | Trivial (bilateral symmetry already built in) |
+| a₃ (Z₂) | p=3 | Chirality (L/R) |
+| a₅ (Z₄) | p=5 | Charge sector (Z₄ cycle: 1→2→4→3) |
+| a₇ (Z₆) | p=7 | Generation × color-parity |
+
+### Sector Decomposition (NB63–65)
+The 48 characters decompose into sectors labeled by (a₃, a₇) pairs. Each sector has:
+- **Im₁**: Irrational part of level-1 eigenvalue (lives in √3/2 · Z)
+- **β**: Rational coupling constant (lives in Z/2, half-integer)
+- **Gram matrix**: M = [[ΣIm₁², ΣIm₁·β], [ΣIm₁·β, Σβ²]] with group-theoretic invariants
+
+### Mass Prediction Formula (NB60–64)
+The VEV-corrected mass ratio formula with zero free parameters:
+```
+log(m_μ/m_e) / log(m_s/m_d) = 3(ρ+1) / (ρ+√3)
+```
+where ρ = 1/√P₄ = 1/√210 (the primorial VEV ratio).
+
 ## Repository Structure
 
 ```
 concentric-spacetime/
-├── notebooks/          # Jupyter notebooks NB01–NB45 (sequential, cumulative)
-│   ├── 01_nested_oscillators.ipynb
+├── notebooks/          # Jupyter notebooks NB01–NB65+ (sequential, cumulative)
+│   ├── 01_nested_oscillators.ipynb    # Phase 1 start
 │   ├── ...
-│   └── 45_thermal_dynamics.ipynb
+│   ├── 29_structural_constants.ipynb  # First solenoid predictions
+│   ├── ...
+│   ├── 49_covering_tower_generations.ipynb  # Tower structure
+│   ├── ...
+│   └── 65_sector_quadratic_form.ipynb # Latest
 ├── scripts/
 │   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ operations) — ACTIVE
 │   ├── solenoid_system.py     # Solenoid dynamics utilities — ACTIVE
@@ -53,9 +115,13 @@ concentric-spacetime/
 │   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
 │   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
 ├── docs/
-│   ├── scorecard.md           # Living scorecard: all 55 identities
-│   └── research_directions.md # Early-phase research directions (partially superseded)
-├── temp/                      # Builder scripts (create_nbXX.py) and scratch
+│   ├── scorecard.md           # Living scorecard: all 115 identities (updated after each notebook)
+│   ├── research_directions.md # Early-phase research directions (partially superseded)
+│   └── status_*.md            # Point-in-time status summaries
+├── temp/                      # Builder scripts, prototypes, and exploration scripts
+│   ├── create_nb*.py          # Builder scripts (archive of notebook construction logic)
+│   ├── proto_nb*.py           # Prototype scripts (pre-notebook exploration)
+│   └── explore_*.py           # Exploration scripts (mathematical investigation)
 └── output/                    # Generated figures and data
 ```
 
@@ -70,7 +136,15 @@ The core algebraic module. Provides:
 - `SA.primes`, `SA.N`, `SA.phi_N`, etc.
 
 ### `scripts/solenoid_system.py` — ACTIVE
-Solenoid dynamics: Lagrangian construction, kinetic matrix, Cayley graph Laplacian, spectral analysis.
+Continuous solenoid dynamics. Provides:
+- `SolenoidSystem(primes, omega, epsilon)` — main class, configurable perturbation
+- `.integrate(t_span)` — ODE integration of the solenoid flow
+- `.poincare_section()` — record states at base-circle crossings (the 210-point structure)
+- `.covering_residuals(theta)` — verify covering constraints R_k ≈ 0
+- `.solenoid_eigenvalue(n)` — eigenvalue of mode n: Σ(n/P_k)²
+- `.spectrum(n_modes)` — first n eigenvalues
+- `.alignment_structure()` — which levels align at each return number
+- `.initial_condition(phi0, branch)` — select solenoid leaf by branch tuple (j₁,...,j_n)
 
 ### Legacy Scripts (Phase 1–2)
 The following modules were used by NB01–NB22 and are **not imported by any solenoid-phase notebook**:
@@ -81,15 +155,119 @@ The following modules were used by NB01–NB22 and are **not imported by any sol
 
 These are retained for reference but are not part of the active framework.
 
+## Agent Workflow
+
+This section documents how the AI agent (Copilot) works on this project. This is the actual methodology — follow it.
+
+### The Discovery Pipeline
+
+The typical workflow for new mathematical content follows this pipeline:
+
+```
+Exploration → Prototype → Notebook → Scorecard → Commit
+```
+
+1. **Exploration**: Investigate mathematical relationships using `temp/explore_*.py` scripts or direct computation. These are scratch calculations to test whether an idea has substance.
+
+2. **Prototype**: When an exploration reveals a promising direction, create `temp/proto_nbXX.py` to develop the notebook logic before committing to a formal notebook.
+
+3. **Notebook construction**: Build the formal notebook using VS Code notebook tools (`create_new_jupyter_notebook`, `edit_notebook_file`, `run_notebook_cell`). Execute cells sequentially, fixing bugs interactively as they arise.
+
+4. **Scorecard update**: After all cells execute successfully, update `docs/scorecard.md` with new identity entries.
+
+5. **Git commit**: Stage and commit all changes with a descriptive message.
+
+### Notebook Construction Method
+
+Notebooks are built interactively using VS Code notebook tools:
+
+1. **Create** the notebook with `create_new_jupyter_notebook` or by creating the `.ipynb` file directly.
+2. **Add cells** using `edit_notebook_file` — alternating markdown (context/explanation) and code (computation) cells.
+3. **Execute cells** one at a time with `run_notebook_cell`, checking output at each step.
+4. **Debug** by reading cell output, editing the failing cell with `edit_notebook_file`, and re-running.
+5. **Iterate** — mathematical discoveries during execution often lead to new cells or modified analysis.
+
+**Builder scripts** (`temp/create_nbXX.py`) are retained as archive artifacts that record the construction logic. They produce `.ipynb` JSON directly but are NOT the primary construction method — VS Code notebook tools are.
+
+**CRITICAL BUG**: Triple-quoted docstrings inside raw strings (`r"""..."""`) break the JSON builder if builder scripts are used. Use `#` comments instead of docstrings in code cells.
+
+### Scorecard Update Procedure
+
+After completing a notebook with new identities:
+
+1. **Read** the current `docs/scorecard.md` to find the exact insertion point.
+2. **Update the summary table** — increment the identity count and notebook count.
+3. **Add an entry to the Phase Map table** (§I) for the new notebook.
+4. **Add identity descriptions** in the appropriate section with:
+   - Identity number, name, formula/statement
+   - Solenoid value, measured value, deviation
+   - PASS/FAIL/NULL verdict with explanation
+5. **Update any affected frontier sections** if the notebook advances an open direction.
+
+### Git Commit Conventions
+
+Commit messages follow this format:
+```
+NB##: Short description (#first-#last)
+```
+
+Examples:
+- `NB65: Sector quadratic form, Gram matrix invariants (#113-115)`
+- `NB62-64: Complete fermion map, Z4 sector algebra, primorial VEV ratio (#106-112)`
+
+For multi-notebook sessions, combine into a single commit with all notebook numbers and identity ranges.
+
+**Pre-commit checklist**:
+1. All notebook cells executed successfully
+2. Scorecard updated with new identities
+3. All files saved (`workbench.action.files.saveAll`)
+4. `git add -A` then `git commit -m "..."`
+
+### Multi-Notebook Sessions
+
+When a research direction requires multiple sequential notebooks (e.g., NB62→63→64 forming a derivation chain), build them in order within a single session:
+
+1. Plan the logical chain — what each notebook will establish
+2. Build and execute NB(n) completely before starting NB(n+1)
+3. Later notebooks may import results established by earlier ones in the chain
+4. Update the scorecard once after all notebooks in the chain are complete
+5. Commit all notebooks together with a combined message
+
+### Mathematical Discovery During Execution
+
+New mathematical relationships are often discovered mid-computation. When this happens:
+
+1. **Verify numerically** — run the computation, check the identity holds
+2. **Verify algebraically** — confirm with exact arithmetic (sympy/Fraction) where possible
+3. **Assign an identity number** — add to the running scorecard
+4. **Continue the notebook** — the discovery may open further cells/analysis
+5. **Note scope boundaries** — if the discovery points beyond current framework scope, record as a frontier direction rather than forcing a premature claim
+
 ## Notebook Conventions
 
 ### Naming
 Notebooks are numbered sequentially: `XX_descriptive_name.ipynb`. The number reflects the order of discovery, not logical dependency (though later notebooks build on earlier results).
 
-### Builder Pattern
-Notebooks are generated from Python builder scripts in `temp/create_nbXX.py` that produce `.ipynb` JSON directly. This ensures reproducibility and avoids manual cell editing.
+### Standard Cell Structure
 
-**CRITICAL BUG**: Triple-quoted docstrings inside raw strings (`r"""..."""`) break the JSON builder. Use `#` comments instead of docstrings in code cells.
+Each notebook follows this general pattern:
+
+1. **Title cell** (markdown): Notebook name, identity targets, summary
+2. **Setup cell** (code): Imports, path configuration, `SA` object loading
+3. **Analysis cells** (alternating markdown/code): One logical step per code cell, preceded by markdown explanation
+4. **Scorecard cell** (code): Final cell listing identities discovered, verdicts, running total
+
+### Standard Setup Cell
+```python
+import sys, numpy as np
+from pathlib import Path
+
+ROOT = Path.cwd().parent
+if str(ROOT / "scripts") not in sys.path:
+    sys.path.insert(0, str(ROOT / "scripts"))
+
+from solenoid_algebra import SA
+```
 
 ### Identity Tracking
 Each notebook from NB29 onward contains a **scorecard section** that:
@@ -108,11 +286,27 @@ print("=" * 65)
 print(f"Running total: N predictions/identities, 0 free parameters")
 ```
 
+## Phase Map (Overview)
+
+| Phase | Notebooks | Focus | Status |
+|-------|-----------|-------|--------|
+| **Geometry** | NB01–NB12 | S² × R⁺ exploration | Foundational; no predictions |
+| **Standard QM** | NB13–NB22 | Consistency checks | Reproduces known QM; no new predictions |
+| **Solenoid Discovery** | NB23–NB28 | Identifying the structure | Established the (2,3,5,7)-solenoid |
+| **SM Predictions** | NB29–NB40 | Constants from number theory | 28 identities: SM constants, cosmological parameters |
+| **Algebraic Dynamics** | NB41–NB45 | Characters, Lagrangian, thermodynamics | 27 identities: spectral analysis, heat trace |
+| **Metric & Modular** | NB46–NB48 | Cayley metric, modular forms, palindromes | 14 identities: E₄ bridge, palindromic spectrum |
+| **Covering Tower** | NB49–NB56 | Generation structure, mass channels | 22 identities: generation mechanism, VEV dynamics |
+| **Spectral Protection** | NB57–NB59 | Conjugation, real potentials, directed Cayley | 6 identities: spectral wall layers |
+| **Fermion Mass** | NB60–NB65 | Mass predictions, fermion map, sector algebra | 18 identities: zero-parameter mass prediction |
+
+See `docs/scorecard.md` for the complete phase map and identity details.
+
 ## Working Rules
 
 1. **No free parameters**: Every prediction must derive from {2, 3, 5, 7} (or equivalently P₄ = 210) plus the single anchor M_Z. If a fit parameter is needed, it's not a prediction.
 
-2. **Phase 1/2 are NOT results**: NB01–NB08 used a preliminary model (nested torus T⁴) that was abandoned. NB13–NB22 reproduce standard QM textbook calculations on S² × R⁺ — they are consistency checks, not predictions. Do NOT cite Phase 1/2 notebook verdicts ("EXACT match", "PASS") as framework findings. All 55 identities come from NB29–NB45 (solenoid arithmetic). See `docs/scorecard.md` §V for details.
+2. **Phase 1/2 are NOT results**: NB01–NB08 used a preliminary model (nested torus T⁴) that was abandoned. NB13–NB22 reproduce standard QM textbook calculations on S² × R⁺ — they are consistency checks, not predictions. Do NOT cite Phase 1/2 notebook verdicts ("EXACT match", "PASS") as framework findings. All identities come from NB29+ (solenoid arithmetic). See `docs/scorecard.md` §V for details.
 
 3. **Honest nulls**: When a test fails, classify it honestly:
    - **Genuine null**: The framework predicts X, data shows not-X → report as failure
@@ -126,6 +320,12 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 6. **Pre-commit workflow**: Always save all files (`workbench.action.files.saveAll`) before `git add`/`git commit`. VS Code may hold unsaved buffer state.
 
 7. **Conda environment**: `concentric` (Python 3.12). Dependencies: numpy, scipy, matplotlib, sympy, jupyter.
+
+8. **Notebook execution order**: Always execute cells sequentially from top to bottom. Later cells depend on variables established by earlier cells. If a cell fails, fix it and re-run — do not skip ahead.
+
+9. **Exact arithmetic first**: Use `sympy` or `fractions.Fraction` to verify identities exactly before reporting numerical values. An identity that holds only to floating-point precision is not proven — it is a hint.
+
+10. **One identity per claim**: Each identity must be a single, verifiable statement. Do not bundle multiple claims into one identity number.
 
 ## Connection to Literary Compilation
 
