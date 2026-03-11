@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB65.
+> Last updated after NB66.
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 65 (NB01–NB65) |
+| **Notebooks** | 66 (NB01–NB66) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -45,6 +45,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Z₄ Sector Algebra** | NB63 | Z₄ cycle from p=5, sector coupling structure | 2 identities: half-integer sector coupling, rational product identity |
 | **Primorial VEV Ratio** | NB64 | Derive ρ = 1/√P₄ from first principles, zero-parameter mass prediction | 3 identities: norm sum rule, rational-irrational 3:1 partition, primorial VEV ratio |
 | **Sector Quadratic Form** | NB65 | Gram matrix of (Im₁, β) sector algebra, group-theoretic invariants | 3 identities: sector cross-term √3, Gram determinant = φ(35), Gram discriminant = φ(P₄) |
+| **Dynamical Sector Splitting** | NB66 | First dynamical test: solenoid ODE at ε = ρ, cascade amplification, branch sensitivity | 0 identities (3 scope boundaries): cascade real but gauge-variant, generation degeneracy null, RMS(R₂) invariant |
 
 ---
 
@@ -502,6 +503,24 @@ The VEV-weighted norm: ρ² · Σ Im₁² + Σ β² = (1/210)·9 + 3 = 213/70 �
 
 ---
 
+### Dynamical Sector Splitting (NB66)
+
+| # | Finding | Description |
+|---|---------|-------------|
+| — | Cascade Amplification | Relative covering-constraint deviations grow level by level: 0.12% → 0.92% → 5.5% → 190% (total cascade: 1605×). Amplification driven by ε·sin(θ_{k-1})/p_k coupling. **Scope boundary**: sector ratios are branch-dependent (gauge-variant) |
+| — | RMS(R₂) Linear Scaling | RMS(R₂) = c·ε with c = 0.450 ± 0.001, branch-invariant (CV = 0.05%). First-order: c₁ = √(35/8)/(2π) = 0.333 accounts for 74%; cascade adds 35%. **Scope boundary**: exact coefficient not identified arithmetically |
+| — | Generation Degeneracy (NULL) | All 6 a₇ positions within each sector are degenerate to < 0.2%. Root cause: sin(θ_{k-1}) coupling is θ_k-independent — all a₇ slots see the same time-averaged drive over one p=7 cycle. **NULL**: need θ_k-dependent coupling for generation splitting |
+
+**First Dynamical Test**: NB66 returns to the solenoid ODE (first time since NB25) with ε = ρ = 1/√210. The sin(θ_{k-1})/p_k perturbation produces real sector-dependent structure — cascade amplification magnifies tiny level-1 deviations by 1600× at level 4, and the 8 CRT sectors (a₃, a₅) show ratios up to 1:97. However:
+
+1. **Branch dependence (gauge variance)**: Different solenoid leaves produce completely different sector ratios and orderings. RMS(R₂) is the ONLY branch-invariant quantity found. The sin(θ_{k-1}) coupling depends on absolute angles, not covering-constraint residuals R_k = p_k·θ_k − θ_{k-1}.
+
+2. **Generation degeneracy (null)**: The coupling dθ₄/dt += ε·sin(θ₃)/7 doesn't depend on θ₄. Over one p=7 cycle, θ₃ completes 7 full oscillations → all a₇ (generation) positions see identical time-averaged drive.
+
+3. **Scope boundary**: A correct mass coupling must be (a) gauge-invariant — depend on R_k, not absolute angles, and (b) θ_k-dependent for generation splitting. The sin(θ_{k-1}) model fails both. But the machinery works: cascade amplification is real, sector splitting is real — the coupling just needs to be replaced.
+
+---
+
 ## V. Geometry & Emergent Physics (NB01–NB28)
 
 These notebooks do not carry numbered identities. They document the discovery process — including an incorrect early model — and establish that S² × R⁺ reproduces standard quantum mechanics. Neither phase contains original predictions.
@@ -666,7 +685,9 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB65 update**: The sector Gram matrix M = [[9, √3], [√3, 3]] completes the bilinear algebra. Three invariants map to three group-theoretic functions: tr = λ(210), det = φ(35), Δ = φ(P₄). The eigenvalue ratio 2+√3 = tan(75°) is an algebraic unit in Z[√3]. The VEV quadratic form S²_eff = 9ρ² + 2√3ρ + 3 is palindromic under t = ρ√3 but does NOT independently determine ρ — confirming this as a scope boundary between static spectral geometry and dynamical tower coupling.
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form).*
+**NB66 update**: First dynamical test since NB25. The solenoid ODE at ε = ρ produces cascade amplification (1605×) and sector-dependent splitting (1:97 across 8 CRT sectors). However, sin(θ_{k-1}) coupling is **gauge-variant** — sector ratios change completely between solenoid branches. RMS(R₂) = c·ε (c ≈ 0.450) is the sole branch-invariant finding. Generation (a₇) degeneracy is total: sin(θ_{k-1}) is θ_k-independent, so all generation slots see identical drive. **Scope boundary**: correct coupling must be (1) gauge-invariant (depend on R_k = p_k·θ_k − θ_{k-1}) and (2) θ_k-dependent. The dynamical machinery works; the coupling model must be upgraded.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -692,7 +713,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180
 
 ## IX. What Is NOT Claimed
 
-- **Fermion mass ratios** have a zero-parameter prediction: m_s/m_d = 19.97 at −0.012σ (NB64), with ρ = 1/√210 derived from first principles. The sector Gram matrix (NB65) completes the bilinear structure but does not independently determine ρ. The full mass matrix (all 3 generations × all fermion types) is not yet derived (open frontier #2)
+- **Fermion mass ratios** have a zero-parameter prediction: m_s/m_d = 19.97 at −0.012σ (NB64), with ρ = 1/√210 derived from first principles. The sector Gram matrix (NB65) completes the bilinear structure but does not independently determine ρ. NB66 shows the **dynamical route** to mass ratios via solenoid ODE produces sector-dependent cascade amplification, but the sin(θ_{k-1}) coupling is gauge-variant — a gauge-invariant coupling model using R_k residuals is needed. The full mass matrix (all 3 generations × all fermion types) is not yet derived (open frontier #2)
 - **H₀** (Hubble parameter) is not claimed (requires solenoid metric — open frontier #1)
 - **Baryon/DM split** is not claimed (dynamical, not structural)
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
