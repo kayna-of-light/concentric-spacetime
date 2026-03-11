@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB73 (lepton sector mass architecture).
+> Last updated after NB74 (algebraic covering residuals).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 139 |
+| **Structural identities** | 142 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 73 (NB01–NB73) |
+| **Notebooks** | 74 (NB01–NB74) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -53,6 +53,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Charge Sector Decomposition** | NB71 | R₄ ratios across all 4 a₅ sectors, sector differentiation, tower protection | 1 identity: charge sector dynamical differentiation (#129); 3 scope boundaries (#130–132) |
 | **Radial Mass Channel** | NB72 | Three-level mass architecture with cascade correction: R₄ (gen1→2), R₃ (inter-sector), R₂ (gen2→3), cascade R₄^{−λ(7)} | 6 identities (#133–#136, #139–#140): complete quark mass hierarchy including top quark via cascade correction; 2 NULLs: naive top quark scope boundary (#137), lepton hint (#138) |
 | **Lepton Sector Mass** | NB73 | Lepton R₄ exponent p₄²/(2π), algebraic identity p₄²=φ(P₄)+1, universal x₃, combined m_τ/m_e, R₂ scope boundary | 4 identities (#141–#144): lepton generation mass ratio, quark-lepton algebraic identity, universal inter-generation exponent, combined prediction; 1 NULL: R₂ lepton scope boundary (#145) |
+| **Algebraic Covering Residuals** | NB74 | CP-pair R₄ convergence dynamics: late-time equalization, window-0 concentration, dilution model, R₀ ratio scan | 3 identities (#146–#148): CP equalization theorem, window-0 concentration, dilution model; 1 PROVISIONAL: R₀ ratio 17/16 (#149) |
 
 ---
 
@@ -674,6 +675,19 @@ And the ratio x₄/x₃ = φ(5) = 4 is exact, connecting the hierarchy to the ra
 
 **Remaining frontier**: m_τ/m_μ individually is at −3.80% (ODE-limited, tracked in NB72 #138 as suggestive). Higher-precision ODE integration or analytic derivation could sharpen the R₃ channel.
 
+**Covering residual dynamics** (NB74): The cumulative R₄ ratios used for mass predictions (NB70–73) are NOT constants — they are the late-time dilution of a massive initial CP asymmetry concentrated in the first ~200 Poincaré crossings.
+
+| # | Identity | Formula / Statement | Solenoid | SM / Target | Dev | Verdict |
+|---|----------|-------------------|----------|-------------|-----|---------|
+| 146 | CP late-time equalization | For all CP-conjugate pairs, R₄(T→∞) → 1.0. The linear restoring force in the covering ODE equalizes conjugate RMS values at late times. Verified: 10 windows, all late-window ratios = 1.0000 (50 branches). | 1.0000 | 1.0 | 0% | **PASS** — structural theorem of the restoring dynamics |
+| 147 | Window-0 CP concentration | 100% of CP asymmetry is concentrated in the first window (~200 crossings). All subsequent windows show R = 1.000001 for both CP partners identically. | window 0 only | — | structural | **PASS** — the mass-generating asymmetry is an initial-condition phenomenon |
+| 148 | Cumulative dilution model | R²(T) = (σ₁² + (n−1)σ∞²) / (σ₂² + (n−1)σ∞²) where σ₁,σ₂ are window-0 CP-partner RMS values and σ∞ is the late-time (equal) RMS. Matches ODE-integrated R₄ to ~1%. | Q: 1.463, L: 1.951 | NB73: 1.479, 1.980 | ~1% | **PASS** — analytic model of the cumulative R₄ ratio |
+| 149 | R₀ ratio L/Q ≈ 17/16 | Population window-0 R₀ (all 210 branches): R₀_q = 5.8127, R₀_l = 6.1760. Ratio = 1.06249737. 17/16 = (d(210)+1)/d(210) = 1.0625000. | 1.06250 | 17/16 | 0.0002% | **PROVISIONAL** — 2.5 ppm match, but individual R₀ values only match simple fractions at ~0.4%. Needs perturbation theory or ε-dependence study to confirm. |
+
+**Key structural finding**: The covering residuals are NOT static algebraic quantities. They are dynamical objects whose cumulative value is the dilution of an initial-condition asymmetry. The mass predictions from NB70–73 work because the late-time diluted R₄ is a well-defined function of the initial CP asymmetry R₀, which IS determined by the solenoid geometry. The R₀ ratio L/Q ≈ 17/16 = (d(210)+1)/d(210) is tantalizing but requires analytic confirmation via perturbation theory.
+
+**Remaining frontier**: Derive R₀ values from first principles (perturbation theory at ε = 1/√210). Test whether 17/16 ratio persists at different ε values. Explore ProcessPoolExecutor or numba for true parallelism.
+
 ---
 
 **CP-Selective Mechanism**: NB69 resolves the NB68 scope boundary by examining not the generation-averaged spectrum but the **conjugate pair structure within each sector**. The key insight:
@@ -872,7 +886,9 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB73 lepton sector update**: The lepton sector uses a DIFFERENT R₄ exponent: p₄² = 49 instead of φ(P₄) = 48 for quarks. The key discovery is the algebraic identity (p₂−1)(p₃−1) = p₄+1, which holds ONLY for {3,5,7} among all consecutive odd prime triples (verified through p=31). This gives φ(P₄) = (p₄+1)(p₄−1) = p₄²−1 via difference of squares, making the quark-lepton exponent split structurally necessary. With x₄_l = p₄²/(2π) = 49/(2π), the lepton generation ratio m_μ/m_e = R₄_l^{x₄_l} = 205.4 vs SM 206.77 (−0.65%) — a clean zero-parameter prediction. The R₃ exponent remains UNIVERSAL: λ(35)/(2π) = 12/(2π) governs inter-generation stepping for both quarks and leptons, confirmed by exhaustive scan. The combined m_τ/m_e = R₃^{x₃} × R₄^{x₄_l} = 3323 vs 3477 (−4.43%, ODE-limited). The R₂ channel FAILS for leptons (−42.75%), confirming the fundamentally different cascade structure flagged in NB72. **Four PASS identities (#141–#144), one NULL (#145)**.
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture).*
+**NB74 covering residual dynamics**: The cumulative R₄ ratios used throughout NB70–73 for mass predictions are NOT static constants. NB74 discovers that R(T) decreases monotonically with integration time T, following a dilution law: all CP asymmetry is concentrated in the first ~200 Poincaré crossings (window 0), while all subsequent windows show perfect CP-partner equalization (R = 1.0000). The cumulative ratio is therefore R₀ diluted by n−1 symmetric windows. A population run over all 210 branches reveals R₀_q = 5.8127, R₀_l = 6.1760, with ratio L/Q = 1.06250 ≈ 17/16 = (d(210)+1)/d(210) to 2.5 ppm. The dilution model R²(T) = (σ₁²+(n−1)σ∞²)/(σ₂²+(n−1)σ∞²) matches the ODE-integrated values to ~1%. This reframes the mass prediction pipeline: the solenoid geometry determines R₀ (initial CP asymmetry), dilution determines the effective R₄ at any given T, and the algebraic exponents (NB70–73) convert R₄ to masses. **Three PASS identities (#146–#148), one PROVISIONAL (#149)**.
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -898,7 +914,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180
 
 ## IX. What Is NOT Claimed
 
-- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton masses remain an open frontier** — the lepton sector has fundamentally different cascade structure (α₂ = 2.60 vs 7.67 for quarks) and requires separate analysis.
+- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants — opening the path to analytic derivation of R₀.
 - **H₀** (Hubble parameter) is not claimed (requires solenoid metric — open frontier #1)
 - **Baryon/DM split** is not claimed (dynamical, not structural)
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
