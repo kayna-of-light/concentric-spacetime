@@ -16,6 +16,7 @@ Key properties:
   - Coprimality of primes guarantees maximal structure
   - Composite alignment grid: returns at primorials (2, 6, 30, 210)
   - Perturbation (epsilon > 0) dissolves structure toward flat T^4
+  - Linear restoring force (kappa > 0) drives covering residuals toward zero
   - Spectrum is sparse (covering constraints = quantization mechanism)
 
 Frequencies:
@@ -46,6 +47,11 @@ class SolenoidSystem:
     Perturbation (breaks covering constraint):
         d(theta_k)/dt = omega / P_k + epsilon * sin(theta_{k-1}) / p_k
 
+    Restoring force (NB67+, drives residuals toward zero):
+        d(theta_k)/dt = omega / P_k + epsilon * sin(theta_{k-1}) / p_k
+                        - kappa * R_k / p_k
+        where R_k = p_k * theta_k - theta_{k-1} (covering residual)
+
     Parameters
     ----------
     primes : list of int
@@ -54,14 +60,18 @@ class SolenoidSystem:
         Base frequency (on theta_0).
     epsilon : float
         Perturbation strength. 0 = exact solenoid.
+    kappa : float
+        Linear restoring force strength. 0 = no restoring.
+        Typically set equal to epsilon (= 1/sqrt(210)).
     """
 
-    def __init__(self, primes, omega=2 * np.pi, epsilon=0.0):
+    def __init__(self, primes, omega=2 * np.pi, epsilon=0.0, kappa=0.0):
         self.primes = list(primes)
         self.n = len(primes)
         self.n_angles = self.n + 1  # base circle + n covering levels
         self.omega = omega
         self.epsilon = epsilon
+        self.kappa = kappa
 
         # Primorial products: P_k = p_1 * p_2 * ... * p_k
         self.primorials = [1]
@@ -109,16 +119,18 @@ class SolenoidSystem:
         return theta
 
     def ode(self, t, theta):
-        """RHS of the solenoid ODE."""
+        """RHS of the solenoid ODE with optional restoring force."""
         dtheta = np.zeros(self.n_angles)
         dtheta[0] = self.omega
 
         for k in range(1, self.n_angles):
+            p = self.primes[k - 1]
             dtheta[k] = self.solenoid_freqs[k]
             if self.epsilon > 0:
-                dtheta[k] += (
-                    self.epsilon * np.sin(theta[k - 1]) / self.primes[k - 1]
-                )
+                dtheta[k] += self.epsilon * np.sin(theta[k - 1]) / p
+            if self.kappa > 0:
+                R_k = p * theta[k] - theta[k - 1]
+                dtheta[k] -= self.kappa * R_k / p
 
         return dtheta
 
@@ -224,8 +236,56 @@ class SolenoidSystem:
                 results.append((n, aligned))
         return results
 
+    def integrate_and_section(
+        self,
+        t_span=(0, 5000),
+        theta0=None,
+        branch=None,
+        n_factor=200,
+        rtol=1e-12,
+        atol=1e-14,
+    ):
+        """
+        Integrate and extract Poincare sections with covering residuals.
+
+        Returns
+        -------
+        sections : ndarray, shape (n_angles, n_crossings)
+            Full theta state at each base-circle crossing.
+        residuals : ndarray, shape (n, n_crossings)
+            Covering residuals R_k at each crossing, mapped to [-pi, pi].
+        n_crossings : int
+            Number of crossings detected.
+        """
+        T = t_span[1] - t_span[0]
+        n_pts = max(500_000, int(T * n_factor))
+        if theta0 is None:
+            theta0 = self.initial_condition(branch=branch)
+        sol = solve_ivp(
+            self.ode,
+            t_span,
+            theta0,
+            t_eval=np.linspace(t_span[0], t_span[1], n_pts),
+            method="RK45",
+            rtol=rtol,
+            atol=atol,
+        )
+        th0_mod = np.mod(sol.y[0], 2 * np.pi)
+        crossings = np.where(np.diff(th0_mod) < -np.pi)[0]
+        sections = sol.y[:, crossings]
+        n_cross = sections.shape[1]
+        residuals = np.zeros((self.n, n_cross))
+        for k in range(self.n):
+            p = self.primes[k]
+            raw = p * sections[k + 1] - sections[k]
+            R = np.mod(raw, 2 * np.pi)
+            R[R > np.pi] -= 2 * np.pi
+            residuals[k] = R
+        return sections, residuals, n_cross
+
     def __repr__(self):
         return (
             f"SolenoidSystem(primes={self.primes}, omega={self.omega:.4f}, "
-            f"epsilon={self.epsilon}, primorials={self.primorials})"
+            f"epsilon={self.epsilon}, kappa={self.kappa}, "
+            f"primorials={self.primorials})"
         )
