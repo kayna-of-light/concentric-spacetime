@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB81 (cascade to mass — complete chain).
+> Last updated after NB82 (the solenoid metric).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 171 |
+| **Structural identities** | 177 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 81 (NB01–NB81) |
+| **Notebooks** | 82 (NB01–NB82) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -61,6 +61,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Inner Cascade Analysis** | NB79 | Universal cascade, C-distribution decomposition, charge-sector dominance | 4 identities (#169–#172): universal cascade linearity (16/16), charge-sector 92.4%, exponential additivity convergence, dominance rotation |
 | **Analytic Inner Cascade** | NB80 | Cascade ODE derivation, Level 1 exact solution, cross-crossing validation, nonlinearity scaling | 5 identities (#173–#177): cascade ODE equivalence (0.002%), Level 1 exact (0.053%), universal cascade proof, θ₃ spacing exact, quark-lepton nonlinearity split |
 | **Cascade to Mass** | NB81 | Complete chain {2,3,5,7} → cascade ODE → CP-pair ratios → fermion mass ratios; transient dominance discovery | 3 identities (#178–#180): cascade CP-pair validation (<0.3%), complete mass chain (5/5 PDG pass), transient dominance (steady-state ratio → 1.0) |
+| **The Solenoid Metric** | NB82 | Riemannian metric on configuration space in natural (t,R) coordinates; zero-mode inertia; unit stiffness; Schur complement | 6 identities (#181–#186): g₁D = 179/105, product bridge 179/180, det(g) = 48π²/7, unit stiffness K = diag(0,1,1,1,1), Schur det = 180/179 = 1/Πω² |
 
 ---
 
@@ -900,11 +901,11 @@ det′(L) = 2²⁵ · 3¹⁶ · 5¹³ · 7⁸ — the prime exponents {25, 16, 1
 Five threads remain open from the dynamics phase:
 
 ### 1. Solenoid Metric and Geodesics
-**Partially addressed in NB46 and NB47.** NB46 established the Cayley graph word metric, ball-growth polynomial, and Ollivier-Ricci curvature (Ricci-flat, κ_OR = 0). NB47 established the E₄ bridge — the complete Modular-Solenoid Dictionary connecting Tr(L) = c₁(E₄) = 240, and the E₄ reading of the hierarchy: M_Pl/M_Z = c₁(E₄)^{wt(E₄)} × p₄^{σ₃(p₁)}. Five of six derivation chain steps now proved from first principles.
+**Substantially addressed in NB46, NB47, and NB82.** NB46 established the Cayley graph word metric (Ricci-flat, κ_OR = 0) and the Metric Separation Principle. NB47 established the E₄ bridge (Tr(L) = c₁(E₄) = 240, hierarchy M_Pl/M_Z = c₁(E₄)^{wt(E₄)} × p₄^{σ₃(p₁)}). NB82 derives the **Riemannian metric** on configuration space in (t,R) coordinates: g = MᵀWM with det(g) = 48π²/7, unit stiffness K_{(t,R)} = diag(0,1,1,1,1), and Schur complement det(g̃_R) = 180/179 = 1/Πω². The 240 = Tr(L) = c₁(E₄) appears as the (2,2) numerator of g̃_R — the spectral sector embeds in the geometric metric.
 
-**Remaining**: (a) Derive the Riemannian metric on S² × R⁺ from the nesting constraint. (b) Compute geodesics. (c) Identify the mechanism for step 6 of the derivation chain — why the hierarchy takes the specific form c₁^{wt} × p₄^{c₂/c₁}. Five candidate mechanisms tested in NB47 (spectral action, det′(L), per-ω channel, E₄ evaluation, dimensional argument) — none fully deductive.
+**Remaining**: (a) Compute geodesics of the solenoid metric. (b) Derive H₀ from the cascade conformal factor κ = 1/√210 combined with cosmological chain. (c) Identify the mechanism for step 6 of the derivation chain — why the hierarchy takes the specific form c₁^{wt} × p₄^{c₂/c₁}.
 
-*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge).*
+*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge). NB82 (solenoid metric).*
 
 ### 2. Character-Theoretic Mass Channel
 The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenvalue spectrum). Investigate whether these gaps generate the observed fermion mass hierarchy (the NB36 open problem). The coupling maps Z → Z[√3] (NB44 identity #49), which may provide the irrational ratios needed.
@@ -988,7 +989,9 @@ The charge sector (j₃, p=5, a₅ in CRT → Z₄) dominates at both mass-relev
 
 **Transient dominance discovery**: Diagnostic analysis reveals that the steady-state CP-pair ratio converges to exactly 1.0000 at late windows (ci > 2500). The mass-carrying signal resides entirely in the **transient structure** — the initial conditions R_k(0) = 2πj_k (the Cantor fiber geometry) create position-dependent residuals at early crossings that decay as exp(−κt). The 210-fold branch structure IS the mass spectrum. Branch sampling sensitivity (~4% between all-210 and random-50) confirms that the mass hierarchy is encoded in the geometry of the fiber, not the flow on it (#180 STRUCTURAL). **Three identities (#178–#180): 2 PASS, 1 STRUCTURAL.**
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation).*
+**NB82 the solenoid metric**: Derives the Riemannian metric on the (2,3,5,7)-solenoid configuration space in natural (t,R) coordinates. Starting from the mass matrix W = diag(P₀,...,P₄) and tridiagonal stiffness K from NB43, the zero-mode inertia is g₁D = Σ1/P_k = 179/105, where 179 is prime and 105 = P₄/P₁ (#181 PASS). A product bridge connects this to the eigenvalue product: g₁D·p₄/λ(P₄) = 179/180 = Πω² (#182 PASS). The Jacobian M = ∂θ/∂(t,R) is lower-triangular with det(M) = ω/P₄ (#183 PASS). The full metric g = MᵀWM has det(g) = ω²·λ(P₄)/p₄ = 48π²/7 (#184 PASS) — all eigenvalues positive (Riemannian). The stiffness transforms to K_{(t,R)} = diag(0,1,1,1,1) (#185 STRUCTURAL) — covering constraint complexity is entirely absorbed into the coordinate transformation, leaving unit stiffness in the spatial directions and a null time direction. The Schur complement g̃_R = g_RR − g_Rtg_tR/g_tt eliminates time and recovers all four eigenfrequencies exactly. det(g̃_R) = 180/179 = 1/Πω² (#186 PASS) — the reciprocal of the eigenvalue product. All Schur complement entries share denominator 179 (from g_tt = 179/105). The (2,2) numerator is 240 = Tr(L) = c₁(E₄) — the spectral trace of the Cayley graph embeds in the geometric metric. The cascade conformal factor κ = 1/√210 serves simultaneously as VEV parameter (mass ratios), restoring strength (cascade ODE), and conformal decay rate (metric evolution). **Six identities (#181–#186): 5 PASS, 1 STRUCTURAL.**
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation). NB82 (the solenoid metric).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -1001,9 +1004,9 @@ The ζ(−1) = 240 coincidence with |Φ(E₈)| is now understood as structural: 
 *Source: NB45 §8½ (computed). NB44 frontier (identified). NB47 (bridge established).*
 
 ### 4. Product 179/180 = 1 − 1/P₃
-The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180 = P₃ × P₂ is deeply structural. Relate this analytically to the prime cascade.
+The eigenvalue product Πω² = 179/180 (NB43 identity #42). NB82 reveals this is g₁D · p₄/λ(P₄) where g₁D = 179/105 is the zero-mode inertia (#182), and the Schur complement determinant is det(g̃_R) = 180/179 = 1/Πω² (#186). The denominator 180 = P₃ × P₂ is deeply structural — it is the effective volume of the reduced spatial metric.
 
-*Source: NB43 frontier.*
+*Source: NB43 frontier. NB82 (product bridge, Schur complement).*
 
 ### 5. Inverse Spectral Problem
 "Can you hear the shape of the solenoid?" — Kac's question applied to the character spectrum. If the spectrum of eigenvalues uniquely determines the solenoid geometry, this would establish that the physics (spectrum) implies the geometry (nesting) rather than the other way around.
@@ -1015,7 +1018,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180
 ## IX. What Is NOT Claimed
 
 - **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146). NB76 adds a second constraint: R₀_q + R₀_l = λ(210) = 12, jointly with L/Q = 17/16 uniquely selecting ε=κ=ρ. NB77 dissects the mechanism: the g1 R₄ spread lives in the Z₇ character χ_{a₇}, p=7 controls 75% of the variance, and all branches converge to a universal attractor within ~5 windows. NB78 derives this analytically: the downward coupling theorem shows R₄(t, j₄) = SS(t) + 2πj₄·exp(−κt), and the mod-2π wrapping mechanism explains exactly which Z₇ mode dominates at each crossing. NB79 extends the cascade to all levels: R_k is linear in j_k with universal slope at ALL levels k=1..4, and the C-distribution C₄(j₁,j₂,j₃) is 93% additive with j₃ (charge sector) explaining 92.4% of variance. NB80 derives the cascade ODE analytically: the 4D sequential system reproduces the 5D solenoid to 0.002%, with Level 1 exactly solvable and the θ₃ spacing formula exact at all crossings. The nonlinearity scaling (1−R²) ∝ α^2.83 structurally distinguishes quark (nonlinear) from lepton (linear) mass generation. **NB81 completes the chain**: the 4D cascade ODE (equivalent to the 5D solenoid at <0.3%) reproduces all fermion mass ratios directly from {2,3,5,7}, confirming the complete derivation chain with zero free parameters. NB81 also reveals that the mass-carrying signal resides in the transient structure of the initial conditions (the Cantor fiber), not the steady-state dynamics — the steady-state CP-pair ratio converges to exactly 1.0.
-- **H₀** (Hubble parameter) is not claimed (requires solenoid metric — open frontier #1)
+- **H₀** (Hubble parameter) is not claimed (solenoid metric now established in NB82; cascade conformal factor κ = 1/√210 identified; H₀ derivation requires cosmological chain — open frontier #1)
 - **Baryon/DM split** is not claimed (dynamical, not structural)
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
 
