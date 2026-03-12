@@ -1,9 +1,25 @@
 """
 The (p1, p2, ..., pn)-Solenoid Dynamical System.
 
-The correct topology for the four-prime concentric system.
-Established in NB25/NB26: the flat torus T^4 makes primes invisible;
-the solenoid makes them irreplaceable.
+One dynamical system with two equivalent coordinate representations:
+
+  Theta-space (5D) — integrates all angles theta_0..theta_n directly:
+      dtheta_k/dt = omega/P_k + epsilon*sin(theta_{k-1})/p_k - kappa*R_k/p_k
+
+  R-space / Cascade (4D) — integrates covering residuals R_k:
+      dR_k/dt + kappa*R_k = f_k(t; lower levels)
+
+The two are related by the coordinate transform:
+      R_k = p_k * theta_k - theta_{k-1}   (theta -> R)
+      theta_0 = omega*t, theta_{k+1} = (R_k + theta_k)/p_k   (R -> theta)
+
+NB80 confirms the formulations agree to within 0.002%.
+
+R-space is preferred for mass predictions because covering residuals
+are the physically meaningful quantities — the CP-pair ratios of R_k
+values are the fermion mass ratios, and the mass extraction pipeline
+(accumulate_sectors -> cp_pair_ratios -> SA.mass_ratios) operates
+directly on R values.
 
 The solenoid is the inverse limit of covering maps:
     S^1 <--p1-- S^1 <--p2-- S^1 <--p3-- S^1 <--p4-- S^1
@@ -19,12 +35,6 @@ Key properties:
   - Linear restoring force (kappa > 0) drives covering residuals toward zero
   - Spectrum is sparse (covering constraints = quantization mechanism)
 
-Two formulations:
-  SolenoidSystem  — Original theta-space ODE (5D: theta_0..theta_4)
-  CascadeSystem   — Reduced R-space ODE (4D: R_1..R_4, covering residuals)
-                    Established in NB79-81. Equivalent to SolenoidSystem
-                    within 0.002% (NB80), but 4D instead of 5D.
-
 Frequencies:
   Level 0 (base):   omega
   Level k:          omega / P_k     where P_k = p_1 * p_2 * ... * p_k (primorial)
@@ -35,6 +45,7 @@ For primes [2, 3, 5, 7]:
 """
 
 import numpy as np
+from functools import reduce
 from math import gcd
 from scipy.integrate import solve_ivp
 from typing import Dict, List, Optional, Tuple
@@ -44,43 +55,49 @@ class SolenoidSystem:
     """
     Dynamics on the (p1, p2, ..., pn)-solenoid.
 
-    The solenoid is defined by n covering maps on (n+1) circles:
-        p_k * theta_k = theta_{k-1} (mod 2pi),  k = 1, ..., n
+    One system, two coordinate views:
 
-    Exact solenoid translation:
-        d(theta_0)/dt = omega
-        d(theta_k)/dt = omega / P_k
+      Theta-space (5D, NB29-68):
+          Integrates angles theta_0..theta_n on the covering circles.
+          Natural for spectral analysis, Poincare sections, alignment structure.
 
-    Perturbation (breaks covering constraint):
-        d(theta_k)/dt = omega / P_k + epsilon * sin(theta_{k-1}) / p_k
+      R-space / Cascade (4D, NB79-81):
+          Integrates covering residuals R_k = p_k*theta_k - theta_{k-1}.
+          Natural for mass predictions — R_k directly measures how far
+          each level deviates from perfect covering alignment, and the
+          CP-pair ratios of these deviations yield fermion mass ratios.
 
-    Restoring force (NB67+, drives residuals toward zero):
-        d(theta_k)/dt = omega / P_k + epsilon * sin(theta_{k-1}) / p_k
-                        - kappa * R_k / p_k
-        where R_k = p_k * theta_k - theta_{k-1} (covering residual)
+    The coordinate transform between them is:
+        theta -> R:  R_k = p_k * theta_k - theta_{k-1}
+        R -> theta:  theta_0 = omega*t, theta_{k+1} = (R_k + theta_k)/p_k
 
     Parameters
     ----------
-    primes : list of int
-        Covering degrees [2, 3, 5, 7].
+    primes : list of int, optional
+        Covering degrees. Default: [2, 3, 5, 7].
     omega : float
-        Base frequency (on theta_0).
-    epsilon : float
-        Perturbation strength. 0 = exact solenoid.
-    kappa : float
-        Linear restoring force strength. 0 = no restoring.
-        Typically set equal to epsilon (= 1/sqrt(210)).
+        Base frequency (on theta_0). Default: 2*pi.
+    epsilon : float, optional
+        Perturbation strength. None -> 1/sqrt(P_n) (physical default).
+        Pass 0 for exact solenoid (no perturbation).
+    kappa : float, optional
+        Restoring force strength. None -> 1/sqrt(P_n) (physical default).
+        Pass 0 for no restoring force.
     """
 
-    def __init__(self, primes, omega=2 * np.pi, epsilon=0.0, kappa=0.0):
-        self.primes = list(primes)
-        self.n = len(primes)
-        self.n_angles = self.n + 1  # base circle + n covering levels
+    def __init__(
+        self,
+        primes: Optional[List[int]] = None,
+        omega: float = 2 * np.pi,
+        epsilon: Optional[float] = None,
+        kappa: Optional[float] = None,
+    ):
+        self.primes = list(primes) if primes is not None else [2, 3, 5, 7]
+        self.n = len(self.primes)
+        self.n_angles = self.n + 1  # theta-space dimensionality
         self.omega = omega
-        self.epsilon = epsilon
-        self.kappa = kappa
 
-        # Primorial products: P_k = p_1 * p_2 * ... * p_k
+        # Primorial products: P_k = p_1 * ... * p_k
         self.primorials = [1]
         P = 1
         for p in self.primes:
@@ -88,27 +105,71 @@ class SolenoidSystem:
             self.primorials.append(P)
         # For [2,3,5,7]: primorials = [1, 2, 6, 30, 210]
 
+        self.full_product = self.primorials[-1]  # N = product of all primes
+
+        # Physical coupling constant: rho = 1/sqrt(N)
+        rho = 1.0 / np.sqrt(self.full_product)
+        self.epsilon = epsilon if epsilon is not None else rho
+        self.kappa = kappa if kappa is not None else rho
+
         # Exact solenoid frequencies: omega / P_k
         self.solenoid_freqs = [omega / P for P in self.primorials]
 
         # Periods: 2*pi / freq = 2*pi * P_k / omega
         self.periods = [2 * np.pi * P / omega for P in self.primorials]
 
-        # Full product (total alignment period in returns)
-        self.full_product = self.primorials[-1]
+    # ── Coordinate transforms ─────────────────────────────────────
 
-    def initial_condition(self, phi0=0.0, branch=None):
+    def theta_to_R(self, theta: np.ndarray) -> np.ndarray:
         """
-        Generate initial condition on the solenoid manifold.
+        Convert theta-space state to covering residuals (raw, not wrapped).
+
+        R_k = p_k * theta_{k+1} - theta_k
+        """
+        R = np.empty(self.n)
+        for k in range(self.n):
+            R[k] = self.primes[k] * theta[k + 1] - theta[k]
+        return R
+
+    def R_to_theta(self, R: np.ndarray, t: float) -> np.ndarray:
+        """
+        Convert R-space state to theta-space state (given time t).
+
+        theta_0 = omega*t, theta_{k+1} = (R_k + theta_k) / p_k
+        """
+        theta = np.empty(self.n_angles)
+        theta[0] = self.omega * t
+        for k in range(self.n):
+            theta[k + 1] = (R[k] + theta[k]) / self.primes[k]
+        return theta
+
+    def covering_residuals(self, theta: np.ndarray) -> np.ndarray:
+        """
+        Covering residuals mapped to [-pi, pi].
+
+        R_k = p_k * theta_{k+1} - theta_k (mod 2pi), in [-pi, pi].
+        Should be ~0 on exact solenoid.
+        """
+        R = self.theta_to_R(theta)
+        R = np.mod(R, 2 * np.pi)
+        R[R > np.pi] -= 2 * np.pi
+        return R
+
+    # ── Initial conditions ────────────────────────────────────────
+
+    def initial_theta(
+        self, phi0: float = 0.0, branch: Optional[Tuple[int, ...]] = None
+    ) -> np.ndarray:
+        """
+        Initial theta-space state for a given solenoid branch.
 
         Parameters
         ----------
         phi0 : float
             Starting angle on the base circle.
         branch : tuple of int, optional
-            (j_1, ..., j_n) where 0 <= j_k < p_k.
-            Selects which solenoid leaf.
-            Default: (0, 0, ..., 0).
+            (j_1, ..., j_n) where 0 <= j_k < p_k selects the leaf.
+            Default: (0, ..., 0).
         """
         if branch is None:
             branch = tuple(0 for _ in self.primes)
@@ -120,13 +181,31 @@ class SolenoidSystem:
             p = self.primes[k]
             j = branch[k]
             # Covering: p_k * theta_k = theta_{k-1} (mod 2pi)
-            # So theta_k = (theta_{k-1} + 2pi*j) / p_k
             theta[k + 1] = (theta[k] + 2 * np.pi * j) / p
 
         return theta
 
-    def ode(self, t, theta):
-        """RHS of the solenoid ODE with optional restoring force."""
+    def initial_R(self, branch: Tuple[int, ...]) -> np.ndarray:
+        """
+        Initial R-space state for a given solenoid branch.
+
+        R_k(0) = 2*pi*j_k where j_k is the k-th branch index.
+        """
+        return np.array([2 * np.pi * j for j in branch], dtype=float)
+
+    # Backward compatibility alias for theta-space initial conditions
+    initial_condition = initial_theta
+
+    # ── ODE formulations ──────────────────────────────────────────
+
+    def theta_ode(self, t: float, theta: np.ndarray) -> np.ndarray:
+        """
+        RHS of the 5D theta-space ODE.
+
+        d(theta_0)/dt = omega
+        d(theta_k)/dt = omega/P_k + epsilon*sin(theta_{k-1})/p_k
+                        - kappa*R_k/p_k
+        """
         dtheta = np.zeros(self.n_angles)
         dtheta[0] = self.omega
 
@@ -141,41 +220,53 @@ class SolenoidSystem:
 
         return dtheta
 
-    def covering_residuals(self, theta):
+    def cascade_ode(self, t: float, R: np.ndarray) -> np.ndarray:
         """
-        Compute the covering constraint residuals.
+        RHS of the 4D cascade ODE (R-space).
 
-        R_k = p_k * theta_k - theta_{k-1} (mod 2pi), mapped to [-pi, pi].
-        Should be ~0 on exact solenoid.
+        dR_k/dt + kappa*R_k = f_k(t; lower levels)
+
+        Reconstructs theta analytically from R and base angle,
+        then computes the coupled residual dynamics.
         """
-        residuals = np.zeros(self.n)
-        for k in range(self.n):
-            p = self.primes[k]
-            R = (p * theta[k + 1] - theta[k]) % (2 * np.pi)
-            if R > np.pi:
-                R -= 2 * np.pi
-            residuals[k] = R
-        return residuals
+        th = self.R_to_theta(R, t)
+
+        dR = np.empty(self.n)
+        dR[0] = self.epsilon * np.sin(th[0]) - self.kappa * R[0]
+        for k in range(1, self.n):
+            dR[k] = (
+                self.epsilon * np.sin(th[k])
+                - self.epsilon * np.sin(th[k - 1]) / self.primes[k - 1]
+                + self.kappa * R[k - 1] / self.primes[k - 1]
+                - self.kappa * R[k]
+            )
+        return dR
+
+    # Backward compatibility aliases
+    ode = theta_ode
+    cascade_rhs = cascade_ode
+
+    # ── Integration: theta-space ──────────────────────────────────
 
     def integrate(
         self,
-        t_span,
-        n_points=1_000_000,
-        theta0=None,
-        branch=None,
-        rtol=1e-10,
-        atol=1e-12,
-    ):
+        t_span: Tuple[float, float],
+        n_points: int = 1_000_000,
+        theta0: Optional[np.ndarray] = None,
+        branch: Optional[Tuple[int, ...]] = None,
+        rtol: float = 1e-10,
+        atol: float = 1e-12,
+    ) -> dict:
         """
-        Integrate the solenoid ODE.
+        Integrate in theta-space.
 
         Returns dict with keys 't', 'theta', 'theta_mod'.
         """
         if theta0 is None:
-            theta0 = self.initial_condition(branch=branch)
+            theta0 = self.initial_theta(branch=branch)
         t_eval = np.linspace(t_span[0], t_span[1], n_points)
         sol = solve_ivp(
-            self.ode,
+            self.theta_ode,
             t_span,
             theta0,
             t_eval=t_eval,
@@ -189,192 +280,7 @@ class SolenoidSystem:
             "theta_mod": np.mod(sol.y, 2 * np.pi),
         }
 
-    def poincare_section(
-        self, t_span=(0, 5000), n_points=1_000_000, branch=None
-    ):
-        """
-        Record states of all angles when theta_0 crosses 0.
-
-        Returns array of shape (n_angles-1, n_crossings).
-        """
-        result = self.integrate(t_span, n_points, branch=branch)
-        th0 = result["theta_mod"][0, :]
-
-        # Crossings: theta_0 wraps from ~2pi to ~0
-        crossings = np.where(np.diff(th0) < -np.pi)[0]
-
-        # Record NON-base angles at crossing times
-        sections = result["theta_mod"][1:, crossings]
-        return sections
-
-    def solenoid_eigenvalue(self, n):
-        """
-        Eigenvalue of mode n on the solenoid.
-
-        On the solenoid leaf, the single free parameter is the return number n.
-        At level k, the effective mode number is n / P_k.
-        lambda_n = sum_{k=0}^{N} (n / P_k)^2
-        """
-        return sum((n / P) ** 2 for P in self.primorials)
-
-    def spectrum(self, n_modes=50):
-        """Return the first n_modes solenoid eigenvalues."""
-        return [self.solenoid_eigenvalue(n) for n in range(1, n_modes + 1)]
-
-    def alignment_structure(self, max_return=None):
-        """
-        Compute the alignment structure of Poincare returns.
-
-        At return n, theta_k = 2*pi*n / P_k (mod 2pi).
-        A level aligns (returns to 0) when n is a multiple of P_k.
-
-        Returns list of (n, aligned_levels) tuples for notable returns.
-        """
-        if max_return is None:
-            max_return = self.full_product
-        results = []
-        for n in range(1, max_return + 1):
-            aligned = []
-            for k in range(self.n):
-                P = self.primorials[k + 1]
-                if n % P == 0:
-                    aligned.append(k + 1)
-            if aligned:
-                results.append((n, aligned))
-        return results
-
-    def integrate_and_section(
-        self,
-        t_span=(0, 5000),
-        theta0=None,
-        branch=None,
-        n_factor=200,
-        rtol=1e-12,
-        atol=1e-14,
-    ):
-        """
-        Integrate and extract Poincare sections with covering residuals.
-
-        Returns
-        -------
-        sections : ndarray, shape (n_angles, n_crossings)
-            Full theta state at each base-circle crossing.
-        residuals : ndarray, shape (n, n_crossings)
-            Covering residuals R_k at each crossing, mapped to [-pi, pi].
-        n_crossings : int
-            Number of crossings detected.
-        """
-        T = t_span[1] - t_span[0]
-        n_pts = max(500_000, int(T * n_factor))
-        if theta0 is None:
-            theta0 = self.initial_condition(branch=branch)
-        sol = solve_ivp(
-            self.ode,
-            t_span,
-            theta0,
-            t_eval=np.linspace(t_span[0], t_span[1], n_pts),
-            method="RK45",
-            rtol=rtol,
-            atol=atol,
-        )
-        th0_mod = np.mod(sol.y[0], 2 * np.pi)
-        crossings = np.where(np.diff(th0_mod) < -np.pi)[0]
-        sections = sol.y[:, crossings]
-        n_cross = sections.shape[1]
-        residuals = np.zeros((self.n, n_cross))
-        for k in range(self.n):
-            p = self.primes[k]
-            raw = p * sections[k + 1] - sections[k]
-            R = np.mod(raw, 2 * np.pi)
-            R[R > np.pi] -= 2 * np.pi
-            residuals[k] = R
-        return sections, residuals, n_cross
-
-    def __repr__(self):
-        return (
-            f"SolenoidSystem(primes={self.primes}, omega={self.omega:.4f}, "
-            f"epsilon={self.epsilon}, kappa={self.kappa}, "
-            f"primorials={self.primorials})"
-        )
-
-
-class CascadeSystem:
-    """
-    The 4D Primorial Cascade ODE on covering residuals R_k.
-
-    Established in NB79-81. This is the reduced formulation of the
-    solenoid dynamics, operating in R-space (covering residuals) rather
-    than theta-space. Equivalent to SolenoidSystem within 0.002% (NB80),
-    but 4D instead of 5D — theta_0 is eliminated analytically.
-
-    The cascade ODE:
-        dR_k/dt + kappa*R_k = f_k(t; lower levels)
-
-    where f_k encodes the nonlinear sin coupling between levels.
-    Initial conditions R_k(0) = 2*pi*j_k select the solenoid branch.
-
-    Parameters
-    ----------
-    primes : list of int
-        Covering degrees [2, 3, 5, 7].
-    omega : float
-        Base frequency. Default: 2*pi.
-    epsilon : float
-        Coupling strength. Default: 1/sqrt(210).
-    kappa : float
-        Restoring force. Default: 1/sqrt(210).
-    """
-
-    def __init__(
-        self,
-        primes: Optional[List[int]] = None,
-        omega: float = 2 * np.pi,
-        epsilon: Optional[float] = None,
-        kappa: Optional[float] = None,
-    ):
-        self.primes = list(primes) if primes is not None else [2, 3, 5, 7]
-        self.n = len(self.primes)
-        self.omega = omega
-
-        # Default coupling: 1/sqrt(product of primes)
-        from functools import reduce
-        self.P = reduce(lambda a, b: a * b, self.primes)
-        rho = 1.0 / np.sqrt(self.P)
-        self.epsilon = epsilon if epsilon is not None else rho
-        self.kappa = kappa if kappa is not None else rho
-
-    def cascade_rhs(self, t: float, R: np.ndarray) -> np.ndarray:
-        """
-        RHS of the 4D cascade ODE.
-
-        Reconstructs theta from R and base angle, then computes
-        the coupled residual dynamics.
-        """
-        # Reconstruct theta from R: theta_0 = omega*t, then
-        # theta_{k+1} = (R_k + theta_k) / p_k
-        th = np.empty(self.n + 1)
-        th[0] = self.omega * t
-        for k in range(self.n):
-            th[k + 1] = (R[k] + th[k]) / self.primes[k]
-
-        dR = np.empty(self.n)
-        dR[0] = self.epsilon * np.sin(th[0]) - self.kappa * R[0]
-        for k in range(1, self.n):
-            dR[k] = (
-                self.epsilon * np.sin(th[k])
-                - self.epsilon * np.sin(th[k - 1]) / self.primes[k - 1]
-                + self.kappa * R[k - 1] / self.primes[k - 1]
-                - self.kappa * R[k]
-            )
-        return dR
-
-    def initial_condition(self, branch: Tuple[int, ...]) -> np.ndarray:
-        """
-        Initial R-vector for a given branch.
-
-        R_k(0) = 2*pi*j_k where j_k is the k-th branch index.
-        """
-        return np.array([2 * np.pi * j for j in branch], dtype=float)
+    # ── Integration: R-space (cascade) ────────────────────────────
 
     def integrate_branch(
         self,
@@ -385,7 +291,7 @@ class CascadeSystem:
         atol: float = 1e-14,
     ) -> np.ndarray:
         """
-        Integrate a single branch of the cascade ODE.
+        Integrate a single branch in R-space (cascade ODE).
 
         Parameters
         ----------
@@ -395,17 +301,15 @@ class CascadeSystem:
             Times at which to evaluate (typically coprime crossing times).
         T_max : float
             End time of integration.
-        rtol, atol : float
-            Solver tolerances.
 
         Returns
         -------
         R_vals : ndarray, shape (len(t_eval), n)
             Covering residuals at each evaluation time.
         """
-        R0 = self.initial_condition(branch)
+        R0 = self.initial_R(branch)
         sol = solve_ivp(
-            self.cascade_rhs,
+            self.cascade_ode,
             [0.0, T_max + 1.0],
             R0,
             method="DOP853",
@@ -428,7 +332,7 @@ class CascadeSystem:
         progress_interval: int = 50,
     ) -> Dict[Tuple[int, ...], np.ndarray]:
         """
-        Integrate multiple branches in parallel.
+        Integrate multiple branches in parallel (R-space).
 
         Parameters
         ----------
@@ -440,8 +344,6 @@ class CascadeSystem:
             End time.
         max_workers : int
             Number of parallel workers.
-        progress_interval : int
-            Print progress every N branches.
 
         Returns
         -------
@@ -452,7 +354,9 @@ class CascadeSystem:
         from concurrent.futures import ThreadPoolExecutor, as_completed
 
         def _integrate_one(branch):
-            return branch, self.integrate_branch(branch, t_eval, T_max, rtol, atol)
+            return branch, self.integrate_branch(
+                branch, t_eval, T_max, rtol, atol
+            )
 
         t0 = time.time()
         results = {}
@@ -467,6 +371,118 @@ class CascadeSystem:
                     print(f"  {done}/{len(branches)} ({time.time()-t0:.1f}s)")
 
         return results
+
+    # ── Poincare section (theta-space) ────────────────────────────
+
+    def poincare_section(
+        self,
+        t_span: Tuple[float, float] = (0, 5000),
+        n_points: int = 1_000_000,
+        branch: Optional[Tuple[int, ...]] = None,
+    ) -> np.ndarray:
+        """
+        Record states of all angles when theta_0 crosses 0.
+
+        Returns array of shape (n_angles-1, n_crossings).
+        """
+        result = self.integrate(t_span, n_points, branch=branch)
+        th0 = result["theta_mod"][0, :]
+
+        # Crossings: theta_0 wraps from ~2pi to ~0
+        crossings = np.where(np.diff(th0) < -np.pi)[0]
+
+        # Record NON-base angles at crossing times
+        return result["theta_mod"][1:, crossings]
+
+    def integrate_and_section(
+        self,
+        t_span: Tuple[float, float] = (0, 5000),
+        theta0: Optional[np.ndarray] = None,
+        branch: Optional[Tuple[int, ...]] = None,
+        n_factor: int = 200,
+        rtol: float = 1e-12,
+        atol: float = 1e-14,
+    ) -> Tuple[np.ndarray, np.ndarray, int]:
+        """
+        Integrate in theta-space and extract Poincare sections
+        with covering residuals.
+
+        Returns
+        -------
+        sections : ndarray, shape (n_angles, n_crossings)
+            Full theta state at each base-circle crossing.
+        residuals : ndarray, shape (n, n_crossings)
+            Covering residuals R_k at each crossing, mapped to [-pi, pi].
+        n_crossings : int
+            Number of crossings detected.
+        """
+        T = t_span[1] - t_span[0]
+        n_pts = max(500_000, int(T * n_factor))
+        if theta0 is None:
+            theta0 = self.initial_theta(branch=branch)
+        sol = solve_ivp(
+            self.theta_ode,
+            t_span,
+            theta0,
+            t_eval=np.linspace(t_span[0], t_span[1], n_pts),
+            method="RK45",
+            rtol=rtol,
+            atol=atol,
+        )
+        th0_mod = np.mod(sol.y[0], 2 * np.pi)
+        crossings = np.where(np.diff(th0_mod) < -np.pi)[0]
+        sections = sol.y[:, crossings]
+        n_cross = sections.shape[1]
+        residuals = np.zeros((self.n, n_cross))
+        for k in range(self.n):
+            p = self.primes[k]
+            raw = p * sections[k + 1] - sections[k]
+            R = np.mod(raw, 2 * np.pi)
+            R[R > np.pi] -= 2 * np.pi
+            residuals[k] = R
+        return sections, residuals, n_cross
+
+    # ── Spectral analysis ─────────────────────────────────────────
+
+    def solenoid_eigenvalue(self, n: int) -> float:
+        """
+        Eigenvalue of mode n on the solenoid.
+
+        On the solenoid leaf, the single free parameter is the return number n.
+        At level k, the effective mode number is n / P_k.
+        lambda_n = sum_{k=0}^{N} (n / P_k)^2
+        """
+        return sum((n / P) ** 2 for P in self.primorials)
+
+    def spectrum(self, n_modes: int = 50) -> List[float]:
+        """Return the first n_modes solenoid eigenvalues."""
+        return [self.solenoid_eigenvalue(n) for n in range(1, n_modes + 1)]
+
+    def alignment_structure(
+        self, max_return: Optional[int] = None
+    ) -> List[Tuple[int, List[int]]]:
+        """
+        Compute the alignment structure of Poincare returns.
+
+        At return n, theta_k = 2*pi*n / P_k (mod 2pi).
+        A level aligns (returns to 0) when n is a multiple of P_k.
+
+        Returns list of (n, aligned_levels) tuples for notable returns.
+        """
+        if max_return is None:
+            max_return = self.full_product
+        results = []
+        for n in range(1, max_return + 1):
+            aligned = []
+            for k in range(self.n):
+                P = self.primorials[k + 1]
+                if n % P == 0:
+                    aligned.append(k + 1)
+            if aligned:
+                results.append((n, aligned))
+        return results
+
+    # ── Mass extraction pipeline ──────────────────────────────────
 
     @staticmethod
     def accumulate_sectors(
@@ -500,12 +516,14 @@ class CascadeSystem:
         n_br = len(branches)
 
         # Stack and wrap to [-pi, pi]
-        all_R = np.stack([results[b] for b in branches])  # (n_br, n_coprime, n_levels)
+        all_R = np.stack(
+            [results[b] for b in branches]
+        )  # (n_br, n_coprime, n_levels)
         all_R_w = np.mod(all_R, 2 * np.pi)
         all_R_w[all_R_w > np.pi] -= 2 * np.pi
 
         # Sum R^2 over branches
-        R_sq_sum = (all_R_w ** 2).sum(axis=0)  # (n_coprime, n_levels)
+        R_sq_sum = (all_R_w**2).sum(axis=0)  # (n_coprime, n_levels)
 
         sector_sq = np.zeros((4, 2, 6, n_levels))
         sector_cnt = np.zeros((4, 2, 6), dtype=int)
@@ -548,6 +566,7 @@ class CascadeSystem:
         """
         if cp_pairs is None:
             from solenoid_algebra import CP_PAIRS
+
             cp_pairs = CP_PAIRS
 
         n_levels = sector_rms.shape[3]
@@ -561,8 +580,34 @@ class CascadeSystem:
             ratios[pname] = r
         return ratios
 
+    # ── Utilities ─────────────────────────────────────────────────
+
+    def all_branches(self) -> List[Tuple[int, ...]]:
+        """All P_n branch tuples: (j_1, ..., j_n), 0 <= j_k < p_k."""
+        from itertools import product
+
+        return list(product(*(range(p) for p in self.primes)))
+
     def __repr__(self):
         return (
-            f"CascadeSystem(primes={self.primes}, omega={self.omega:.4f}, "
-            f"epsilon={self.epsilon}, kappa={self.kappa})"
+            f"SolenoidSystem(primes={self.primes}, omega={self.omega:.4f}, "
+            f"epsilon={self.epsilon:.6f}, kappa={self.kappa:.6f}, "
+            f"primorials={self.primorials})"
         )
+
+
+class CascadeSystem(SolenoidSystem):
+    """
+    Backward-compatible alias for SolenoidSystem.
+
+    Overrides initial_condition() to return R-space (not theta-space)
+    initial conditions, matching the original CascadeSystem API from
+    NB79-81 where initial_condition(branch) returned R_k(0) = 2*pi*j_k.
+
+    New code should use SolenoidSystem directly with explicit
+    initial_theta() / initial_R() calls.
+    """
+
+    def initial_condition(self, branch: Tuple[int, ...]) -> np.ndarray:
+        """Initial R-space state (backward compat). Use initial_R() instead."""
+        return self.initial_R(branch)

@@ -141,7 +141,7 @@ concentric-spacetime/
 │   └── 81_cascade_to_mass.ipynb       # Latest: full chain validation
 ├── scripts/
 │   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ + physical constants) — ACTIVE
-│   ├── solenoid_system.py     # Solenoid & cascade dynamics — ACTIVE
+│   ├── solenoid_system.py     # Solenoid dynamics (unified: theta-space + cascade) — ACTIVE
 │   ├── concentric_system.py   # [LEGACY] S² × R⁺ geometry (Phase 1)
 │   ├── nested_system.py       # [LEGACY] Nested oscillator simulation (Phase 1)
 │   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
@@ -187,26 +187,49 @@ The core algebraic module. Provides:
 - `SA.mass_ratios(cp_ratios)` — predicted mass ratios from CP-pair R values
 
 ### `scripts/solenoid_system.py` — ACTIVE
-Two formulations of the solenoid dynamics.
+One dynamical system with two equivalent coordinate representations, unified
+in a single `SolenoidSystem` class. `CascadeSystem` is a backward-compatible
+subclass alias (overrides `initial_condition` to return R-space).
 
-**`SolenoidSystem`** — theta-space ODE (5D, original formulation, NB29–NB68):
-- `SolenoidSystem(primes, omega, epsilon)` — main class, configurable perturbation
-- `.integrate(t_span)` — ODE integration of the solenoid flow
-- `.poincare_section()` — record states at base-circle crossings (the 210-point structure)
-- `.covering_residuals(theta)` — verify covering constraints R_k ≈ 0
+**`SolenoidSystem`** — the unified solenoid dynamics class:
+- `SolenoidSystem(primes, omega, epsilon, kappa)` — defaults: [2,3,5,7], 2π, 1/√210, 1/√210
+- Pass `epsilon=0, kappa=0` for the exact solenoid (no perturbation)
+
+**Coordinate transforms (theta ↔ R):**
+- `.theta_to_R(theta)` — R_k = p_k·θ_{k+1} - θ_k (raw residuals)
+- `.R_to_theta(R, t)` — θ_0 = ω·t, θ_{k+1} = (R_k + θ_k)/p_k
+- `.covering_residuals(theta)` — residuals wrapped to [-π, π]
+
+**Initial conditions:**
+- `.initial_theta(phi0, branch)` — theta-space IC for a solenoid leaf
+- `.initial_R(branch)` — R-space IC: R_k(0) = 2π·j_k
+- `.initial_condition(phi0, branch)` — alias for `initial_theta` (backward compat)
+
+**ODE formulations:**
+- `.theta_ode(t, theta)` — 5D theta-space RHS (aliases: `.ode`)
+- `.cascade_ode(t, R)` — 4D R-space/cascade RHS (aliases: `.cascade_rhs`)
+
+**Integration:**
+- `.integrate(t_span)` — theta-space integration (RK45)
+- `.integrate_branch(branch, t_eval, T_max)` — single branch, R-space (DOP853)
+- `.integrate_all_branches(branches, t_eval, T_max, max_workers)` — parallel R-space via ThreadPoolExecutor
+
+**Spectral analysis & Poincaré (theta-space):**
+- `.poincare_section()` — record states at base-circle crossings (210-point structure)
+- `.integrate_and_section()` — integrate with Poincaré section + residuals
 - `.solenoid_eigenvalue(n)` — eigenvalue of mode n: Σ(n/P_k)²
 - `.spectrum(n_modes)` — first n eigenvalues
 - `.alignment_structure()` — which levels align at each return number
-- `.initial_condition(phi0, branch)` — select solenoid leaf by branch tuple (j₁,...,j_n)
 
-**`CascadeSystem`** — R-space cascade ODE (4D, reduced formulation, NB79–NB81):
-- `CascadeSystem(primes, omega, epsilon, kappa)` — 4D cascade, equivalent to SolenoidSystem within 0.002%
-- `.cascade_rhs(t, R)` — RHS of the cascade ODE (reconstructs θ from R analytically)
-- `.initial_condition(branch)` — R₀ = 2π·j for branch tuple
-- `.integrate_branch(branch, t_eval, T_max)` — single branch with DOP853
-- `.integrate_all_branches(branches, t_eval, T_max, max_workers)` — parallel integration via ThreadPoolExecutor
-- `.accumulate_sectors(results, coprime_cis, ci_a3, ci_a5, ci_a7)` — CRT sector RMS accumulation
+**Mass extraction pipeline (R-space):**
+- `.accumulate_sectors(results, coprime_cis, ci_a3, ci_a5, ci_a7)` — CRT sector RMS
 - `.cp_pair_ratios(sector_rms, cp_pairs)` — CP-pair ratio extraction
+- `.all_branches()` — all 210 branch tuples
+
+**`CascadeSystem`** — backward-compatible subclass:
+- Inherits everything from `SolenoidSystem`
+- Overrides `.initial_condition(branch)` → returns R-space (not theta-space)
+- New code should use `SolenoidSystem` directly with `.initial_theta()`/`.initial_R()`
 
 ### Legacy Scripts (Phase 1–2)
 The following modules were used by NB01–NB22 and are **not imported by any solenoid-phase notebook**:
@@ -337,7 +360,7 @@ from solenoid_algebra import (SA, RHO, KAPPA, EPSILON, OMEGA,
                                X4, X3, X2, LAM7, X4_LEP,
                                DLOG, PHYSICAL_CROSSINGS,
                                CP_PAIRS, SM_TARGETS, ACTIVE_PRIMES)
-from solenoid_system import CascadeSystem
+from solenoid_system import SolenoidSystem
 ```
 
 ### Identity Tracking
