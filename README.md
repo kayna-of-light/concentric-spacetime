@@ -6,27 +6,7 @@ This repository derives Standard Model constants, coupling ratios, and fermion m
 
 The mathematical object is the **(2,3,5,7)-solenoid**: the inverse limit of iterated covering maps with winding numbers 2, 3, 5, 7. Its Poincaré section has exactly 210 discrete return points, its symmetry group has 48 elements, and its group exponent is 12.
 
-## The Central Result
-
-Every Standard Model structural constant tested so far emerges from number-theoretic properties of 210:
-
-| Arithmetic Function | Value | Physical Meaning |
-|---|---|---|
-| $\omega(210)$ | 4 | Number of forces |
-| $\lambda(210)$ | 12 | Gauge boson count |
-| $d(210)$ | 16 | SO(10) spinor dimension |
-| $\varphi(210)$ | 48 | Fermion eigenstate count |
-| $\varphi/d$ | 3 | Fermion generations |
-| $\varphi/N = 8/35$ | 0.2286 | $\sin^2\theta_W$ (PDG: 0.2312) |
-
-Fermion mass ratios are derived from a cascade ODE with zero free parameters ($\kappa = \varepsilon = 1/\sqrt{210}$, $\omega = 2\pi$):
-
-| Ratio | Predicted | PDG 2024 | Deviation |
-|---|---|---|---|
-| $m_\mu / m_e$ | 205.1 | 206.8 | 0.8% |
-| $m_s / m_d$ | 19.2 | 17–22 | within range |
-| $m_c / m_s$ | 11.4 | 9.0–14.4 | within range |
-| $m_\tau / m_\mu$ | 17.2 | 16.8 | 2.2% |
+All identities, predictions, and verdicts are documented in [docs/scorecard.md](docs/scorecard.md).
 
 ## Mathematical Framework
 
@@ -136,10 +116,9 @@ The correspondences are not decoration — they informed the discovery. But all 
 
 ## Companion Documents
 
-- **Thesis**: *Orbits That Lost Their Center* — in [literary-compilation](https://github.com/kayna-of-light/literary-compilation) `data/02_Swedenborgian_Theology/`
-- **Arithmetic companion**: *The Resolution of the Finite Mind* — same directory
+- **Thesis**: [Orbits That Lost Their Center](docs/reports/Orbits%20That%20Lost%20Their%20Center_%20The%20Concentric%20Geometry%20of%20the%20Four-Prime%20Coordinate%20System%20and%20the%20Cartesian%20Linearization%20of%20the%20Proprium.md)
+- **Arithmetic companion**: [The Resolution of the Finite Mind](docs/reports/The%20Resolution%20of%20the%20Finite%20Mind_%20Celestial%20Perception%2C%20Numerical%20Architecture%2C%20and%20the%20Limit%20of%20Spiritual%20Analysis.md)
 - **Framework**: The [literary-compilation](https://github.com/kayna-of-light/literary-compilation) repository contains the full correspondential framework
-- **Empirical validation**: The [structured-data-analysis](https://github.com/kayna-of-light/structured-data-analysis) repository provides consciousness studies data
 
 ## Methodology
 
