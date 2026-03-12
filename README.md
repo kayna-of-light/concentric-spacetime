@@ -1,6 +1,6 @@
 # Concentric Spacetime
 
-**171 structural identities. Zero free parameters. One dimensional anchor ($M_Z$).**
+**Zero free parameters. One dimensional anchor ($M_Z$).**
 
 This repository derives Standard Model constants, coupling ratios, and fermion mass hierarchies from the arithmetic of the four smallest primes $\{2, 3, 5, 7\}$ — specifically from $P_4 = 210 = 2 \cdot 3 \cdot 5 \cdot 7$ and the multiplicative group $\mathbb{Z}^*_{210}$.
 
