@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB78 (analytic R₄ wrapping).
+> Last updated after NB79 (inner cascade analysis).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 159 |
+| **Structural identities** | 163 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 78 (NB01–NB78) |
+| **Notebooks** | 79 (NB01–NB79) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -58,6 +58,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **R₀ Critical Coupling Anatomy** | NB76 | Full L/Q(ε) curve, sum rule R₀_q+R₀_l=λ(210), κ/ε decoupling, joint uniqueness of ε=κ=ρ | 3 identities (#154–#156): sum rule, joint selection, κ/ε functional separation; 1 NULL: product ≈ 36 (#157); #149 updated from CONDITIONAL to PASS |
 | **Window-0 Anatomy** | NB77 | Branch ANOVA, Z₇ character match, universal attractor, g1/g2 asymmetry mechanism | 6 identities (#158–#163): universal attractor, g1 Z₇ character match, g2 invariance, LEPTON_g2 linear ramp, window-0 ↔ NB76, p=7 dominance |
 | **Analytic R₄ Wrapping** | NB78 | Downward coupling theorem, mod-2π mode selection, analytic R₀ model | 5 identities (#164–#168): exact R₄(t,j₄) separation, exponential slope, wrapping mode selection, analytic R₀ (0.0002%), uniform wrapping limit π/√3 |
+| **Inner Cascade Analysis** | NB79 | Universal cascade, C-distribution decomposition, charge-sector dominance | 4 identities (#169–#172): universal cascade linearity (16/16), charge-sector 92.4%, exponential additivity convergence, dominance rotation |
 
 ---
 
@@ -733,6 +734,27 @@ And the ratio x₄/x₃ = φ(5) = 4 is exact, connecting the hierarchy to the ra
 4. **p=7 dominance** (#163): The outermost orbit (p=7) is the sole driver; inner orbits contribute <1%. Since p=7 corresponds to ultimation/completion in the correspondence framework, the mass-generating asymmetry lives at the terminal degree.
 5. **LEPTON_g2 ramp** (#161): The one g2 signal with structure shows perfect linearity in j₄ with mean exactly 1/4 — connecting to the 4-fold Z₄ structure from p=5.
 
+**Analytic R₄ wrapping** (NB78): NB78 derives the NB77 Z₇ character structure analytically via the downward coupling theorem.
+
+| # | Identity | Formula / Statement | Solenoid | SM / Target | Dev | Verdict |
+|---|----------|-------------------|----------|-------------|-----|----------|
+| 164 | Exact R₄(t,j₄) separation | R₄(t, j₄) = SS(t; j₁,j₂,j₃) + 2πj₄·exp(−κt). Verified to 0.007% against ODE integration. | 0.007% | 0 | 0.007% | **PASS** — downward coupling makes R₄ linear in j₄ with exponential envelope |
+| 165 | Exponential slope at Poincaré crossing | dR₄/dj₄ = 2π·exp(−κ·(ci+1)) at crossing ci. Verified to 0.006%. | 0.006% | 0 | 0.006% | **PASS** — slope formula from analytic solution |
+| 166 | Wrapping mode selection | n_w = 6·exp(−κ·(ci+1)) wraps → dominant Z₇ mode. QUARK_g1 (n_w=2.62): mode = 3 = 7−a₇. LEPTON_g1 (n_w=0.66): mode = 1 = a₇. 100% robust across 30 inner-branch offsets. | mode = a₇ | — | exact | **PASS** — analytic origin of NB77 #159 |
+| 167 | Analytic R₀ model | Analytic wrapping model (C + 2πj₄·α mod 2π) reproduces ODE R₀ to 0.0002% (quarks), 0.007% (leptons). L/Q = 1.0628 vs 17/16 = 1.0625 (0.024%). | 1.0628 | 17/16 | 0.024% | **PASS** — analytic model captures the full mass ratio |
+| 168 | Uniform wrapping limit π/√3 | For heavy wrapping (α > 0.04), wrapped RMS → π/√3 ≈ 1.814. QUARK_g1 reaches 99.8% of this limit. | 1.810 | π/√3 | 0.2% | **STRUCTURAL** — saturation follows from uniform distribution on [0,2π) |
+
+**Inner cascade analysis** (NB79): NB79 extends the downward coupling theorem to ALL four levels and decomposes the C-distribution.
+
+| # | Identity | Formula / Statement | Solenoid | SM / Target | Dev | Verdict |
+|---|----------|-------------------|----------|-------------|-----|----------|
+| 169 | Universal cascade linearity | dR_k/dj_k = 2π·exp(−κ(ci+1)) at ALL levels k=1..4 (not just level 4). Circular increment test: 16/16 PASS (4 levels × 4 crossings), ratio = 1.000344, std = 0.000000. | ratio=1.000344 | 1 | 0.034% | **PASS** — universal slope independent of level; "nonlinear" R² values at early crossings are mod-2π wrapping artifacts |
+| 170 | Charge-sector dominance | j₃ (p=5, charge sector) explains 92.4% of C₄ variance at QUARK_g1 (η²=0.924), 90.2% at LEPTON_g1. γ(j₃) = [−0.401, −0.147, −0.074, +0.079, +0.543]. | η²=0.924 | — | structural | **STRUCTURAL** — the Z₄ charge quantum number is the primary determinant of the mass-generating offset |
+| 171 | Exponential additivity convergence | Interaction (non-additive) fraction: 6.8% (ci=11) → 0.8% (ci=31) → 0.2% (ci=61) → 0.0% (ci=191). Monotonic exponential decay toward pure additivity. | exp decay | 0 | — | **PASS** — sin(θ) coupling → steady-state is additive; interactions are transient residuals |
+| 172 | Dominance rotation | j₃ dominance: 92.4% (ci=11) → 90.2% (ci=31) → 79.3% (ci=61) → 16.9% (ci=191). j₁ dominance: 0.4% → 0.9% → 3.8% → 54.2%. Inner orbit (p=2) takes over from outer (p=5) at large ci. | rotation | — | structural | **STRUCTURAL** — hierarchy of orbital influence rotates with crossing index; outermost levels dominate early, innermost late |
+
+**Key structural finding (NB79)**: The C-distribution C₄(j₁,j₂,j₃) — the sole remaining non-analytic element from NB78 — is a smooth, ~93% additive function of three branch variables, dominated by the charge sector j₃ (p=5). The γ(j₃) profile represents the charge quantum number's mass-generating effect. The interaction terms decay exponentially, and by QUARK_g2 (ci=191) the system is perfectly additive with dominance having rotated from p=5 to p=2. NB78 consistency verified: R₀ = C₄ + S·j₄ to machine precision (max error 1.8×10⁻¹⁵) at all crossings.
+
 ---
 
 **CP-Selective Mechanism**: NB69 resolves the NB68 scope boundary by examining not the generation-averaged spectrum but the **conjugate pair structure within each sector**. The key insight:
@@ -941,7 +963,20 @@ The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenva
 
 **NB78 analytic R₄ wrapping (the "WHY" behind NB77)**: Derives the NB77 Z₇ character structure analytically. The key theorem: the solenoid ODE has strictly downward coupling — level 4 is driven by levels 1–3 but never feeds back. This makes R₄ linear in j₄ with exact solution R₄(t, j₄) = SS(t; j₁,j₂,j₃) + 2πj₄·exp(−κt), verified to 0.007% against ODE integration (#164 PASS). The exponential decay gives dR₄/dj₄ = 2π·exp(−κ·(ci+1)) at Poincaré crossing ci, verified to 0.006% (#165 PASS). The central mechanism: mod-2π wrapping in the Poincaré section transforms the linear j₄-ramp into a sawtooth. The number of wraps n_w = 6·exp(−κ·(ci+1)) determines the dominant Z₇ Fourier mode. For QUARK_g1 (ci=11, n_w=2.62): mode shifts from 1→3 = 7−a₇, robust at 100% across all 30 inner-branch offsets. For LEPTON_g1 (ci=31, n_w=0.66): mode stays at 1 = a₇. This is the analytic origin of NB77 #159 (#166 PASS). The analytic wrapping model (C + 2πj₄·α mod 2π) reproduces ODE R₀ to 0.0002% (quarks) and 0.007% (leptons), with L/Q = 1.0628 vs 17/16 = 1.0625 (0.024%) (#167 PASS). For heavy wrapping (α > 0.04), the wrapped RMS saturates to π/√3 ≈ 1.814; QUARK_g1 reaches 99.8% of this limit (#168 STRUCTURAL). All six NB77 findings are now analytically explained: #158 ← exponential transient decay; #159 ← mod-2π mode selection; #160 ← exp(−κt) death at g2; #161 ← exponential slope formula; #162 ← analytic R₀ model; #163 ← j₄ is the ONLY branch variable in R₄. **Remaining non-analytic element**: the C-distribution (steady-state offset from levels 1–3), which requires the three-level cascade dynamics. **Five identities (#164–#168): 4 PASS, 1 STRUCTURAL.**
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem).*
+**NB79 inner cascade analysis (the C-distribution dissected)**: Extends the downward coupling theorem from level 4 to ALL levels. The solenoid ODE at every level k has the form dθ_k/dt + κ·θ_k = f(t; levels 0..k−1) — linear in θ_k with driving from below only. Therefore dR_k/dj_k = 2π·exp(−κ(ci+1)) at EVERY level, with a UNIVERSAL slope independent of k. Confirmed 16/16 (4 levels × 4 crossings) via circular increment test: all ratios = 1.000344, all stds = 0.000000, zero exceptions (#169 PASS). The "nonlinear" R² values from Cartesian regression at early crossings (e.g., level 4 at QUARK_g1: R²=0.004) are ENTIRELY mod-2π wrapping artifacts — circular increments are perfect even where Cartesian R² fails.
+
+The exact factorization R₀ = C₄(j₁,j₂,j₃) + S(ci)·j₄ is verified to machine precision (max error 1.8×10⁻¹⁵ across all 210 branches at all crossings). The C-distribution C₄ is extracted via unwrapping and decomposed by ANOVA:
+
+| Crossing | ci | j₁ (p=2) | j₂ (p=3) | j₃ (p=5) | Additive | Interaction |
+|----------|-----|----------|----------|----------|----------|-------------|
+| QUARK_g1 | 11 | 0.4% | 0.4% | **92.4%** | 93.2% | 6.8% |
+| LEPTON_g1 | 31 | 0.9% | 8.1% | **90.2%** | 99.2% | 0.8% |
+| LEPTON_g2 | 61 | 3.8% | 16.8% | **79.3%** | 99.8% | 0.2% |
+| QUARK_g2 | 191 | **54.2%** | 28.9% | 16.9% | 100.0% | 0.0% |
+
+The charge sector (j₃, p=5, a₅ in CRT → Z₄) dominates at both mass-relevant crossings, explaining >90% of C₄ variance (#170 STRUCTURAL). The sin(θ) interaction decays exponentially: 6.8% → 0.8% → 0.2% → 0.0% (#171 PASS). The dominance hierarchy rotates from outer (p=5) to inner (p=2) with increasing ci (#172 STRUCTURAL). The γ(j₃) profile at QUARK_g1 is [−0.401, −0.147, −0.074, +0.079, +0.543] — the charge quantum number's mass-generating effect. **Four identities (#169–#172): 2 PASS, 2 STRUCTURAL.**
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -967,7 +1002,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180
 
 ## IX. What Is NOT Claimed
 
-- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146). NB76 adds a second constraint: R₀_q + R₀_l = λ(210) = 12, jointly with L/Q = 17/16 uniquely selecting ε=κ=ρ. NB77 dissects the mechanism: the g1 R₄ spread lives in the Z₇ character χ_{a₇}, p=7 controls 75% of the variance, and all branches converge to a universal attractor within ~5 windows. NB78 derives this analytically: the downward coupling theorem shows R₄(t, j₄) = SS(t) + 2πj₄·exp(−κt), and the mod-2π wrapping mechanism explains exactly which Z₇ mode dominates at each crossing.
+- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146). NB76 adds a second constraint: R₀_q + R₀_l = λ(210) = 12, jointly with L/Q = 17/16 uniquely selecting ε=κ=ρ. NB77 dissects the mechanism: the g1 R₄ spread lives in the Z₇ character χ_{a₇}, p=7 controls 75% of the variance, and all branches converge to a universal attractor within ~5 windows. NB78 derives this analytically: the downward coupling theorem shows R₄(t, j₄) = SS(t) + 2πj₄·exp(−κt), and the mod-2π wrapping mechanism explains exactly which Z₇ mode dominates at each crossing. NB79 extends the cascade to all levels: R_k is linear in j_k with universal slope at ALL levels k=1..4, and the C-distribution C₄(j₁,j₂,j₃) is 93% additive with j₃ (charge sector) explaining 92.4% of variance.
 - **H₀** (Hubble parameter) is not claimed (requires solenoid metric — open frontier #1)
 - **Baryon/DM split** is not claimed (dynamical, not structural)
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
