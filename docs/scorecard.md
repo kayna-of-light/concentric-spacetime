@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB86 (E₄–metric bridge).
+> Last updated after NB87 (inverse spectral problem).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 199 |
+| **Structural identities** | 202 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 86 (NB01–NB86) |
+| **Notebooks** | 87 (NB01–NB87) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -66,6 +66,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Action on Mass Trajectories** | NB84 | Lagrangian evaluated on all 210 cascade branches; metric clock dominance; level independence; variance hierarchy | 3 identities (#191–#193): T₀₀/T_total = 0.9829 (metric clock), additive R² = 0.9983 (level independence), η²(p=7) = 74.9% (outermost dominance) |
 | **Geodesics and Normal Modes** | NB85 | Flatness confirmation; normal mode eigensystem; branch distance geometry; spectral polynomial | 3 identities (#194–#196): mode-level localization (softest=p=7, stiffest=p=2), NN bilateral universality (d=5.275), spectral irreducibility (char poly over Q) |
 | **The E₄–Metric Bridge** | NB86 | E₄ moment ratios, per-prime Cayley-metric bridge, gravity hierarchy anatomy | 3 identities (#197–#199): ρ₂ = p₁/p₂, ρ₃ = Λ_max/p₄, gravity exponent d₁² = σ₃(p₁) |
+| **Inverse Spectral Problem** | NB87 | Metric spectral uniqueness, informational hierarchy, metric-dynamics duality | 3 identities (#200–#202): Tr unique among 12,650 subsets, metric > Cayley (8-fold degeneracy), rigidity inverts dynamics |
 
 ---
 
@@ -1003,7 +1004,7 @@ The charge sector (j₃, p=5, a₅ in CRT → Z₄) dominates at both mass-relev
 
 **NB86 the E₄–metric bridge**: Bridges the two flat objects — the 48×48 Cayley Laplacian L (algebraic, Tr(L)=240=c₁(E₄)) and the 4×4 solenoid metric g̃_R⁻¹ (geometric, Tr=94/15, det=179/180). The E₄ spectral moment ratios ρ_n = Tr(L^n)/c_n(E₄) reveal a clean window for n ≤ 3: ρ₁ = 1 (identity #59), ρ₂ = 2/3 = p₁/p₂ (#197 STRUCTURAL), ρ₃ = 10/7 = Λ_max/p₄ (#198 STRUCTURAL). At n=4 the 7-smoothness breaks (73 enters the denominator). The per-prime decomposition of Tr(L) = 48+96+96 (contributions from Z₂, Z₄, Z₆ CRT factors) is cross-multiplied with the per-prime metric diagonal d_k = σ₁(p_k)/P_{k-1}: the products w_p · d_{matched(p)} = 96 for p ∈ {3,5} but break at p=7 (w₇·d₄ = 128/5), identifying the outermost prime as the level where Cayley and metric decouple. The gravity hierarchy M_Pl/M_Z = 240⁴·7⁹ (verified to 0.003%) has exponent 4 = dim(g̃_R⁻¹) = rank of the metric and exponent 9 = d₁² = σ₃(p₁) = (metric innermost diagonal)² (#199 STRUCTURAL). The d₁² = σ₃(p₁) identity follows from Nicomachus' theorem at n=p₁=2: (1+2)² = 1³+2³. Additional results: K = ζ_L(1) = 6085/504 with den(K) = 504 = |c₁(E₆)| confirmed; det(g̃_R⁻¹) = 1−1/(P₃·P₂) = 179/180; short-time heat kernel Θ(t) ≈ 48−240t+720t²+... with coefficients a₀=φ(P₄), a₁=−c₁(E₄), a₂=c₂(E₄)/3. Step 6 of the gravity derivation (selection mechanism) remains open but the structural ingredients are now identified: base=Tr(L), power=rank(g), second base=p_{bridge-break}, second power=d₁². **Three identities (#197–#199): 3 STRUCTURAL.**
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation). NB82 (the solenoid metric). NB83 (the solenoid Lagrangian). NB84 (action on mass trajectories). NB85 (geodesics and normal modes). NB86 (E₄–metric bridge).*
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation). NB82 (the solenoid metric). NB83 (the solenoid Lagrangian). NB84 (action on mass trajectories). NB85 (geodesics and normal modes). NB86 (E₄–metric bridge). NB87 (inverse spectral problem).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -1020,10 +1021,18 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). NB82 reveals this i
 
 *Source: NB43 frontier. NB82 (product bridge, Schur complement).*
 
-### 5. Inverse Spectral Problem
-"Can you hear the shape of the solenoid?" — Kac's question applied to the character spectrum. If the spectrum of eigenvalues uniquely determines the solenoid geometry, this would establish that the physics (spectrum) implies the geometry (nesting) rather than the other way around.
+### 5. Inverse Spectral Problem — RESOLVED (NB87)
+"Can you hear the shape of the solenoid?" — Kac's question applied to the solenoid metric and Cayley Laplacian.
 
-*Source: NB44 frontier.*
+**Answer: YES — you CAN hear the shape, but only through the metric, not the Cayley graph.**
+
+**NB87 metric spectral uniqueness**: The solenoid metric g̃_R⁻¹ with Tr = 94/15 and det = 179/180 is tested against all C(25,4) = 12,650 four-prime subsets drawn from primes ≤ 97. The trace ALONE uniquely identifies {2,3,5,7} — no other four-prime subset produces Tr = 94/15. The determinant is independently unique with ZERO collisions across the entire pool (perfect discriminator). The nearest spectral neighbor is {2,3,5,11} at Frobenius distance d = 0.120. The determinant's numerator sequence (1, 3, 5, 17, 179) consists entirely of primes, and det = 179/180 is the closest to 1 from below among all subsets (#200 STRUCTURAL).
+
+**NB87 informational hierarchy**: Among integers N with φ(N) = 48, there are 11 candidates up to N = 500. The Cayley Laplacian (max-order generators) produces only 3 distinct spectral classes — 8 of the 11 integers share identical spectra with N = 210 ({104, 105, 112, 140, 144, 156, 180, 210}). The Cayley graph hears the abstract group structure (Z*_N ≅ Z₁×Z₂×Z₄×Z₆) but NOT the specific primes. The metric has zero degeneracy. Therefore: metric determines primes uniquely, Cayley determines group structure only (#201 STRUCTURAL).
+
+**NB87 metric-dynamics duality**: The spectral rigidity hierarchy (sensitivity to single-prime replacement) is the exact inverse of NB84's dynamical variance hierarchy. Metric: p₁=2 stiffest (d=0.869), p₄=7 softest (d=0.120), inner/outer ratio 7.22×. Dynamics (NB84 #193): p₄=7 dominant (η²=74.9%), p₁=2 negligible (0.4%). Per-mode eigenvalue shift analysis confirms NB85's mode-level localization (#194) at 4/4 correspondence: Mode 0 (softest) responds 90% to p₄, Mode 3 (stiffest) responds 47% to p₁. The metric reads the solenoid from inside out; the dynamics reads it from outside in (#202 STRUCTURAL).
+
+*Source: NB44 frontier. NB82 (metric construction). NB83 (inverse metric). NB84 (dynamical hierarchy). NB85 (mode-level localization). NB86 (E₄–metric bridge).*
 
 ---
 
