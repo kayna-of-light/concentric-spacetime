@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB82 (the solenoid metric).
+> Last updated after NB83 (the solenoid Lagrangian).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 177 |
+| **Structural identities** | 181 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 82 (NB01–NB82) |
+| **Notebooks** | 83 (NB01–NB83) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -62,6 +62,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Analytic Inner Cascade** | NB80 | Cascade ODE derivation, Level 1 exact solution, cross-crossing validation, nonlinearity scaling | 5 identities (#173–#177): cascade ODE equivalence (0.002%), Level 1 exact (0.053%), universal cascade proof, θ₃ spacing exact, quark-lepton nonlinearity split |
 | **Cascade to Mass** | NB81 | Complete chain {2,3,5,7} → cascade ODE → CP-pair ratios → fermion mass ratios; transient dominance discovery | 3 identities (#178–#180): cascade CP-pair validation (<0.3%), complete mass chain (5/5 PDG pass), transient dominance (steady-state ratio → 1.0) |
 | **The Solenoid Metric** | NB82 | Riemannian metric on configuration space in natural (t,R) coordinates; zero-mode inertia; unit stiffness; Schur complement | 6 identities (#181–#186): g₁D = 179/105, product bridge 179/180, det(g) = 48π²/7, unit stiffness K = diag(0,1,1,1,1), Schur det = 180/179 = 1/Πω² |
+| **The Solenoid Lagrangian** | NB83 | Inverse metric tridiagonal structure; Hamiltonian; cascade as underdamped resonator; shared M⁻¹ building block | 4 identities (#187–#190): g⁻¹ = LW⁻¹Lᵀ tridiagonal with (1+pₖ)/Pₖ₋₁, g_schur⁻¹ inherits, all Q>1 (range [6.81, 27.67]), cascade-metric M⁻¹ link |
 
 ---
 
@@ -901,11 +902,11 @@ det′(L) = 2²⁵ · 3¹⁶ · 5¹³ · 7⁸ — the prime exponents {25, 16, 1
 Five threads remain open from the dynamics phase:
 
 ### 1. Solenoid Metric and Geodesics
-**Substantially addressed in NB46, NB47, and NB82.** NB46 established the Cayley graph word metric (Ricci-flat, κ_OR = 0) and the Metric Separation Principle. NB47 established the E₄ bridge (Tr(L) = c₁(E₄) = 240, hierarchy M_Pl/M_Z = c₁(E₄)^{wt(E₄)} × p₄^{σ₃(p₁)}). NB82 derives the **Riemannian metric** on configuration space in (t,R) coordinates: g = MᵀWM with det(g) = 48π²/7, unit stiffness K_{(t,R)} = diag(0,1,1,1,1), and Schur complement det(g̃_R) = 180/179 = 1/Πω². The 240 = Tr(L) = c₁(E₄) appears as the (2,2) numerator of g̃_R — the spectral sector embeds in the geometric metric.
+**Substantially addressed in NB46, NB47, NB82, and NB83.** NB46 established the Cayley graph word metric (Ricci-flat, κ_OR = 0) and the Metric Separation Principle. NB47 established the E₄ bridge (Tr(L) = c₁(E₄) = 240, hierarchy M_Pl/M_Z = c₁(E₄)^{wt(E₄)} × p₄^{σ₃(p₁)}). NB82 derives the **Riemannian metric** on configuration space in (t,R) coordinates: g = MᵀWM with det(g) = 48π²/7, unit stiffness K_{(t,R)} = diag(0,1,1,1,1), and Schur complement det(g̃_R) = 180/179 = 1/Πω². NB83 inverts the metric: g⁻¹ is **tridiagonal** (nearest-neighbor coupling), factored as g⁻¹ = LW⁻¹Lᵀ with L = M⁻¹ bidiagonal. Closed-form entries: diag = (1+pₖ)/Pₖ₋₁, sub = −1/Pₖ₋₂. All Q-factors > 1 (range [6.81, 27.67]) — the cascade is an underdamped resonator on the metric. The cascade Jacobian and metric share the M⁻¹ building block.
 
-**Remaining**: (a) Compute geodesics of the solenoid metric. (b) Derive H₀ from the cascade conformal factor κ = 1/√210 combined with cosmological chain. (c) Identify the mechanism for step 6 of the derivation chain — why the hierarchy takes the specific form c₁^{wt} × p₄^{c₂/c₁}.
+**Remaining**: (a) Compute geodesics of the solenoid metric. (b) Derive H₀ from the cascade conformal factor κ = 1/√210 combined with cosmological chain. (c) Identify the mechanism for step 6 of the derivation chain — why the hierarchy takes the specific form c₁^{wt} × p₄^{c₂/c₁}. (d) Evaluate the Lagrangian/action on cascade mass trajectories.
 
-*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge). NB82 (solenoid metric).*
+*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge). NB82 (solenoid metric). NB83 (solenoid Lagrangian).*
 
 ### 2. Character-Theoretic Mass Channel
 The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenvalue spectrum). Investigate whether these gaps generate the observed fermion mass hierarchy (the NB36 open problem). The coupling maps Z → Z[√3] (NB44 identity #49), which may provide the irrational ratios needed.
@@ -991,7 +992,9 @@ The charge sector (j₃, p=5, a₅ in CRT → Z₄) dominates at both mass-relev
 
 **NB82 the solenoid metric**: Derives the Riemannian metric on the (2,3,5,7)-solenoid configuration space in natural (t,R) coordinates. Starting from the mass matrix W = diag(P₀,...,P₄) and tridiagonal stiffness K from NB43, the zero-mode inertia is g₁D = Σ1/P_k = 179/105, where 179 is prime and 105 = P₄/P₁ (#181 PASS). A product bridge connects this to the eigenvalue product: g₁D·p₄/λ(P₄) = 179/180 = Πω² (#182 PASS). The Jacobian M = ∂θ/∂(t,R) is lower-triangular with det(M) = ω/P₄ (#183 PASS). The full metric g = MᵀWM has det(g) = ω²·λ(P₄)/p₄ = 48π²/7 (#184 PASS) — all eigenvalues positive (Riemannian). The stiffness transforms to K_{(t,R)} = diag(0,1,1,1,1) (#185 STRUCTURAL) — covering constraint complexity is entirely absorbed into the coordinate transformation, leaving unit stiffness in the spatial directions and a null time direction. The Schur complement g̃_R = g_RR − g_Rtg_tR/g_tt eliminates time and recovers all four eigenfrequencies exactly. det(g̃_R) = 180/179 = 1/Πω² (#186 PASS) — the reciprocal of the eigenvalue product. All Schur complement entries share denominator 179 (from g_tt = 179/105). The (2,2) numerator is 240 = Tr(L) = c₁(E₄) — the spectral trace of the Cayley graph embeds in the geometric metric. The cascade conformal factor κ = 1/√210 serves simultaneously as VEV parameter (mass ratios), restoring strength (cascade ODE), and conformal decay rate (metric evolution). **Six identities (#181–#186): 5 PASS, 1 STRUCTURAL.**
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation). NB82 (the solenoid metric).*
+**NB83 the solenoid Lagrangian**: Inverts the metric to obtain g⁻¹ and discovers it is **tridiagonal** — nearest-neighbor coupling only. The factorization g⁻¹ = LW⁻¹Lᵀ where L = M⁻¹ is bidiagonal with diagonal (1, p₁, ..., p₄) = (1, 2, 3, 5, 7) and constant sub-diagonal −1 explains the tridiagonal structure exactly (#187 PASS). Closed-form entries: diagonal g⁻¹[k,k] = (1+pₖ)/Pₖ₋₁, sub-diagonal g⁻¹[k,k−1] = −1/Pₖ₋₂. The divisor sum σ₁(pₖ) = 1+pₖ appears on the diagonal — the inverse metric is the divisor function divided by the primorial. The Hamiltonian has zero-mode energy H₀ = 179/P₄ (the primorial vacuum energy). The Schur complement inverse g_schur⁻¹ = lower-right 4×4 block of g⁻¹ inherits the tridiagonal structure with the same closed-form entries (#188 PASS). The Euler–Lagrange eigenfrequencies ω²ₖ (eigenvalues of g_schur⁻¹) yield quality factors Qₖ = ωₖ/κ ∈ [6.81, 27.67] — all modes are underdamped, confirming the solenoid is a moderate-Q resonator (#189 STRUCTURAL). The cascade ODE's time-averaged Jacobian is lower bidiagonal with sub-diagonal κ/pₖ — the same M⁻¹ building block that generates the metric, but asymmetric (outer drives inner) vs the metric's symmetric form. The metric = M⁻¹ symmetrized through W⁻¹; the cascade = M⁻¹ applied directionally (#190 STRUCTURAL). **Four identities (#187–#190): 2 PASS, 2 STRUCTURAL.**
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation). NB82 (the solenoid metric). NB83 (the solenoid Lagrangian).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:

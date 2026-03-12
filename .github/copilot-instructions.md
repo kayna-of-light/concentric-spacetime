@@ -391,8 +391,9 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Dynamical Mass** | NB70–NB74 | VEV bridge, charge sector, radial mass channel, lepton mass | 17 identities: complete quark mass hierarchy, lepton mass ratios, CP convergence |
 | **Perturbative R** | NB75–NB78 | Perturbative R₀ analysis, R₀ critical coupling, R₄ wrapping | 17 identities: ε-criticality, sum rule, Z₇ character match, downward coupling |
 | **Cascade ODE** | NB79–NB81 | Cascade derivation, analytic inner cascade, full chain validation | 12 identities: universal cascade, cascade ODE equivalence, complete mass chain |
+| **Solenoid Geometry** | NB82–NB83 | Riemannian metric, inverse metric, Lagrangian, Hamiltonian, Q-factors | 10 identities: metric, tridiagonal inverse, underdamped resonator, M⁻¹ building block |
 
-See `docs/scorecard.md` for the complete phase map (171 identities across 81 notebooks) and identity details.
+See `docs/scorecard.md` for the complete phase map (181 identities across 83 notebooks) and identity details.
 
 ## Working Rules
 
