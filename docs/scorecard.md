@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB79 (inner cascade analysis).
+> Last updated after NB80 (analytic inner cascade).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 163 |
+| **Structural identities** | 168 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 79 (NB01–NB79) |
+| **Notebooks** | 80 (NB01–NB80) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -59,6 +59,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Window-0 Anatomy** | NB77 | Branch ANOVA, Z₇ character match, universal attractor, g1/g2 asymmetry mechanism | 6 identities (#158–#163): universal attractor, g1 Z₇ character match, g2 invariance, LEPTON_g2 linear ramp, window-0 ↔ NB76, p=7 dominance |
 | **Analytic R₄ Wrapping** | NB78 | Downward coupling theorem, mod-2π mode selection, analytic R₀ model | 5 identities (#164–#168): exact R₄(t,j₄) separation, exponential slope, wrapping mode selection, analytic R₀ (0.0002%), uniform wrapping limit π/√3 |
 | **Inner Cascade Analysis** | NB79 | Universal cascade, C-distribution decomposition, charge-sector dominance | 4 identities (#169–#172): universal cascade linearity (16/16), charge-sector 92.4%, exponential additivity convergence, dominance rotation |
+| **Analytic Inner Cascade** | NB80 | Cascade ODE derivation, Level 1 exact solution, cross-crossing validation, nonlinearity scaling | 5 identities (#173–#177): cascade ODE equivalence (0.002%), Level 1 exact (0.053%), universal cascade proof, θ₃ spacing exact, quark-lepton nonlinearity split |
 
 ---
 
@@ -976,7 +977,13 @@ The exact factorization R₀ = C₄(j₁,j₂,j₃) + S(ci)·j₄ is verified to
 
 The charge sector (j₃, p=5, a₅ in CRT → Z₄) dominates at both mass-relevant crossings, explaining >90% of C₄ variance (#170 STRUCTURAL). The sin(θ) interaction decays exponentially: 6.8% → 0.8% → 0.2% → 0.0% (#171 PASS). The dominance hierarchy rotates from outer (p=5) to inner (p=2) with increasing ci (#172 STRUCTURAL). The γ(j₃) profile at QUARK_g1 is [−0.401, −0.147, −0.074, +0.079, +0.543] — the charge quantum number's mass-generating effect. **Four identities (#169–#172): 2 PASS, 2 STRUCTURAL.**
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition).*
+**NB80 analytic inner cascade (the cascade ODE derived)**: Reduces the 5D solenoid to a 4D sequential cascade ODE system. Each level satisfies dR_k/dt + κ·R_k = f_k(t; lower levels), where f_k contains three terms: (1) ε·sin(θ_{k-1}) direct driving, (2) −(ε/p_{k-1})·sin(θ_{k-2}) lower-level correction, (3) (κ/p_{k-1})·R_{k-1} restoring coupling. The initial condition R_k(0) = 2πj_k is proved analytically from the solenoid initial conditions — this upgrades #169 from numerical observation to theorem (#175 PASS).
+
+**Level 1 exact solution**: R₁ has sinusoidal driving ε·sin(ωt) → C₁(ci) = εω/(κ²+ω²)·[exp(−κ(ci+1)) − 1]. At QUARK_g1: analytic = −0.006184, NB79 = −0.006180, deviation 0.053% (#174 PASS). The 30-branch 4D cascade reproduces ALL 30 NB79 C₄ values to max deviation 0.002% (#173 PASS), running ~6× faster than the full 210-branch 5D integration.
+
+**Cross-crossing validation**: The cascade is tested at all 4 physical crossings. The θ₃ spacing between j₃ levels equals 2πα/p₃ where α = exp(−κ(ci+1)) — verified EXACT (0.000% deviation) at all crossings (#176 PASS). The sin+cos model γ(j₃) ≈ a·sin(θ₃) + b·cos(θ₃) + c gives R² = 0.918 at QUARK_g1, 0.998 at LEPTON_g1, 1.000 at LEPTON_g2/QUARK_g2. The nonlinearity (1−R²) scales as α^2.83 (#177 STRUCTURAL): the effective arc length 2πα determines the regime. QUARK_g1 scans 44% of the circle (nonlinear), LEPTON_g1 scans 11% (transition), later crossings scan <2% (linear). First-generation quarks are the ONLY crossing in the genuinely nonlinear regime — this structurally distinguishes quark mass generation from lepton mass generation. **Five identities (#173–#177): 4 PASS, 1 STRUCTURAL.**
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
@@ -1002,7 +1009,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). The denominator 180
 
 ## IX. What Is NOT Claimed
 
-- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146). NB76 adds a second constraint: R₀_q + R₀_l = λ(210) = 12, jointly with L/Q = 17/16 uniquely selecting ε=κ=ρ. NB77 dissects the mechanism: the g1 R₄ spread lives in the Z₇ character χ_{a₇}, p=7 controls 75% of the variance, and all branches converge to a universal attractor within ~5 windows. NB78 derives this analytically: the downward coupling theorem shows R₄(t, j₄) = SS(t) + 2πj₄·exp(−κt), and the mod-2π wrapping mechanism explains exactly which Z₇ mode dominates at each crossing. NB79 extends the cascade to all levels: R_k is linear in j_k with universal slope at ALL levels k=1..4, and the C-distribution C₄(j₁,j₂,j₃) is 93% additive with j₃ (charge sector) explaining 92.4% of variance.
+- **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146). NB76 adds a second constraint: R₀_q + R₀_l = λ(210) = 12, jointly with L/Q = 17/16 uniquely selecting ε=κ=ρ. NB77 dissects the mechanism: the g1 R₄ spread lives in the Z₇ character χ_{a₇}, p=7 controls 75% of the variance, and all branches converge to a universal attractor within ~5 windows. NB78 derives this analytically: the downward coupling theorem shows R₄(t, j₄) = SS(t) + 2πj₄·exp(−κt), and the mod-2π wrapping mechanism explains exactly which Z₇ mode dominates at each crossing. NB79 extends the cascade to all levels: R_k is linear in j_k with universal slope at ALL levels k=1..4, and the C-distribution C₄(j₁,j₂,j₃) is 93% additive with j₃ (charge sector) explaining 92.4% of variance. NB80 derives the cascade ODE analytically: the 4D sequential system reproduces the 5D solenoid to 0.002%, with Level 1 exactly solvable and the θ₃ spacing formula exact at all crossings. The nonlinearity scaling (1−R²) ∝ α^2.83 structurally distinguishes quark (nonlinear) from lepton (linear) mass generation.
 - **H₀** (Hubble parameter) is not claimed (requires solenoid metric — open frontier #1)
 - **Baryon/DM split** is not claimed (dynamical, not structural)
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
