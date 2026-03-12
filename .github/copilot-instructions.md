@@ -147,7 +147,7 @@ concentric-spacetime/
 │   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
 │   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
 ├── docs/
-│   ├── scorecard.md           # Living scorecard: all 202 identities (updated after each notebook)
+│   ├── scorecard.md           # Living scorecard: all 205 identities (updated after each notebook)
 │   ├── research_directions.md # Early-phase research directions (partially superseded)
 │   └── status_*.md            # Point-in-time status summaries
 ├── temp/                      # Builder scripts, prototypes, and exploration scripts
@@ -396,6 +396,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Geodesics & Normal Modes** | NB85 | Flatness confirmation, normal mode eigensystem, branch distance geometry, spectral polynomial | 3 identities: mode-level localization, NN bilateral universality (d=2π√(74/105)), spectral irreducibility |
 | **The E₄–Metric Bridge** | NB86 | E₄ moment ratios, per-prime Cayley-metric bridge, gravity hierarchy anatomy | 3 identities: ρ₂ = p₁/p₂, ρ₃ = Λ_max/p₄, gravity exponent d₁² = σ₃(p₁) |
 | **Inverse Spectral Problem** | NB87 | Metric spectral uniqueness, informational hierarchy, metric-dynamics duality | 3 identities: Tr unique among 12,650 subsets, metric > Cayley (8-fold degeneracy), rigidity inverts dynamics |
+| **The Cosmological Chain** | NB88 | Hubble scaling law, DM/baryon ratio, Hubble tension prediction | 3 identities (#203–#205): H₀ = M_Z³/M_Pl² × P₄⁻⁴ × C (0.09%), Ω_DM/Ω_b = 27/5 (0.08%), Hubble tension → Planck |
 
 See `docs/scorecard.md` for the complete phase map and identity details.
 
