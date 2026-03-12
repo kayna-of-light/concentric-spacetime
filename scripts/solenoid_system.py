@@ -594,20 +594,3 @@ class SolenoidSystem:
             f"epsilon={self.epsilon:.6f}, kappa={self.kappa:.6f}, "
             f"primorials={self.primorials})"
         )
-
-
-class CascadeSystem(SolenoidSystem):
-    """
-    Backward-compatible alias for SolenoidSystem.
-
-    Overrides initial_condition() to return R-space (not theta-space)
-    initial conditions, matching the original CascadeSystem API from
-    NB79-81 where initial_condition(branch) returned R_k(0) = 2*pi*j_k.
-
-    New code should use SolenoidSystem directly with explicit
-    initial_theta() / initial_R() calls.
-    """
-
-    def initial_condition(self, branch: Tuple[int, ...]) -> np.ndarray:
-        """Initial R-space state (backward compat). Use initial_R() instead."""
-        return self.initial_R(branch)

@@ -188,8 +188,7 @@ The core algebraic module. Provides:
 
 ### `scripts/solenoid_system.py` — ACTIVE
 One dynamical system with two equivalent coordinate representations, unified
-in a single `SolenoidSystem` class. `CascadeSystem` is a backward-compatible
-subclass alias (overrides `initial_condition` to return R-space).
+in a single `SolenoidSystem` class.
 
 **`SolenoidSystem`** — the unified solenoid dynamics class:
 - `SolenoidSystem(primes, omega, epsilon, kappa)` — defaults: [2,3,5,7], 2π, 1/√210, 1/√210
@@ -225,11 +224,6 @@ subclass alias (overrides `initial_condition` to return R-space).
 - `.accumulate_sectors(results, coprime_cis, ci_a3, ci_a5, ci_a7)` — CRT sector RMS
 - `.cp_pair_ratios(sector_rms, cp_pairs)` — CP-pair ratio extraction
 - `.all_branches()` — all 210 branch tuples
-
-**`CascadeSystem`** — backward-compatible subclass:
-- Inherits everything from `SolenoidSystem`
-- Overrides `.initial_condition(branch)` → returns R-space (not theta-space)
-- New code should use `SolenoidSystem` directly with `.initial_theta()`/`.initial_R()`
 
 ### Legacy Scripts (Phase 1–2)
 The following modules were used by NB01–NB22 and are **not imported by any solenoid-phase notebook**:
