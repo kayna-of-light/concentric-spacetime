@@ -394,6 +394,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Solenoid Geometry** | NB82–NB83 | Riemannian metric, inverse metric, Lagrangian, Hamiltonian, Q-factors | 10 identities: metric, tridiagonal inverse, underdamped resonator, M⁻¹ building block |
 | **Action on Trajectories** | NB84 | Lagrangian on cascade branches, metric clock, level independence, variance hierarchy | 3 identities: clock dominance (98.3%), additive R²=0.9983, outermost governs (74.9%) |
 | **Geodesics & Normal Modes** | NB85 | Flatness confirmation, normal mode eigensystem, branch distance geometry, spectral polynomial | 3 identities: mode-level localization, NN bilateral universality (d=2π√(74/105)), spectral irreducibility |
+| **The E₄–Metric Bridge** | NB86 | E₄ moment ratios, per-prime Cayley-metric bridge, gravity hierarchy anatomy | 3 identities: ρ₂ = p₁/p₂, ρ₃ = Λ_max/p₄, gravity exponent d₁² = σ₃(p₁) |
 
 See `docs/scorecard.md` for the complete phase map and identity details.
 

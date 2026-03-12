@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB85 (geodesics and normal modes).
+> Last updated after NB86 (E₄–metric bridge).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 196 |
+| **Structural identities** | 199 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 85 (NB01–NB85) |
+| **Notebooks** | 86 (NB01–NB86) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -65,6 +65,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Solenoid Lagrangian** | NB83 | Inverse metric tridiagonal structure; Hamiltonian; cascade as underdamped resonator; shared M⁻¹ building block | 4 identities (#187–#190): g⁻¹ = LW⁻¹Lᵀ tridiagonal with (1+pₖ)/Pₖ₋₁, g_schur⁻¹ inherits, all Q>1 (range [6.81, 27.67]), cascade-metric M⁻¹ link |
 | **Action on Mass Trajectories** | NB84 | Lagrangian evaluated on all 210 cascade branches; metric clock dominance; level independence; variance hierarchy | 3 identities (#191–#193): T₀₀/T_total = 0.9829 (metric clock), additive R² = 0.9983 (level independence), η²(p=7) = 74.9% (outermost dominance) |
 | **Geodesics and Normal Modes** | NB85 | Flatness confirmation; normal mode eigensystem; branch distance geometry; spectral polynomial | 3 identities (#194–#196): mode-level localization (softest=p=7, stiffest=p=2), NN bilateral universality (d=5.275), spectral irreducibility (char poly over Q) |
+| **The E₄–Metric Bridge** | NB86 | E₄ moment ratios, per-prime Cayley-metric bridge, gravity hierarchy anatomy | 3 identities (#197–#199): ρ₂ = p₁/p₂, ρ₃ = Λ_max/p₄, gravity exponent d₁² = σ₃(p₁) |
 
 ---
 
@@ -1000,7 +1001,9 @@ The charge sector (j₃, p=5, a₅ in CRT → Z₄) dominates at both mass-relev
 
 **NB85 geodesics and normal modes**: The solenoid metric g is constant (all entries are rational functions of {2,3,5,7}) — therefore all Christoffel symbols vanish, the Riemann tensor is zero, and configuration space is flat. Geodesics are straight lines in the (θ₀,R₁,R₂,R₃,R₄) coordinates. The normal mode eigensystem of g̃_R⁻¹ (the Schur complement inverse from NB83) reveals a clean mode-level correspondence: Mode 0 (softest, ω²=0.221) localizes 92.0% on p=7; Mode 1 (ω²=0.748) on p=5 (63.4%); Mode 2 (ω²=1.653) on p=3 (45.8%); Mode 3 (stiffest, ω²=3.645) on p=2 (69.9%) (#194 STRUCTURAL). The prime hierarchy exactly orders mechanical stiffness. The 210×210 branch distance matrix D² shows all 210 nearest-neighbor distances are identical: d_NN = 2π√(74/105) ≈ 5.275, achieved exclusively by flipping j₀ (the p=2 bilateral index) (#195 STRUCTURAL) — the bilateral cut is the cheapest geometric operation. The p=7 level contributes 82.8% of total inter-branch distance. The characteristic polynomial of g̃_R⁻¹ is 180x⁴−1128x³+2038x²−1208x+179, irreducible over Q (#196 STRUCTURAL). All elementary symmetric polynomials are primorial rationals with denominators dividing P₃·P₂ = 180 (no factor of 7 penetrates). ΣQ² = P₄·Tr = 1316 = 4·7·47. **Three identities (#194–#196): 3 STRUCTURAL.**
 
-*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation). NB82 (the solenoid metric). NB83 (the solenoid Lagrangian). NB84 (action on mass trajectories). NB85 (geodesics and normal modes).*
+**NB86 the E₄–metric bridge**: Bridges the two flat objects — the 48×48 Cayley Laplacian L (algebraic, Tr(L)=240=c₁(E₄)) and the 4×4 solenoid metric g̃_R⁻¹ (geometric, Tr=94/15, det=179/180). The E₄ spectral moment ratios ρ_n = Tr(L^n)/c_n(E₄) reveal a clean window for n ≤ 3: ρ₁ = 1 (identity #59), ρ₂ = 2/3 = p₁/p₂ (#197 STRUCTURAL), ρ₃ = 10/7 = Λ_max/p₄ (#198 STRUCTURAL). At n=4 the 7-smoothness breaks (73 enters the denominator). The per-prime decomposition of Tr(L) = 48+96+96 (contributions from Z₂, Z₄, Z₆ CRT factors) is cross-multiplied with the per-prime metric diagonal d_k = σ₁(p_k)/P_{k-1}: the products w_p · d_{matched(p)} = 96 for p ∈ {3,5} but break at p=7 (w₇·d₄ = 128/5), identifying the outermost prime as the level where Cayley and metric decouple. The gravity hierarchy M_Pl/M_Z = 240⁴·7⁹ (verified to 0.003%) has exponent 4 = dim(g̃_R⁻¹) = rank of the metric and exponent 9 = d₁² = σ₃(p₁) = (metric innermost diagonal)² (#199 STRUCTURAL). The d₁² = σ₃(p₁) identity follows from Nicomachus' theorem at n=p₁=2: (1+2)² = 1³+2³. Additional results: K = ζ_L(1) = 6085/504 with den(K) = 504 = |c₁(E₆)| confirmed; det(g̃_R⁻¹) = 1−1/(P₃·P₂) = 179/180; short-time heat kernel Θ(t) ≈ 48−240t+720t²+... with coefficients a₀=φ(P₄), a₁=−c₁(E₄), a₂=c₂(E₄)/3. Step 6 of the gravity derivation (selection mechanism) remains open but the structural ingredients are now identified: base=Tr(L), power=rank(g), second base=p_{bridge-break}, second power=d₁². **Three identities (#197–#199): 3 STRUCTURAL.**
+
+*Source: NB43 frontier. NB49 (generation degeneracy). NB53 (Higgs-generation entanglement). NB54 (fiber algebra, scope boundary). NB55 (scalar potential closure). NB56 (character-tower mass channel). NB57 (spectral wall). NB58 (real potential protection). NB59 (directed Cayley gateway). NB60 (√3 fermion ladder). NB61 (tower-level interference). NB62 (complete fermion map). NB63 (Z₄ sector algebra). NB64 (primorial VEV ratio). NB65 (sector quadratic form). NB66 (dynamical sector splitting — scope boundary). NB67 (gauge-invariant generation splitting). NB68 (Fourier anatomy, color-parity primacy). NB69 (CP-selective generation breaking). NB70 (dynamical VEV bridge). NB73 (lepton sector mass architecture). NB74 (algebraic covering residuals). NB75 (perturbative R₀ — resonance condition). NB76 (R₀ critical coupling anatomy). NB77 (window-0 anatomy, Z₇ character match). NB78 (analytic R₄ wrapping, downward coupling theorem). NB79 (inner cascade analysis, C-distribution decomposition). NB80 (analytic inner cascade, cascade ODE derivation). NB81 (cascade to mass, complete chain validation). NB82 (the solenoid metric). NB83 (the solenoid Lagrangian). NB84 (action on mass trajectories). NB85 (geodesics and normal modes). NB86 (E₄–metric bridge).*
 
 ### 3. Spectral Zeta Function
 ζ_L(s) = Σ d_k · k^{−s} evaluated at special points:
