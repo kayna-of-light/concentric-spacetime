@@ -392,8 +392,9 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Perturbative R** | NB75–NB78 | Perturbative R₀ analysis, R₀ critical coupling, R₄ wrapping | 17 identities: ε-criticality, sum rule, Z₇ character match, downward coupling |
 | **Cascade ODE** | NB79–NB81 | Cascade derivation, analytic inner cascade, full chain validation | 12 identities: universal cascade, cascade ODE equivalence, complete mass chain |
 | **Solenoid Geometry** | NB82–NB83 | Riemannian metric, inverse metric, Lagrangian, Hamiltonian, Q-factors | 10 identities: metric, tridiagonal inverse, underdamped resonator, M⁻¹ building block |
+| **Action on Trajectories** | NB84 | Lagrangian on cascade branches, metric clock, level independence, variance hierarchy | 3 identities: clock dominance (98.3%), additive R²=0.9983, outermost governs (74.9%) |
 
-See `docs/scorecard.md` for the complete phase map (181 identities across 83 notebooks) and identity details.
+See `docs/scorecard.md` for the complete phase map (193 identities across 84 notebooks) and identity details.
 
 ## Working Rules
 
