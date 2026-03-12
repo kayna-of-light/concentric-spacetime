@@ -395,7 +395,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Action on Trajectories** | NB84 | Lagrangian on cascade branches, metric clock, level independence, variance hierarchy | 3 identities: clock dominance (98.3%), additive R²=0.9983, outermost governs (74.9%) |
 | **Geodesics & Normal Modes** | NB85 | Flatness confirmation, normal mode eigensystem, branch distance geometry, spectral polynomial | 3 identities: mode-level localization, NN bilateral universality (d=2π√(74/105)), spectral irreducibility |
 
-See `docs/scorecard.md` for the complete phase map (196 identities across 85 notebooks) and identity details.
+See `docs/scorecard.md` for the complete phase map and identity details.
 
 ## Working Rules
 
