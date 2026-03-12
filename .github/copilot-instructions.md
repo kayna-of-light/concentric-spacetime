@@ -95,27 +95,59 @@ log(m_μ/m_e) / log(m_s/m_d) = 3(ρ+1) / (ρ+√3)
 ```
 where ρ = 1/√P₄ = 1/√210 (the primorial VEV ratio).
 
+### Cascade ODE (NB79–81)
+The reduced 4D formulation operating on covering residuals R_k rather than angles θ_k:
+```
+dR_k/dt + κ·R_k = f_k(t; lower levels)
+```
+where f_k encodes the nonlinear sin coupling between levels. Key properties:
+- **Equivalent** to the full 5D theta-space ODE within 0.002% (NB80)
+- **Universal cascade theorem**: all 16 checked branches follow the same exponential envelope (NB79)
+- **Complete chain**: {2,3,5,7} → cascade ODE → CP-pair ratios → fermion mass ratios (NB81)
+- Parameters: κ = ε = ρ = 1/√210, ω = 2π
+
+### CP-Pair Structure and Mass Architecture (NB69–78)
+Fermion mass ratios emerge from conjugate pair (CP) ratios of the cascade dynamics:
+
+| Channel | CP Pair (a₃, a₇_g1, a₇_g2) | Physical Crossing ci | Mass Ratio |
+|---------|----------------------------|---------------------|------------|
+| QUARK_g1 | (1, 4, 2) | ci=11 | m_s/m_d |
+| LEPTON_g1 | (0, 1, 5) | ci=31 | m_μ/m_e |
+| LEPTON_g2 | (0, 1, 5) | ci=61 | m_τ/m_μ |
+| QUARK_g2 | (1, 4, 2) | ci=191 | m_c/m_s |
+
+Algebraic exponents convert R-ratios to mass ratios:
+- R₄ quark: `x₄ = φ(210)/(2π) = 7.639`
+- R₄ lepton: `x₄_lep = 49/(2π) = 7.799`
+- R₃ inter-sector: `x₃ = λ(35)/(2π) = 1.910`
+- R₂ gen2→3: `x₂ = φ(30)/(2π) = 1.273`
+- Cascade correction: R₄^{−λ(7)} = R₄^{−6} (top quark)
+
 ## Repository Structure
 
 ```
 concentric-spacetime/
-├── notebooks/          # Jupyter notebooks NB01–NB65+ (sequential, cumulative)
+├── notebooks/          # Jupyter notebooks NB01–NB81+ (sequential, cumulative)
 │   ├── 01_nested_oscillators.ipynb    # Phase 1 start
 │   ├── ...
 │   ├── 29_structural_constants.ipynb  # First solenoid predictions
 │   ├── ...
 │   ├── 49_covering_tower_generations.ipynb  # Tower structure
 │   ├── ...
-│   └── 65_sector_quadratic_form.ipynb # Latest
+│   ├── 65_sector_quadratic_form.ipynb # Sector algebra
+│   ├── ...
+│   ├── 72_radial_mass_channel.ipynb   # Complete quark mass hierarchy
+│   ├── ...
+│   └── 81_cascade_to_mass.ipynb       # Latest: full chain validation
 ├── scripts/
-│   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ operations) — ACTIVE
-│   ├── solenoid_system.py     # Solenoid dynamics utilities — ACTIVE
+│   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ + physical constants) — ACTIVE
+│   ├── solenoid_system.py     # Solenoid & cascade dynamics — ACTIVE
 │   ├── concentric_system.py   # [LEGACY] S² × R⁺ geometry (Phase 1)
 │   ├── nested_system.py       # [LEGACY] Nested oscillator simulation (Phase 1)
 │   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
 │   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
 ├── docs/
-│   ├── scorecard.md           # Living scorecard: all 115 identities (updated after each notebook)
+│   ├── scorecard.md           # Living scorecard: all 171 identities (updated after each notebook)
 │   ├── research_directions.md # Early-phase research directions (partially superseded)
 │   └── status_*.md            # Point-in-time status summaries
 ├── temp/                      # Builder scripts, prototypes, and exploration scripts
@@ -129,14 +161,35 @@ concentric-spacetime/
 
 ### `scripts/solenoid_algebra.py` — ACTIVE
 The core algebraic module. Provides:
+
+**Pre-built instance and group operations:**
 - `SA` — pre-built `SolenoidAlgebra` instance for P₄ = 210
 - `SA.Z_star` — the 48 elements of Z*₂₁₀
 - `SA.decompose(k)` — returns raw CRT residue tuple for k ∈ Z*₂₁₀
 - `SA.character(chi_index, k)` — evaluates character χ at group element k
 - `SA.primes`, `SA.N`, `SA.phi_N`, etc.
 
+**Physical constants (module-level, importable directly):**
+- `RHO = 1/√210` — primorial coupling constant (= KAPPA = EPSILON)
+- `OMEGA = 2π` — base frequency
+- `X4, X3, X2, LAM7, X4_LEP` — algebraic exponents for mass formulas
+- `DLOG` — discrete logarithm constant dict
+- `PHYSICAL_CROSSINGS` — the 4 SM-physical coprime crossing indices with CRT labels
+- `CP_PAIRS` — conjugate pair definitions: QUARK=(1,4,2), LEPTON=(0,1,5)
+- `SM_TARGETS` — PDG 2024 mass ratio targets with uncertainties
+- `ACTIVE_PRIMES` — covering tower hierarchy [[3], [3,7], [3,5,7]]
+
+**CRT sector and mass methods:**
+- `SA.sector(ci)` — CRT sector (a₃, a₅, a₇*) for a coprime crossing index
+- `SA.coprime_indices(n)` — array of coprime crossing indices up to n
+- `SA.sector_labels(coprime_cis)` — vectorized (a₃, a₅, a₇) arrays
+- `SA.all_branches()` — list of all 210 branch tuples
+- `SA.mass_ratios(cp_ratios)` — predicted mass ratios from CP-pair R values
+
 ### `scripts/solenoid_system.py` — ACTIVE
-Continuous solenoid dynamics. Provides:
+Two formulations of the solenoid dynamics.
+
+**`SolenoidSystem`** — theta-space ODE (5D, original formulation, NB29–NB68):
 - `SolenoidSystem(primes, omega, epsilon)` — main class, configurable perturbation
 - `.integrate(t_span)` — ODE integration of the solenoid flow
 - `.poincare_section()` — record states at base-circle crossings (the 210-point structure)
@@ -145,6 +198,15 @@ Continuous solenoid dynamics. Provides:
 - `.spectrum(n_modes)` — first n eigenvalues
 - `.alignment_structure()` — which levels align at each return number
 - `.initial_condition(phi0, branch)` — select solenoid leaf by branch tuple (j₁,...,j_n)
+
+**`CascadeSystem`** — R-space cascade ODE (4D, reduced formulation, NB79–NB81):
+- `CascadeSystem(primes, omega, epsilon, kappa)` — 4D cascade, equivalent to SolenoidSystem within 0.002%
+- `.cascade_rhs(t, R)` — RHS of the cascade ODE (reconstructs θ from R analytically)
+- `.initial_condition(branch)` — R₀ = 2π·j for branch tuple
+- `.integrate_branch(branch, t_eval, T_max)` — single branch with DOP853
+- `.integrate_all_branches(branches, t_eval, T_max, max_workers)` — parallel integration via ThreadPoolExecutor
+- `.accumulate_sectors(results, coprime_cis, ci_a3, ci_a5, ci_a7)` — CRT sector RMS accumulation
+- `.cp_pair_ratios(sector_rms, cp_pairs)` — CP-pair ratio extraction
 
 ### Legacy Scripts (Phase 1–2)
 The following modules were used by NB01–NB22 and are **not imported by any solenoid-phase notebook**:
@@ -269,6 +331,15 @@ if str(ROOT / "scripts") not in sys.path:
 from solenoid_algebra import SA
 ```
 
+For dynamics notebooks (NB66+), the setup typically includes:
+```python
+from solenoid_algebra import (SA, RHO, KAPPA, EPSILON, OMEGA,
+                               X4, X3, X2, LAM7, X4_LEP,
+                               DLOG, PHYSICAL_CROSSINGS,
+                               CP_PAIRS, SM_TARGETS, ACTIVE_PRIMES)
+from solenoid_system import CascadeSystem
+```
+
 ### Identity Tracking
 Each notebook from NB29 onward contains a **scorecard section** that:
 - Lists new identities discovered in that notebook
@@ -299,8 +370,12 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Covering Tower** | NB49–NB56 | Generation structure, mass channels | 22 identities: generation mechanism, VEV dynamics |
 | **Spectral Protection** | NB57–NB59 | Conjugation, real potentials, directed Cayley | 6 identities: spectral wall layers |
 | **Fermion Mass** | NB60–NB65 | Mass predictions, fermion map, sector algebra | 18 identities: zero-parameter mass prediction |
+| **Dynamical Sector** | NB66–NB69 | ODE dynamics, CP-selective breaking, Fourier anatomy | 10 identities: generation splitting, color-parity primacy, CP-selective activation |
+| **Dynamical Mass** | NB70–NB74 | VEV bridge, charge sector, radial mass channel, lepton mass | 17 identities: complete quark mass hierarchy, lepton mass ratios, CP convergence |
+| **Perturbative R** | NB75–NB78 | Perturbative R₀ analysis, R₀ critical coupling, R₄ wrapping | 17 identities: ε-criticality, sum rule, Z₇ character match, downward coupling |
+| **Cascade ODE** | NB79–NB81 | Cascade derivation, analytic inner cascade, full chain validation | 12 identities: universal cascade, cascade ODE equivalence, complete mass chain |
 
-See `docs/scorecard.md` for the complete phase map and identity details.
+See `docs/scorecard.md` for the complete phase map (171 identities across 81 notebooks) and identity details.
 
 ## Working Rules
 
