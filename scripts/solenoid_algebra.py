@@ -30,7 +30,7 @@ Primorial nesting:
 from __future__ import annotations
 
 import numpy as np
-from math import gcd
+from math import gcd, sqrt
 from functools import reduce
 from typing import Dict, List, Optional, Sequence, Tuple
 
@@ -68,6 +68,86 @@ FACULTY_LABELS: Dict[int, str] = {
 
 PRIMITIVE_ROOTS: Dict[int, int] = {3: 2, 5: 2, 7: 3}
 """Primitive root (generator) for each Z*_p, p > 2."""
+
+
+# ── Physical constants (NB67+) ───────────────────────────────────────
+
+RHO: float = 1.0 / sqrt(P)
+"""Primorial VEV ratio ρ = 1/√P₄ = 1/√210 ≈ 0.069007. The unique coupling (NB76)."""
+
+KAPPA: float = RHO
+"""Linear restoring force strength κ = ρ = 1/√210."""
+
+EPSILON: float = RHO
+"""Perturbation (inter-level coupling) strength ε = ρ = 1/√210."""
+
+OMEGA: float = 2.0 * np.pi
+"""Base frequency on the solenoid."""
+
+
+# ── Algebraic mass exponents (NB70-73) ───────────────────────────────
+# All derived from number theory of 210, zero free parameters.
+
+X4: float = 48 / (2.0 * np.pi)
+"""φ(210)/(2π) = 48/(2π) ≈ 7.6394. R₄ exponent for m_s/m_d."""
+
+X3: float = 12 / (2.0 * np.pi)
+"""λ(35)/(2π) = 12/(2π) ≈ 1.9099. R₃ exponent for inter-level ratios."""
+
+X2: float = 8 / (2.0 * np.pi)
+"""φ(30)/(2π) = 8/(2π) ≈ 1.2732. R₂ exponent for m_b/m_s."""
+
+LAM7: int = 6
+"""λ(7) = 6. Generation period; cascade correction exponent."""
+
+X4_LEP: float = 49 / (2.0 * np.pi)
+"""p₇²/(2π) = 49/(2π) ≈ 7.7986. Lepton R₄ exponent for m_μ/m_e."""
+
+
+# ── Discrete log tables (flattened form) ─────────────────────────────
+
+DLOG: Dict[int, Dict[int, int]] = {
+    3: {1: 0, 2: 1},
+    5: {1: 0, 2: 1, 4: 2, 3: 3},
+    7: {1: 0, 3: 1, 2: 2, 6: 3, 4: 4, 5: 5},
+}
+"""Discrete log tables for CRT sector assignment: DLOG[p][x] = k where g^k ≡ x (mod p)."""
+
+
+# ── Standard Model physical crossings (NB62, NB72) ──────────────────
+
+PHYSICAL_CROSSINGS: Dict[str, Dict] = {
+    'QUARK_g1':  {'ci': 11,  'a3': 1, 'a5': 0, 'a7s': 4, 'type': 'QUARK',  'gen': 'g1'},
+    'LEPTON_g1': {'ci': 31,  'a3': 0, 'a5': 0, 'a7s': 1, 'type': 'LEPTON', 'gen': 'g1'},
+    'LEPTON_g2': {'ci': 61,  'a3': 0, 'a5': 0, 'a7s': 5, 'type': 'LEPTON', 'gen': 'g2'},
+    'QUARK_g2':  {'ci': 191, 'a3': 1, 'a5': 0, 'a7s': 2, 'type': 'QUARK',  'gen': 'g2'},
+}
+"""Physical CP-pair crossing indices and their CRT labels."""
+
+CP_PAIRS: Dict[str, tuple] = {
+    'QUARK':  (1, 4, 2),   # (a₃, a₇*_g1, a₇*_g2)
+    'LEPTON': (0, 1, 5),
+}
+"""CP conjugate pair definitions: channel → (a₃, a₇*_g1, a₇*_g2)."""
+
+
+# ── PDG target values (PDG 2024) ─────────────────────────────────────
+
+SM_TARGETS: Dict[str, tuple] = {
+    'm_s/m_d': (20.0, 2.5),
+    'm_c/m_u': (588.0, 100.0),
+    'm_b/m_s': (44.75, 4.0),
+    'm_b/m_d': (895.0, 100.0),
+    'm_t/m_c': (135.8, 5.0),
+    'm_mu/m_e': (206.768, 0.0),
+}
+"""PDG 2024 mass ratio targets: name → (central_value, uncertainty)."""
+
+
+# ── Covering tower hierarchy (NB49+) ─────────────────────────────────
+
+ACTIVE_PRIMES: List[List[int]] = [[3], [3, 7], [3, 5, 7]]
+"""Tower levels: progressive prime activation for generation structure."""
 
 
 class SolenoidAlgebra:
@@ -391,6 +471,70 @@ class SolenoidAlgebra:
     def is_unit(self, k: int) -> bool:
         """Whether k is coprime to P (i.e. a member of Z*_P)."""
         return gcd(k, self.P) == 1
+
+    # ── Sector mapping (NB62+) ───────────────────────────────────────
+
+    def sector(self, ci: int) -> Tuple[int, int, int]:
+        """
+        Map a crossing index to its CRT sector (a₃, a₅, a₇*).
+
+        Uses discrete log tables. ci must be coprime to P.
+        Returns (a₃, a₅, a₇*) where each value is the discrete log
+        of (ci mod p) in the corresponding Z*_p.
+        """
+        return (
+            self.dlog[3][ci % 3],
+            self.dlog[5][ci % 5],
+            self.dlog[7][ci % 7],
+        )
+
+    def coprime_indices(self, n: int) -> np.ndarray:
+        """Return array of crossing indices in [0, n) coprime to P."""
+        return np.array([ci for ci in range(n) if gcd(ci, self.P) == 1])
+
+    def sector_labels(self, coprime_cis: np.ndarray) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """
+        Vectorized CRT sector labels for an array of coprime crossing indices.
+
+        Returns (a3_array, a5_array, a7_array).
+        """
+        a3 = np.array([self.dlog[3][ci % 3] for ci in coprime_cis])
+        a5 = np.array([self.dlog[5][ci % 5] for ci in coprime_cis])
+        a7 = np.array([self.dlog[7][ci % 7] for ci in coprime_cis])
+        return a3, a5, a7
+
+    def all_branches(self) -> List[Tuple[int, ...]]:
+        """Generate all P branches: (j₁, j₂, ..., jₙ) with 0 ≤ jₖ < pₖ."""
+        from itertools import product as cartesian
+        return list(cartesian(*(range(p) for p in self.primes)))
+
+    def mass_ratios(
+        self,
+        cp_ratios: Dict[str, List[float]],
+    ) -> Dict[str, float]:
+        """
+        Compute fermion mass ratios from CP-pair ratios.
+
+        Parameters
+        ----------
+        cp_ratios : dict
+            {'QUARK': [R₁, R₂, R₃, R₄], 'LEPTON': [R₁, R₂, R₃, R₄]}
+
+        Returns
+        -------
+        dict : mass ratio name → predicted value
+        """
+        R4_q = cp_ratios['QUARK'][3]
+        R3_q = cp_ratios['QUARK'][2]
+        R2_q = cp_ratios['QUARK'][1]
+        R4_l = cp_ratios['LEPTON'][3]
+        return {
+            'm_s/m_d': R4_q ** X4,
+            'm_c/m_u': R3_q ** X3 * R4_q ** X4,
+            'm_b/m_s': R2_q ** X2,
+            'm_t/m_c': R2_q ** X2 * R3_q ** X3 / R4_q ** LAM7,
+            'm_mu/m_e': R4_l ** X4_LEP,
+        }
 
     def __repr__(self) -> str:
         return (

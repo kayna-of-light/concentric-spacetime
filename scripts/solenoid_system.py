@@ -19,6 +19,12 @@ Key properties:
   - Linear restoring force (kappa > 0) drives covering residuals toward zero
   - Spectrum is sparse (covering constraints = quantization mechanism)
 
+Two formulations:
+  SolenoidSystem  — Original theta-space ODE (5D: theta_0..theta_4)
+  CascadeSystem   — Reduced R-space ODE (4D: R_1..R_4, covering residuals)
+                    Established in NB79-81. Equivalent to SolenoidSystem
+                    within 0.002% (NB80), but 4D instead of 5D.
+
 Frequencies:
   Level 0 (base):   omega
   Level k:          omega / P_k     where P_k = p_1 * p_2 * ... * p_k (primorial)
@@ -29,8 +35,9 @@ For primes [2, 3, 5, 7]:
 """
 
 import numpy as np
+from math import gcd
 from scipy.integrate import solve_ivp
-from typing import Optional
+from typing import Dict, List, Optional, Tuple
 
 
 class SolenoidSystem:
@@ -288,4 +295,274 @@ class SolenoidSystem:
             f"SolenoidSystem(primes={self.primes}, omega={self.omega:.4f}, "
             f"epsilon={self.epsilon}, kappa={self.kappa}, "
             f"primorials={self.primorials})"
+        )
+
+
+class CascadeSystem:
+    """
+    The 4D Primorial Cascade ODE on covering residuals R_k.
+
+    Established in NB79-81. This is the reduced formulation of the
+    solenoid dynamics, operating in R-space (covering residuals) rather
+    than theta-space. Equivalent to SolenoidSystem within 0.002% (NB80),
+    but 4D instead of 5D — theta_0 is eliminated analytically.
+
+    The cascade ODE:
+        dR_k/dt + kappa*R_k = f_k(t; lower levels)
+
+    where f_k encodes the nonlinear sin coupling between levels.
+    Initial conditions R_k(0) = 2*pi*j_k select the solenoid branch.
+
+    Parameters
+    ----------
+    primes : list of int
+        Covering degrees [2, 3, 5, 7].
+    omega : float
+        Base frequency. Default: 2*pi.
+    epsilon : float
+        Coupling strength. Default: 1/sqrt(210).
+    kappa : float
+        Restoring force. Default: 1/sqrt(210).
+    """
+
+    def __init__(
+        self,
+        primes: Optional[List[int]] = None,
+        omega: float = 2 * np.pi,
+        epsilon: Optional[float] = None,
+        kappa: Optional[float] = None,
+    ):
+        self.primes = list(primes) if primes is not None else [2, 3, 5, 7]
+        self.n = len(self.primes)
+        self.omega = omega
+
+        # Default coupling: 1/sqrt(product of primes)
+        from functools import reduce
+        self.P = reduce(lambda a, b: a * b, self.primes)
+        rho = 1.0 / np.sqrt(self.P)
+        self.epsilon = epsilon if epsilon is not None else rho
+        self.kappa = kappa if kappa is not None else rho
+
+    def cascade_rhs(self, t: float, R: np.ndarray) -> np.ndarray:
+        """
+        RHS of the 4D cascade ODE.
+
+        Reconstructs theta from R and base angle, then computes
+        the coupled residual dynamics.
+        """
+        # Reconstruct theta from R: theta_0 = omega*t, then
+        # theta_{k+1} = (R_k + theta_k) / p_k
+        th = np.empty(self.n + 1)
+        th[0] = self.omega * t
+        for k in range(self.n):
+            th[k + 1] = (R[k] + th[k]) / self.primes[k]
+
+        dR = np.empty(self.n)
+        dR[0] = self.epsilon * np.sin(th[0]) - self.kappa * R[0]
+        for k in range(1, self.n):
+            dR[k] = (
+                self.epsilon * np.sin(th[k])
+                - self.epsilon * np.sin(th[k - 1]) / self.primes[k - 1]
+                + self.kappa * R[k - 1] / self.primes[k - 1]
+                - self.kappa * R[k]
+            )
+        return dR
+
+    def initial_condition(self, branch: Tuple[int, ...]) -> np.ndarray:
+        """
+        Initial R-vector for a given branch.
+
+        R_k(0) = 2*pi*j_k where j_k is the k-th branch index.
+        """
+        return np.array([2 * np.pi * j for j in branch], dtype=float)
+
+    def integrate_branch(
+        self,
+        branch: Tuple[int, ...],
+        t_eval: np.ndarray,
+        T_max: float,
+        rtol: float = 1e-12,
+        atol: float = 1e-14,
+    ) -> np.ndarray:
+        """
+        Integrate a single branch of the cascade ODE.
+
+        Parameters
+        ----------
+        branch : tuple of int
+            (j_1, ..., j_n) branch indices.
+        t_eval : ndarray
+            Times at which to evaluate (typically coprime crossing times).
+        T_max : float
+            End time of integration.
+        rtol, atol : float
+            Solver tolerances.
+
+        Returns
+        -------
+        R_vals : ndarray, shape (len(t_eval), n)
+            Covering residuals at each evaluation time.
+        """
+        R0 = self.initial_condition(branch)
+        sol = solve_ivp(
+            self.cascade_rhs,
+            [0.0, T_max + 1.0],
+            R0,
+            method="DOP853",
+            t_eval=t_eval,
+            rtol=rtol,
+            atol=atol,
+        )
+        if sol.status != 0:
+            raise RuntimeError(f"Branch {branch} FAILED: {sol.message}")
+        return sol.y.T  # (n_eval, n_levels)
+
+    def integrate_all_branches(
+        self,
+        branches: List[Tuple[int, ...]],
+        t_eval: np.ndarray,
+        T_max: float,
+        max_workers: int = 8,
+        rtol: float = 1e-12,
+        atol: float = 1e-14,
+        progress_interval: int = 50,
+    ) -> Dict[Tuple[int, ...], np.ndarray]:
+        """
+        Integrate multiple branches in parallel.
+
+        Parameters
+        ----------
+        branches : list of tuples
+            Branch indices to integrate.
+        t_eval : ndarray
+            Evaluation times.
+        T_max : float
+            End time.
+        max_workers : int
+            Number of parallel workers.
+        progress_interval : int
+            Print progress every N branches.
+
+        Returns
+        -------
+        results : dict
+            branch tuple -> R_vals array (n_eval, n_levels)
+        """
+        import time
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+
+        def _integrate_one(branch):
+            return branch, self.integrate_branch(branch, t_eval, T_max, rtol, atol)
+
+        t0 = time.time()
+        results = {}
+        with ThreadPoolExecutor(max_workers=max_workers) as pool:
+            futures = {pool.submit(_integrate_one, b): b for b in branches}
+            done = 0
+            for f in as_completed(futures):
+                branch, R_vals = f.result()
+                results[branch] = R_vals
+                done += 1
+                if progress_interval > 0 and done % progress_interval == 0:
+                    print(f"  {done}/{len(branches)} ({time.time()-t0:.1f}s)")
+
+        return results
+
+    @staticmethod
+    def accumulate_sectors(
+        results: Dict[Tuple[int, ...], np.ndarray],
+        coprime_cis: np.ndarray,
+        ci_a3: np.ndarray,
+        ci_a5: np.ndarray,
+        ci_a7: np.ndarray,
+        n_levels: int = 4,
+    ) -> np.ndarray:
+        """
+        Accumulate wrapped R^2 into CRT sectors and compute RMS.
+
+        Parameters
+        ----------
+        results : dict
+            branch -> R_vals array (n_coprime, n_levels)
+        coprime_cis : ndarray
+            Coprime crossing indices.
+        ci_a3, ci_a5, ci_a7 : ndarray
+            CRT sector labels for each coprime crossing.
+        n_levels : int
+            Number of covering levels (default 4).
+
+        Returns
+        -------
+        sector_rms : ndarray, shape (4, 2, 6, n_levels)
+            RMS residual per (a5, a3, a7*, level) sector.
+        """
+        branches = list(results.keys())
+        n_br = len(branches)
+
+        # Stack and wrap to [-pi, pi]
+        all_R = np.stack([results[b] for b in branches])  # (n_br, n_coprime, n_levels)
+        all_R_w = np.mod(all_R, 2 * np.pi)
+        all_R_w[all_R_w > np.pi] -= 2 * np.pi
+
+        # Sum R^2 over branches
+        R_sq_sum = (all_R_w ** 2).sum(axis=0)  # (n_coprime, n_levels)
+
+        sector_sq = np.zeros((4, 2, 6, n_levels))
+        sector_cnt = np.zeros((4, 2, 6), dtype=int)
+
+        for idx in range(len(coprime_cis)):
+            a5, a3, a7 = ci_a5[idx], ci_a3[idx], ci_a7[idx]
+            sector_sq[a5, a3, a7] += R_sq_sum[idx]
+            sector_cnt[a5, a3, a7] += n_br
+
+        sector_rms = np.zeros((4, 2, 6, n_levels))
+        for a5 in range(4):
+            for a3 in range(2):
+                for a7 in range(6):
+                    cnt = sector_cnt[a5, a3, a7]
+                    if cnt > 0:
+                        sector_rms[a5, a3, a7] = np.sqrt(
+                            sector_sq[a5, a3, a7] / cnt
+                        )
+        return sector_rms
+
+    @staticmethod
+    def cp_pair_ratios(
+        sector_rms: np.ndarray,
+        cp_pairs: Optional[Dict[str, tuple]] = None,
+    ) -> Dict[str, List[float]]:
+        """
+        Compute CP-pair ratios from sector RMS values.
+
+        Parameters
+        ----------
+        sector_rms : ndarray, shape (4, 2, 6, n_levels)
+            Output of accumulate_sectors.
+        cp_pairs : dict, optional
+            Channel definitions. Default: QUARK=(1,4,2), LEPTON=(0,1,5).
+
+        Returns
+        -------
+        ratios : dict
+            channel name -> [R_1, R_2, R_3, R_4] ratio values
+        """
+        if cp_pairs is None:
+            from solenoid_algebra import CP_PAIRS
+            cp_pairs = CP_PAIRS
+
+        n_levels = sector_rms.shape[3]
+        ratios = {}
+        for pname, (a3, a7_g1, a7_g2) in cp_pairs.items():
+            r = []
+            for lev in range(n_levels):
+                v1 = sector_rms[0, a3, a7_g1, lev]
+                v2 = sector_rms[0, a3, a7_g2, lev]
+                r.append(v1 / v2 if v2 > 0 else 0.0)
+            ratios[pname] = r
+        return ratios
+
+    def __repr__(self):
+        return (
+            f"CascadeSystem(primes={self.primes}, omega={self.omega:.4f}, "
+            f"epsilon={self.epsilon}, kappa={self.kappa})"
         )
