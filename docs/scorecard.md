@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB93 (lepton third generation — window-0 concentration and R₃ analytic structure).
+> Last updated after NB94 (dilution factor — analytic mass prediction, σ∞ ratio, n=Σprimes).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 212 |
+| **Structural identities** | 215 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 93 (NB01–NB93) |
+| **Notebooks** | 94 (NB01–NB94) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -73,6 +73,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. NB90's identification explained from coprime participation + NB84 variance hierarchy. |
 | **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. The 8π in GR decomposes as level count × base frequency; on the solenoid these remain separate algebraic quantities. The non-reduced Planck mass is natural. |
 | **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): Window-0 total CP concentration (R₃ and R₄, windows 1+ = 1.000000), R₃ analytic slope at ci=61 (ratio = 1.000000 exact). m_τ/m_μ at T=5000: 15.96 vs 16.82 (−5.1%). Dilution timescale is the remaining frontier. |
+| **The Dilution Factor** | NB94 | Analytic dilution model; σ∞ R4/R3 ratio; level-dependent n_phys; n=Σ(primes)=17 | 3 identities (#213–#215): Dilution model exact (<0.001%), σ∞(R4)/σ∞(R3)=√30 (lepton, −0.07%, CONDITIONAL), m_τ/m_μ at n=17=Σprimes: 16.80 (−0.13%, CONDITIONAL). Dilution is level-dependent. |
 
 ---
 
@@ -168,7 +169,17 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 
 *Identity #212 (NB93): At LEPTON_g2 (ci=61, t=62), R₃ is deep in the linear regime. The j₃-dependence is analytically linear with slope 2πα where α=exp(−κ·62)=0.01387. Numerical slope matches to machine precision. This extends NB78's R₄ linearity theorem to the R₃ level, confirming the cascade dynamics are fully analytic at these crossing indices.*
 
-*m_τ/m_μ status: At T=5000 (~24 windows), R₃_lep^{x₃} = 15.96 vs SM 16.82 (−5.12%). At window-0 only, R₃^{x₃} = 19.13 (+13.7%). At 20 windows, R₃^{x₃} = 16.42 (−2.3%). The prediction monotonically decreases with window count. Resolving this requires an analytic dilution factor — the physical number of windows is the remaining frontier for the lepton third generation.*
+*m_τ/m_μ status: NB94 derives the analytic dilution model R²(n) = (σ₁² + (n-1)σ∞²) / (σ₂² + (n-1)σ∞²) and solves for n_phys(R₃) = 16.83. At n=17 = Σprimes = 2+3+5+7, R₃^{x₃} = 16.80 vs SM 16.82 (−0.13%). The dilution factor is level-dependent: n_phys(R₄) = 22.70, n_phys(R₄_quark) = 27.57. Additionally, σ∞(R₄)/σ∞(R₃) = √30 = √P₃ to 0.07% in the lepton sector (quark deviates by 2.5%). Algebraic derivation of n_phys from first principles remains the open frontier.*
+
+| 213 | Dilution model structural theorem | R²(n) = (σ₁² + (n-1)σ∞²) / (σ₂² + (n-1)σ∞²) matches ODE cumulative CP ratio to <0.001% for all 4 levels, both sectors, all window counts 1–95. | <0.001% | exact | exact | **PASS** — structural theorem of cascade restoring dynamics |
+| 214 | σ∞(R₄)/σ∞(R₃) = √P₃ [lepton] | Asymptotic noise ratio between outermost covering levels. Lepton: 5.4733 vs √30 = 5.4772. Quark: 5.3377 (2.55% off). | 5.4733 | 5.4772 | −0.07% | **CONDITIONAL** — lepton matches to 0.07%, quark deviates; needs derivation |
+| 215 | m_τ/m_μ at n = Σ(primes) = 17 | At dilution window count n=17=2+3+5+7, cumulative R₃^{x₃} = 16.80. Post-hoc identification, not derived from first principles. | 16.80 | 16.82 | −0.13% | **CONDITIONAL** — best m_τ/m_μ prediction from any methodology, but n=17 is identified, not derived |
+
+*Identity #213 (NB94): The dilution model provides the exact functional form for how cumulative CP-pair ratios evolve with window count. The model has three parameters per (level, sector): σ₁², σ₂², σ∞² — the window-0 CP-partner mean-square values and the asymptotic common mean-square. These are deterministic functions of the cascade ODE. NB93 #213 (dilution monotonicity, NULL) is upgraded to PASS as a trivial consequence of σ∞² > 0.*
+
+*Identity #214 (NB94): The lepton-sector asymptotic noise ratio σ∞(R₄)/σ∞(R₃) = 0.24038/0.04392 = 5.4733 matches √P₃ = √(2·3·5) = 5.4772 to 0.07%. However, the quark sector gives 5.3377 (2.55% off), so the √P₃ match is sector-specific. This could be a dynamical selection effect or a numerical coincidence. CONDITIONAL pending derivation.*
+
+*Identity #215 (NB94): Solving the dilution model for the window count that reproduces m_τ/m_μ = 16.817 gives n_phys(R₃) = 16.829. At the integer n=17 = 2+3+5+7 (sum of the four primes), the ODE cumulative gives R₃^{x₃} = 16.7953 (−0.13%). This is the first sub-percent prediction of m_τ/m_μ from the solenoid framework. However, n=17 is identified post-hoc, not derived from first principles. The dilution factor is level-dependent (n_phys(R₄) = 22.70, n_phys(R₄_quark) = 27.57), ruling out a universal window count. Algebraic derivation of the per-level dilution selection remains the open frontier.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
@@ -720,7 +731,7 @@ And the ratio x₄/x₃ = φ(5) = 4 is exact, connecting the hierarchy to the ra
 - m_μ/m_e = R₄_l^{p₄²/(2π)} = 205.4 (NB73, −0.65%)
 - m_τ/m_e = R₃_l^{x₃} · R₄_l^{p₄²/(2π)} = 3323 (NB73, −4.43%, ODE-limited)
 
-**Remaining frontier**: m_τ/m_μ individually is at −5.12% with full 210-branch T=5000 integration (NB93), consistent with NB72 #138 (−3.80% at 50 branches). NB93 establishes that ALL CP asymmetry resides in window 0 (#211), the R₃ analytic slope at ci=61 is exact (#212), and the dilution is monotonic. The physical number of windows (analytic dilution factor) is the remaining frontier — at 20 windows, m_τ/m_μ = 16.42 (−2.3%).
+**Remaining frontier**: NB94 resolves the dilution model analytically. At n=17 = Σprimes windows, m_τ/m_μ = 16.80 (−0.13%), the first sub-percent prediction. But n_phys is level-dependent (R₃: 16.83, R₄: 22.70, R₄_quark: 27.57) and n=17 is identified, not derived. The frontier is now the algebraic derivation of the per-level dilution selection mechanism.
 
 **Covering residual dynamics** (NB74): The cumulative R₄ ratios used for mass predictions (NB70–73) are NOT constants — they are the late-time dilution of a massive initial CP asymmetry concentrated in the first ~200 Poincaré crossings.
 

@@ -468,6 +468,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. |
 | **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. Non-reduced Planck mass is natural. |
 | **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): All CP asymmetry in window 0 (R_{w≥1} = 1.000000), R₃ slope at ci=61 exact. m_τ/m_μ at T=5000: −5.1%. |
+| **The Dilution Factor** | NB94 | Analytic dilution model; σ∞ R4/R3 ratio; level-dependent n_phys; n=Σ(primes)=17 | 3 identities (#213–#215): Dilution model exact (<0.001%, PASS), σ∞(R4)/σ∞(R3)=√30 lepton (−0.07%, CONDITIONAL), n=17=Σprimes → m_τ/m_μ=16.80 (−0.13%, CONDITIONAL). |
 
 See `docs/scorecard.md` for the complete phase map and identity details.
 
