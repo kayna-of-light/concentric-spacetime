@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB90 (complete gravitational sector).
+> Last updated after NB91 (solenoid vacuum — structural derivation of Hubble correction).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 208 |
+| **Structural identities** | 209 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 90 (NB01–NB90) |
+| **Notebooks** | 91 (NB01–NB91) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -70,6 +70,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Cosmological Chain** | NB88 | Hubble scaling law, DM/baryon ratio, Hubble tension prediction | 3 identities (#203–#205): H₀ = M_Z³/M_Pl² × P₄⁻⁴ × C (0.09%), Ω_DM/Ω_b = 27/5 = p₂³/p₃ (0.08%), Hubble tension → Planck |
 | **The Gravitational Hierarchy** | NB89 | Step 6 selection mechanism, metric propagator, spectral-hierarchy bridge | 2 identities (#206–#207): (g̃_R⁻¹)^{ω−1}_{1,ω} = −1/λ(P₄) (exact), det′(L)/H = Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}/p₄ (exact). Step 6 RESOLVED. |
 | **The Complete Gravitational Sector** | NB90 | Hubble correction from first principles, G_N derivation, gauge-gravity hierarchy | 1 identity (#208): C = Ω_Λ × σ₈ = 96/175 (0.14%). Cosmological sector CLOSED — zero free parameters. |
+| **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. NB90's identification explained from coprime participation + NB84 variance hierarchy. |
 
 ---
 
@@ -149,6 +150,10 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 | 208 | Hubble correction C | C = Ω_Λ × σ₈ = φ(35)/35 × φ(5)/5 = 96/175 | 0.54857 | ~0.549 | 0.14% |
 
 *Identity #208 (NB90) resolves the exact Hubble correction from first principles — C is the product of two independently derived totient densities, using all four primes: 96/175 = 2⁵·3/(5²·7). Uniqueness verified: the only product of framework parameters within 5% of the target.*
+
+| 209 | Hubble correction (structural) | C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = (1-1/p₃)²(1-1/p₄) | 96/175 | 96/175 | exact (STRUCTURAL) |
+
+*Identity #209 (NB91) provides the structural derivation: C involves ONLY the outer primes {5,7} because NB84 proved they carry 96.5% of the action variance (infrared dominance). The energy screening φ(35)/35 = Ω_Λ selects modes coprime to both outer primes. The rate screening φ(5)/5 = σ₈ selects modes coprime to the intermediate prime. p₃ appears squared because it enters both screenings independently.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
@@ -926,7 +931,7 @@ Five threads remain open from the dynamics phase:
 
 **NB88 cosmological chain**: Systematic integer-relation scan for H₀/M_Z in terms of {2,3,5,7} powers. 421 solutions within 1% (lattice density — raw integer relations are NOT significant). All structurally clean solutions share the scaling law H₀ = M_Z³/M_Pl² × P₄⁻⁴ × C where C is an O(1) correction in prime powers. Three structural candidates: C = 3³/7² (score 5, dev 0.32%), C = 7³/5⁴ (score 7, dev 0.09%), C = 2⁵·3/(5²·7) = 96/175 (score 9, dev 0.13%). The seesaw-squared (M_Z/M_Pl)² is uniquely required — neither n=1 nor n=3 gives clean corrections. All candidates predict H₀ = 67.3 ± 0.3 km/s/Mpc, matching Planck (67.36 ± 0.54) within 0.4σ and 5.5σ from SH0ES (73.04 ± 1.04). The framework sides with Planck in the Hubble tension — a live falsifiable prediction. Vacuum energy structure: ρ_vac ∝ M_Z⁶/M_Pl² × P₄⁻⁸ × C² (not the naive M_Z⁴). The baryon/DM ratio Ω_DM/Ω_b = 27/5 = p₂³/p₃ matches Planck 2018 to 0.08% (simplest solenoid fraction, |exp|=4). Combined with Ω_m = 11/35 (NB37): Ω_b = 11/224 = 0.04911 (−0.39%), Ω_DM = 297/1120 = 0.26518 (−0.31%). Full cosmological architecture: Ω_Λ = 24/35, Ω_m = 11/35, Ω_b = 11/224, Ω_DM = 297/1120, H₀ = 67.3, n_s = 29/30, σ₈ = 4/5, M_Pl/M_Z = 240⁴ × 7⁹.
 
-~~Determining the exact correction C from first principles (solenoid vacuum state) is the remaining open problem for the cosmological sector.~~ **RESOLVED (NB90)**: C = Ω_Λ × σ₈ = φ(35)/35 × φ(5)/5 = 96/175 = 2⁵·3/(5²·7). This is the product of two independently derived totient densities — the dark energy fraction times the fluctuation amplitude. With C = 96/175: H₀ = 67.26 km/s/Mpc (0.14% from Planck, 0.18σ). Uniqueness scan: only 1 of 120+ pairwise products of framework parameters falls within 5% of the target (the other hit at 2.92% deviation). The complete zero-parameter formula: H₀ = M_Z³/M_Pl² × P₄⁻⁴ × φ(35)/35 × φ(5)/5. Newton's constant: G_N = 1/(M_Z² × H²) where H = 240⁴ × 7⁹, matching CODATA to 0.006%. The gravitational sector is CLOSED.
+~~Determining the exact correction C from first principles (solenoid vacuum state) is the remaining open problem for the cosmological sector.~~ **RESOLVED (NB90+NB91)**: C = Ω_Λ × σ₈ = φ(35)/35 × φ(5)/5 = 96/175 = 2⁵·3/(5²·7). NB90 identified C numerically as the product of two independently derived totient densities. NB91 provides the structural derivation: the Hubble correction involves only the outer primes {5,7} because NB84 proved they carry 96.5% of the action variance (infrared dominance). The energy screening φ(35)/35 = Ω_Λ selects modes coprime to both outer primes; the rate screening φ(5)/5 = σ₈ selects modes coprime to the intermediate prime; p₃ appears squared because it enters both screenings independently. With C = 96/175: H₀ = 67.26 km/s/Mpc (0.14% from Planck, 0.18σ). Uniqueness scan: only 1 of 120+ pairwise products of framework parameters falls within 5% of the target (the other hit at 2.92% deviation). The complete zero-parameter formula: H₀ = M_Z³/M_Pl² × P₄⁻⁴ × φ(35)/35 × φ(5)/5. Newton's constant: G_N = 1/(M_Z² × H²) where H = 240⁴ × 7⁹, matching CODATA to 0.006%. The gravitational sector is CLOSED.
 
 **NB89 gravitational hierarchy (Step 6 resolved)**: Resolves the selection mechanism for the gravity hierarchy M_Pl/M_Z = 240⁴ × 7⁹ = Tr(L)^{ω(P₄)} × p₄^{d₁²}. Three independent selections converge on a unique formula:
 
@@ -936,7 +941,7 @@ Five threads remain open from the dynamics phase:
 
 The spectral-hierarchy bridge: det′(L)/H = Λ_max^{σ₃(p₁)} · p₂^{λ(P₄)} / p₄ (#207 PASS) — all exponents in the ratio are framework invariants. Systematic scan over 8 framework bases × 4 primes × exponents [-2..20] confirms Tr(L)⁴ × 7⁹ is the ONLY matching formula. **Two identities (#206–#207): 2 PASS.**
 
-*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge). NB82 (solenoid metric). NB83 (solenoid Lagrangian). NB84 (action on trajectories). NB85 (geodesics). NB88 (cosmological chain). NB89 (gravitational hierarchy). NB90 (complete gravitational sector — C resolved).*
+*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge). NB82 (solenoid metric). NB83 (solenoid Lagrangian). NB84 (action on trajectories). NB85 (geodesics). NB88 (cosmological chain). NB89 (gravitational hierarchy). NB90 (complete gravitational sector — C resolved). NB91 (solenoid vacuum — structural derivation of C).*
 
 ### 2. Character-Theoretic Mass Channel
 The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenvalue spectrum). Investigate whether these gaps generate the observed fermion mass hierarchy (the NB36 open problem). The coupling maps Z → Z[√3] (NB44 identity #49), which may provide the irrational ratios needed.
@@ -1065,7 +1070,7 @@ The eigenvalue product Πω² = 179/180 (NB43 identity #42). NB82 reveals this i
 ## IX. What Is NOT Claimed
 
 - **Fermion mass ratios** — the **complete quark mass hierarchy** is now predicted with zero free parameters. All 5 independent ratios for 6 quarks are within PDG uncertainty: m_s/m_d = 19.92 (−0.4%), m_c/m_u = 627.4 (+0.76σ), m_b/m_s = 45.83 (+2.4%), m_b/m_d = 912.9 (+2.0%), m_t/m_c = 137.7 (+1.4%). The three-level architecture uses: Level 4 (R₄, x₄ = φ(210)/(2π)), Level 3 (R₃, x₃ = λ(35)/(2π)), Level 2 (R₂, x₂ = φ(30)/(2π)), with cascade correction R₄^{−λ(7)} when adjacent active levels are multiplied. **Lepton sector**: m_μ/m_e = 205.4 (−0.65%), m_τ/m_e = 3323 (−4.43%, ODE-limited). NB74 establishes that the R₄ values are diluted initial CP asymmetries, not static constants. NB75 shows R₀ is not analytically derivable from perturbation theory — the ratio R₀_l/R₀_q = 17/16 is a nonlinear resonance specific to ε = 1/√P₄, with extreme sensitivity (d(L/Q)/dε ≈ 146). NB76 adds a second constraint: R₀_q + R₀_l = λ(210) = 12, jointly with L/Q = 17/16 uniquely selecting ε=κ=ρ. NB77 dissects the mechanism: the g1 R₄ spread lives in the Z₇ character χ_{a₇}, p=7 controls 75% of the variance, and all branches converge to a universal attractor within ~5 windows. NB78 derives this analytically: the downward coupling theorem shows R₄(t, j₄) = SS(t) + 2πj₄·exp(−κt), and the mod-2π wrapping mechanism explains exactly which Z₇ mode dominates at each crossing. NB79 extends the cascade to all levels: R_k is linear in j_k with universal slope at ALL levels k=1..4, and the C-distribution C₄(j₁,j₂,j₃) is 93% additive with j₃ (charge sector) explaining 92.4% of variance. NB80 derives the cascade ODE analytically: the 4D sequential system reproduces the 5D solenoid to 0.002%, with Level 1 exactly solvable and the θ₃ spacing formula exact at all crossings. The nonlinearity scaling (1−R²) ∝ α^2.83 structurally distinguishes quark (nonlinear) from lepton (linear) mass generation. **NB81 completes the chain**: the 4D cascade ODE (equivalent to the 5D solenoid at <0.3%) reproduces all fermion mass ratios directly from {2,3,5,7}, confirming the complete derivation chain with zero free parameters. NB81 also reveals that the mass-carrying signal resides in the transient structure of the initial conditions (the Cantor fiber), not the steady-state dynamics — the steady-state CP-pair ratio converges to exactly 1.0.
-- **H₀** (Hubble parameter) — NOW CLAIMED (NB88+NB90): H₀ = M_Z³/M_Pl² × P₄⁻⁴ × 96/175 = 67.26 km/s/Mpc (0.14% from Planck, 0.18σ). The correction C = Ω_Λ × σ₈ = 96/175 is derived from first principles (NB90) as the product of two independently established totient densities. Zero free parameters remain.
+- **H₀** (Hubble parameter) — NOW CLAIMED (NB88+NB90+NB91): H₀ = M_Z³/M_Pl² × P₄⁻⁴ × 96/175 = 67.26 km/s/Mpc (0.14% from Planck, 0.18σ). The correction C = Ω_Λ × σ₈ = 96/175 is identified (NB90) and structurally derived (NB91): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = (1-1/p₃)²(1-1/p₄), where energy screening selects modes coprime to both outer primes and rate screening selects modes coprime to the intermediate prime. NB84's variance hierarchy (outer pair carries 96.5%) explains why only {5,7} enter. Zero free parameters.
 - **Baryon/DM split** — NOW CLAIMED (NB88): Ω_DM/Ω_b = 27/5 = p₂³/p₃ (0.08% match). Combined with Ω_m = 11/35: Ω_b = 11/224, Ω_DM = 297/1120.
 - **3+1 dimensionality** is NOT a prediction — it is the Cartesian artifact. The concentric geometry has no intrinsic space-time categories. The 3+1 parsing arises because an observer inside the nesting projects a continuous complexity gradient onto a categorical binary. The metric signature (−,+,+,+) is the *last residual Cartesian artifact* in modern physics.
 
