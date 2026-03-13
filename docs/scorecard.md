@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB94 correction (dilution factor — +1 offset error discovered, #214–#215 retracted).
+> Last updated after NB97 (algebraic mass invariants — T-independent structure of the solenoid).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 213 |
+| **Structural identities** | 220 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 94 (NB01–NB94) |
+| **Notebooks** | 97 (NB01–NB97) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -74,6 +74,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. The 8π in GR decomposes as level count × base frequency; on the solenoid these remain separate algebraic quantities. The non-reduced Planck mass is natural. |
 | **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): Window-0 total CP concentration (R₃ and R₄, windows 1+ = 1.000000), R₃ analytic slope at ci=61 (ratio = 1.000000 exact). m_τ/m_μ at T=5000: 15.96 vs 16.82 (−5.1%). Dilution timescale is the remaining frontier. |
 | **The Dilution Factor** | NB94 | Analytic dilution model; convention-independent reformulation; +1 offset error corrected | 1 identity (#213): Dilution model exact (<0.001%, PASS). #214 (√30 ratio) and #215 (n=17) retracted as phase-sampling artifacts of NB81's +1 time offset. Convention A (t=ci) is correct; the amplitude ratio is 4.76, not √30. |
+| **Algebraic Mass Invariants** | NB97 | T-independent mass architecture; window-0 complete concentration; dilution formula; crossing gap anatomy | 7 identities (#216–#222): Window-0 complete concentration (per-period CP=1 for periods ≥ 1), quark + lepton dilution formulas (0.25%/0.47%), first-crossing gaps = λ(210) and p₁, gap vocabulary = {p₁, λ(P₄), d(P₄)}, gap sum = ±P₃, transient weight T-independence. |
 
 ---
 
@@ -180,6 +181,22 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #214 (NB94): **RETRACTED.** The √30 ratio arose from an unprincipled +1 time offset introduced in NB81 (t=ci+1 instead of t=ci for coprime crossing ci). NB95 proved late-time residuals are pure sinusoids at primorial frequencies. The +1 shifts the sampling phase by 2π/P_k per level, which changed σ∞ values. Convention A (t=ci, correct) gives ratio 7.31; the convention-independent amplitude ratio A₃/A₂ = 4.76. Neither is √30.*
 
 *Identity #215 (NB94): **RETRACTED.** Under Convention A (correct), n=17 gives m_τ/m_μ = 21.0 (+25%), not the −0.13% previously reported. The good result depended entirely on Convention B's phase error. The dilution model structural theorem (#213) holds for any convention, but specific mass predictions are convention-dependent and no principled convention for the dilution window count has been identified.*
+
+| 216 | Window-0 complete concentration | Per-period CP ratio = 1.0000 for all periods ≥ 1 (both QUARK and LEPTON channels, all levels). ALL CP asymmetry is in period 0. | 1.000000 | 1.0 | 0% | **PASS** — proved via all-branch integration at T=20000 with per-period decomposition |
+| 217 | Quark dilution formula | CP_Q(n) = sqrt((C₀² + r(n−1))/(1 + r(n−1))), C₀ = 6.6067, r = 0.9985. Predicts QR4 at all T from two T-independent parameters. | formula | all T | 0.25% max | **PASS** — max error 0.25% across T=210–20000 |
+| 218 | Lepton dilution formula | CP_L(n) = sqrt((C₀² + r(n−1))/(1 + r(n−1))), C₀ = 5.2273, r = 0.0083. Predicts LR3 at all T from two T-independent parameters. | formula | all T | 0.47% max | **PASS** — max error 0.47% across T=210–20000 |
+| 219 | First-crossing gap = λ(210) and p₁ | The gap between first coprime crossings of gen1 vs gen2 sectors: |Δ_Q| = 12 = λ(210), |Δ_L| = 2 = p₁. The group exponent and smallest prime control the dominant CP asymmetry. | 12, 2 | λ(210), p₁ | exact | **PASS** — number-theoretic identity |
+| 220 | Gap vocabulary = {p₁, λ(210), d(210)} | ALL 16 crossing-by-crossing gaps (8 per CP pair) belong to {2, 12, 16} = {p₁, λ(P₄), d(P₄)}. No other values appear. | {2, 12, 16} | {2, 12, 16} | exact | **PASS** — exhaustive enumeration |
+| 221 | Crossing gap sum = ±P₃ | Sum of S(g1)[i] − S(g2)[i] over all 8 crossings: +30 (QUARK), −30 (LEPTON). 30 = P₃ = third primorial. | ±30 | P₃ = 30 | exact | **PASS** — number-theoretic identity |
+| 222 | Transient weight CP is exactly T-independent | CP_trans = sqrt(TW(g1)/TW(g2)) where TW(a₇) = Σ exp(−2κr) over coprime residues in sector a₇. CP_trans(Q) = 2.142535, CP_trans(L) = 1.215629. Identical for 1, 5, 25, 100 periods. | invariant | invariant | exact | **PASS** — geometric series factor cancels in ratio (analytic proof) |
+
+*Identity #216 (NB97): Extends NB93 #211 (which showed this for R₃ and R₄ in lepton sector at window level) to a per-period decomposition across both channels. Each period of 210 crossings is analyzed independently: period 0 shows the full CP asymmetry (QR4=6.6067, LR3=5.2273), while ALL subsequent periods show CP=1.0000 to machine precision. This is the definitive formulation of the window-0 concentration theorem.*
+
+*Identities #217–#218 (NB97): The generalized dilution formula provides the complete T-dependent CP trajectory from two T-independent parameters per channel: the first-period CP ratio C₀ and the driven-response weight ratio r. For quarks (r≈1, Q₄=1.52), the driven response weight matches the period-0 g2 weight, giving simple dilution. For leptons (r≈0.008, Q₃=7.59), the driven response is negligible at level 3, so dilution is extremely slow — explaining why LR3 barely decays with T (NB96 §20: α_L≈0.08 vs α_Q≈0.34). This resolves the "structure plus tuning" verdict of NB96: the structure is the dilution formula; the "tuning" is the algebraically determined (C₀, r) pair.*
+
+*Identities #219–#221 (NB97): The crossing gap structure between gen1 and gen2 sectors encodes number-theoretic invariants of P₄=210. The first-crossing gaps are λ(210)=12 and p₁=2 — the group exponent and bilateral prime. The full gap vocabulary is {p₁, λ(P₄), d(P₄)} = {2, 12, 16}. The gap sum is ±P₃=±30, connecting the CP-pair structure to the third primorial. These are all pure number theory, requiring no dynamics — the coprime residue structure of Z*₂₁₀ determines them completely.*
+
+*Identity #222 (NB97): The transient weight Σ exp(−2κr) per a₇ sector converges to a fixed value after one period (the exponential dies by exp(−2κ·210) ≈ 10⁻¹³). The CP ratio from transient weights alone is therefore exactly T-independent. This is the algebraic core of the CP asymmetry: QUARK CP_trans = 2.14 (dominated by first-crossing gap λ(210)=12), LEPTON CP_trans = 1.22 (dominated by first-crossing gap p₁=2). The dynamical CP ratio exceeds this for leptons (driven response amplification at Q₃=7.59) but matches it for quarks (Q₄=1.52, borderline resonance).*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
