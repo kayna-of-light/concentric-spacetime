@@ -1,17 +1,17 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB94 (dilution factor — analytic mass prediction, σ∞ ratio, n=Σprimes).
+> Last updated after NB94 correction (dilution factor — +1 offset error discovered, #214–#215 retracted).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 215 |
+| **Structural identities** | 213 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
-| **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
+| **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
 | **Notebooks** | 94 (NB01–NB94) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
@@ -73,7 +73,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. NB90's identification explained from coprime participation + NB84 variance hierarchy. |
 | **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. The 8π in GR decomposes as level count × base frequency; on the solenoid these remain separate algebraic quantities. The non-reduced Planck mass is natural. |
 | **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): Window-0 total CP concentration (R₃ and R₄, windows 1+ = 1.000000), R₃ analytic slope at ci=61 (ratio = 1.000000 exact). m_τ/m_μ at T=5000: 15.96 vs 16.82 (−5.1%). Dilution timescale is the remaining frontier. |
-| **The Dilution Factor** | NB94 | Analytic dilution model; σ∞ R4/R3 ratio; level-dependent n_phys; n=Σ(primes)=17 | 3 identities (#213–#215): Dilution model exact (<0.001%), σ∞(R4)/σ∞(R3)=√30 (lepton, −0.07%, CONDITIONAL), m_τ/m_μ at n=17=Σprimes: 16.80 (−0.13%, CONDITIONAL). Dilution is level-dependent. |
+| **The Dilution Factor** | NB94 | Analytic dilution model; convention-independent reformulation; +1 offset error corrected | 1 identity (#213): Dilution model exact (<0.001%, PASS). #214 (√30 ratio) and #215 (n=17) retracted as phase-sampling artifacts of NB81's +1 time offset. Convention A (t=ci) is correct; the amplitude ratio is 4.76, not √30. |
 
 ---
 
@@ -172,14 +172,14 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *m_τ/m_μ status: NB94 derives the analytic dilution model R²(n) = (σ₁² + (n-1)σ∞²) / (σ₂² + (n-1)σ∞²) and solves for n_phys(R₃) = 16.83. At n=17 = Σprimes = 2+3+5+7, R₃^{x₃} = 16.80 vs SM 16.82 (−0.13%). The dilution factor is level-dependent: n_phys(R₄) = 22.70, n_phys(R₄_quark) = 27.57. Additionally, σ∞(R₄)/σ∞(R₃) = √30 = √P₃ to 0.07% in the lepton sector (quark deviates by 2.5%). Algebraic derivation of n_phys from first principles remains the open frontier.*
 
 | 213 | Dilution model structural theorem | R²(n) = (σ₁² + (n-1)σ∞²) / (σ₂² + (n-1)σ∞²) matches ODE cumulative CP ratio to <0.001% for all 4 levels, both sectors, all window counts 1–95. | <0.001% | exact | exact | **PASS** — structural theorem of cascade restoring dynamics |
-| 214 | σ∞(R₄)/σ∞(R₃) = √P₃ [lepton] | Asymptotic noise ratio between outermost covering levels. Lepton: 5.4733 vs √30 = 5.4772. Quark: 5.3377 (2.55% off). | 5.4733 | 5.4772 | −0.07% | **CONDITIONAL** — lepton matches to 0.07%, quark deviates; needs derivation |
-| 215 | m_τ/m_μ at n = Σ(primes) = 17 | At dilution window count n=17=2+3+5+7, cumulative R₃^{x₃} = 16.80. Post-hoc identification, not derived from first principles. | 16.80 | 16.82 | −0.13% | **CONDITIONAL** — best m_τ/m_μ prediction from any methodology, but n=17 is identified, not derived |
+| 214 | σ∞(R₄)/σ∞(R₃) = √P₃ [lepton] | **RETRACTED.** Phase-sampling artifact of +1 time offset from NB81. Convention A (correct: t=ci) gives ratio 7.31; convention-independent amplitude ratio = 4.76. | — | — | — | **NULL** — phase artifact |
+| 215 | m_τ/m_μ at n = Σ(primes) = 17 | **RETRACTED.** Under correct Convention A, n=17 gives m_τ/m_μ = 21.0 (+25%). The −0.13% came from Convention B's phase error. | — | — | — | **NULL** — phase artifact |
 
 *Identity #213 (NB94): The dilution model provides the exact functional form for how cumulative CP-pair ratios evolve with window count. The model has three parameters per (level, sector): σ₁², σ₂², σ∞² — the window-0 CP-partner mean-square values and the asymptotic common mean-square. These are deterministic functions of the cascade ODE. NB93 #213 (dilution monotonicity, NULL) is upgraded to PASS as a trivial consequence of σ∞² > 0.*
 
-*Identity #214 (NB94): The lepton-sector asymptotic noise ratio σ∞(R₄)/σ∞(R₃) = 0.24038/0.04392 = 5.4733 matches √P₃ = √(2·3·5) = 5.4772 to 0.07%. However, the quark sector gives 5.3377 (2.55% off), so the √P₃ match is sector-specific. This could be a dynamical selection effect or a numerical coincidence. CONDITIONAL pending derivation.*
+*Identity #214 (NB94): **RETRACTED.** The √30 ratio arose from an unprincipled +1 time offset introduced in NB81 (t=ci+1 instead of t=ci for coprime crossing ci). NB95 proved late-time residuals are pure sinusoids at primorial frequencies. The +1 shifts the sampling phase by 2π/P_k per level, which changed σ∞ values. Convention A (t=ci, correct) gives ratio 7.31; the convention-independent amplitude ratio A₃/A₂ = 4.76. Neither is √30.*
 
-*Identity #215 (NB94): Solving the dilution model for the window count that reproduces m_τ/m_μ = 16.817 gives n_phys(R₃) = 16.829. At the integer n=17 = 2+3+5+7 (sum of the four primes), the ODE cumulative gives R₃^{x₃} = 16.7953 (−0.13%). This is the first sub-percent prediction of m_τ/m_μ from the solenoid framework. However, n=17 is identified post-hoc, not derived from first principles. The dilution factor is level-dependent (n_phys(R₄) = 22.70, n_phys(R₄_quark) = 27.57), ruling out a universal window count. Algebraic derivation of the per-level dilution selection remains the open frontier.*
+*Identity #215 (NB94): **RETRACTED.** Under Convention A (correct), n=17 gives m_τ/m_μ = 21.0 (+25%), not the −0.13% previously reported. The good result depended entirely on Convention B's phase error. The dilution model structural theorem (#213) holds for any convention, but specific mass predictions are convention-dependent and no principled convention for the dilution window count has been identified.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
