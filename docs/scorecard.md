@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB92 (gravitational propagator — why no 8π).
+> Last updated after NB93 (lepton third generation — window-0 concentration and R₃ analytic structure).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 210 |
+| **Structural identities** | 212 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 92 (NB01–NB92) |
+| **Notebooks** | 93 (NB01–NB93) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -72,6 +72,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Complete Gravitational Sector** | NB90 | Hubble correction from first principles, G_N derivation, gauge-gravity hierarchy | 1 identity (#208): C = Ω_Λ × σ₈ = 96/175 (0.14%). Cosmological sector CLOSED — zero free parameters. |
 | **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. NB90's identification explained from coprime participation + NB84 variance hierarchy. |
 | **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. The 8π in GR decomposes as level count × base frequency; on the solenoid these remain separate algebraic quantities. The non-reduced Planck mass is natural. |
+| **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): Window-0 total CP concentration (R₃ and R₄, windows 1+ = 1.000000), R₃ analytic slope at ci=61 (ratio = 1.000000 exact). m_τ/m_μ at T=5000: 15.96 vs 16.82 (−5.1%). Dilution timescale is the remaining frontier. |
 
 ---
 
@@ -159,6 +160,15 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 | 210 | 8π = ω(P₄) × ω_base | 8π = ω(210) × 2π = 4 × 2π | 25.1327 | 25.1327 | exact (STRUCTURAL) |
 
 *Identity #210 (NB92) explains WHY G_N = 1/M_Pl² (non-reduced) without the 8π factor. The solenoid config space is flat (NB85), has no Ricci scalar, no Einstein-Hilbert action, no Poisson equation with ∇². The 4π solid angle and trace-reversal factor that produce 8π in GR don't exist. The gravitational coupling is the metric propagator (g̃_R⁻¹)^{ω−1}_{1,ω} = −1/λ(P₄) = −1/12 (NB89), propagating through discrete Z*₂₁₀ (Green's function normalizes by 1/φ(P₄), not 1/(4π)). The Cartesian 3+1 projection conflates ω(P₄) = 4 (level count) with spatial dimensionality and ω = 2π (base frequency) with angular integration, producing 8π as an artifact. The 'reduced' Planck mass is the Cartesian observer's artifact.*
+
+| 211 | Window-0 total CP concentration (R₃ + R₄) | All lepton CP asymmetry resides in window 0 (48 coprime crossings). Windows 1–94: R₃_ratio = 1.000000, R₄_ratio = 1.000000. Extends NB74 #147 (R₄ only) to all covering levels. | 1.000000 | 1.0 | 0% | **PASS** — structural identity, from 1/κ = √P₄ ≪ P₄ |
+| 212 | R₃ analytic slope at LEPTON_g2 | R₃(j₃, ci=61) = C(j₁,j₂) + 2πj₃·exp(−κ·62). Numerical slope / analytic = 1.000000. All j₃-classes have identical std = 0.1231. | 1.000000 | 1.000000 | exact | **PASS** — extends NB78 R₄ linearity to R₃ level |
+
+*Identity #211 (NB93): With JAX backend (200× faster), integration of all 210 branches at T=20000 confirms window-0 total CP concentration for BOTH R₃ and R₄ in the lepton sector. The damping timescale 1/κ = √210 ≈ 14.5 crossings means the initial-condition CP asymmetry decays by exp(−210/√210) = exp(−√210) ≈ 5×10⁻⁷ per window, explaining the exact 1.000000. NB74 #147 showed this for R₄ only with 50 branches; NB93 extends to all levels with all 210 branches.*
+
+*Identity #212 (NB93): At LEPTON_g2 (ci=61, t=62), R₃ is deep in the linear regime. The j₃-dependence is analytically linear with slope 2πα where α=exp(−κ·62)=0.01387. Numerical slope matches to machine precision. This extends NB78's R₄ linearity theorem to the R₃ level, confirming the cascade dynamics are fully analytic at these crossing indices.*
+
+*m_τ/m_μ status: At T=5000 (~24 windows), R₃_lep^{x₃} = 15.96 vs SM 16.82 (−5.12%). At window-0 only, R₃^{x₃} = 19.13 (+13.7%). At 20 windows, R₃^{x₃} = 16.42 (−2.3%). The prediction monotonically decreases with window count. Resolving this requires an analytic dilution factor — the physical number of windows is the remaining frontier for the lepton third generation.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
@@ -710,7 +720,7 @@ And the ratio x₄/x₃ = φ(5) = 4 is exact, connecting the hierarchy to the ra
 - m_μ/m_e = R₄_l^{p₄²/(2π)} = 205.4 (NB73, −0.65%)
 - m_τ/m_e = R₃_l^{x₃} · R₄_l^{p₄²/(2π)} = 3323 (NB73, −4.43%, ODE-limited)
 
-**Remaining frontier**: m_τ/m_μ individually is at −3.80% (ODE-limited, tracked in NB72 #138 as suggestive). Higher-precision ODE integration or analytic derivation could sharpen the R₃ channel.
+**Remaining frontier**: m_τ/m_μ individually is at −5.12% with full 210-branch T=5000 integration (NB93), consistent with NB72 #138 (−3.80% at 50 branches). NB93 establishes that ALL CP asymmetry resides in window 0 (#211), the R₃ analytic slope at ci=61 is exact (#212), and the dilution is monotonic. The physical number of windows (analytic dilution factor) is the remaining frontier — at 20 windows, m_τ/m_μ = 16.42 (−2.3%).
 
 **Covering residual dynamics** (NB74): The cumulative R₄ ratios used for mass predictions (NB70–73) are NOT constants — they are the late-time dilution of a massive initial CP asymmetry concentrated in the first ~200 Poincaré crossings.
 
