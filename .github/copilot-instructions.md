@@ -398,6 +398,9 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Inverse Spectral Problem** | NB87 | Metric spectral uniqueness, informational hierarchy, metric-dynamics duality | 3 identities: Tr unique among 12,650 subsets, metric > Cayley (8-fold degeneracy), rigidity inverts dynamics |
 | **The Cosmological Chain** | NB88 | Hubble scaling law, DM/baryon ratio, Hubble tension prediction | 3 identities (#203–#205): H₀ = M_Z³/M_Pl² × P₄⁻⁴ × C (0.09%), Ω_DM/Ω_b = 27/5 (0.08%), Hubble tension → Planck |
 | **The Gravitational Hierarchy** | NB89 | Step 6 selection mechanism, metric propagator, spectral-hierarchy bridge | 2 identities (#206–#207): metric extremal propagator = −1/λ(P₄) (exact), spectral-hierarchy bridge (exact). Step 6 RESOLVED. |
+| **The Complete Gravitational Sector** | NB90 | Hubble correction from first principles, G_N derivation, gauge-gravity hierarchy | 1 identity (#208): C = Ω_Λ × σ₈ = 96/175 (0.14%). Cosmological sector CLOSED. |
+| **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. |
+| **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. Non-reduced Planck mass is natural. |
 
 See `docs/scorecard.md` for the complete phase map and identity details.
 

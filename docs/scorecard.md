@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB91 (solenoid vacuum — structural derivation of Hubble correction).
+> Last updated after NB92 (gravitational propagator — why no 8π).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 209 |
+| **Structural identities** | 210 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 0 (all resolved or reclassified — see §VI) |
-| **Notebooks** | 91 (NB01–NB91) |
+| **Notebooks** | 92 (NB01–NB92) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -71,6 +71,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Gravitational Hierarchy** | NB89 | Step 6 selection mechanism, metric propagator, spectral-hierarchy bridge | 2 identities (#206–#207): (g̃_R⁻¹)^{ω−1}_{1,ω} = −1/λ(P₄) (exact), det′(L)/H = Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}/p₄ (exact). Step 6 RESOLVED. |
 | **The Complete Gravitational Sector** | NB90 | Hubble correction from first principles, G_N derivation, gauge-gravity hierarchy | 1 identity (#208): C = Ω_Λ × σ₈ = 96/175 (0.14%). Cosmological sector CLOSED — zero free parameters. |
 | **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. NB90's identification explained from coprime participation + NB84 variance hierarchy. |
+| **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. The 8π in GR decomposes as level count × base frequency; on the solenoid these remain separate algebraic quantities. The non-reduced Planck mass is natural. |
 
 ---
 
@@ -154,6 +155,10 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 | 209 | Hubble correction (structural) | C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = (1-1/p₃)²(1-1/p₄) | 96/175 | 96/175 | exact (STRUCTURAL) |
 
 *Identity #209 (NB91) provides the structural derivation: C involves ONLY the outer primes {5,7} because NB84 proved they carry 96.5% of the action variance (infrared dominance). The energy screening φ(35)/35 = Ω_Λ selects modes coprime to both outer primes. The rate screening φ(5)/5 = σ₈ selects modes coprime to the intermediate prime. p₃ appears squared because it enters both screenings independently.*
+
+| 210 | 8π = ω(P₄) × ω_base | 8π = ω(210) × 2π = 4 × 2π | 25.1327 | 25.1327 | exact (STRUCTURAL) |
+
+*Identity #210 (NB92) explains WHY G_N = 1/M_Pl² (non-reduced) without the 8π factor. The solenoid config space is flat (NB85), has no Ricci scalar, no Einstein-Hilbert action, no Poisson equation with ∇². The 4π solid angle and trace-reversal factor that produce 8π in GR don't exist. The gravitational coupling is the metric propagator (g̃_R⁻¹)^{ω−1}_{1,ω} = −1/λ(P₄) = −1/12 (NB89), propagating through discrete Z*₂₁₀ (Green's function normalizes by 1/φ(P₄), not 1/(4π)). The Cartesian 3+1 projection conflates ω(P₄) = 4 (level count) with spatial dimensionality and ω = 2π (base frequency) with angular integration, producing 8π as an artifact. The 'reduced' Planck mass is the Cartesian observer's artifact.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
@@ -941,7 +946,7 @@ Five threads remain open from the dynamics phase:
 
 The spectral-hierarchy bridge: det′(L)/H = Λ_max^{σ₃(p₁)} · p₂^{λ(P₄)} / p₄ (#207 PASS) — all exponents in the ratio are framework invariants. Systematic scan over 8 framework bases × 4 primes × exponents [-2..20] confirms Tr(L)⁴ × 7⁹ is the ONLY matching formula. **Two identities (#206–#207): 2 PASS.**
 
-*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge). NB82 (solenoid metric). NB83 (solenoid Lagrangian). NB84 (action on trajectories). NB85 (geodesics). NB88 (cosmological chain). NB89 (gravitational hierarchy). NB90 (complete gravitational sector — C resolved). NB91 (solenoid vacuum — structural derivation of C).*
+*Source: NB42, NB43, NB44 (called for this). NB46 (metric separation). NB47 (E₄ bridge). NB82 (solenoid metric). NB83 (solenoid Lagrangian). NB84 (action on trajectories). NB85 (geodesics). NB88 (cosmological chain). NB89 (gravitational hierarchy). NB90 (complete gravitational sector — C resolved). NB91 (solenoid vacuum — structural derivation of C). NB92 (gravitational propagator — why no 8π).*
 
 ### 2. Character-Theoretic Mass Channel
 The Fourier characters of Z*₂₁₀ provide exponential gaps (from the eigenvalue spectrum). Investigate whether these gaps generate the observed fermion mass hierarchy (the NB36 open problem). The coupling maps Z → Z[√3] (NB44 identity #49), which may provide the irrational ratios needed.
