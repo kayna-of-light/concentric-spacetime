@@ -470,6 +470,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): All CP asymmetry in window 0 (R_{w≥1} = 1.000000), R₃ slope at ci=61 exact. m_τ/m_μ at T=5000: −5.1%. |
 | **The Dilution Factor** | NB94 | Analytic dilution model; +1 offset error corrected; convention-independent reformulation | 1 identity (#213): Dilution model exact (<0.001%, PASS). #214 (√30) and #215 (n=17) retracted — phase-sampling artifacts of NB81's +1 time offset. Amplitude ratio = 4.76, not √30. |
 | **Algebraic Mass Invariants** | NB97 | T-independent mass architecture; window-0 complete concentration; dilution formula; crossing gap anatomy | 7 identities (#216–#222): Window-0 complete concentration, quark/lepton dilution formulas, first-crossing gaps = λ(210) and p₁, gap vocabulary = {p₁, λ(P₄), d(P₄)}, gap sum = ±P₃, transient weight T-independence. |
+| **Gram-Amplification Verification** | NB98 | High-accuracy convergence test of Gram-amplification bridge; kappa dependence | 0 new identities (honest NULL). Tolerance convergence: errors structural (0.24% Q, 0.73% L). Physical κ within 0.1% of Gram-exact kappa; other kappa values 50-100%+ error. |
 
 See `docs/scorecard.md` for the complete phase map and identity details.
 
