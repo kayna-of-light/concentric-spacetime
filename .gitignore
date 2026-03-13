@@ -11,7 +11,8 @@ build/
 
 # Environment
 .env
-secrets/
+secrets/*
+!secrets/*.example
 
 # OS
 .DS_Store

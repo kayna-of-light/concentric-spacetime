@@ -1,0 +1,12 @@
+name: numerical-ode-gpu
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy>=1.26
+  - scipy>=1.12
+  - sympy
+  - pip
+  - pip:
+    - jax[cuda12]>=0.4.35
+    - diffrax>=0.6

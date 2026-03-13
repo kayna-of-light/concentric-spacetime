@@ -142,14 +142,22 @@ concentric-spacetime/
 ├── scripts/
 │   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ + physical constants) — ACTIVE
 │   ├── solenoid_system.py     # Solenoid dynamics (unified: theta-space + cascade) — ACTIVE
+│   ├── solenoid_jax.py        # JAX/Diffrax accelerated integration — ACTIVE
+│   ├── solenoid_numba.py      # Numba JIT accelerated integration — ACTIVE
+│   ├── benchmark_gpu.py       # Standalone benchmark (local or remote)
+│   ├── azure_ml_submit.py     # Azure ML job submission
 │   ├── concentric_system.py   # [LEGACY] S² × R⁺ geometry (Phase 1)
 │   ├── nested_system.py       # [LEGACY] Nested oscillator simulation (Phase 1)
 │   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
 │   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
 ├── docs/
 │   ├── scorecard.md           # Living scorecard: all 205 identities (updated after each notebook)
+│   ├── acceleration.md        # Computation acceleration infrastructure
 │   ├── research_directions.md # Early-phase research directions (partially superseded)
 │   └── status_*.md            # Point-in-time status summaries
+├── secrets/
+│   ├── azure_ml.env           # Azure ML workspace config (gitignored)
+│   └── azure_ml.env.example   # Template (committed)
 ├── temp/                      # Builder scripts, prototypes, and exploration scripts
 │   ├── create_nb*.py          # Builder scripts (archive of notebook construction logic)
 │   ├── proto_nb*.py           # Prototype scripts (pre-notebook exploration)
@@ -225,6 +233,34 @@ in a single `SolenoidSystem` class.
 - `.cp_pair_ratios(sector_rms, cp_pairs)` — CP-pair ratio extraction
 - `.all_branches()` — all 210 branch tuples
 
+### `scripts/solenoid_jax.py` — ACTIVE
+JAX/Diffrax accelerated integration backend (~200× faster than scipy).
+
+- `integrate_all_branches_jax(branches, t_eval, T_max, ...)` — vmap'd batch integration across all 210 branches
+- `warmup()` — pre-compile JIT (avoids timing compilation in benchmarks)
+- `detect_device()` — returns device string ("CPU" or "GPU (Tesla V100-...)")
+
+Uses Dopri8 (8th-order RK) with PIDController adaptive stepping. Float64 enabled automatically.
+
+### `scripts/solenoid_numba.py` — ACTIVE
+Numba JIT + ProcessPoolExecutor backend (~5–15× faster than scipy).
+
+- `integrate_all_branches_numba(branches, t_eval, T_max, ...)` — parallel integration with JIT'd ODE RHS
+- Uses `@numba.njit(cache=True)` for the cascade ODE, bypasses GIL via process pool
+
+### `scripts/benchmark_gpu.py`
+Standalone benchmark script for local or remote execution.
+
+- `run_benchmark(T_max)` — full pipeline: detect device → warmup → integrate → sector analysis → save results
+- Used by `azure_ml_submit.py` for remote jobs
+
+### `scripts/azure_ml_submit.py`
+Azure ML job submission. Loads workspace config from `secrets/azure_ml.env`.
+
+- `submit_benchmark(ml_client, T_max, gpu, dry_run)` — submit benchmark to GPU or CPU cluster
+- `submit_custom_script(ml_client, script_path, gpu, dry_run)` — submit arbitrary script
+- Privacy: suppresses git metadata, uses generic experiment/display names
+
 ### Legacy Scripts (Phase 1–2)
 The following modules were used by NB01–NB22 and are **not imported by any solenoid-phase notebook**:
 - `concentric_system.py` — S² × R⁺ geometry (Phase 1)
@@ -233,6 +269,36 @@ The following modules were used by NB01–NB22 and are **not imported by any sol
 - `gravity.py`, `scattering.py`, `solid_state.py`, `nuclear.py`, `quantum_hall.py`, `tunneling.py`, `molecular.py` — Phase 2 domain modules (standard QM calculations)
 
 These are retained for reference but are not part of the active framework.
+
+## Acceleration Infrastructure
+
+See `docs/acceleration.md` for full documentation including benchmark results and Azure ML setup.
+
+### Backend Selection
+
+The cascade ODE integration supports three backends via `SolenoidSystem.integrate_all_branches(..., backend=)`:
+
+| Backend | When to Use | Speedup |
+|---------|------------|--------|
+| `'scipy'` | Debugging, small T (<50), compatibility | 1× (baseline) |
+| `'numba'` | JAX unavailable, multi-core benefit needed | ~5–15× |
+| `'jax'` | **All production work** — notebooks, parameter sweeps | ~200× |
+
+**Always use `backend='jax'` for notebooks with T > 100.** The 200× speedup comes from JIT compilation + vmap vectorization on CPU. GPU provides no additional benefit for this workload (sequential ODE stepping).
+
+### Azure ML Remote Execution
+
+For very large T or batch parameter sweeps:
+
+```bash
+python scripts/azure_ml_submit.py --benchmark --T 5000        # GPU cluster
+python scripts/azure_ml_submit.py --benchmark --T 5000 --cpu   # CPU cluster
+python scripts/azure_ml_submit.py --script my_script.py        # Custom script
+```
+
+Requires `secrets/azure_ml.env` (see `secrets/azure_ml.env.example` for template). All workspace identifiers, compute target names, and experiment names are loaded from this file — nothing is hardcoded in scripts.
+
+**Privacy**: The submit script suppresses git metadata discovery, uses generic naming, and disables MLflow source tracking. Delete jobs after downloading results.
 
 ## Agent Workflow
 
@@ -421,7 +487,7 @@ See `docs/scorecard.md` for the complete phase map and identity details.
 
 6. **Pre-commit workflow**: Always save all files (`workbench.action.files.saveAll`) before `git add`/`git commit`. VS Code may hold unsaved buffer state.
 
-7. **Conda environment**: `concentric` (Python 3.12). Dependencies: numpy, scipy, matplotlib, sympy, jupyter.
+7. **Conda environment**: `concentric` (Python 3.12). Dependencies: numpy, scipy, matplotlib, sympy, jupyter, jax, diffrax, numba.
 
 8. **Notebook execution order**: Always execute cells sequentially from top to bottom. Later cells depend on variables established by earlier cells. If a cell fails, fix it and re-run — do not skip ahead.
 

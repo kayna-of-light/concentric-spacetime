@@ -330,6 +330,7 @@ class SolenoidSystem:
         rtol: float = 1e-12,
         atol: float = 1e-14,
         progress_interval: int = 50,
+        backend: str = "scipy",
     ) -> Dict[Tuple[int, ...], np.ndarray]:
         """
         Integrate multiple branches in parallel (R-space).
@@ -343,13 +344,50 @@ class SolenoidSystem:
         T_max : float
             End time.
         max_workers : int
-            Number of parallel workers.
+            Number of parallel workers (scipy/numba backends).
+        backend : str
+            Integration backend: 'scipy' (default), 'jax', or 'numba'.
+            - scipy: Original ThreadPoolExecutor + DOP853.
+            - jax: JAX/Diffrax vmap'd batch (fastest, supports GPU).
+            - numba: Numba JIT + ProcessPoolExecutor (no GIL).
 
         Returns
         -------
         results : dict
             branch tuple -> R_vals array (n_eval, n_levels)
         """
+        # Backend dispatch
+        if backend == "jax":
+            from solenoid_jax import integrate_all_branches_jax
+
+            return integrate_all_branches_jax(
+                branches,
+                t_eval,
+                T_max,
+                primes=self.primes,
+                omega=self.omega,
+                epsilon=self.epsilon,
+                kappa=self.kappa,
+                rtol=rtol,
+                atol=atol,
+            )
+        if backend == "numba":
+            from solenoid_numba import integrate_all_branches_numba
+
+            return integrate_all_branches_numba(
+                branches,
+                t_eval,
+                T_max,
+                primes=self.primes,
+                omega=self.omega,
+                epsilon=self.epsilon,
+                kappa=self.kappa,
+                rtol=rtol,
+                atol=atol,
+                max_workers=max_workers,
+            )
+
+        # -- Original scipy implementation --
         import time
         from concurrent.futures import ThreadPoolExecutor, as_completed
 
