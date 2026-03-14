@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB105 (The Wrapping Anatomy — complete mechanism chain from CRT positions to mass hierarchy).
+> Last updated after NB106 (The Analytic CP — lattice sum decomposition, dilution formula derivation, R_ss correction anatomy).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 105 (NB01–NB105) |
+| **Notebooks** | 106 (NB01–NB106) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -83,6 +83,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Steady-State Bridge** | NB103 | Full decomposition R₃=R₃_ss+transient; sector RMS formula; wrapping mechanism; CP ratio anatomy | 0 new identities (honest NULL). Machine-exact decomposition: R₃(ci;j₁j₂j₃,j₄) = R₃_ss(ci;j₁j₂j₃) + 2π·j₄·exp(−κ·ci), err < 3e-14. R₃_ss depends on (j₁,j₂,j₃) through cascade forcing chain — steady-state is NOT universal. Analytic decomposition reproduces pipeline sector RMS to machine precision. WRAPPING IS THE MECHANISM: g1 sectors (early ci) wrap → energy boost; g2 sectors (late ci) never wrap → pure steady-state. QUARK g1: 17% pairs wrap, contributing 88% of energy. LEPTON g1: 8.5% pairs wrap, contributing 45%. Both g2: 0% wrapping. CP ratio = √(g1/g2) driven by wrapping fraction asymmetry between CRT sectors. Mass chain: masses ← CP ratios ← wrapping asymmetry ← CRT sector assignment ← number theory. |
 | **The Four Waves** | NB104 | Universal transient decomposition (all 4 levels); wrapping geography; mass architecture anatomy; sensitivity hierarchy | 1 identity (#228): R_k(t;br) = R_k_ss(t;j₁,...,j_k) + 2π·j_{k+1}·exp(−κ·t) at ALL 4 levels to machine precision (7e-10 inner, 1e-13 outer). Extends NB103's level-3 result to the full cascade. Wrapping geography: inner levels wrap fewer crossings (1→10), outer more broadly. CP ratio–exponent compensation: 24× ratio range compressed to 1.7× mass range by algebraic exponents. Sensitivity: X₄=7.64 amplifies outermost level errors. Level 0 (p=2) silent: 2 waveforms only, completely independent of lower levels. Cascade strictly top-down: R_k independent of j_{k+2},...,j_4. |
 | **The Wrapping Anatomy** | NB105 | CRT crossing positions; wrapping horizon; g1/g2 bifurcation; window-0 mechanism; complete mass chain | 0 new identities (honest NULL — mechanism insight, not new numerical facts). Each CRT sector has exactly 1 coprime crossing per primorial window: QUARK g1 at ci=11, LEPTON g1 at ci=31, LEPTON g2 at ci=61, QUARK g2 at ci=191. Wrapping horizon (level 3, max IC j₄=6): ci=ln(12)/κ−1≈35. g1 crossings (11, 31) INSIDE → wrap; g2 crossings (61, 191) OUTSIDE → never wrap at any level. Without wrapping: QUARK CP=7.04, LEPTON CP=2.70. With wrapping: 1.54, 1.94. Window-0 concentration confirmed at ALL 4 levels (extends #216). Per-window CP=1.000 for w≥1 at all levels. Complete chain: {2,3,5,7} → CRT positions → wrapping zone → CP ratios → exponents → masses. |
+| **The Analytic CP** | NB106 | Lattice sum decomposition; dilution formula derivation from first principles; R_ss correction anatomy; per-level analysis | 0 new identities (honest NULL — structural derivation). DERIVES the NB97 dilution formula CP²=(C₀²+r)/(1+r) from the CRT window-0 concentration principle. Exact at all 4 levels (<0.001% when window counts match). Lattice sum formula: L=S₂Δ²−4πΔM₁+4π²M₀ with integer wrapping coefficients (M₁,M₀)=(41,19) for quark, (11,2) for lepton. Pure lattice captures 94% of window-0 g1 signal. R_ss correction ≈6.5%, nearly channel-independent (ratio-of-ratios=1.003). Per-branch cv=1.2% (Q), 3.8% (L). Closed-form blocked by cascade dynamics: lattice is fully from {2,3,5,7}, but R_ss and dilution parameter r require cascade ODE solution. |
 
 ---
 
