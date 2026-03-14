@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB101 (The Near-Critical Bridge — R₂ wave anatomy, impedance bottleneck, Q-factor prime decomposition).
+> Last updated after NB104 (The Four Waves — universal transient decomposition, mass architecture anatomy).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 227 |
+| **Structural identities** | 228 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 101 (NB01–NB101) |
+| **Notebooks** | 104 (NB01–NB104) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -81,6 +81,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Near-Critical Bridge** | NB101 | R₂ wave anatomy; impedance mismatch; Q-factor prime decomposition; bottleneck identification | 3 identities (#225–#227): Q₂ = π√(p₁p₄/(p₂p₃)) (EXACT), Q₂/Q₃ = p₄ = 7 (EXACT), Q₂·Q₃ = 2π²/(p₂p₃) (EXACT). R₁→R₂ is the LARGEST impedance mismatch (42.6% reflected). R₂ is the bottleneck: hardest to enter + near-critical damping (Q₂=3.04). Levels decoupled: R₂ RMS depends only on j₃, R₃ only on j₄. Linear R₂→R₃ coupling = 0 (nonlinear sin coupling). |
 | **The Solenoid Prism** | NB102 | Prism hypothesis (IC determines R₃); nonlinear mixer test; transient/steady-state decomposition; CP pair wave anatomy | 0 new identities (honest NULL). Transient R₃(ci) = 2π·j₄·exp(−κ·ci) EXACT at all coprime crossings (consequence of cascade linearity in R₃). Late-time R₃ RMS identical to 12 decimal places across all j₄ (0.233152). Simple "mass = j₄ ratio" hypothesis FAILS — steady-state offset. sin() mixer creates NO new frequencies (effectively linear). Forcing dominated by sin(θ₃) at period P₃=30 (106.2% of variance). CP pair ratios converge toward exp(κ·Δci) as j₄→∞ but steady-state admixture prevents clean convergence. Mass ratios emerge from transient/steady-state mixing, not from either component alone. |
 | **The Steady-State Bridge** | NB103 | Full decomposition R₃=R₃_ss+transient; sector RMS formula; wrapping mechanism; CP ratio anatomy | 0 new identities (honest NULL). Machine-exact decomposition: R₃(ci;j₁j₂j₃,j₄) = R₃_ss(ci;j₁j₂j₃) + 2π·j₄·exp(−κ·ci), err < 3e-14. R₃_ss depends on (j₁,j₂,j₃) through cascade forcing chain — steady-state is NOT universal. Analytic decomposition reproduces pipeline sector RMS to machine precision. WRAPPING IS THE MECHANISM: g1 sectors (early ci) wrap → energy boost; g2 sectors (late ci) never wrap → pure steady-state. QUARK g1: 17% pairs wrap, contributing 88% of energy. LEPTON g1: 8.5% pairs wrap, contributing 45%. Both g2: 0% wrapping. CP ratio = √(g1/g2) driven by wrapping fraction asymmetry between CRT sectors. Mass chain: masses ← CP ratios ← wrapping asymmetry ← CRT sector assignment ← number theory. |
+| **The Four Waves** | NB104 | Universal transient decomposition (all 4 levels); wrapping geography; mass architecture anatomy; sensitivity hierarchy | 1 identity (#228): R_k(t;br) = R_k_ss(t;j₁,...,j_k) + 2π·j_{k+1}·exp(−κ·t) at ALL 4 levels to machine precision (7e-10 inner, 1e-13 outer). Extends NB103's level-3 result to the full cascade. Wrapping geography: inner levels wrap fewer crossings (1→10), outer more broadly. CP ratio–exponent compensation: 24× ratio range compressed to 1.7× mass range by algebraic exponents. Sensitivity: X₄=7.64 amplifies outermost level errors. Level 0 (p=2) silent: 2 waveforms only, completely independent of lower levels. Cascade strictly top-down: R_k independent of j_{k+2},...,j_4. |
 
 ---
 
@@ -213,6 +214,8 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #226 (NB101): Q₂/Q₃ = p₄ = 7. The ratio of the near-critical to the overdamped Q-factor equals the outermost prime. Equivalently: the transition from near-critical to overdamped spans exactly one factor of p₄. Verified exact via sympy.*
 
 *Identity #227 (NB101): Q₂·Q₃ = 2π²/(p₂·p₃) = 2π²/15. The product of the transition-pair Q-factors involves only the middle primes. Combined with #226: knowing the product and ratio uniquely determines both Q₂ and Q₃. Combined with #223: the full four-level Q-factor product decomposes as (Q₀·Q₁)·(Q₂·Q₃) = [(2π)⁴·p₄/λ(P₄)] / [2π²/15], connecting the high-Q inner pair to the transition pair.*
+
+*Identity #228 (NB104): Universal Transient Decomposition. R_k(t; br) = R_k_ss(t; j₁,...,j_k) + 2π·j_{k+1}·exp(−κ·t) holds at ALL 4 cascade levels to machine precision. Max errors: Level 0 (p=2): 7.4e-10, Level 1 (p=3): 6.1e-10, Level 2 (p=5): 1.4e-11, Level 3 (p=7): 1.3e-13. Inner levels have larger absolute errors because their ICs and steady-state amplitudes are larger, but the relative decomposition is exact at all levels. This extends NB103's level-3 proof to the full cascade, establishing that the cascade is superposition-compatible in each level's own IC despite the nonlinear sin coupling between levels. The mathematical reason: each level's equation dR_k/dt = f_k(t) − κ·R_k is first-order linear in R_k; the nonlinearity in f_k depends on higher levels (through theta reconstruction) but not on R_k itself. The general solution is therefore R_k = particular + C·exp(−κ·t), and C = R_k(0) − R_k_ss(0) = 2π·j_{k+1} − R_k_ss(0). Since R_k_ss(0) depends only on j₁,...,j_k (higher levels), the transient 2π·j_{k+1}·exp(−κ·t) separates cleanly.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
