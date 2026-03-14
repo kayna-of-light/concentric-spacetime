@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB113 (The Fine Structure Constant — charge sum Σ N_c Q² = φ(P₃) = 8 from character algebra; running ratio p₂p₃/(p₁p₄) = 15/14 provisional; α(0) requires cascade + absolute mass scale).
+> Last updated after NB114 (Influx and Response — wave dynamics of cascade; direct influx dominance 99.8%; filter cutoff classification theorem requires {2,3,5,7}; energy concentration 95.7% in ultimates).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 246 |
+| **Structural identities** | 249 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 113 (NB01–NB113) |
+| **Notebooks** | 114 (NB01–NB114) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -91,6 +91,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Gauge Coupling Hierarchy** | NB111 | ρ-corrected gauge couplings; QCD β = p₄; GUT normalization = p₃/p₂; sin²θ_W derived via EW identity | 6 identities (#239–#244): b₃ = p₄ = 7 (EXACT); 5/3 = p₃/p₂ (EXACT); 1/α_s = φ(P₃)+p₄/√P₄ (0.1σ); 1/α₂ = P₃−λ(p₄)/√P₄ (0.3σ); 1/α₁ = P₁P₃−1 (0.0σ); sin²θ_W derived = 0.23129 (2.2σ, supersedes NB30 #15: 8/35 at 88σ). Correction coefficients: {+p₄, −λ(p₄), −1} for {strong, weak, hyper}. Supersedes NB30 tree-level couplings #13–#16. GUT normalization emerges from CRT, not SU(5). |
 | **Electroweak Precision** | NB112 | Dual sin²θ_W schemes; M_W routes; Δr radiative correction anatomy; gauge-mass bridge | 0 new identities (honest NULL — structural). Solenoid naturally produces TWO sin²θ_W: on-shell-like φ(P₄)/P₄ = 8/35 (2.41% from PDG) and MS-bar 0.23129 (0.03% from PDG). M_W: tree = 80.091 GeV (−0.35%), ρ-corrected g₂ + measured v = 80.233 GeV (−0.17%, 2× improvement). Δr anatomy: gap traced to tree-level m_t = v/2 = 123 GeV (−29% from 173 GeV). Δρ ∝ m_t²: tree Δρ is 51% of measured. Projection: cascade-corrected m_t → M_W = 80.365 GeV (0.3σ, 71× improvement). BRIDGE: gauge sector (NB111) + mass sector (NB60-108) meet at M_W through Δρ. |
 | **The Fine Structure Constant** | NB113 | Can α(0) = 1/137 be derived from {2,3,5,7}? Arithmetic search, QED running, charge sum analysis | 2 identities (#245–#246). #245: Σ N_c Q_f² = φ(P₃) = 8 (EXACT, PASS) — total EM charge content = Euler totient of P₃. Per sector: leptons = p₂, up quarks = φ(p₃), down quarks = φ(p₁). Derivable from Z*₂₁₀ character algebra. #246: Running ratio 1/α(0)/1/α(M_Z) = p₂p₃/(p₁p₄) = 15/14 (PROVISIONAL, 149 ppm). Implies Δα = 1/(p₂p₃) = 1/15. Within hadronic vacuum polarization uncertainty. Scope boundary: α(0) is NOT pure number theory — requires cascade dynamics + absolute mass scale (same frontier as NB112). 137 is prime, does not decompose into primorial arithmetic. |
+| **Influx and Response** | NB114 | Cascade wave dynamics: κ sweep, energy flow decomposition, frequency response (Bode), 2D ε-κ landscape, impedance balance, filter cutoff classification | 3 structural identities (#247–#249). #247: Direct influx dominance — each level receives 94–100% of its power from direct ε·sin(θ_k), NOT from feed-down. R₃: 99.8% direct. R₂: 98.8%. R₁: 94.1%. Cascade is PARALLEL frequency-selective receiver. #248: Filter cutoff classification theorem — P_crit = 2π√P₄ ≈ 91.1. Since P₃ = 30 < P_crit < P₄ = 210: R₃ is the unique overdamped (passband) level, R₂ is underdamped (transition). Requires four primes: {2,3,5} gives P₃ = 30 > 4π² ≈ 39.5 → NO overdamped level. {2,3,5,7} is the minimal set. #249: Energy concentration — 95.7% of total cascade energy resides in R₃ (ultimates) at κ = ρ. Effective level count = 1.23. ε = κ is impedance balance (driving = damping), NOT global optimization. No energy extremum at ρ; selection is from classification conditions Q₃ < 1, Q₂ > 1, ε = κ. |
 
 ---
 
@@ -263,6 +264,12 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #245 (NB113): EM Charge Sum = φ(P₃). Σ N_c Q_f² = 8 = φ(P₃) = φ(30). The total electromagnetic charge content of the Standard Model fermion spectrum (one generation) equals the Euler totient of the third primorial. Per sector: leptons contribute p₂ = 3 (= 1² + 1² + 1²), up-type quarks contribute φ(p₃) = 4 (= N_c × (2/3)² = 3 × 4/9), down-type quarks contribute φ(p₁) = 1 (= N_c × (1/3)² = 3 × 1/9). This is derivable from the Z*₂₁₀ character algebra (NB62 fermion map). EXACT. PASS.*
 
 *Identity #246 (NB113): Running Ratio ≈ p₂p₃/(p₁p₄) = 15/14. The ratio 1/α(0)/1/α(M_Z) ≈ 15/14 = p₂p₃/(p₁p₄) = inner-primes/outer-primes. From solenoid: 137.036/127.919 = 1.07127. From 15/14: 1.07143. Deviation: 149 ppm (solenoid), 397 ppm (PDG). Implies Δα = 1/(p₂p₃) = 1/15, within hadronic vacuum polarization uncertainty. PROVISIONAL — α(0) is NOT pure number theory. It requires the cascade-derived fermion mass spectrum + absolute mass scale v. The integer 137 is prime and does not decompose into primorial arithmetic. Same frontier as NB112 (M_W via Δρ). Further noted: (d(P₄)+ρ)/(p₂p₃) = (16+1/√210)/15 gives 1/α(0) = 137.0357 at 2 ppm, but d(P₄) in the running lacks physical derivation.*
+
+*Identity #247 (NB114): Direct Influx Dominance. STRUCTURAL. Each cascade level receives its power primarily from direct driving ε·sin(θ_k), NOT from feed-down from adjacent levels. Measured power fractions: R₃ = 99.8% direct (0.2% feed-down), R₂ = 98.8% direct, R₁ = 94.1% direct, R₀ = 100% direct. The cascade is a PARALLEL frequency-selective receiver: influx reaches all levels simultaneously, but only R₃ (overdamped, Q₃ = 0.434) absorbs efficiently. R₃ alone absorbs 95.1% of total dissipated power (0.003324 / 0.003494). This overturns the serial-chain picture — energy does NOT cascade level-by-level.*
+
+*Identity #248 (NB114): Filter Cutoff Classification Theorem. STRUCTURAL, ANALYTIC. The cascade critical primorial P_crit = 2π√P₄ ≈ 91.1 falls between P₃ = 30 and P₄ = 210. This ensures: (a) P₄ > 4π² ≈ 39.48 → Q₃ < 1 at κ = ρ → R₃ is overdamped (passband). (b) P₃ < 2π√P₄ ≈ 91.1 → Q₂ > 1 at κ = ρ → R₂ is underdamped (transition band). The four primes {2,3,5,7} are REQUIRED: with only {2,3,5}, P₃ = 30 and 4π² = 39.48 > P₃ → no overdamped level exists. The seventh prime creates the passband. Filter gains: |H₃|² = P₄/(P₄ + 4π²) = 0.842 (analytic), |H₂| = 0.313, |H₁| = 0.066, |H₀| = 0.022.*
+
+*Identity #249 (NB114): Energy Concentration in Ultimates. STRUCTURAL. At κ = ε = ρ = 1/√210, the fraction of total cascade energy in R₃ is 95.7%. Effective level count (inverse Herfindahl) = 1.23. R₃ energy fraction peaks at κ ≈ 0.030 (the Q₃ = 1 critical threshold, κ_crit = 2π/P₄ = 0.02992) at 96.4%. ρ sits just above this threshold. The ε = κ condition is impedance balance (driving strength = damping rate), NOT global energy optimization — total energy has no extremum at ρ. Selection of ρ is a classification condition: Q₃ < 1 AND Q₂ > 1 AND ε = κ.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
