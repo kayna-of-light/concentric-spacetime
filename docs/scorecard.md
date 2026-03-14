@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB99 (Analytic C₀ derivation — structural characterization via cascade Jacobian).
+> Last updated after NB100 (The Solenoid Wave — cascade filter analysis, Q-factor product identity, overdamping theorem).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 220 |
+| **Structural identities** | 222 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 99 (NB01–NB99) |
+| **Notebooks** | 100 (NB01–NB100) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -77,6 +77,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Algebraic Mass Invariants** | NB97 | T-independent mass architecture; window-0 complete concentration; dilution formula; crossing gap anatomy | 7 identities (#216–#222): Window-0 complete concentration (per-period CP=1 for periods ≥ 1), quark + lepton dilution formulas (0.25%/0.47%), first-crossing gaps = λ(210) and p₁, gap vocabulary = {p₁, λ(P₄), d(P₄)}, gap sum = ±P₃, transient weight T-independence. |
 | **Gram-Amplification Verification** | NB98 | High-accuracy convergence test of Gram-amplification bridge; per-level anatomy; kappa dependence | 0 new identities (honest NULL). Tolerance convergence (1e-6 to 1e-13): errors structural, not numerical. Gram match R4-specific (0.24% Q, 0.73% L). Physical κ = 1/√P₄ within 0.1% of kappa making bridge exact; other kappa values show 50-100%+ errors. |
 | **Analytic C₀ Derivation** | NB99 | Cascade Jacobian decomposition; state-transition matrix; cross-level transient propagation; wrapping anatomy | 0 new identities (structural characterization). C₀ decomposed into state-transition matrix Φ + driven response + wrapping. Diagonal Φ(k,k) = exp(−κci) exact; single-hop Φ(k,k−1) analytic at 0.1–0.6%. Cross-level coupling: R₂ drives 25% of R₃ variance at ci=61. Linearized Jacobian captures C₀ to −4% (Q) / −2% (L). Closed form blocked by wrapping nonlinearity at early crossings. |
+| **The Solenoid Wave** | NB100 | Cascade as coupled low-pass filter; Q-factor product identity; overdamping theorem; wave anatomy | 2 identities (#223–#224): Q-factor product ∏Q_k = (2π)⁴ × p₄/λ(P₄) (EXACT), unique overdamped level (R₃ only, Q₃ = 2πρ < 1). Dominant Fourier period = P₄. Effective decay rate κ_eff/κ = 0.19 (cascade buffering). Physical crossings span phases 0.05–0.91 of P₄ wave. Mass works because R₃ is overdamped → quasi-static tracking. |
 
 ---
 
@@ -199,6 +200,10 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identities #219–#221 (NB97): The crossing gap structure between gen1 and gen2 sectors encodes number-theoretic invariants of P₄=210. The first-crossing gaps are λ(210)=12 and p₁=2 — the group exponent and bilateral prime. The full gap vocabulary is {p₁, λ(P₄), d(P₄)} = {2, 12, 16}. The gap sum is ±P₃=±30, connecting the CP-pair structure to the third primorial. These are all pure number theory, requiring no dynamics — the coprime residue structure of Z*₂₁₀ determines them completely.*
 
 *Identity #222 (NB97): The transient weight Σ exp(−2κr) per a₇ sector converges to a fixed value after one period (the exponential dies by exp(−2κ·210) ≈ 10⁻¹³). The CP ratio from transient weights alone is therefore exactly T-independent. This is the algebraic core of the CP asymmetry: QUARK CP_trans = 2.14 (dominated by first-crossing gap λ(210)=12), LEPTON CP_trans = 1.22 (dominated by first-crossing gap p₁=2). The dynamical CP ratio exceeds this for leptons (driven response amplification at Q₃=7.59) but matches it for quarks (Q₄=1.52, borderline resonance).*
+
+*Identity #223 (NB100): Q-factor product identity. Each cascade level has quality factor Q_k = ω_{k+1}/κ = 2π√P₄/P_{k+1}. The product over all four levels gives ∏Q_k = (2π)⁴ × P₄/(P₁·P₂·P₃) = (2π)⁴ × p₄/λ(P₄) = (2π)⁴ × 7/12. Verified exact via sympy. This connects the cascade's wave physics (quality factors of four coupled oscillators) to the group exponent (Carmichael function λ). The individual Q-factors are: Q₀ = 45.5, Q₁ = 15.2, Q₂ = 3.04, Q₃ = 0.434.*
+
+*Identity #224 (NB100): Unique overdamped level. The Q < 1 condition (P_{k+1} > 2π√P₄) holds ONLY for k=3 (P₄ = 210 > 2π√210 ≈ 91.1). The three lower levels are all underdamped (P₁=2, P₂=6, P₃=30, all < 91.1). This means R₃ (the outermost level, p=7) is the unique overdamped oscillator in the cascade. Physics consequence: mass ratios are stably readable ONLY at R₃ because overdamped response tracks driving quasi-statically without oscillation artifacts. The correspondence is precise: p=7 (ultimates/completion) → the level where oscillations have been absorbed and the stable result is readable.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
