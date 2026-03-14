@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB100 (The Solenoid Wave — cascade filter analysis, Q-factor product identity, overdamping theorem).
+> Last updated after NB101 (The Near-Critical Bridge — R₂ wave anatomy, impedance bottleneck, Q-factor prime decomposition).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 222 |
+| **Structural identities** | 227 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 100 (NB01–NB100) |
+| **Notebooks** | 101 (NB01–NB101) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -78,6 +78,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Gram-Amplification Verification** | NB98 | High-accuracy convergence test of Gram-amplification bridge; per-level anatomy; kappa dependence | 0 new identities (honest NULL). Tolerance convergence (1e-6 to 1e-13): errors structural, not numerical. Gram match R4-specific (0.24% Q, 0.73% L). Physical κ = 1/√P₄ within 0.1% of kappa making bridge exact; other kappa values show 50-100%+ errors. |
 | **Analytic C₀ Derivation** | NB99 | Cascade Jacobian decomposition; state-transition matrix; cross-level transient propagation; wrapping anatomy | 0 new identities (structural characterization). C₀ decomposed into state-transition matrix Φ + driven response + wrapping. Diagonal Φ(k,k) = exp(−κci) exact; single-hop Φ(k,k−1) analytic at 0.1–0.6%. Cross-level coupling: R₂ drives 25% of R₃ variance at ci=61. Linearized Jacobian captures C₀ to −4% (Q) / −2% (L). Closed form blocked by wrapping nonlinearity at early crossings. |
 | **The Solenoid Wave** | NB100 | Cascade as coupled low-pass filter; Q-factor product identity; overdamping theorem; wave anatomy | 2 identities (#223–#224): Q-factor product ∏Q_k = (2π)⁴ × p₄/λ(P₄) (EXACT), unique overdamped level (R₃ only, Q₃ = 2πρ < 1). Dominant Fourier period = P₄. Effective decay rate κ_eff/κ = 0.19 (cascade buffering). Physical crossings span phases 0.05–0.91 of P₄ wave. Mass works because R₃ is overdamped → quasi-static tracking. |
+| **The Near-Critical Bridge** | NB101 | R₂ wave anatomy; impedance mismatch; Q-factor prime decomposition; bottleneck identification | 3 identities (#225–#227): Q₂ = π√(p₁p₄/(p₂p₃)) (EXACT), Q₂/Q₃ = p₄ = 7 (EXACT), Q₂·Q₃ = 2π²/(p₂p₃) (EXACT). R₁→R₂ is the LARGEST impedance mismatch (42.6% reflected). R₂ is the bottleneck: hardest to enter + near-critical damping (Q₂=3.04). Levels decoupled: R₂ RMS depends only on j₃, R₃ only on j₄. Linear R₂→R₃ coupling = 0 (nonlinear sin coupling). |
 
 ---
 
@@ -204,6 +205,12 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #223 (NB100): Q-factor product identity. Each cascade level has quality factor Q_k = ω_{k+1}/κ = 2π√P₄/P_{k+1}. The product over all four levels gives ∏Q_k = (2π)⁴ × P₄/(P₁·P₂·P₃) = (2π)⁴ × p₄/λ(P₄) = (2π)⁴ × 7/12. Verified exact via sympy. This connects the cascade's wave physics (quality factors of four coupled oscillators) to the group exponent (Carmichael function λ). The individual Q-factors are: Q₀ = 45.5, Q₁ = 15.2, Q₂ = 3.04, Q₃ = 0.434.*
 
 *Identity #224 (NB100): Unique overdamped level. The Q < 1 condition (P_{k+1} > 2π√P₄) holds ONLY for k=3 (P₄ = 210 > 2π√210 ≈ 91.1). The three lower levels are all underdamped (P₁=2, P₂=6, P₃=30, all < 91.1). This means R₃ (the outermost level, p=7) is the unique overdamped oscillator in the cascade. Physics consequence: mass ratios are stably readable ONLY at R₃ because overdamped response tracks driving quasi-statically without oscillation artifacts. The correspondence is precise: p=7 (ultimates/completion) → the level where oscillations have been absorbed and the stable result is readable.*
+
+*Identity #225 (NB101): Q₂ = π√(p₁p₄/(p₂p₃)) = π√(14/15). The near-critical Q-factor at the R₂ bridge nests all four primes: numerator = p₁·p₄ = 2·7 = 14 (outermost pair), denominator = p₂·p₃ = 3·5 = 15 (inner pair). Verified exact via sympy. Q₂ ≈ 3.038 — just above critical damping, making R₂ the transition between the oscillatory inner cascade (R₀, R₁) and the overdamped outer level (R₃).*
+
+*Identity #226 (NB101): Q₂/Q₃ = p₄ = 7. The ratio of the near-critical to the overdamped Q-factor equals the outermost prime. Equivalently: the transition from near-critical to overdamped spans exactly one factor of p₄. Verified exact via sympy.*
+
+*Identity #227 (NB101): Q₂·Q₃ = 2π²/(p₂·p₃) = 2π²/15. The product of the transition-pair Q-factors involves only the middle primes. Combined with #226: knowing the product and ratio uniquely determines both Q₂ and Q₃. Combined with #223: the full four-level Q-factor product decomposes as (Q₀·Q₁)·(Q₂·Q₃) = [(2π)⁴·p₄/λ(P₄)] / [2π²/15], connecting the high-Q inner pair to the transition pair.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 

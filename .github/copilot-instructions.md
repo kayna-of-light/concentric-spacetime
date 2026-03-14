@@ -151,7 +151,7 @@ concentric-spacetime/
 │   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
 │   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
 ├── docs/
-│   ├── scorecard.md           # Living scorecard: all 205 identities (updated after each notebook)
+│   ├── scorecard.md           # Living scorecard: all 227 identities (updated after each notebook)
 │   ├── acceleration.md        # Computation acceleration infrastructure
 │   ├── research_directions.md # Early-phase research directions (partially superseded)
 │   └── status_*.md            # Point-in-time status summaries
@@ -473,6 +473,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **Gram-Amplification Verification** | NB98 | High-accuracy convergence test of Gram-amplification bridge; kappa dependence | 0 new identities (honest NULL). Tolerance convergence: errors structural (0.24% Q, 0.73% L). Physical κ within 0.1% of Gram-exact kappa; other kappa values 50-100%+ error. |
 | **Analytic C₀ Derivation** | NB99 | Cascade Jacobian decomposition; state-transition matrix; cross-level transient propagation | 0 new identities (structural). C₀ = f(Φ, R_driv, wrap). Diagonal Φ(k,k) = exp(−κci) exact; Φ(3,2) analytic at 0.6%. Linearized Jacobian: C₀ to −4%/−2%. Closed form blocked by wrapping. |
 | **The Solenoid Wave** | NB100 | Cascade as coupled low-pass filter; Q-factor product; overdamping theorem; wave anatomy | 2 identities (#223–#224): ∏Q_k = (2π)⁴ × p₄/λ(P₄) (EXACT), unique overdamped level (R₃ only). Dominant Fourier period = P₄. Mass works because R₃ is overdamped → quasi-static. |
+| **The Near-Critical Bridge** | NB101 | R₂ wave anatomy; impedance mismatch; Q-factor prime decomposition; bottleneck identification | 3 identities (#225–#227): Q₂ = π√(p₁p₄/(p₂p₃)) (EXACT), Q₂/Q₃ = p₄ = 7 (EXACT), Q₂·Q₃ = 2π²/(p₂p₃) (EXACT). R₁→R₂ is LARGEST impedance mismatch (42.6%). R₂ is the bottleneck. Levels decoupled: R₂ RMS depends only on j₃, R₃ only on j₄. |
 
 See `docs/scorecard.md` for the complete phase map and identity details.
 
