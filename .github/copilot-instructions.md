@@ -471,6 +471,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 | **The Dilution Factor** | NB94 | Analytic dilution model; +1 offset error corrected; convention-independent reformulation | 1 identity (#213): Dilution model exact (<0.001%, PASS). #214 (√30) and #215 (n=17) retracted — phase-sampling artifacts of NB81's +1 time offset. Amplitude ratio = 4.76, not √30. |
 | **Algebraic Mass Invariants** | NB97 | T-independent mass architecture; window-0 complete concentration; dilution formula; crossing gap anatomy | 7 identities (#216–#222): Window-0 complete concentration, quark/lepton dilution formulas, first-crossing gaps = λ(210) and p₁, gap vocabulary = {p₁, λ(P₄), d(P₄)}, gap sum = ±P₃, transient weight T-independence. |
 | **Gram-Amplification Verification** | NB98 | High-accuracy convergence test of Gram-amplification bridge; kappa dependence | 0 new identities (honest NULL). Tolerance convergence: errors structural (0.24% Q, 0.73% L). Physical κ within 0.1% of Gram-exact kappa; other kappa values 50-100%+ error. |
+| **Analytic C₀ Derivation** | NB99 | Cascade Jacobian decomposition; state-transition matrix; cross-level transient propagation | 0 new identities (structural). C₀ = f(Φ, R_driv, wrap). Diagonal Φ(k,k) = exp(−κci) exact; Φ(3,2) analytic at 0.6%. Linearized Jacobian: C₀ to −4%/−2%. Closed form blocked by wrapping. |
 
 See `docs/scorecard.md` for the complete phase map and identity details.
 
