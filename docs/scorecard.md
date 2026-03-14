@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB112 (Electroweak Precision — structural map of EW observables; dual sin²θ_W schemes; Δr anatomy reveals gauge-mass bridge via top quark Δρ; honest NULL for new identities).
+> Last updated after NB113 (The Fine Structure Constant — charge sum Σ N_c Q² = φ(P₃) = 8 from character algebra; running ratio p₂p₃/(p₁p₄) = 15/14 provisional; α(0) requires cascade + absolute mass scale).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 244 |
+| **Structural identities** | 246 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 112 (NB01–NB112) |
+| **Notebooks** | 113 (NB01–NB113) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -90,6 +90,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Neutrino Prism** | NB110 | PMNS neutrino mixing from {2,3,5,7} arithmetic; TBM sum rule; mass-squared ratio; CP phase cross-relation with θ₂₃ | 5 identities (#234–#238): sin²θ₁₃ = 1/(p₂²·p₃) = 1/45 (0.32σ). TBM sum rule sin²θ₁₂ + sin²θ₁₃ = 1/p₂ → sin²θ₁₂ = 14/45 (0.32σ). sin²θ₂₃ = p₃·p₄/p₁^λ(p₄) = 35/64 (0.04σ). Δm²₃₂/Δm²₂₁ = p₁·p₄²/p₂ = 98/3 (0.10σ). δ_CP = (p₃·p₄/p₁^p₃)·π = 35π/32 (0.01σ, tentative). χ²/4 = 0.053. Cross-relation: δ_CP/π = p₁·sin²θ₂₃. PMNS uses all four primes; CKM uses {p₂, p₃} only. |
 | **The Gauge Coupling Hierarchy** | NB111 | ρ-corrected gauge couplings; QCD β = p₄; GUT normalization = p₃/p₂; sin²θ_W derived via EW identity | 6 identities (#239–#244): b₃ = p₄ = 7 (EXACT); 5/3 = p₃/p₂ (EXACT); 1/α_s = φ(P₃)+p₄/√P₄ (0.1σ); 1/α₂ = P₃−λ(p₄)/√P₄ (0.3σ); 1/α₁ = P₁P₃−1 (0.0σ); sin²θ_W derived = 0.23129 (2.2σ, supersedes NB30 #15: 8/35 at 88σ). Correction coefficients: {+p₄, −λ(p₄), −1} for {strong, weak, hyper}. Supersedes NB30 tree-level couplings #13–#16. GUT normalization emerges from CRT, not SU(5). |
 | **Electroweak Precision** | NB112 | Dual sin²θ_W schemes; M_W routes; Δr radiative correction anatomy; gauge-mass bridge | 0 new identities (honest NULL — structural). Solenoid naturally produces TWO sin²θ_W: on-shell-like φ(P₄)/P₄ = 8/35 (2.41% from PDG) and MS-bar 0.23129 (0.03% from PDG). M_W: tree = 80.091 GeV (−0.35%), ρ-corrected g₂ + measured v = 80.233 GeV (−0.17%, 2× improvement). Δr anatomy: gap traced to tree-level m_t = v/2 = 123 GeV (−29% from 173 GeV). Δρ ∝ m_t²: tree Δρ is 51% of measured. Projection: cascade-corrected m_t → M_W = 80.365 GeV (0.3σ, 71× improvement). BRIDGE: gauge sector (NB111) + mass sector (NB60-108) meet at M_W through Δρ. |
+| **The Fine Structure Constant** | NB113 | Can α(0) = 1/137 be derived from {2,3,5,7}? Arithmetic search, QED running, charge sum analysis | 2 identities (#245–#246). #245: Σ N_c Q_f² = φ(P₃) = 8 (EXACT, PASS) — total EM charge content = Euler totient of P₃. Per sector: leptons = p₂, up quarks = φ(p₃), down quarks = φ(p₁). Derivable from Z*₂₁₀ character algebra. #246: Running ratio 1/α(0)/1/α(M_Z) = p₂p₃/(p₁p₄) = 15/14 (PROVISIONAL, 149 ppm). Implies Δα = 1/(p₂p₃) = 1/15. Within hadronic vacuum polarization uncertainty. Scope boundary: α(0) is NOT pure number theory — requires cascade dynamics + absolute mass scale (same frontier as NB112). 137 is prime, does not decompose into primorial arithmetic. |
 
 ---
 
@@ -258,6 +259,10 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #243 (NB111): ρ-Corrected Hypercharge Coupling. 1/α₁(M_Z) = P₁P₃ − 1 = 59. PDG: 59.00 ± 0.02. Deviation: 0.0σ. PASS. Supersedes NB30 #8 (tree-level P₁P₃ = 60 at 1.7%). The correction is −P₄ρ² = −1 (exact integer), where P₄ρ² = P₄/P₄ = 1.*
 
 *Identity #244 (NB111): sin²θ_W Derived via EW Identity. sin²θ_W = (1/α₂)/(1/α₂ + (p₃/p₂)/α₁) = 29.586/(29.586 + (5/3)×59) = 0.23129. PDG: 0.23122 ± 0.00003. Deviation: 2.2σ. PASS. Supersedes NB30 #5 (independent φ(P₄)/P₄ = 8/35 at 88σ). The Weinberg angle is NOT an independent solenoid prediction — it is DERIVED from the three corrected gauge couplings via the electroweak identity, with the GUT normalization = p₃/p₂ (#240). This resolves a 40× σ-reduction: 88σ → 2.2σ.*
+
+*Identity #245 (NB113): EM Charge Sum = φ(P₃). Σ N_c Q_f² = 8 = φ(P₃) = φ(30). The total electromagnetic charge content of the Standard Model fermion spectrum (one generation) equals the Euler totient of the third primorial. Per sector: leptons contribute p₂ = 3 (= 1² + 1² + 1²), up-type quarks contribute φ(p₃) = 4 (= N_c × (2/3)² = 3 × 4/9), down-type quarks contribute φ(p₁) = 1 (= N_c × (1/3)² = 3 × 1/9). This is derivable from the Z*₂₁₀ character algebra (NB62 fermion map). EXACT. PASS.*
+
+*Identity #246 (NB113): Running Ratio ≈ p₂p₃/(p₁p₄) = 15/14. The ratio 1/α(0)/1/α(M_Z) ≈ 15/14 = p₂p₃/(p₁p₄) = inner-primes/outer-primes. From solenoid: 137.036/127.919 = 1.07127. From 15/14: 1.07143. Deviation: 149 ppm (solenoid), 397 ppm (PDG). Implies Δα = 1/(p₂p₃) = 1/15, within hadronic vacuum polarization uncertainty. PROVISIONAL — α(0) is NOT pure number theory. It requires the cascade-derived fermion mass spectrum + absolute mass scale v. The integer 137 is prime and does not decompose into primorial arithmetic. Same frontier as NB112 (M_W via Δρ). Further noted: (d(P₄)+ρ)/(p₂p₃) = (16+1/√210)/15 gives 1/α(0) = 137.0357 at 2 ppm, but d(P₄) in the running lacks physical derivation.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
