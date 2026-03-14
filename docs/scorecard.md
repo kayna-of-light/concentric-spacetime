@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB107 (The R_ss Anatomy — cascade filter gain, driving force decomposition, NB106 correction confirmation).
+> Last updated after NB108 (The Correction Hunt — partition function anatomy of R_ss correction, algebraic candidate search, wrapping mechanism).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 107 (NB01–NB107) |
+| **Notebooks** | 108 (NB01–NB108) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -85,6 +85,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Wrapping Anatomy** | NB105 | CRT crossing positions; wrapping horizon; g1/g2 bifurcation; window-0 mechanism; complete mass chain | 0 new identities (honest NULL — mechanism insight, not new numerical facts). Each CRT sector has exactly 1 coprime crossing per primorial window: QUARK g1 at ci=11, LEPTON g1 at ci=31, LEPTON g2 at ci=61, QUARK g2 at ci=191. Wrapping horizon (level 3, max IC j₄=6): ci=ln(12)/κ−1≈35. g1 crossings (11, 31) INSIDE → wrap; g2 crossings (61, 191) OUTSIDE → never wrap at any level. Without wrapping: QUARK CP=7.04, LEPTON CP=2.70. With wrapping: 1.54, 1.94. Window-0 concentration confirmed at ALL 4 levels (extends #216). Per-window CP=1.000 for w≥1 at all levels. Complete chain: {2,3,5,7} → CRT positions → wrapping zone → CP ratios → exponents → masses. |
 | **The Analytic CP** | NB106 | Lattice sum decomposition; dilution formula derivation from first principles; R_ss correction anatomy; per-level analysis | 0 new identities (honest NULL — structural derivation). DERIVES the NB97 dilution formula CP²=(C₀²+r)/(1+r) from the CRT window-0 concentration principle. Exact at all 4 levels (<0.001% when window counts match). Lattice sum formula: L=S₂Δ²−4πΔM₁+4π²M₀ with integer wrapping coefficients (M₁,M₀)=(41,19) for quark, (11,2) for lepton. Pure lattice captures 94% of window-0 g1 signal. R_ss correction ≈6.5%, nearly channel-independent (ratio-of-ratios=1.003). Per-branch cv=1.2% (Q), 3.8% (L). Closed-form blocked by cascade dynamics: lattice is fully from {2,3,5,7}, but R_ss and dilution parameter r require cascade ODE solution. |
 | **The R_ss Anatomy** | NB107 | Cascade filter gain; driving force decomposition; variance hierarchy; NB106 correction confirmation | 1 identity (#229): Cascade filter gain |H_k|² = P_k²/(P_k² + ω²P₄). At mass level: |H₃| = √(P₃/(P₃ + ω²p₄)) = √(30/(30+28π²)) = 0.3129. Verified 0.003% at fundamental, 0.01-3% RMS across all 4 levels. Driving force transitions from linear (κR₂/p₂, 62% at ci=11) to self-coupling (ε·sin(θ₃), 98% at ci=191). Variance hierarchy: η² > 0.92 at every level. R_ss(j₃) linear with R² = 0.91-0.99. NB106 corrections confirmed: 1.067(Q), 1.064(L). Quasi-static model FAILS (−99% error when R₂ wraps). |
+| **The Correction Hunt** | NB108 | Partition function anatomy of R_ss correction; algebraic candidate search; piecewise quadratic structure; wrapping boundary analysis | 0 new identities (honest NULL — mechanism confirmed, no algebraic closed form). Correction = Z_field/Z_free where Z = Σ wrap(R_ss + lattice)². The function s(δ) = Σ_{j=0}^{6} wrap(δ+2πjα)² is piecewise quadratic with exactly 8 pieces: quadratic coefficient always p₄=7, linear coefficient jumps by 4π per boundary. Wrapping compresses unwrapped corrections [1.15, 1.47] → ~1.065 (universality mechanism). 11-17% of g1 branches cross wrapping boundaries → perturbation theory fails. Mean-field fails (14-169% error). Correction varies 0.95-1.25 across coprime crossings; ~1.065 is CRT-position-specific. Best approximations: Q_g1 ≈ 16/15 = 1+p₁/P₃ (0.054%), LEPTON CP ratio ≈ 48/49 = φ(P₄)/p₄² (0.011%). Mass impact: −7.68% on LEPTON. Conclusion: correction is mechanistically transparent but computationally irreducible — closed-form blocked by cascade dynamics. |
 
 ---
 
