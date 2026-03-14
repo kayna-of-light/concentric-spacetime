@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB109 (The Flavor Vertex — CKM quark mixing matrix from Z*₂₁₀ character algebra. Four Wolfenstein parameters from {2,3,5,7}+ω).
+> Last updated after NB110 (The Neutrino Prism — PMNS neutrino mixing matrix from {2,3,5,7} arithmetic. All three mixing angles, mass-squared ratio, and CP phase).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 233 |
+| **Structural identities** | 238 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 109 (NB01–NB109) |
+| **Notebooks** | 110 (NB01–NB110) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -87,6 +87,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The R_ss Anatomy** | NB107 | Cascade filter gain; driving force decomposition; variance hierarchy; NB106 correction confirmation | 1 identity (#229): Cascade filter gain |H_k|² = P_k²/(P_k² + ω²P₄). At mass level: |H₃| = √(P₃/(P₃ + ω²p₄)) = √(30/(30+28π²)) = 0.3129. Verified 0.003% at fundamental, 0.01-3% RMS across all 4 levels. Driving force transitions from linear (κR₂/p₂, 62% at ci=11) to self-coupling (ε·sin(θ₃), 98% at ci=191). Variance hierarchy: η² > 0.92 at every level. R_ss(j₃) linear with R² = 0.91-0.99. NB106 corrections confirmed: 1.067(Q), 1.064(L). Quasi-static model FAILS (−99% error when R₂ wraps). |
 | **The Correction Hunt** | NB108 | Partition function anatomy of R_ss correction; algebraic candidate search; piecewise quadratic structure; wrapping boundary analysis | 0 new identities (honest NULL — mechanism confirmed, no algebraic closed form). Correction = Z_field/Z_free where Z = Σ wrap(R_ss + lattice)². The function s(δ) = Σ_{j=0}^{6} wrap(δ+2πjα)² is piecewise quadratic with exactly 8 pieces: quadratic coefficient always p₄=7, linear coefficient jumps by 4π per boundary. Wrapping compresses unwrapped corrections [1.15, 1.47] → ~1.065 (universality mechanism). 11-17% of g1 branches cross wrapping boundaries → perturbation theory fails. Mean-field fails (14-169% error). Correction varies 0.95-1.25 across coprime crossings; ~1.065 is CRT-position-specific. Best approximations: Q_g1 ≈ 16/15 = 1+p₁/P₃ (0.054%), LEPTON CP ratio ≈ 48/49 = φ(P₄)/p₄² (0.011%). Mass impact: −7.68% on LEPTON. Conclusion: correction is mechanistically transparent but computationally irreducible — closed-form blocked by cascade dynamics. |
 | **The Flavor Vertex** | NB109 | CKM quark mixing matrix from Z*₂₁₀ character algebra; Wolfenstein parameters from primes; mirror symmetry theorem; Froggatt-Nielsen connection | 4 identities (#230–#233): All four Wolfenstein parameters from {2,3,5,7}+ω. λ = p₂²/(φ(P₃)·p₃) = 9/40 = 0.22500 (PDG: 0.22500±0.00067, 0.00σ). A = φ(p₃)/p₃ = 4/5 (raw |V_cb|/λ²: 0.8006±0.016, 0.04σ). ρ̄ = 1/ω = 1/(2π) = 0.15915 (PDG: 0.159±0.010, 0.02σ). η̄ = √p₂/p₃ = √3/5 = 0.34641 (PDG: 0.348±0.010, 0.16σ). Full CKM matrix: 9/9 elements within 2σ, χ²/9 = 0.44. Derived: δ_CP = arctan(2π√3/5) = 1.140 rad (0.14σ from PDG), J = 2.80×10⁻⁵ (1.86σ from PDG). Structural: mirror symmetry Im(a₅=3) = −Im(a₅=1) proves directed Cayley alone gives V_CKM = I; universal within-color splitting δ = 2ρ; CKM controlled by p₂ (chirality) and p₃ (charge) only. |
+| **The Neutrino Prism** | NB110 | PMNS neutrino mixing from {2,3,5,7} arithmetic; TBM sum rule; mass-squared ratio; CP phase cross-relation with θ₂₃ | 5 identities (#234–#238): sin²θ₁₃ = 1/(p₂²·p₃) = 1/45 (0.32σ). TBM sum rule sin²θ₁₂ + sin²θ₁₃ = 1/p₂ → sin²θ₁₂ = 14/45 (0.32σ). sin²θ₂₃ = p₃·p₄/p₁^λ(p₄) = 35/64 (0.04σ). Δm²₃₂/Δm²₂₁ = p₁·p₄²/p₂ = 98/3 (0.10σ). δ_CP = (p₃·p₄/p₁^p₃)·π = 35π/32 = 196.875° (0.01σ, tentative). χ²/4 = 0.053 (angles + mass ratio). J_PMNS = −0.00975 vs PDG −0.00979 (0.44%). Cross-relation: δ_CP/π = p₁·sin²θ₂₃. CP amplitude: sin(δ) = −sin(p₂·π/p₁⁵). PMNS uses all four primes; CKM uses {p₂, p₃} only; θ₁₃ bridges both via CKM primes. |
 
 ---
 
@@ -231,6 +232,16 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #232 (NB109): CP-Violation Apex (Real). ρ̄ = 1/ω = 1/(2π) = 0.15915. PDG: 0.159 ± 0.010. Deviation: 0.02σ. The real part of the unitarity triangle apex is the reciprocal of the solenoid base frequency ω = 2π. This introduces the circle geometry (S¹) into the CKM parametrization: the CP-violating real coordinate is 1/(one full turn). The base frequency ω enters elsewhere as the cascade driving parameter (dθ₀/dt = ω) and the filter gain denominator (|H_k|² involves ω²P₄). PASS.*
 
 *Identity #233 (NB109): CP-Violation Apex (Imaginary). η̄ = √p₂/p₃ = √3/5 = 0.34641. PDG: 0.348 ± 0.010. Deviation: 0.16σ. The imaginary part of the unitarity triangle apex is the square root of the chirality-to-charge prime ratio. Together with #232, the CP phase δ = arctan(η̄/ρ̄) = arctan(2π√3/5) = 1.140 rad, matching PDG 1.144 ± 0.028 at 0.14σ. The four Wolfenstein parameters (#230–#233) together predict ALL 9 CKM matrix elements within 2σ with global χ²/9 = 0.44 and Jarlskog invariant J = 2.80×10⁻⁵ (PDG: 3.08 ± 0.15 × 10⁻⁵, 1.86σ). PASS.*
+
+*Identity #234 (NB110): PMNS Reactor Angle. sin²θ₁₃ = 1/(p₂²·p₃) = 1/45 = 0.02222. PDG: 0.0220 ± 0.0007. Deviation: 0.32σ. The smallest PMNS mixing angle is set by the CKM primes p₂ = 3 (chirality) and p₃ = 5 (charge) — the same primes that control quark mixing. This connects the reactor angle to the CKM sector: sin²θ₁₃ = 1/(p₂²·p₃) while sin θ_C = p₂²/(φ(P₃)·p₃). The reactor angle bridges lepton and quark mixing. PASS.*
+
+*Identity #235 (NB110): TBM Sum Rule. sin²θ₁₂ + sin²θ₁₃ = 1/p₂ = 1/3. This is the tribimaximal value of sin²θ₁₂, exactly decomposed: the TBM solar angle splits into the actual solar + reactor angles. Implies sin²θ₁₂ = 14/45 = 0.31111 (PDG: 0.307 ± 0.013, 0.32σ). The sum rule is tested independently at 0.31σ from experiment: (0.307 + 0.022) = 0.329 vs 1/3 = 0.333. This is a known prediction of μ-τ symmetry models, here derived from the solenoid: the chirality prime p₂ = 3 sets the TBM base. PASS.*
+
+*Identity #236 (NB110): PMNS Atmospheric Angle. sin²θ₂₃ = p₃·p₄/p₁^λ(p₄) = 35/64. PDG: 0.546 ± 0.021. Deviation: 0.04σ. The atmospheric mixing angle involves the outer primes p₃ = 5, p₄ = 7 in the numerator and the bilateral prime p₁ = 2 raised to the Carmichael function λ(p₄) = λ(7) = 6 in the denominator. Deviation from maximal mixing: sin²θ₂₃ − 1/2 = 3/64 = p₂/p₁^λ(p₄), a clean prime expression. The numerator 35 = p₃·p₄ = P₄/P₂ appears also in δ_CP (#238), revealing the cross-relation δ_CP/π = p₁·sin²θ₂₃. PASS.*
+
+*Identity #237 (NB110): Neutrino Mass-Squared Ratio. Δm²₃₂/Δm²₂₁ = p₁·p₄²/p₂ = 98/3 = 32.667. PDG: 32.576 ± 0.882. Deviation: 0.10σ. The atmospheric-to-solar mass-squared splitting ratio is the bilateral prime times the generation prime squared divided by the chirality prime. This involves three of the four primes ({p₁, p₂, p₄}); only p₃ (charge) is absent. The mass hierarchy is thus controlled by the first and last primes. PASS.*
+
+*Identity #238 (NB110): PMNS CP Phase. δ_CP = (p₃·p₄/p₁^p₃)·π = 35π/32 = 196.875°. PDG: 197.1° ± 21.8°. Deviation: 0.01σ. PASS (tentative — experimental uncertainty 22° too large to discriminate from other smooth-fraction × π candidates; future test at DUNE/Hyper-K ~5° precision). The CP phase shares the numerator p₃·p₄ = 35 with sin²θ₂₃ (#236), yielding the cross-relation δ_CP/π = p₁·sin²θ₂₃ (since 35/32 = 2 × 35/64). The CP violation amplitude sin(δ) = −sin(p₂·π/p₁⁵) = −sin(3π/32), controlled by the ratio chirality/bilateral⁵. The leptonic Jarlskog invariant J_PMNS = −0.00975 matches PDG −0.00979 at 0.44%. Together with #234–#237, all 5 PMNS parameters are predicted with χ²/4 = 0.053 (four independent angular + mass predictions). PASS†.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
