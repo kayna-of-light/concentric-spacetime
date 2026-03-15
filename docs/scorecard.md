@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB125 (The Unified Mass Architecture — investigates WHY the three mass mechanisms differ; confirms window-0 complete concentration for ALL four panels; destructive interference between transient and steady-state at R₃; p₃/p₄ confirmed exact to 0.016%; quark-lepton asymmetry traced to CRT crossing geography relative to wrapping horizon).
+> Last updated after NB126 (The Wrapping Horizon — derives mechanism selection from CRT arithmetic; a5=0 sieve selects physical crossings {11,31,61,191}; g1/g2 bifurcation is structural; wrapping horizon = sqrt(P₄)·ln(p₁²p₂)−1 ≈ p₃p₄ = 35; gap 31→61 = P₃ = 30 is CRT-robust; NB125 open question RESOLVED).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 125 (NB01–NB125) |
+| **Notebooks** | 126 (NB01–NB126) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
