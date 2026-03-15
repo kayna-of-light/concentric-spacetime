@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB114 (Influx and Response — wave dynamics of cascade; direct influx dominance 99.8%; filter cutoff classification theorem requires {2,3,5,7}; energy concentration 95.7% in ultimates).
+> Last updated after NB115 (The Variational Cascade — Lagrangian origin of the filter; dissipation matrix = diag(p_k²) + bidiag(-p_{k+1}); gradient flow derivation; uniform relaxation theorem).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 249 |
+| **Structural identities** | 253 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 114 (NB01–NB114) |
+| **Notebooks** | 115 (NB01–NB115) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -92,6 +92,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Electroweak Precision** | NB112 | Dual sin²θ_W schemes; M_W routes; Δr radiative correction anatomy; gauge-mass bridge | 0 new identities (honest NULL — structural). Solenoid naturally produces TWO sin²θ_W: on-shell-like φ(P₄)/P₄ = 8/35 (2.41% from PDG) and MS-bar 0.23129 (0.03% from PDG). M_W: tree = 80.091 GeV (−0.35%), ρ-corrected g₂ + measured v = 80.233 GeV (−0.17%, 2× improvement). Δr anatomy: gap traced to tree-level m_t = v/2 = 123 GeV (−29% from 173 GeV). Δρ ∝ m_t²: tree Δρ is 51% of measured. Projection: cascade-corrected m_t → M_W = 80.365 GeV (0.3σ, 71× improvement). BRIDGE: gauge sector (NB111) + mass sector (NB60-108) meet at M_W through Δρ. |
 | **The Fine Structure Constant** | NB113 | Can α(0) = 1/137 be derived from {2,3,5,7}? Arithmetic search, QED running, charge sum analysis | 2 identities (#245–#246). #245: Σ N_c Q_f² = φ(P₃) = 8 (EXACT, PASS) — total EM charge content = Euler totient of P₃. Per sector: leptons = p₂, up quarks = φ(p₃), down quarks = φ(p₁). Derivable from Z*₂₁₀ character algebra. #246: Running ratio 1/α(0)/1/α(M_Z) = p₂p₃/(p₁p₄) = 15/14 (PROVISIONAL, 149 ppm). Implies Δα = 1/(p₂p₃) = 1/15. Within hadronic vacuum polarization uncertainty. Scope boundary: α(0) is NOT pure number theory — requires cascade dynamics + absolute mass scale (same frontier as NB112). 137 is prime, does not decompose into primorial arithmetic. |
 | **Influx and Response** | NB114 | Cascade wave dynamics: κ sweep, energy flow decomposition, frequency response (Bode), 2D ε-κ landscape, impedance balance, filter cutoff classification | 3 structural identities (#247–#249). #247: Direct influx dominance — each level receives 94–100% of its power from direct ε·sin(θ_k), NOT from feed-down. R₃: 99.8% direct. R₂: 98.8%. R₁: 94.1%. Cascade is PARALLEL frequency-selective receiver. #248: Filter cutoff classification theorem — P_crit = 2π√P₄ ≈ 91.1. Since P₃ = 30 < P_crit < P₄ = 210: R₃ is the unique overdamped (passband) level, R₂ is underdamped (transition). Requires four primes: {2,3,5} gives P₃ = 30 > 4π² ≈ 39.5 → NO overdamped level. {2,3,5,7} is the minimal set. #249: Energy concentration — 95.7% of total cascade energy resides in R₃ (ultimates) at κ = ρ. Effective level count = 1.23. ε = κ is impedance balance (driving = damping), NOT global optimization. No energy extremum at ρ; selection is from classification conditions Q₃ < 1, Q₂ > 1, ε = κ. |
+| **The Variational Cascade** | NB115 | Lagrangian origin of the cascade; dissipation matrix derivation; gradient flow interpretation; coordinate transform proof | 4 structural identities (#250–#253). #250: Dissipation matrix Γ̃ = diag(p_k²) + bidiag(-p_{k+1}) — prime-square diagonal, next-prime off-diagonal. Eigenvalues = {4, 9, 25, 49}. #251: Uniform relaxation theorem — A₄ = Γ̃⁻¹K₄ has ALL eigenvalues = κ despite Γ̃ having prime-square eigenvalues. #252: Cascade = exact coordinate transform of theta ODE via primorial recursion p_{k+1}/P_{k+1} = 1/P_k (residual < 10⁻¹⁵). #253: det(Γ̃) = P₄² = 210² = 44100 (product of prime squares = primorial squared). The cascade is the GRADIENT FLOW of Vₜₒᵥₑᵣᵢⁿᵍ with prime-square dissipation and uniform relaxation. |
 
 ---
 
@@ -270,6 +271,14 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #248 (NB114): Filter Cutoff Classification Theorem. STRUCTURAL, ANALYTIC. The cascade critical primorial P_crit = 2π√P₄ ≈ 91.1 falls between P₃ = 30 and P₄ = 210. This ensures: (a) P₄ > 4π² ≈ 39.48 → Q₃ < 1 at κ = ρ → R₃ is overdamped (passband). (b) P₃ < 2π√P₄ ≈ 91.1 → Q₂ > 1 at κ = ρ → R₂ is underdamped (transition band). The four primes {2,3,5,7} are REQUIRED: with only {2,3,5}, P₃ = 30 and 4π² = 39.48 > P₃ → no overdamped level exists. The seventh prime creates the passband. Filter gains: |H₃|² = P₄/(P₄ + 4π²) = 0.842 (analytic), |H₂| = 0.313, |H₁| = 0.066, |H₀| = 0.022.*
 
 *Identity #249 (NB114): Energy Concentration in Ultimates. STRUCTURAL. At κ = ε = ρ = 1/√210, the fraction of total cascade energy in R₃ is 95.7%. Effective level count (inverse Herfindahl) = 1.23. R₃ energy fraction peaks at κ ≈ 0.030 (the Q₃ = 1 critical threshold, κ_crit = 2π/P₄ = 0.02992) at 96.4%. ρ sits just above this threshold. The ε = κ condition is impedance balance (driving strength = damping rate), NOT global energy optimization — total energy has no extremum at ρ. Selection of ρ is a classification condition: Q₃ < 1 AND Q₂ > 1 AND ε = κ.*
+
+*Identity #250 (NB115): Dissipation Matrix Structure. STRUCTURAL, ANALYTIC, EXACT. The dissipation matrix of the cascade gradient flow is Γ̃ = diag(p_k²) + upper-bidiag(-p_{k+1}). Explicitly: diag(4, 9, 25, 49) with off-diagonal entries (-3, -5, -7). This is upper triangular with eigenvalues {p₁², p₂², p₃², p₄²} = {4, 9, 25, 49}. Derived from Γ = K₄ · A₄⁻¹ where K₄ is the covering stiffness and A₄ is the linear drift matrix of the theta ODE. The structure is entirely determined by the primes — no free parameters.*
+
+*Identity #251 (NB115): Uniform Relaxation Theorem. STRUCTURAL, ANALYTIC, EXACT. The relaxation matrix A₄ = Γ̃⁻¹K₄ has ALL four eigenvalues equal to κ. Despite the dissipation Γ̃ having prime-square eigenvalues {4, 9, 25, 49} (non-uniform), the EFFECTIVE relaxation rate is UNIFORM across all levels. This arises because A₄ is lower bidiagonal with constant diagonal κ. The uniform relaxation is the structural reason the cascade works: every level relaxes at the same rate, but the DRIVING frequencies differ (2π/P_{k+1}), creating the Q-factor hierarchy Q_k = ω_k/(2κ).*
+
+*Identity #252 (NB115): Cascade = Exact Coordinate Transform. STRUCTURAL, ANALYTIC, EXACT. The cascade ODE (4D, R-space) is obtained from the theta ODE (5D, θ-space) by the substitution R_k = p_kθ_{k+1} − θ_k with NO approximation. The key identity is the primorial recursion p_{k+1}/P_{k+1} = 1/P_k, which causes all drift terms to cancel exactly, leaving only covering-residual dynamics. Verified numerically: gradient flow residual < 10⁻¹⁵ (machine zero). The cascade was previously motivated by analogy (NB79); it is now DERIVED.*
+
+*Identity #253 (NB115): det(Γ̃) = P₄². STRUCTURAL, ANALYTIC, EXACT. The determinant of the dissipation matrix equals the primorial squared: det(Γ̃) = ∏ p_k² = (∏ p_k)² = P₄² = 210² = 44100. Follows from Γ̃ being upper triangular with diagonal p_k². The trace is tr(Γ̃) = ∑ p_k² = 4 + 9 + 25 + 49 = 87.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
