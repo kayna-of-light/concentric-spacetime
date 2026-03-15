@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB121 (The Gauge-Gravity Bridge — Tr(L) = (1/α₂)(1/α₃) = P₃×φ(P₃) = 240 connects gauge couplings to gravitational hierarchy; only SU(2)×SU(3) enter gravity; G_N = (α₂α₃)⁴/(M_Z²×p₄¹⁸) at 0.006%).
+> Last updated after NB122 (The Gravity Amplifier — bilateral-chirality crossing d₀² = γ₁ and d₁² = γ₀ connects metric geometry to cascade dissipation; σ₃(p₁) = 9 is a perfect square uniquely for p=2; metric product ∏ d_k = φ(P₃)/p₃ = 8/5 connects to strong coupling).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 262 |
+| **Structural identities** | 265 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 121 (NB01–NB121) |
+| **Notebooks** | 122 (NB01–NB122) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -99,6 +99,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Complete α(0) Chain** | NB119 | Compact fine-structure constant formula; error cancellation; NB113 frontier closed; #246 promoted | 1 identity (#259): 1/α(0) = 275/2 − 45/(7√210) = 137.056 (PDG: 137.036, +0.015%, PASS). Combines NB111 gauge couplings (#240, #242, #243) with NB113 running ratio (#246). Tree level 275/2 = 137.500 (pure integer arithmetic of {2,3,5,7}), ρ-correction −45/(7√210) = −0.444. Error budget: 1/α(M_Z) at −0.025% and 15/14 at +0.040% partially cancel → +0.015% combined (20 ppm). One-loop QED: solenoid up-type masses (NB118) shift running by −0.008 (negligible); α(0) is 99.68% statics. #246 promoted: PROVISIONAL → PASS. |
 | **The Higgs Sector** | NB120 | Compact Higgs mass formula; tree-vs-corrected VEV analysis; formula scan; algebraic anatomy; NB34 revision | 1 identity (#260): m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV (PDG: 125.25 ± 0.17, −0.01%, 0.08σ, PASS). Tree 48/35 = φ(P₄)/(p₃p₄) = sin²θ_W(tree) × λ(p₄) — eigenstate count normalized by charge×generation sector. Correction ρ/(p₃p₄) = standard primorial coupling. Three competitive formulas converge within 0.5σ: (48+ρ)/35 (0.08σ), √(6/π)×(1−ρ/12) (0.26σ), 9/√(14π)×(1+ρ/6) (0.46σ). Supersedes #18 (m_H = v/P₁, −0.9%) and #19 (λ=1/8, −3.4%). Implied tree quartic λ ≈ 7/54 (improved). EW hierarchy complete: M_W, m_H, m_t all from M_Z. |
 | **The Gauge-Gravity Bridge** | NB121 | Gauge-gravity unification anatomy; Tr(L) = gauge coupling product; hypercharge exclusion; complete mass hierarchy from M_Z | 2 structural identities (#261–#262). #261: Tr(L) = (1/α₂)_tree × (1/α₃)_tree = P₃ × φ(P₃) = 30 × 8 = 240 — the Cayley Laplacian trace equals the product of tree-level weak and strong gauge coupling inverses. Three independent derivation chains (gauge CRT, spectral Cayley, modular E₄) converge on 240. #262: Only SU(2)×SU(3) enter the gravity hierarchy — U(1)_Y excluded because 1/α₁ = P₁P₃ = 60 carries an extra bilateral factor p₁ = 2. Gravity hierarchy: M_Pl/M_Z = [(1/α₂)(1/α₃)]^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹. G_N = (α₂α₃)⁴/(M_Z² × p₄¹⁸) at 0.006% from CODATA. Gauge contributes 55.6% of the 17.13-order hierarchy, ultimation 44.4%. |
+| **The Gravity Amplifier** | NB122 | Gravity exponent anatomy; bilateral-chirality crossing; sigma3 perfect square uniqueness; metric product identity | 3 structural identities (#263–#265). #263: Bilateral-chirality crossing: d₀² = γ₁ and d₁² = γ₀ — the metric inverse diagonals and dissipation eigenvalues SWAP between the two innermost levels. d₀ = 1+p₁ = p₂ = 3 (because {2,3} are consecutive), d₁ = (1+p₂)/p₁ = p₁ = 2 (because p₁² = p₂+1). The gravity exponent σ₃(p₁) = 9 = d₀² = γ₁ IS this crossing: innermost metric geometry becomes next level’s wave dissipation. #264: σ₃(p) = 1+p³ = (1+p)(p²−p+1) is a perfect square iff p=2 — uniquely among all primes. The gravity exponent 9 = 3² is a squared integer ONLY because the bilateral prime is 2. #265: Metric product identity: ∏ d_k = 3×2×1×(4/15) = 8/5 = φ(P₃)/p₃ = (1/α₃)/p₃ — the full solenoid metric pass-through gain equals the tree-level strong coupling inverse divided by the charge prime. |
 
 ---
 
@@ -303,6 +304,12 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #261 (NB121): Gauge-Gravity Bridge. STRUCTURAL, PASS (exact). Tr(L) = (1/α₂)_tree × (1/α₃)_tree = P₃ × φ(P₃) = 30 × 8 = 240. The Cayley Laplacian trace — previously connected to 240 only through its spectral definition and modular form coefficient c₁(E₄) — is identified as the product of tree-level gauge coupling inverses. This links three independent derivation chains: (i) gauge: (1/α₂)(1/α₃) = P₃ × φ(P₃) from NB111 CRT decomposition; (ii) spectral: Tr(L) = 240 from Cayley graph Laplacian eigenvalues; (iii) modular: c₁(E₄) = 240 from the Eisenstein series. The gravitational hierarchy becomes M_Pl/M_Z = [(1/α₂)(1/α₃)]^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹, i.e. gravity = fourth power of weak×strong product × seventh prime to the ninth. Gauge contribution: 4×log₁₀(240) = 9.52 orders (55.6%), ultimation: 9×log₁₀(7) = 7.61 orders (44.4%).*
 
 *Identity #262 (NB121): Hypercharge Exclusion. STRUCTURAL, PASS (structural). Only SU(2) and SU(3) gauge couplings participate in the gravitational hierarchy. The hypercharge coupling 1/α₁ = P₁P₃ = 60 carries an extra factor p₁ = 2 (the bilateral prime) relative to the weak coupling 1/α₂ = P₃ = 30. Since Tr(L) = (1/α₂)(1/α₃) = 240 and NOT (1/α₁)(1/α₃) = 480 or any triple product, U(1)_Y is excluded. This explains why the Planck mass involves 240 (non-abelian product) rather than 480 (including abelian). The bilateral cut (p₁ = 2) generates the arena but does not participate in the mass hierarchy.*
+
+*Identity #263 (NB122): Bilateral-Chirality Crossing. STRUCTURAL, PASS (exact). The metric inverse diagonals d_k = (1+p_{k+1})/P_k and dissipation eigenvalues γ_k = p_{k+1}² satisfy d₀² = γ₁ = 9 and d₁² = γ₀ = 4 — a transposition between the two innermost levels. Algebraically: d₀ = 1+p₁ = 3 = p₂ (because {2,3} are consecutive primes) and d₁ = (1+p₂)/p₁ = 4/2 = 2 = p₁ (because p₁² = p₂+1). Both conditions are uniquely satisfied by {2,3} — the only consecutive prime pair AND the only pair where p² = q+1. The crossing means the metric geometry at the innermost level IS the wave dissipation at the next level, and vice versa. The gravity exponent σ₃(p₁) = d₀² = γ₁ = 9 is this crossing: inner geometry amplifies outer mass.*
+
+*Identity #264 (NB122): Perfect Square Uniqueness of σ₃. STRUCTURAL, PASS (exact). σ₃(p) = 1+p³ factors as (1+p)(p²−p+1). This is a perfect square iff 1+p = p²−p+1, i.e. p(p−2) = 0, giving p = 0 or p = 2. Among primes, p = 2 is the UNIQUE solution. Therefore the gravity exponent σ₃(p₁) = 9 = 3² is a squared integer exclusively because the bilateral prime is 2. For any other innermost prime, σ₃ would not be a perfect square and the metric-dissipation crossing would not exist.*
+
+*Identity #265 (NB122): Metric Product Identity. STRUCTURAL, PASS (exact). The product of all metric inverse diagonal elements: ∏ d_k = 3×2×1×(4/15) = 8/5 = φ(P₃)/p₃ = (1/α₃)_tree / p₃. The full solenoid metric “pass-through gain” equals the tree-level strong coupling inverse divided by the charge prime. Numerator 8 = φ(P₃) = (p₁−1)(p₂−1)(p₃−1). Denominator 5 = p₃. This connects the complete metric propagator (all four levels) to a single gauge coupling, bridging geometry and gauge physics.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
