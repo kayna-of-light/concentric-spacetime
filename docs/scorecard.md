@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB116 (Mass Exponents from Filter — dissipation-exponent bridge; four-prime cooperation identity; exponent hierarchy from φ(P₄) = 48).
+> Last updated after NB117 (The Exponent Correction — lepton wrapping correction = φ(P₄)/p₄² on CP²; mass correction formula (φ(P₄)/p₄²)^{p₄²/(4π)} → exp(-1/(4π))).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 256 |
+| **Structural identities** | 257 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 116 (NB01–NB116) |
+| **Notebooks** | 117 (NB01–NB117) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -94,6 +94,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Influx and Response** | NB114 | Cascade wave dynamics: κ sweep, energy flow decomposition, frequency response (Bode), 2D ε-κ landscape, impedance balance, filter cutoff classification | 3 structural identities (#247–#249). #247: Direct influx dominance — each level receives 94–100% of its power from direct ε·sin(θ_k), NOT from feed-down. R₃: 99.8% direct. R₂: 98.8%. R₁: 94.1%. Cascade is PARALLEL frequency-selective receiver. #248: Filter cutoff classification theorem — P_crit = 2π√P₄ ≈ 91.1. Since P₃ = 30 < P_crit < P₄ = 210: R₃ is the unique overdamped (passband) level, R₂ is underdamped (transition). Requires four primes: {2,3,5} gives P₃ = 30 > 4π² ≈ 39.5 → NO overdamped level. {2,3,5,7} is the minimal set. #249: Energy concentration — 95.7% of total cascade energy resides in R₃ (ultimates) at κ = ρ. Effective level count = 1.23. ε = κ is impedance balance (driving = damping), NOT global optimization. No energy extremum at ρ; selection is from classification conditions Q₃ < 1, Q₂ > 1, ε = κ. |
 | **The Variational Cascade** | NB115 | Lagrangian origin of the cascade; dissipation matrix derivation; gradient flow interpretation; coordinate transform proof | 4 structural identities (#250–#253). #250: Dissipation matrix Γ̃ = diag(p_k²) + bidiag(-p_{k+1}) — prime-square diagonal, next-prime off-diagonal. Eigenvalues = {4, 9, 25, 49}. #251: Uniform relaxation theorem — A₄ = Γ̃⁻¹K₄ has ALL eigenvalues = κ despite Γ̃ having prime-square eigenvalues. #252: Cascade = exact coordinate transform of theta ODE via primorial recursion p_{k+1}/P_{k+1} = 1/P_k (residual < 10⁻¹⁵). #253: det(Γ̃) = P₄² = 210² = 44100 (product of prime squares = primorial squared). The cascade is the GRADIENT FLOW of Vₜₒᵥₑᵣᵢⁿᵍ with prime-square dissipation and uniform relaxation. |
 | **Mass Exponents from Filter** | NB116 | Dissipation-exponent bridge; four-prime cooperation identity; exponent hierarchy from φ(P₄) = 48; honest null on uniform dynamical derivation | 3 structural identities (#254–#256). #254: X₄_LEP = γ₃/ω = p₄²/(2π) — lepton mass exponent equals NB115 dissipation eigenvalue / base frequency (EXACT, bridge). #255: ∏(pₖ−1, k=1..3) = p₄+1, i.e. 1×2×4 = 8 = 7+1 — four-prime cooperation identity specific to {2,3,5,7}, making φ(P₄) = p₄²−1 (EXACT). #256: X₄ = (γ₃−1)/ω = φ(P₄)/(2π) — quark mass exponent = (dissipation eigenvalue − 1) / base frequency; the −1 is the color mode subtraction connecting character count to dissipation (EXACT, bridge). Honest nulls: no uniform formula x_k = f(γ_k)/(2π) at all levels (level 2 requires λ(P₄) not γ₂−1); exponents are algebraic invariants of Z*₂₁₀ preserved by but not created by the cascade dynamics. |
+| **The Exponent Correction** | NB117 | Lepton wrapping correction anatomy; CP² vs CP mechanism; algebraic mass correction formula; quark correction honest null | 1 structural identity (#257). #257: Lepton mass correction = (φ(P₄)/p₄²)^{p₄²/(4π)} = (48/49)^{49/(4π)} = 0.9227 → −7.73% mass impact, matching NB108's −7.68% to 0.05%. The 48/49 = φ(P₄)/p₄² correction (NB108 numerical, NB116 algebraic) acts on CP² (energy ratio), not CP directly. In the large-p₄ limit: → exp(−1/(4π)). Wrapping subtracts 1 mode from lepton character at mass level. The correction is ALREADY in cascade simulations — it explains lattice-to-simulation gap. Honest nulls: quark correction 16/15 = d(P₄)/(p₂p₃) is total sector energy, not per-crossing; cannot be converted to mass correction via same mechanism. |
 
 ---
 
@@ -286,6 +287,8 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #255 (NB116): Four-Prime Cooperation Identity. ARITHMETIC, EXACT. ∏(pₖ−1, k=1..3) = p₄+1, i.e. (2−1)(3−1)(5−1) = 1×2×4 = 8 = 7+1. This is specific to {2,3,5,7} and makes φ(P₄) = ∏(pₖ−1, k=1..4) = (p₄−1)(p₄+1) = p₄²−1 = 48, connecting the character count of Z*₂₁₀ to the dissipation eigenvalue p₄² via a difference of 1. For other 4-prime sets (e.g., {2,3,5,11}): 1×2×4 = 8 ≠ 12 = 11+1. The identity is a deep arithmetic coincidence of the first four primes.*
 
 *Identity #256 (NB116): Dissipation-Exponent Bridge (Quark). STRUCTURAL, EXACT, BRIDGE. The quark mass exponent X₄ = φ(P₄)/(2π) = 48/(2π) = (γ₃−1)/ω = (p₄²−1)/(2π). The quark exponent = (dissipation eigenvalue − 1) / base frequency. The −1 mode subtraction is the color degree of freedom: φ(P₄) = ∏(pₖ−1) counts characters of Z*₂₁₀ (all prime reductions), while p₄² = γ₃ is the full dissipation eigenvalue. Leptons use the full eigenvalue (#254); quarks subtract one mode. All five mass exponents derive from φ(P₄) = 48: X₃ = φ(P₄)/ω(P₄)/(2π) = λ(P₄)/(2π), X₂ = φ(P₄)/φ(p₄)/(2π) = φ(P₃)/(2π), LAM7 = φ(P₄)/φ(P₃) = φ(p₄). The inter-exponent ratio X₄/X₃ = ω(P₄) = 4 (number of forces) is specific to {2,3,5,7}.*
+
+*Identity #257 (NB117): Lepton Mass Correction Formula. STRUCTURAL, PASS (0.05% from NB108). The lepton wrapping correction acts on CP² (energy ratio), not CP directly, giving mass correction = (φ(P₄)/p₄²)^{p₄²/(4π)} = (48/49)^{49/(4π)} = 0.9227, a −7.73% mass impact matching NB108's numerical −7.68% to 0.05%. In the large-p₄ limit: (1 − 1/p₄²)^{p₄²/(4π)} → exp(−1/(4π)) = 0.9235 (−7.65%). The correction arises because wrapping subtracts 1 mode from lepton character at the mass level: the effective energy ratio is φ(P₄)/p₄² = (quark exponent numerator)/(lepton exponent numerator). This correction is already included in cascade simulations — it explains why the lattice approximation (NB97/NB106) differs from the full numerical result.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
