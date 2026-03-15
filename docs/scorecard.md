@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB122 (The Gravity Amplifier — bilateral-chirality crossing d₀² = γ₁ and d₁² = γ₀ connects metric geometry to cascade dissipation; σ₃(p₁) = 9 is a perfect square uniquely for p=2; metric product ∏ d_k = φ(P₃)/p₃ = 8/5 connects to strong coupling).
+> Last updated after NB123 (The Triple Convergence — why gauge CRT, spectral Cayley, and modular E₄ all give 240; Bernoulli-primorial bridge via von Staudt-Clausen; spectral-gauge bridge via p₄-1 = p₁p₂; gravity is tree-exact, ρ-corrected couplings break it by 19.6%).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 265 |
+| **Structural identities** | 268 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 122 (NB01–NB122) |
+| **Notebooks** | 123 (NB01–NB123) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -100,6 +100,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Higgs Sector** | NB120 | Compact Higgs mass formula; tree-vs-corrected VEV analysis; formula scan; algebraic anatomy; NB34 revision | 1 identity (#260): m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV (PDG: 125.25 ± 0.17, −0.01%, 0.08σ, PASS). Tree 48/35 = φ(P₄)/(p₃p₄) = sin²θ_W(tree) × λ(p₄) — eigenstate count normalized by charge×generation sector. Correction ρ/(p₃p₄) = standard primorial coupling. Three competitive formulas converge within 0.5σ: (48+ρ)/35 (0.08σ), √(6/π)×(1−ρ/12) (0.26σ), 9/√(14π)×(1+ρ/6) (0.46σ). Supersedes #18 (m_H = v/P₁, −0.9%) and #19 (λ=1/8, −3.4%). Implied tree quartic λ ≈ 7/54 (improved). EW hierarchy complete: M_W, m_H, m_t all from M_Z. |
 | **The Gauge-Gravity Bridge** | NB121 | Gauge-gravity unification anatomy; Tr(L) = gauge coupling product; hypercharge exclusion; complete mass hierarchy from M_Z | 2 structural identities (#261–#262). #261: Tr(L) = (1/α₂)_tree × (1/α₃)_tree = P₃ × φ(P₃) = 30 × 8 = 240 — the Cayley Laplacian trace equals the product of tree-level weak and strong gauge coupling inverses. Three independent derivation chains (gauge CRT, spectral Cayley, modular E₄) converge on 240. #262: Only SU(2)×SU(3) enter the gravity hierarchy — U(1)_Y excluded because 1/α₁ = P₁P₃ = 60 carries an extra bilateral factor p₁ = 2. Gravity hierarchy: M_Pl/M_Z = [(1/α₂)(1/α₃)]^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹. G_N = (α₂α₃)⁴/(M_Z² × p₄¹⁸) at 0.006% from CODATA. Gauge contributes 55.6% of the 17.13-order hierarchy, ultimation 44.4%. |
 | **The Gravity Amplifier** | NB122 | Gravity exponent anatomy; bilateral-chirality crossing; sigma3 perfect square uniqueness; metric product identity | 3 structural identities (#263–#265). #263: Bilateral-chirality crossing: d₀² = γ₁ and d₁² = γ₀ — the metric inverse diagonals and dissipation eigenvalues SWAP between the two innermost levels. d₀ = 1+p₁ = p₂ = 3 (because {2,3} are consecutive), d₁ = (1+p₂)/p₁ = p₁ = 2 (because p₁² = p₂+1). The gravity exponent σ₃(p₁) = 9 = d₀² = γ₁ IS this crossing: innermost metric geometry becomes next level’s wave dissipation. #264: σ₃(p) = 1+p³ = (1+p)(p²−p+1) is a perfect square iff p=2 — uniquely among all primes. The gravity exponent 9 = 3² is a squared integer ONLY because the bilateral prime is 2. #265: Metric product identity: ∏ d_k = 3×2×1×(4/15) = 8/5 = φ(P₃)/p₃ = (1/α₃)/p₃ — the full solenoid metric pass-through gain equals the tree-level strong coupling inverse divided by the charge prime. |
+| **The Triple Convergence** | NB123 | Bernoulli-primorial bridge; spectral-gauge bridge; gravity tree-exactness; rho-correction anatomy | 3 structural identities (#266-#268). #266: Bernoulli-primorial bridge: von Staudt-Clausen at 2n = omega(P4) = 4 selects {2,3,5} (since (p-1)|4) and EXCLUDES p4 = 7 (since 6 does not divide 4). Therefore den(B4) = P3 = 30, giving c1(E4) = 2*omega(P4)*P3 = phi(P3)*P3 = 240 = gauge product. Supporting: phi(P3) = 1*2*4 = 8 because {3,5} are Fermat primes (p-1 = power of 2). #267: Spectral-gauge bridge: p4-1 = P2 = p1*p2 = 6. Cayley graph on Z*210 has |S| = p3 = 5 generators. Tr(L) = p3*phi(P4) = P3*phi(P3) = 240, equal to gauge product because p4-1 = p1*p2 makes phi(P4)/phi(P3) = P3/p3. #268: Gravity tree-exactness: M_Pl/M_Z = 240^4*7^9 (integer^integer; 0.003% deviation <= M_Pl uncertainty 0.005%). rho-corrected couplings give product ~ 251 -> +19.6% catastrophic overshoot. Gravity is set by topology (Tr(L) = static invariant), not dynamics (rho-corrected couplings). |
 
 ---
 
@@ -310,6 +311,12 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #264 (NB122): Perfect Square Uniqueness of σ₃. STRUCTURAL, PASS (exact). σ₃(p) = 1+p³ factors as (1+p)(p²−p+1). This is a perfect square iff 1+p = p²−p+1, i.e. p(p−2) = 0, giving p = 0 or p = 2. Among primes, p = 2 is the UNIQUE solution. Therefore the gravity exponent σ₃(p₁) = 9 = 3² is a squared integer exclusively because the bilateral prime is 2. For any other innermost prime, σ₃ would not be a perfect square and the metric-dissipation crossing would not exist.*
 
 *Identity #265 (NB122): Metric Product Identity. STRUCTURAL, PASS (exact). The product of all metric inverse diagonal elements: ∏ d_k = 3×2×1×(4/15) = 8/5 = φ(P₃)/p₃ = (1/α₃)_tree / p₃. The full solenoid metric “pass-through gain” equals the tree-level strong coupling inverse divided by the charge prime. Numerator 8 = φ(P₃) = (p₁−1)(p₂−1)(p₃−1). Denominator 5 = p₃. This connects the complete metric propagator (all four levels) to a single gauge coupling, bridging geometry and gauge physics.*
+
+*Identity #266 (NB123): Bernoulli-Primorial Bridge. STRUCTURAL, PASS (exact). Von Staudt-Clausen theorem at 2n = ω(P₄) = 4: den(B₄) = ∏{p prime : (p-1)|4} p. The divisibility condition (p-1)|4 selects {2,3,5} (since 1|4, 2|4, 4|4) and EXCLUDES p₄ = 7 (since 6 ∤ 4). Therefore den(B₄) = 2×3×5 = P₃ = 30. The E₄ first coefficient: c₁(E₄) = 2×wt(E₄)×den(B_wt) = 2×ω(P₄)×P₃ = 8×30 = 240. Supporting: φ(P₃) = (p₁-1)(p₂-1)(p₃-1) = 1×2×4 = 8 = 2×ω(P₄), where the product is 2³ because {3,5} are Fermat primes (p-1 is a power of 2). So c₁(E₄) = φ(P₃)×P₃ = (1/α₃)_tree × (1/α₂)_tree = 240. The modular and gauge chains converge because {2,3,5,7} satisfies von Staudt-Clausen selection at weight ω(P₄).*
+
+*Identity #267 (NB123): Spectral-Gauge Bridge. STRUCTURAL, PASS (exact). The natural Cayley graph on Z*₂₁₀ has |S| = p₃ = 5 generators (Z₂ contributes 1 self-inverse generator, Z₄ contributes 2, Z₆ contributes 2, Z₁ contributes 0; total = 5 = p₃). Spectral trace: Tr(L) = |S|×|G| = p₃×φ(P₄) = 5×48 = 240. Gauge product: P₃×φ(P₃) = 30×8 = 240. These are equal because p₄-1 = P₂ = p₁p₂ = 6, making φ(P₄)/φ(P₃) = p₄-1 = P₃/p₃. This identity is specific to {2,3,5,7} within the four-prime framework — p₄-1 factoring exactly as the product of the two smallest primes.*
+
+*Identity #268 (NB123): Gravity Tree-Exactness. STRUCTURAL, PASS (0.003%). The gravity hierarchy M_Pl/M_Z = Tr(L)^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹ is purely static: an integer raised to integer powers, with no √, no ρ, no π, no transcendentals. Using ρ-corrected physical couplings (product ≈ 251.0 = 240 + 162ρ − 1/5) yields +19.6% catastrophic overshoot. The tree formula deviates by only 0.003%, within the Planck mass measurement uncertainty (0.005%). Gravity lives in the topological (static) layer of the solenoid — Tr(L) = 240 is an invariant of the Cayley graph, not a running coupling. Gauge couplings are shifted by cascade dynamics: static + O(ρ). This establishes a clean separation: topology sets gravity; dynamics sets gauge couplings.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
