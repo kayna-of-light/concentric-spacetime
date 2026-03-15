@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB117 (The Exponent Correction — lepton wrapping correction = φ(P₄)/p₄² on CP²; mass correction formula (φ(P₄)/p₄²)^{p₄²/(4π)} → exp(-1/(4π))).
+> Last updated after NB118 (The Top Quark Bridge — convention correction resolving NB112 error; compact top mass formula m_t/M_Z = p₂²/√(πp₄) = 9/√(7π); M_W prediction at 1.1σ).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 257 |
+| **Structural identities** | 258 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 117 (NB01–NB117) |
+| **Notebooks** | 118 (NB01–NB118) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -95,6 +95,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Variational Cascade** | NB115 | Lagrangian origin of the cascade; dissipation matrix derivation; gradient flow interpretation; coordinate transform proof | 4 structural identities (#250–#253). #250: Dissipation matrix Γ̃ = diag(p_k²) + bidiag(-p_{k+1}) — prime-square diagonal, next-prime off-diagonal. Eigenvalues = {4, 9, 25, 49}. #251: Uniform relaxation theorem — A₄ = Γ̃⁻¹K₄ has ALL eigenvalues = κ despite Γ̃ having prime-square eigenvalues. #252: Cascade = exact coordinate transform of theta ODE via primorial recursion p_{k+1}/P_{k+1} = 1/P_k (residual < 10⁻¹⁵). #253: det(Γ̃) = P₄² = 210² = 44100 (product of prime squares = primorial squared). The cascade is the GRADIENT FLOW of Vₜₒᵥₑᵣᵢⁿᵍ with prime-square dissipation and uniform relaxation. |
 | **Mass Exponents from Filter** | NB116 | Dissipation-exponent bridge; four-prime cooperation identity; exponent hierarchy from φ(P₄) = 48; honest null on uniform dynamical derivation | 3 structural identities (#254–#256). #254: X₄_LEP = γ₃/ω = p₄²/(2π) — lepton mass exponent equals NB115 dissipation eigenvalue / base frequency (EXACT, bridge). #255: ∏(pₖ−1, k=1..3) = p₄+1, i.e. 1×2×4 = 8 = 7+1 — four-prime cooperation identity specific to {2,3,5,7}, making φ(P₄) = p₄²−1 (EXACT). #256: X₄ = (γ₃−1)/ω = φ(P₄)/(2π) — quark mass exponent = (dissipation eigenvalue − 1) / base frequency; the −1 is the color mode subtraction connecting character count to dissipation (EXACT, bridge). Honest nulls: no uniform formula x_k = f(γ_k)/(2π) at all levels (level 2 requires λ(P₄) not γ₂−1); exponents are algebraic invariants of Z*₂₁₀ preserved by but not created by the cascade dynamics. |
 | **The Exponent Correction** | NB117 | Lepton wrapping correction anatomy; CP² vs CP mechanism; algebraic mass correction formula; quark correction honest null | 1 structural identity (#257). #257: Lepton mass correction = (φ(P₄)/p₄²)^{p₄²/(4π)} = (48/49)^{49/(4π)} = 0.9227 → −7.73% mass impact, matching NB108's −7.68% to 0.05%. The 48/49 = φ(P₄)/p₄² correction (NB108 numerical, NB116 algebraic) acts on CP² (energy ratio), not CP directly. In the large-p₄ limit: → exp(−1/(4π)). Wrapping subtracts 1 mode from lepton character at mass level. The correction is ALREADY in cascade simulations — it explains lattice-to-simulation gap. Honest nulls: quark correction 16/15 = d(P₄)/(p₂p₃) is total sector energy, not per-crossing; cannot be converted to mass correction via same mechanism. |
+| **The Top Quark Bridge** | NB118 | Convention resolution (NB34 vs NB112); compact top mass formula; EW precision from solenoid m_t; up-type quark chain | 1 identity (#258). Convention correction: NB112 misread scorecard #20 as y_t = 1/√P₁ (giving m_t = v/2 = 123 GeV, −29%); correct reading m_t/v = 1/√P₁ gives m_t = v/√2 = 174 GeV (+0.8%). #258: Compact formula m_t/M_Z = p₂²/√(πp₄) = 9/√(7π) = 175.0 GeV (PDG: 172.69 ± 0.30, +1.34%, 7.7σ, PASS). Prime anatomy: p₁ and p₃ cancel exactly; only chirality (p₂=3) and ultimation (p₄=7) control top mass. EW precision: m_t(sol) → M_W = 80.384 GeV (1.1σ vs PDG), 18.7× improvement over NB112's 20.1σ. Up-type chain: m_c = 1.267 GeV (−0.20%), m_u = 2.33 MeV (+7.9%). |
 
 ---
 
@@ -289,6 +290,8 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #256 (NB116): Dissipation-Exponent Bridge (Quark). STRUCTURAL, EXACT, BRIDGE. The quark mass exponent X₄ = φ(P₄)/(2π) = 48/(2π) = (γ₃−1)/ω = (p₄²−1)/(2π). The quark exponent = (dissipation eigenvalue − 1) / base frequency. The −1 mode subtraction is the color degree of freedom: φ(P₄) = ∏(pₖ−1) counts characters of Z*₂₁₀ (all prime reductions), while p₄² = γ₃ is the full dissipation eigenvalue. Leptons use the full eigenvalue (#254); quarks subtract one mode. All five mass exponents derive from φ(P₄) = 48: X₃ = φ(P₄)/ω(P₄)/(2π) = λ(P₄)/(2π), X₂ = φ(P₄)/φ(p₄)/(2π) = φ(P₃)/(2π), LAM7 = φ(P₄)/φ(P₃) = φ(p₄). The inter-exponent ratio X₄/X₃ = ω(P₄) = 4 (number of forces) is specific to {2,3,5,7}.*
 
 *Identity #257 (NB117): Lepton Mass Correction Formula. STRUCTURAL, PASS (0.05% from NB108). The lepton wrapping correction acts on CP² (energy ratio), not CP directly, giving mass correction = (φ(P₄)/p₄²)^{p₄²/(4π)} = (48/49)^{49/(4π)} = 0.9227, a −7.73% mass impact matching NB108's numerical −7.68% to 0.05%. In the large-p₄ limit: (1 − 1/p₄²)^{p₄²/(4π)} → exp(−1/(4π)) = 0.9235 (−7.65%). The correction arises because wrapping subtracts 1 mode from lepton character at the mass level: the effective energy ratio is φ(P₄)/p₄² = (quark exponent numerator)/(lepton exponent numerator). This correction is already included in cascade simulations — it explains why the lattice approximation (NB97/NB106) differs from the full numerical result.*
+
+*Identity #258 (NB118): Compact Top Mass Formula. STRUCTURAL, PASS (1.34%, 7.7σ). m_t/M_Z = p₂²/√(πp₄) = 9/√(7π) = 1.9192 → m_t = 175.0 GeV (PDG: 172.69 ± 0.30). Combines #5 (sin²θ_W = φ(P₄)/P₄ = 8/35), #8 (α₂ = 1/P₃ = 1/30), and #20 (m_t/v = 1/√P₁). In the chain M_Z → v → m_t, the primes p₁ = 2 and p₃ = 5 cancel exactly (p₁ enters v as √p₁ and exits m_t as 1/√p₁; p₃ enters cos²θ_W and α₂ oppositely). Only p₂ = 3 (chirality, squared) and p₄ = 7 (ultimation, under square root) survive. The top quark — the heaviest fermion — is controlled by chirality and rest. This resolves NB112's −29% error, which arose from misreading the NB34 prediction as y_t = 1/√P₁ (SM Yukawa convention) instead of the correct m_t/v = 1/√P₁ (direct mass ratio). EW precision: m_t(sol) → Δρ → M_W = 80.384 GeV (1.1σ from PDG), an 18.7× improvement over NB112's 20.1σ.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
