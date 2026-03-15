@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB115 (The Variational Cascade — Lagrangian origin of the filter; dissipation matrix = diag(p_k²) + bidiag(-p_{k+1}); gradient flow derivation; uniform relaxation theorem).
+> Last updated after NB116 (Mass Exponents from Filter — dissipation-exponent bridge; four-prime cooperation identity; exponent hierarchy from φ(P₄) = 48).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 253 |
+| **Structural identities** | 256 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 115 (NB01–NB115) |
+| **Notebooks** | 116 (NB01–NB116) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -93,6 +93,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Fine Structure Constant** | NB113 | Can α(0) = 1/137 be derived from {2,3,5,7}? Arithmetic search, QED running, charge sum analysis | 2 identities (#245–#246). #245: Σ N_c Q_f² = φ(P₃) = 8 (EXACT, PASS) — total EM charge content = Euler totient of P₃. Per sector: leptons = p₂, up quarks = φ(p₃), down quarks = φ(p₁). Derivable from Z*₂₁₀ character algebra. #246: Running ratio 1/α(0)/1/α(M_Z) = p₂p₃/(p₁p₄) = 15/14 (PROVISIONAL, 149 ppm). Implies Δα = 1/(p₂p₃) = 1/15. Within hadronic vacuum polarization uncertainty. Scope boundary: α(0) is NOT pure number theory — requires cascade dynamics + absolute mass scale (same frontier as NB112). 137 is prime, does not decompose into primorial arithmetic. |
 | **Influx and Response** | NB114 | Cascade wave dynamics: κ sweep, energy flow decomposition, frequency response (Bode), 2D ε-κ landscape, impedance balance, filter cutoff classification | 3 structural identities (#247–#249). #247: Direct influx dominance — each level receives 94–100% of its power from direct ε·sin(θ_k), NOT from feed-down. R₃: 99.8% direct. R₂: 98.8%. R₁: 94.1%. Cascade is PARALLEL frequency-selective receiver. #248: Filter cutoff classification theorem — P_crit = 2π√P₄ ≈ 91.1. Since P₃ = 30 < P_crit < P₄ = 210: R₃ is the unique overdamped (passband) level, R₂ is underdamped (transition). Requires four primes: {2,3,5} gives P₃ = 30 > 4π² ≈ 39.5 → NO overdamped level. {2,3,5,7} is the minimal set. #249: Energy concentration — 95.7% of total cascade energy resides in R₃ (ultimates) at κ = ρ. Effective level count = 1.23. ε = κ is impedance balance (driving = damping), NOT global optimization. No energy extremum at ρ; selection is from classification conditions Q₃ < 1, Q₂ > 1, ε = κ. |
 | **The Variational Cascade** | NB115 | Lagrangian origin of the cascade; dissipation matrix derivation; gradient flow interpretation; coordinate transform proof | 4 structural identities (#250–#253). #250: Dissipation matrix Γ̃ = diag(p_k²) + bidiag(-p_{k+1}) — prime-square diagonal, next-prime off-diagonal. Eigenvalues = {4, 9, 25, 49}. #251: Uniform relaxation theorem — A₄ = Γ̃⁻¹K₄ has ALL eigenvalues = κ despite Γ̃ having prime-square eigenvalues. #252: Cascade = exact coordinate transform of theta ODE via primorial recursion p_{k+1}/P_{k+1} = 1/P_k (residual < 10⁻¹⁵). #253: det(Γ̃) = P₄² = 210² = 44100 (product of prime squares = primorial squared). The cascade is the GRADIENT FLOW of Vₜₒᵥₑᵣᵢⁿᵍ with prime-square dissipation and uniform relaxation. |
+| **Mass Exponents from Filter** | NB116 | Dissipation-exponent bridge; four-prime cooperation identity; exponent hierarchy from φ(P₄) = 48; honest null on uniform dynamical derivation | 3 structural identities (#254–#256). #254: X₄_LEP = γ₃/ω = p₄²/(2π) — lepton mass exponent equals NB115 dissipation eigenvalue / base frequency (EXACT, bridge). #255: ∏(pₖ−1, k=1..3) = p₄+1, i.e. 1×2×4 = 8 = 7+1 — four-prime cooperation identity specific to {2,3,5,7}, making φ(P₄) = p₄²−1 (EXACT). #256: X₄ = (γ₃−1)/ω = φ(P₄)/(2π) — quark mass exponent = (dissipation eigenvalue − 1) / base frequency; the −1 is the color mode subtraction connecting character count to dissipation (EXACT, bridge). Honest nulls: no uniform formula x_k = f(γ_k)/(2π) at all levels (level 2 requires λ(P₄) not γ₂−1); exponents are algebraic invariants of Z*₂₁₀ preserved by but not created by the cascade dynamics. |
 
 ---
 
@@ -279,6 +280,12 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #252 (NB115): Cascade = Exact Coordinate Transform. STRUCTURAL, ANALYTIC, EXACT. The cascade ODE (4D, R-space) is obtained from the theta ODE (5D, θ-space) by the substitution R_k = p_kθ_{k+1} − θ_k with NO approximation. The key identity is the primorial recursion p_{k+1}/P_{k+1} = 1/P_k, which causes all drift terms to cancel exactly, leaving only covering-residual dynamics. Verified numerically: gradient flow residual < 10⁻¹⁵ (machine zero). The cascade was previously motivated by analogy (NB79); it is now DERIVED.*
 
 *Identity #253 (NB115): det(Γ̃) = P₄². STRUCTURAL, ANALYTIC, EXACT. The determinant of the dissipation matrix equals the primorial squared: det(Γ̃) = ∏ p_k² = (∏ p_k)² = P₄² = 210² = 44100. Follows from Γ̃ being upper triangular with diagonal p_k². The trace is tr(Γ̃) = ∑ p_k² = 4 + 9 + 25 + 49 = 87.*
+
+*Identity #254 (NB116): Dissipation-Exponent Bridge (Lepton). STRUCTURAL, EXACT, BRIDGE. The lepton mass exponent X₄_LEP = p₄²/(2π) = 49/(2π) = γ₃/ω, where γ₃ = p₄² is the mass-level dissipation eigenvalue from NB115 and ω = 2π is the base frequency. The lepton exponent IS the dissipation eigenvalue divided by the base frequency. This connects the Lagrangian structure (NB115) directly to the mass formula (NB60–NB81).*
+
+*Identity #255 (NB116): Four-Prime Cooperation Identity. ARITHMETIC, EXACT. ∏(pₖ−1, k=1..3) = p₄+1, i.e. (2−1)(3−1)(5−1) = 1×2×4 = 8 = 7+1. This is specific to {2,3,5,7} and makes φ(P₄) = ∏(pₖ−1, k=1..4) = (p₄−1)(p₄+1) = p₄²−1 = 48, connecting the character count of Z*₂₁₀ to the dissipation eigenvalue p₄² via a difference of 1. For other 4-prime sets (e.g., {2,3,5,11}): 1×2×4 = 8 ≠ 12 = 11+1. The identity is a deep arithmetic coincidence of the first four primes.*
+
+*Identity #256 (NB116): Dissipation-Exponent Bridge (Quark). STRUCTURAL, EXACT, BRIDGE. The quark mass exponent X₄ = φ(P₄)/(2π) = 48/(2π) = (γ₃−1)/ω = (p₄²−1)/(2π). The quark exponent = (dissipation eigenvalue − 1) / base frequency. The −1 mode subtraction is the color degree of freedom: φ(P₄) = ∏(pₖ−1) counts characters of Z*₂₁₀ (all prime reductions), while p₄² = γ₃ is the full dissipation eigenvalue. Leptons use the full eigenvalue (#254); quarks subtract one mode. All five mass exponents derive from φ(P₄) = 48: X₃ = φ(P₄)/ω(P₄)/(2π) = λ(P₄)/(2π), X₂ = φ(P₄)/φ(p₄)/(2π) = φ(P₃)/(2π), LAM7 = φ(P₄)/φ(P₃) = φ(p₄). The inter-exponent ratio X₄/X₃ = ω(P₄) = 4 (number of forces) is specific to {2,3,5,7}.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
