@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB119 (The Complete α(0) Chain — compact formula 1/α(0) = 275/2 − 45/(7√210) = 137.056 at +0.015% from PDG; closes fine-structure constant chain).
+> Last updated after NB120 (The Higgs Sector — compact Higgs mass formula m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV at −0.01% from PDG; supersedes NB34 #18 and #19).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 259 |
+| **Structural identities** | 260 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 119 (NB01–NB119) |
+| **Notebooks** | 120 (NB01–NB120) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -97,6 +97,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Exponent Correction** | NB117 | Lepton wrapping correction anatomy; CP² vs CP mechanism; algebraic mass correction formula; quark correction honest null | 1 structural identity (#257). #257: Lepton mass correction = (φ(P₄)/p₄²)^{p₄²/(4π)} = (48/49)^{49/(4π)} = 0.9227 → −7.73% mass impact, matching NB108's −7.68% to 0.05%. The 48/49 = φ(P₄)/p₄² correction (NB108 numerical, NB116 algebraic) acts on CP² (energy ratio), not CP directly. In the large-p₄ limit: → exp(−1/(4π)). Wrapping subtracts 1 mode from lepton character at mass level. The correction is ALREADY in cascade simulations — it explains lattice-to-simulation gap. Honest nulls: quark correction 16/15 = d(P₄)/(p₂p₃) is total sector energy, not per-crossing; cannot be converted to mass correction via same mechanism. |
 | **The Top Quark Bridge** | NB118 | Convention resolution (NB34 vs NB112); compact top mass formula; EW precision from solenoid m_t; up-type quark chain | 1 identity (#258). Convention correction: NB112 misread scorecard #20 as y_t = 1/√P₁ (giving m_t = v/2 = 123 GeV, −29%); correct reading m_t/v = 1/√P₁ gives m_t = v/√2 = 174 GeV (+0.8%). #258: Compact formula m_t/M_Z = p₂²/√(πp₄) = 9/√(7π) = 175.0 GeV (PDG: 172.69 ± 0.30, +1.34%, 7.7σ, PASS). Prime anatomy: p₁ and p₃ cancel exactly; only chirality (p₂=3) and ultimation (p₄=7) control top mass. EW precision: m_t(sol) → M_W = 80.384 GeV (1.1σ vs PDG), 18.7× improvement over NB112's 20.1σ. Up-type chain: m_c = 1.267 GeV (−0.20%), m_u = 2.33 MeV (+7.9%). |
 | **The Complete α(0) Chain** | NB119 | Compact fine-structure constant formula; error cancellation; NB113 frontier closed; #246 promoted | 1 identity (#259): 1/α(0) = 275/2 − 45/(7√210) = 137.056 (PDG: 137.036, +0.015%, PASS). Combines NB111 gauge couplings (#240, #242, #243) with NB113 running ratio (#246). Tree level 275/2 = 137.500 (pure integer arithmetic of {2,3,5,7}), ρ-correction −45/(7√210) = −0.444. Error budget: 1/α(M_Z) at −0.025% and 15/14 at +0.040% partially cancel → +0.015% combined (20 ppm). One-loop QED: solenoid up-type masses (NB118) shift running by −0.008 (negligible); α(0) is 99.68% statics. #246 promoted: PROVISIONAL → PASS. |
+| **The Higgs Sector** | NB120 | Compact Higgs mass formula; tree-vs-corrected VEV analysis; formula scan; algebraic anatomy; NB34 revision | 1 identity (#260): m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV (PDG: 125.25 ± 0.17, −0.01%, 0.08σ, PASS). Tree 48/35 = φ(P₄)/(p₃p₄) = sin²θ_W(tree) × λ(p₄) — eigenstate count normalized by charge×generation sector. Correction ρ/(p₃p₄) = standard primorial coupling. Three competitive formulas converge within 0.5σ: (48+ρ)/35 (0.08σ), √(6/π)×(1−ρ/12) (0.26σ), 9/√(14π)×(1+ρ/6) (0.46σ). Supersedes #18 (m_H = v/P₁, −0.9%) and #19 (λ=1/8, −3.4%). Implied tree quartic λ ≈ 7/54 (improved). EW hierarchy complete: M_W, m_H, m_t all from M_Z. |
 
 ---
 
@@ -147,8 +148,8 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 | # | Prediction | Formula | Solenoid | Measured | Dev |
 |---|-----------|---------|----------|----------|-----|
 | 17 | Higgs vev | M_Z + solenoid | 248.3 GeV | 246.2 GeV | 0.8% |
-| 18 | Higgs mass | v/P₁ | 124.1 GeV | 125.25 GeV | 0.9% |
-| 19 | Higgs quartic λ_H | 1/(2P₁²) = 1/8 | 0.1250 | 0.1294 | 3.4% |
+| 18 | ~~Higgs mass~~ | ~~v/P₁~~ | ~~124.1 GeV~~ | ~~125.25 GeV~~ | ~~0.9%~~ | Superseded by #260 |
+| 19 | ~~Higgs quartic λ_H~~ | ~~1/(2P₁²) = 1/8~~ | ~~0.1250~~ | ~~0.1294~~ | ~~3.4%~~ | Superseded by #260 |
 | 20 | Top Yukawa m_t/v | 1/√P₁ = 1/√2 | 0.7071 | 0.7015 | 0.8% |
 
 ### Proton Stability (NB35)
@@ -295,6 +296,8 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #258 (NB118): Compact Top Mass Formula. STRUCTURAL, PASS (1.34%, 7.7σ). m_t/M_Z = p₂²/√(πp₄) = 9/√(7π) = 1.9192 → m_t = 175.0 GeV (PDG: 172.69 ± 0.30). Combines #5 (sin²θ_W = φ(P₄)/P₄ = 8/35), #8 (α₂ = 1/P₃ = 1/30), and #20 (m_t/v = 1/√P₁). In the chain M_Z → v → m_t, the primes p₁ = 2 and p₃ = 5 cancel exactly (p₁ enters v as √p₁ and exits m_t as 1/√p₁; p₃ enters cos²θ_W and α₂ oppositely). Only p₂ = 3 (chirality, squared) and p₄ = 7 (ultimation, under square root) survive. The top quark — the heaviest fermion — is controlled by chirality and rest. This resolves NB112's −29% error, which arose from misreading the NB34 prediction as y_t = 1/√P₁ (SM Yukawa convention) instead of the correct m_t/v = 1/√P₁ (direct mass ratio). EW precision: m_t(sol) → Δρ → M_W = 80.384 GeV (1.1σ from PDG), an 18.7× improvement over NB112's 20.1σ.*
 
 *Identity #259 (NB119): Complete Fine-Structure Constant. STRUCTURAL, PASS (+0.015%, 20 ppm). 1/α(0) = 275/2 − 45/(7√210) = 137.056 (PDG: 137.036). Combines NB111 gauge couplings with NB113 running ratio into a single closed-form expression. Derivation: 1/α(M_Z) = [P₃ + (p₃/p₂)(P₁P₃ − 1)] − λ(p₄)/√P₄ = 385/3 − 6/√210 = 127.919 (#242 + #243 + #240). Multiply by running ratio p₂p₃/(p₁p₄) = 15/14 (#246): tree term 385/3 × 15/14 = 275/2 = 137.500 (pure integer arithmetic), ρ-correction 6/√210 × 15/14 = 45/(7√210) = 0.444. Error cancellation: 1/α(M_Z) undershoots PDG by −0.025%, 15/14 overshoots by +0.040%, combined +0.015% — partial cancellation reduces error below either input. α(0) is 99.68% statics, 0.32% dynamics (ρ). One-loop QED with solenoid up-type masses (NB118) shifts running by only −0.008 out of +9.1 — cross-sector absolute masses irrelevant. Down-type/lepton absolute masses not needed. First complete derivation of 1/137 from {2,3,5,7} + M_Z.*
+
+*Identity #260 (NB120): Compact Higgs Mass. STRUCTURAL, PASS (−0.01%, 0.08σ). m_H/M_Z = (φ(P₄) + ρ)/(p₃p₄) = (48 + 1/√210)/35 = 1.37340 → m_H = 125.24 GeV (PDG: 125.25 ± 0.17). Tree: 48/35 = φ(P₄)/(p₃p₄) decomposes as sin²θ_W(tree) × λ(p₄) = (8/35) × 6 — the eigenstate count φ(P₄) = 48 normalized by the charge×generation product p₃p₄ = 35. Correction: ρ/(p₃p₄) = 1/(35√210) adds 0.18 GeV, shifting from 125.06 to 125.24. Factored form: (φ(P₄) + ρ)/35 — numerator = eigenstate count + primorial coupling, denominator = outer prime product. Three competitive formulas converge: (48+ρ)/35 at 0.08σ, √(λ(P₄)/ω)×(1−ρ/λ(P₄)) = √(6/π)×(1−ρ/12) at 0.26σ, and 9/√(14π)×(1+ρ/λ(p₄)) at 0.46σ (NB34 tree + correction). Supersedes #18 (m_H = v/P₁ = 124.1 GeV, −0.9%) and #19 (λ = 1/8, −3.4%). Implied tree quartic: (48/35)²/(2(v/M_Z)²) ≈ 0.128, close to 7/54 = p₄/(p₁p₂³) = 0.1296. EW mass hierarchy from M_Z now complete: M_W (0.35%), m_H (0.01%), m_t (1.34%).*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
