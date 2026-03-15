@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB120 (The Higgs Sector — compact Higgs mass formula m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV at −0.01% from PDG; supersedes NB34 #18 and #19).
+> Last updated after NB121 (The Gauge-Gravity Bridge — Tr(L) = (1/α₂)(1/α₃) = P₃×φ(P₃) = 240 connects gauge couplings to gravitational hierarchy; only SU(2)×SU(3) enter gravity; G_N = (α₂α₃)⁴/(M_Z²×p₄¹⁸) at 0.006%).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 260 |
+| **Structural identities** | 262 |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 120 (NB01–NB120) |
+| **Notebooks** | 121 (NB01–NB121) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -98,6 +98,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Top Quark Bridge** | NB118 | Convention resolution (NB34 vs NB112); compact top mass formula; EW precision from solenoid m_t; up-type quark chain | 1 identity (#258). Convention correction: NB112 misread scorecard #20 as y_t = 1/√P₁ (giving m_t = v/2 = 123 GeV, −29%); correct reading m_t/v = 1/√P₁ gives m_t = v/√2 = 174 GeV (+0.8%). #258: Compact formula m_t/M_Z = p₂²/√(πp₄) = 9/√(7π) = 175.0 GeV (PDG: 172.69 ± 0.30, +1.34%, 7.7σ, PASS). Prime anatomy: p₁ and p₃ cancel exactly; only chirality (p₂=3) and ultimation (p₄=7) control top mass. EW precision: m_t(sol) → M_W = 80.384 GeV (1.1σ vs PDG), 18.7× improvement over NB112's 20.1σ. Up-type chain: m_c = 1.267 GeV (−0.20%), m_u = 2.33 MeV (+7.9%). |
 | **The Complete α(0) Chain** | NB119 | Compact fine-structure constant formula; error cancellation; NB113 frontier closed; #246 promoted | 1 identity (#259): 1/α(0) = 275/2 − 45/(7√210) = 137.056 (PDG: 137.036, +0.015%, PASS). Combines NB111 gauge couplings (#240, #242, #243) with NB113 running ratio (#246). Tree level 275/2 = 137.500 (pure integer arithmetic of {2,3,5,7}), ρ-correction −45/(7√210) = −0.444. Error budget: 1/α(M_Z) at −0.025% and 15/14 at +0.040% partially cancel → +0.015% combined (20 ppm). One-loop QED: solenoid up-type masses (NB118) shift running by −0.008 (negligible); α(0) is 99.68% statics. #246 promoted: PROVISIONAL → PASS. |
 | **The Higgs Sector** | NB120 | Compact Higgs mass formula; tree-vs-corrected VEV analysis; formula scan; algebraic anatomy; NB34 revision | 1 identity (#260): m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV (PDG: 125.25 ± 0.17, −0.01%, 0.08σ, PASS). Tree 48/35 = φ(P₄)/(p₃p₄) = sin²θ_W(tree) × λ(p₄) — eigenstate count normalized by charge×generation sector. Correction ρ/(p₃p₄) = standard primorial coupling. Three competitive formulas converge within 0.5σ: (48+ρ)/35 (0.08σ), √(6/π)×(1−ρ/12) (0.26σ), 9/√(14π)×(1+ρ/6) (0.46σ). Supersedes #18 (m_H = v/P₁, −0.9%) and #19 (λ=1/8, −3.4%). Implied tree quartic λ ≈ 7/54 (improved). EW hierarchy complete: M_W, m_H, m_t all from M_Z. |
+| **The Gauge-Gravity Bridge** | NB121 | Gauge-gravity unification anatomy; Tr(L) = gauge coupling product; hypercharge exclusion; complete mass hierarchy from M_Z | 2 structural identities (#261–#262). #261: Tr(L) = (1/α₂)_tree × (1/α₃)_tree = P₃ × φ(P₃) = 30 × 8 = 240 — the Cayley Laplacian trace equals the product of tree-level weak and strong gauge coupling inverses. Three independent derivation chains (gauge CRT, spectral Cayley, modular E₄) converge on 240. #262: Only SU(2)×SU(3) enter the gravity hierarchy — U(1)_Y excluded because 1/α₁ = P₁P₃ = 60 carries an extra bilateral factor p₁ = 2. Gravity hierarchy: M_Pl/M_Z = [(1/α₂)(1/α₃)]^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹. G_N = (α₂α₃)⁴/(M_Z² × p₄¹⁸) at 0.006% from CODATA. Gauge contributes 55.6% of the 17.13-order hierarchy, ultimation 44.4%. |
 
 ---
 
@@ -298,6 +299,10 @@ These are derived from the arithmetic of P₄ = 2·3·5·7 = 210 with zero free 
 *Identity #259 (NB119): Complete Fine-Structure Constant. STRUCTURAL, PASS (+0.015%, 20 ppm). 1/α(0) = 275/2 − 45/(7√210) = 137.056 (PDG: 137.036). Combines NB111 gauge couplings with NB113 running ratio into a single closed-form expression. Derivation: 1/α(M_Z) = [P₃ + (p₃/p₂)(P₁P₃ − 1)] − λ(p₄)/√P₄ = 385/3 − 6/√210 = 127.919 (#242 + #243 + #240). Multiply by running ratio p₂p₃/(p₁p₄) = 15/14 (#246): tree term 385/3 × 15/14 = 275/2 = 137.500 (pure integer arithmetic), ρ-correction 6/√210 × 15/14 = 45/(7√210) = 0.444. Error cancellation: 1/α(M_Z) undershoots PDG by −0.025%, 15/14 overshoots by +0.040%, combined +0.015% — partial cancellation reduces error below either input. α(0) is 99.68% statics, 0.32% dynamics (ρ). One-loop QED with solenoid up-type masses (NB118) shifts running by only −0.008 out of +9.1 — cross-sector absolute masses irrelevant. Down-type/lepton absolute masses not needed. First complete derivation of 1/137 from {2,3,5,7} + M_Z.*
 
 *Identity #260 (NB120): Compact Higgs Mass. STRUCTURAL, PASS (−0.01%, 0.08σ). m_H/M_Z = (φ(P₄) + ρ)/(p₃p₄) = (48 + 1/√210)/35 = 1.37340 → m_H = 125.24 GeV (PDG: 125.25 ± 0.17). Tree: 48/35 = φ(P₄)/(p₃p₄) decomposes as sin²θ_W(tree) × λ(p₄) = (8/35) × 6 — the eigenstate count φ(P₄) = 48 normalized by the charge×generation product p₃p₄ = 35. Correction: ρ/(p₃p₄) = 1/(35√210) adds 0.18 GeV, shifting from 125.06 to 125.24. Factored form: (φ(P₄) + ρ)/35 — numerator = eigenstate count + primorial coupling, denominator = outer prime product. Three competitive formulas converge: (48+ρ)/35 at 0.08σ, √(λ(P₄)/ω)×(1−ρ/λ(P₄)) = √(6/π)×(1−ρ/12) at 0.26σ, and 9/√(14π)×(1+ρ/λ(p₄)) at 0.46σ (NB34 tree + correction). Supersedes #18 (m_H = v/P₁ = 124.1 GeV, −0.9%) and #19 (λ = 1/8, −3.4%). Implied tree quartic: (48/35)²/(2(v/M_Z)²) ≈ 0.128, close to 7/54 = p₄/(p₁p₂³) = 0.1296. EW mass hierarchy from M_Z now complete: M_W (0.35%), m_H (0.01%), m_t (1.34%).*
+
+*Identity #261 (NB121): Gauge-Gravity Bridge. STRUCTURAL, PASS (exact). Tr(L) = (1/α₂)_tree × (1/α₃)_tree = P₃ × φ(P₃) = 30 × 8 = 240. The Cayley Laplacian trace — previously connected to 240 only through its spectral definition and modular form coefficient c₁(E₄) — is identified as the product of tree-level gauge coupling inverses. This links three independent derivation chains: (i) gauge: (1/α₂)(1/α₃) = P₃ × φ(P₃) from NB111 CRT decomposition; (ii) spectral: Tr(L) = 240 from Cayley graph Laplacian eigenvalues; (iii) modular: c₁(E₄) = 240 from the Eisenstein series. The gravitational hierarchy becomes M_Pl/M_Z = [(1/α₂)(1/α₃)]^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹, i.e. gravity = fourth power of weak×strong product × seventh prime to the ninth. Gauge contribution: 4×log₁₀(240) = 9.52 orders (55.6%), ultimation: 9×log₁₀(7) = 7.61 orders (44.4%).*
+
+*Identity #262 (NB121): Hypercharge Exclusion. STRUCTURAL, PASS (structural). Only SU(2) and SU(3) gauge couplings participate in the gravitational hierarchy. The hypercharge coupling 1/α₁ = P₁P₃ = 60 carries an extra factor p₁ = 2 (the bilateral prime) relative to the weak coupling 1/α₂ = P₃ = 30. Since Tr(L) = (1/α₂)(1/α₃) = 240 and NOT (1/α₁)(1/α₃) = 480 or any triple product, U(1)_Y is excluded. This explains why the Planck mass involves 240 (non-abelian product) rather than 480 (including abelian). The bilateral cut (p₁ = 2) generates the arena but does not participate in the mass hierarchy.*
 
 *Identity #25 (NB39) resolved the NB38 gravitational-hierarchy null — see §VI.*
 
