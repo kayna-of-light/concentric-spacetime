@@ -1,6 +1,6 @@
 # Causal Gaps — The "Why" Questions
 
-> **Priority**: As of NB129 (276 identities), the project shifts from "what matches" to **"why it matches."** No new identities unless they come with a causal explanation. Every existing algebraic formula is a pattern until we understand the mechanism that produces it.
+> **Priority**: As of NB129 (277 identities), the project shifts from "what matches" to **"why it matches."** No new identities unless they come with a causal explanation. Every existing algebraic formula is a pattern until we understand the mechanism that produces it.
 
 **Status**: OPEN — This document tracks unresolved causal questions. When a gap is resolved, move it to the Resolved section with the notebook reference.
 
@@ -73,9 +73,27 @@ The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes 
 
 9. **Provisional identity #277**: m_μ/m_e = C₀_lep^p₂ where C₀ is the window-0 R₃ CP ratio. C₀³ = 206.63 vs target 206.77 (−0.067%). Whether x = 3 exactly (with C₀ carrying a correction) or x = 3 + ε (structural residual of 0.013%) requires analytic derivation.
 
-**What remains open**: WHY does mass = exp(character signal)? The mechanism by which Fourier mode amplitudes on the coprime lattice become mass ratios is still not understood. The ALGEBRA determines the exponent; the CASCADE determines the CP ratio. But what physical process converts "accumulated phase at coprime crossings" into "mass"? This connects to GAP-07.
+**NB135 findings — #277 promoted PROVISIONAL → PASS**:
 
-**Status**: PARTIALLY RESOLVED. The "why γ₃" question is answered (character counting + four-prime cooperation). The deeper "why mass = exp(signal)" question remains.
+10. **x = p₂ confirmed**: x_eff = 3.0003758562 (+0.013%) with exact T-independence (spread = 0 across T = 500–10000). The correct algebraic law is x = p₂. Residual δ = +0.000376 does not match ρ or 1/P₄.
+
+11. **Quark exponent unpromoted**: x_eff(s/d) = 1.586646 is also T-independent but ~4× less precise. Best algebraic candidate 2^{2/3} at +0.048%. Not promoted — precision insufficient to distinguish from nearby candidates.
+
+**NB136 findings — the four-channel architecture**:
+
+12. **Four distinct mass mechanisms**: The complete 9-fermion mass table reveals four structurally different channels, forming a hierarchy from pure algebra to full cascade dynamics:
+    - **(D) Algebraic**: m_t/M_Z = p₂²/√(πp₄), m_t/m_b = P₄/p₃ = 42. No dynamics at all.
+    - **(A) Lepton intra-gen**: C₀(R4,lep)^{p₂}. Window-0 CP raised to INTEGER power p₂ = 3.
+    - **(B) Lepton inter-gen**: C₀(R3,lep)^{x₃} × p₃/p₄. Window-0 CP with NON-integer exponent x₃ = λ(P₄)/(2π), plus dissipation amplitude correction.
+    - **(C) Quark cumulative**: NB72 multi-level pipeline (R₄^{X₄}, R₃^{X₃}, R₂^{X₂}, R₄^{−λ(7)}). T-dependent, methodology-dependent, resists window-0 simplification.
+
+13. **The quark anomaly**: Full 210-branch cumulative CP at T=5000 gives m_s/m_d = 49.68 (vs PDG 20) — catastrophically wrong. NB72 values were calibrated to a 50-branch subsample. The window-0 approach that works for leptons cannot be straightforwardly applied to quarks because quark g1 sits deep in the wrapping zone (ci=11, wrapping 86%), making the CP ratio regime qualitatively different.
+
+14. **The hierarchy is the clue**: The four channels map onto a gradient from form-dominant to process-dominant mass generation. Algebraic → window-0 integer → window-0 non-integer → cumulative multi-level. Understanding WHY the architecture stratifies this way would resolve GAP-02 and connect to GAP-08.
+
+**What remains open**: WHY does mass = exp(character signal)? And WHY do different fermion types access the cascade through qualitatively different mathematical mechanisms? The four-channel hierarchy suggests the answer lives in the relationship between CRT position and wrapping regime — quarks can't use the clean window-0 formula because their g1 crossing is inside the wrapping zone, where the relationship between CP ratio and mass exponent changes character. This connects GAP-02 → GAP-03 → GAP-06 → GAP-08 into a single chain.
+
+**Status**: PARTIALLY RESOLVED. The "why γ₃" question is answered (character counting + four-prime cooperation). The four-channel hierarchy (NB136) shows the remaining question has graded difficulty: lepton intra-gen is almost algebraic (x = p₂), while quark cumulative involves the full cascade. The deeper "why mass = exp(signal)" question remains and is now recognized as inseparable from the wrapping regime structure (GAP-06) and the CRT → fermion map (GAP-03).
 
 ---
 
@@ -148,13 +166,30 @@ The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes 
 
 ---
 
-### GAP-08: Why does the top quark formula have no cascade dependence? [INTERPRETIVE]
+### GAP-08: Why does the mass architecture stratify? [INTERPRETIVE → STRUCTURAL]
 
 **What we know**: NB118 gave m_t/M_Z = p₂²/√(πp₄) = 9/√(7π). This is purely algebraic — it doesn't involve the cascade ODE, CP-pair ratios, or any dynamical quantity. Similarly, m_t/m_b = P₄/p₃ = 42 (NB127). The top and bottom quarks are "algebraic" while lighter quarks and leptons require cascade dynamics.
 
-**What we don't know**: WHY is the top quark different? Is it because it's the heaviest and therefore closest to the symmetry-breaking scale? In standard physics, the top Yukawa coupling is ~1, suggesting maximal coupling to the Higgs. Does the solenoid have an analogous reason why one fermion is "maximally coupled"?
+**NB136 sharpened this**: The question is not just "why is the top quark algebraic?" but why does the entire mass architecture split into four qualitatively different mechanisms:
 
-**Resolution would**: Explain the mass hierarchy qualitatively — why some fermions are algebraic and others are dynamical.
+| Channel | Mechanism | Exponent | Dynamics needed? |
+|---------|-----------|----------|------------------|
+| Algebraic (t, b) | Pure prime arithmetic | — | None |
+| Lepton intra-gen (μ/e) | Window-0 CP^{p₂} | Integer (p₂ = 3) | Minimal (window-0 only) |
+| Lepton inter-gen (τ/μ) | Window-0 CP^{x₃} × p₃/p₄ | Non-integer (λ(P₄)/(2π)) | Moderate (+ dissipation) |
+| Quark cumulative (s/d, c/u, b/s, t/c) | Multi-level pipeline | Non-integer (φ(P₄)/(2π) etc.) | Full cascade |
+
+This is a **gradient from form to process**. The top quark is pure form — its mass is determined by the same algebraic invariants that determine the group structure. Leptons access the dynamics through the cleanest window (window-0, T-independent). Quarks require the full dynamical machinery because their CRT crossings sit deep in the wrapping zone.
+
+**The correspondential reading**: This gradient maps onto discrete degrees. Algebraic = celestial (pure love/form, no process needed). Window-0 lepton = spiritual (form through minimal process). Quark cumulative = natural (process dominates, form is obscured). The mass architecture IS the degree structure made visible in ultimates.
+
+**Key sub-questions**:
+- Does the CRT position (ci relative to wrapping horizon) determine the mechanism?
+- Is the lepton integer exponent (p₂) a consequence of being OUTSIDE the deep wrapping zone?
+- Can the quark cumulative be reformulated as window-0 with a more complex exponent rule?
+- Is the algebraic sector the "ceiling" where dynamics saturate and only arithmetic remains?
+
+**Resolution would**: Explain the mass hierarchy qualitatively — why some fermions are algebraic and others are dynamical — and unify the four channels into a single mechanism with regime-dependent expressions.
 
 ---
 
@@ -188,7 +223,7 @@ The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes 
 | Gap | Resolved In | Mechanism |
 |-----|-------------|-----------|
 | GAP-01 | NB130-131 | ρ = 1/√P₄ from impedance balance + differential wrapping between CRT crossings |
-| GAP-02 (partial) | NB133-134 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; window-0 lepton exponent = p₂ = 3 (T-independent, 0.013%); X₄_LEP/p₂ = 49/(6π); cumulative pipeline T-dependent; deeper "why mass = exp(signal)" remains open → GAP-07 |
+| GAP-02 (partial) | NB133-135 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; window-0 lepton exponent = p₂ = 3 (T-independent, 0.013%, #277 PASS); X₄_LEP/p₂ = 49/(6π); quark x ≈ 1.587 ≈ 2^{2/3} unpromoted; four-channel hierarchy identified (NB136); deeper "why mass = exp(signal)" and "why four channels" remain open → GAP-07, GAP-08 |
 
 ---
 
@@ -203,7 +238,7 @@ The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes 
 | GAP-05 (gauge) | GAP-10 (action) | GAP-03 (fermion map) |
 | GAP-06 (wrapping) | GAP-01 (ρ) | 3-generation explanation |
 | GAP-07 (cascade meaning) | GAP-10 (action) | GAP-02, GAP-04 |
-| GAP-08 (top algebraic) | GAP-03, GAP-07 | Mass hierarchy understanding |
+| GAP-08 (stratification) | GAP-02, GAP-03, GAP-06 | Mass hierarchy understanding, channel unification |
 | GAP-09 (M_Z) | — | May be irreducible boundary |
 | GAP-10 (action) | — | Everything else |
 

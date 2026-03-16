@@ -1,6 +1,6 @@
 # What Is Mass? — The System Seen from Where We Stand
 
-> Written after NB133, March 16, 2026. This document records the understanding that emerged from completing the GAP-02 investigation and the conversation that followed.
+> Written after NB136, March 16, 2026. Originally recorded after NB133 (GAP-02 investigation). Updated with NB134–136 findings: the promotion of #277 (m_μ/m_e = C₀^{p₂}), the four-channel mass architecture, and the discrete-degree reading of mass stratification.
 
 ---
 
@@ -8,7 +8,7 @@
 
 This project began from a specific hypothesis: **if the system described by the science of correspondences describes spiritual reality, and spiritual reality is what underlies the ultimates we observe, then that system should align with everything we measure in physics.**
 
-276 quantitative predictions later, with zero free parameters and one dimensional anchor (M_Z): it does.
+277 quantitative predictions later, with zero free parameters and one dimensional anchor (M_Z): it does.
 
 Every fermion mass ratio. Every mixing angle. Every gauge coupling. The gravitational hierarchy. The cosmological constant. The Hubble parameter. The dark matter to baryon ratio. The fine structure constant. The Higgs mass. The CKM matrix. The PMNS matrix. The neutrino mass scale.
 
@@ -50,6 +50,29 @@ Why $1/(2\pi)$? Because each character completes one full $2\pi$-cycle per primo
 
 NB133 established this: the exponent is character counting, not dynamics. The dissipation eigenvalue $\gamma_3 = p_4^2 = 49$ equals the character count + 1 only because of the four-prime cooperation identity $\prod_{k=1}^{3}(p_k - 1) = p_4 + 1$, which is specific to {2,3,5,7}. The bridge between dissipation and mass exponents is arithmetic — a property of the primes — not a causal link through the dynamics.
 
+NB134–135 confirmed this: the window-0 lepton exponent is exactly $p_2 = 3$, T-independent to the last digit across five integration times. The muon-to-electron mass ratio is $C_0^3 = 206.63$ vs 206.77 (−0.067%). The chirality prime IS the exponent. Not approximately. Not as a coincidence. The simplest mass formula in the entire architecture is the lepton intra-generation channel, and it says: **the number of times a CP asymmetry compounds is the chirality prime.**
+
+### The four channels — discrete degrees in the mass architecture
+
+NB136 assembled the complete 9-fermion mass table and revealed that mass generation is not one mechanism but four, forming a hierarchy:
+
+| Channel | Formula | What it requires |
+|---------|---------|------------------|
+| **Algebraic** (top, bottom) | $m_t/M_Z = p_2^2/\sqrt{\pi p_4}$ | Nothing. Pure prime arithmetic. |
+| **Lepton intra-gen** (μ/e) | $C_0^{p_2}$ | Window-0 CP ratio to integer power |
+| **Lepton inter-gen** (τ/μ) | $C_0^{\lambda(P_4)/(2\pi)} \times p_3/p_4$ | Window-0 CP, non-integer exponent, dissipation correction |
+| **Quark cumulative** (s/d, c/u, b/s, t/c) | Multi-level $R_4^{X_4} \cdot R_3^{X_3} \cdot R_2^{X_2} \cdot R_4^{-\lambda(7)}$ | Full cascade dynamics, T-dependent accumulation |
+
+This is a gradient from **pure form** to **process-dominated form**. The top quark's mass is set by the same algebraic invariants that determine the group structure — no dynamics at all. The lepton μ/e channel accesses dynamics in the cleanest possible way: one window, one integer power, one CP ratio. The quark sector requires the full multi-level cascade because its CRT crossings sit deep inside the wrapping zone, where the simple relationship between CP ratio and mass breaks down.
+
+The correspondential reading is immediate. This IS the discrete degree structure, visible in the mass architecture:
+
+- **Algebraic = celestial**: Pure love/form. Mass is determined by what the mode IS, not by any process of becoming. The top quark is maximally aligned with the symmetry-breaking scale — closest to the center, least resistance.
+- **Window-0 lepton = spiritual**: Form through process. The CP ratio (a dynamical quantity) is raised to an integer power (an algebraic quantity). Wisdom mediating between love and effect.
+- **Quark cumulative = natural**: Process dominates. Form is present (the exponents are still algebraic invariants of $\mathbb{Z}^*_{210}$) but obscured by the multi-level accumulation that makes the computation T-dependent and methodology-dependent.
+
+The mass hierarchy is not arbitrary. It is the degree structure printing itself onto the measurement plane. The fact that we need four different formulas is not a deficiency of the framework — it is the framework telling us that reality has discrete degrees, and measurement at ultimates sees each degree through its own mathematical window.
+
 ### Why mass and not something else
 
 The solenoid cascade produces many quantities: sector RMS values, filter gains, Fourier coefficients, transient amplitudes, steady-state profiles. Three filters select which quantities correspond to physical observables:
@@ -74,7 +97,7 @@ There is no gap. The cascade ODE **is** influx through discrete degrees, express
 
 Physics does not "correspond to" spiritual reality. Physics is what spiritual reality looks like when you are standing at the bottom of the chain looking at the printout.
 
-The reason 276 predictions work is not that we found a clever mathematical model that happens to match. It is that we are describing the same reality that was known millennia ago — the reality the Lord builds into creation at every level — and when you describe it accurately at any level, the numbers come out right because reality is self-consistent across degrees.
+The reason 277 predictions work is not that we found a clever mathematical model that happens to match. It is that we are describing the same reality that was known millennia ago — the reality the Lord builds into creation at every level — and when you describe it accurately at any level, the numbers come out right because reality is self-consistent across degrees.
 
 ### The direction of flow
 
@@ -100,6 +123,6 @@ The question is not "what does the math correspond to." The question is whether 
 
 The question posed at the start of the project was: if the ancient system describes reality, does reality at ultimates reflect it?
 
-276 for 276. Yes.
+277 for 277. Yes.
 
 The open frontier is not "does it work" but "how deeply can we follow it." Every gap that has been resolved (GAP-01, GAP-02 partial) was resolved by following the system's own logic, not by importing external physics. The remaining gaps (GAP-03 through GAP-10) should be approached the same way: frame the question from within the system, then see what the mathematics at ultimates reveals.
