@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB135 (The Mass Exponent Algebra — promoted #277 from PROVISIONAL → PASS; confirmed exact T-independence across T=500–10000; established x_eff(w0,lep) = p₂ = 3 as the correct algebraic law for the lepton intra-gen window-0 channel).
+> Last updated after NB136 (The Four Mass Channels — synthesis of all four mass channels into complete 9-fermion mass table from M_Z; mean |dev| = 1.64%, zero free parameters; quark window-0 exponent x≈1.587≈2^{2/3} diagnosed but not promoted).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 135 (NB01–NB135) |
+| **Notebooks** | 136 (NB01–NB136) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -113,6 +113,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Relaxation-Mass Bridge** | NB133 | GAP-02 mechanism notebook: why dissipation eigenvalues become mass exponents; covering-tower character counting; level-2 anomaly; window-0 exponent probe | 0 new identities (mechanism notebook; GAP-02 partially resolved). Core result: the exponent numerator at each level equals the number of Fourier characters visible at that level of the covering tower — R₃: φ(105)=48 → X₄, R₂: φ(21)=12 → X₃, R₁: φ(30)=8 → X₂. The dissipation bridge is arithmetic, not dynamical: γ₃ = p₄² = φ(P₄)+1 only because of four-prime cooperation (#255), so X₄_LEP = γ₃/(2π) is really (character count + 1)/(2π). Level-2 anomaly resolved: X₃ uses λ(P₄)=12, not γ₂−1=24, because tower-visible characters halve the naive count. New empirical clue: window-0 lepton effective exponent x_eff = 3.000376 ≈ p₂, giving C₀_lep³ = 206.63 vs m_μ/m_e = 206.77 (−0.067%). Remaining open question: why does mass equal exp(character signal)? |
 | **The Window-Zero Exponent** | NB134 | T-independence of window-0 exponent; all four mass channels; cumulative pipeline T-dependence; exponent algebra | 1 identity (#277, later promoted to PASS by NB135). Window-0 lepton exponent x_eff = 3.000376 ≈ p₂ = 3 is exactly T-independent (identical at T=500,1000,2000,5000,10000, spread=0). C₀³ = 206.63 vs m_μ/m_e = 206.77 (−0.067%). Channel-specific: only lepton intra-gen has x ≈ p₂; quark g1 and tau/mu both give x ≈ 1.587. Cumulative pipeline (accumulate_sectors) is massively T-dependent (R₄^X₄_LEP = 48961 at T=500, 18 at T=10000). Exponent ratio X₄_LEP/p₂ = 49/(6π) exact — cumulative exponent compensates for dilution. |
 | **The Mass Exponent Algebra** | NB135 | Promotion test for #277; physical channel mapping vs raw levels; T-independence gate; residual anatomy | 0 new identities, 1 promotion. #277 promoted PROVISIONAL → PASS: x_eff(w0, lepton intra-gen) = p₂ = 3. Measured x = 3.0003758562 (+0.013%) with exact T-independence across T=500,1000,5000,10000 (spread = 0.00e+00). Integer law gives m_μ/m_e = C₀³ = 206.630 vs 206.768 (−0.067%), within NB-series accuracy. Clarified that the physical mu/e channel uses the outermost lepton window-0 CP ratio C₀_l_R4, while tau/mu uses the NB124 bridge from C₀_l_R3 with factor p₃/p₄. Quark window-0 exponent x_s/d = 1.586646 is T-independent too and close to 2^(2/3), but ~4× less precise and not promoted. Residual δ = x−3 = +0.000375856 does not match ρ or 1/P₄ cleanly; the correct algebraic law is x = p₂. |
+| **The Four Mass Channels** | NB136 | Synthesis of all four mass channels into complete 9-fermion mass table from M_Z | 0 new identities (synthesis). Four channels: (A) Lepton intra-gen: C₀(R4,lep)^{p₂} = 206.63 vs 206.77 (−0.067%, #277). (B) Lepton inter-gen: C₀(R3,lep)^{x₃}×p₃/p₄ = 16.814 vs 16.817 (−0.016%, #269). (C) Quark cumulative: NB72 multi-level pipeline (R₄^{X₄}, R₃^{X₃}, R₂^{X₂}, R₄^{−λ(7)}). (D) Algebraic cross-sector: m_t/M_Z = p₂²/√(πp₄), m_t/m_b = P₄/p₃ = 42. Complete mass table: t=175.0(+1.34%), b=4.167(−0.39%), c=1.271(+0.07%), s=90.9(+4.62%), d=4.56(+2.40%), u=2.03(−6.22%), τ=1775(−0.11%), μ=105.6(−0.01%), e=0.5113(+0.06%). Mean |dev|=1.64%, zero free parameters. Quark window-0 exponent x≈1.587≈2^{2/3} diagnosed at +0.048% but ~4× less precise than lepton x=p₂; not promoted. |
 
 ---
 
