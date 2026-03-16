@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB129 (The Neutrino Cascade — dissipation matrix susceptibility derivation of neutrino boost factor; sin²θ₁₃ = (Γ̃⁻¹)₁₂ = chirality→charge susceptibility; B_ν = λ(P₄) × 1/sin²θ₁₃ × (p₃/p₁)^p₂ = 12 × 45 × (5/2)³ = 8437.5 UNIQUE decomposition; #274 promoted PROVISIONAL → PASS; 2 identities #275-#276).
+> Last updated after NB130 (The Origin of ρ — mechanism notebook: cascade validates NB76's ρ-selecting constraints L/Q = 17/16 and Sum = 12; resonance structure revealed; dual-constraint uniqueness of ρ confirmed; GAP-01 partially resolved; 0 new identities).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 129 (NB01–NB129) |
+| **Notebooks** | 130 (NB01–NB130) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -107,6 +107,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Bottom Quark** | NB127 | m_t/m_b cross-sector bridge; charge-neutral subgroup; cascade consistency; complete 6-quark mass table from M_Z | 2 identities (#271–#272). #271: m_t/m_b = P₄/p₃ = 210/5 = 42 = p₁p₂p₄ (−0.39%, PASS) — charge prime p₃ removed from primorial gives the top-bottom ratio. 42 is the primorial projected onto the charge-neutral subgroup Z*₄₂. φ(42) = 12 = λ(P₄): the Z₄ charge factor becomes invisible to the group exponent when p₃ is removed. Compact formula: m_b/M_Z = p₂/(p₁p₄√(πp₄)) = 3/(14√(7π)). #272: Cascade consistency — (m_t/m_c)/(m_b/m_s) = R₃^{x₃}/R₄^{λ(7)} = 3.0046 ≈ p₂ = 3 (+0.15%, PASS). The cross-sector ratio that links up-type to down-type mass hierarchies is the chirality prime. Implies m_c/m_s ≈ p₁p₄ = 14. b-τ check: m_b/m_τ = 2.3455 vs p₄/p₂ = 7/3 = 2.3333 (−0.52%), a derived consistency check. Complete chain from M_Z: m_t (+1.34%) → m_c (+0.07%) → m_u (−6.22%); m_b (−0.39%) → m_s (+4.62%) → m_d (+2.40%). Mean quark |dev| = 2.16%, zero free parameters. |
 | **The Neutrino Mass Scale** | NB128 | Normal Ordering structural prediction; absolute neutrino mass from seesaw + primorial boost; reactor angle connection | 2 identities (#273–#274). #273: Normal Ordering (structural, PASS) — #237 ratio p₁p₄²/p₂ = 98/3 > 0 implies Δm²₃₂ > 0; covering tower activates p₄ before p₃, placing heaviest eigenstate on top. Current data: NO preferred >3σ. #274: m₃ = (v²/M_Pl) × p₂³p₃⁴/p₁ = (M_Z²/M_Pl) × p₂³p₃⁵p₄/p₁³ = 50.284 meV (+0.004%, PASS — promoted by NB129 algebraic derivation). Seesaw base v²/M_Pl connects to NB88 cosmological structure. Boost factor 8437.5 = λ(P₄) × (1/sin²θ₁₃) × (p₃/p₁)^p₂ — uniquely determined by cascade susceptibility (NB129). Via #237: Δm²₂₁ at −0.11σ, Δm²₃₂ at +0.01σ. Σm_ν = 59.0 meV (below DESI 72, Planck 120 meV). m₃/M_Z = p₃/(p₁¹⁹p₂p₄⁸): net p₄⁻⁸ suppression explains neutrino lightness. |
 | **The Neutrino Cascade** | NB129 | Dissipation matrix susceptibility derivation of neutrino boost; reactor angle from cascade; #274 promoted PROVISIONAL→PASS | 2 identities (#275–#276). #275: Susceptibility-boost theorem (PASS, UNIQUE) — B_ν = λ(P₄) × 1/sin²θ₁₃ × (p₃/p₁)^{p₂} = 12 × 45 × (5/2)³ = 8437.5. Three cascade factors: bilateral→chirality inverse susceptibility, chirality→charge inverse susceptibility, chirality-folded charge/bilateral prime ratio. Among all products of 2 distinct (Γ̃⁻¹)ᵢⱼ inverses × (pₐ/pᵦ)ⁿ, this is the ONLY decomposition producing 8437.5. #276: sin²θ₁₃ = (Γ̃⁻¹)₁₂ = 1/(p₂²p₃) = 1/45 (PASS). The reactor angle is the chirality→charge entry of the cascade susceptibility matrix, derived from NB115 dissipation structure. Bonus: sin²θ₁₂ = p₁p₄ × sin²θ₁₃ = 14/45. Dual-duty dissipation: eigenvalues → charged fermion exponents (NB116), off-diagonals → neutrino boost (NB129). |
+| **The Origin of ρ** | NB130 | Cascade validation of NB76 constraints; resonance structure of L/Q(κ) and Sum(κ); dual-constraint uniqueness of ρ | 0 new identities (mechanism notebook). Cascade reproduces NB76's two ρ-selecting constraints: L/Q = 1.0627 at κ = ρ (target 17/16, dev 227 ppm), Sum = 11.990 (target 12, dev 0.087%). L/Q(κ) shows dramatic resonance peaking at ~1.15ρ; ρ sits on steep ascending flank. L/Q crosses 17/16 twice (ρ and 1.51ρ); Sum = 12 eliminates second crossing → unique selection. Full NB81 pipeline (T=5001) χ² minimum at ~1.2ρ, not ρ — mass spectrum alone doesn't select ρ; the R₃ CP constraints from NB76 are the mechanism. GAP-01 partially resolved: HOW is clear, WHY L/Q = d(210) and Sum = λ(210) remains open. |
 
 ---
 
