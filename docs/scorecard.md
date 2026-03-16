@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB132 (The Elephant — complete dynamical portrait of the cascade system; 14 systematic observations revealing the frequency-divider filter cascade with 95.3% energy concentration in R₃).
+> Last updated after NB133 (The Relaxation-Mass Bridge — partial resolution of GAP-02 via character counting, covering-tower exponent hierarchy, and the arithmetic nature of the dissipation-exponent bridge).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 132 (NB01–NB132) |
+| **Notebooks** | 133 (NB01–NB133) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -110,6 +110,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Origin of ρ** | NB130 | Cascade validation of NB76 constraints; resonance structure of L/Q(κ) and Sum(κ); dual-constraint uniqueness of ρ | 0 new identities (mechanism notebook). Cascade reproduces NB76's two ρ-selecting constraints: L/Q = 1.0627 at κ = ρ (target 17/16, dev 227 ppm), Sum = 11.990 (target 12, dev 0.087%). L/Q(κ) shows dramatic resonance peaking at ~1.15ρ; ρ sits on steep ascending flank. L/Q crosses 17/16 twice (ρ and 1.51ρ); Sum = 12 eliminates second crossing → unique selection. Full NB81 pipeline (T=5001) χ² minimum at ~1.2ρ, not ρ — mass spectrum alone doesn't select ρ; the R₃ CP constraints from NB76 are the mechanism. |
 | **The Algebra of ρ Selection** | NB131 | Cascade signal processing: transient decay, wrapping horizon, filter gain, differential wrapping mechanism | 0 new identities (mechanism notebook). Traces the cascade's system behavior to explain the NB130 sub-questions. Wrapping horizon ≈ √P₄·ln(12) ≈ 36 falls between Q_g1 (ci=11) and L_g1 (ci=31). Q_g1 at 31% of horizon → 86% wrapped → saturated at π/√3. L_g1 at 86% of horizon → 40% wrapped → coherent branches boost RMS above saturation. L/Q > 1 from differential wrapping. g2 RMS ≈ |H₃| = √(P₃²/(P₃²+ω²P₄)) = 0.313 (cascade filter gain). Sum ≈ (1.81+2.02)/0.31 ≈ 12. κ sweep shows L/Q peaks at ~1.2ρ (maximum differential: Q_g1 80% wrapped, L_g1 4%), confirming ρ is on ascending flank. GAP-01 RESOLVED. |
 | **The Elephant** | NB132 | Complete dynamical portrait: full system dynamics, frequency spectrum, phase space, force anatomy, energy distribution, transient/wrapping structure | 14 systematic observations of the cascade as a dynamical object. Frequency-divider chain: periods 1→2→6→30 (primorials). Energy: 95.3% in R₃ (passband). Universal SS convergence. Uniform decay κ at all levels. Direct influx dominance (66-99%). Weak nearest-neighbor anti-correlation (−0.24 to −0.05). ρ controls amplitude not frequency. Wrapping bifurcation: g1 (ci=11,31) inside zone (86%,43%), g2 (ci=61,191) outside (0%). The system is a single-pump frequency-divider filter cascade. Identities are projections of this system onto the measurement plane. |
+| **The Relaxation-Mass Bridge** | NB133 | GAP-02 mechanism notebook: why dissipation eigenvalues become mass exponents; covering-tower character counting; level-2 anomaly; window-0 exponent probe | 0 new identities (mechanism notebook; GAP-02 partially resolved). Core result: the exponent numerator at each level equals the number of Fourier characters visible at that level of the covering tower — R₃: φ(105)=48 → X₄, R₂: φ(21)=12 → X₃, R₁: φ(30)=8 → X₂. The dissipation bridge is arithmetic, not dynamical: γ₃ = p₄² = φ(P₄)+1 only because of four-prime cooperation (#255), so X₄_LEP = γ₃/(2π) is really (character count + 1)/(2π). Level-2 anomaly resolved: X₃ uses λ(P₄)=12, not γ₂−1=24, because tower-visible characters halve the naive count. New empirical clue: window-0 lepton effective exponent x_eff = 3.000376 ≈ p₂, giving C₀_lep³ = 206.63 vs m_μ/m_e = 206.77 (−0.067%). Remaining open question: why does mass equal exp(character signal)? |
 
 ---
 

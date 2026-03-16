@@ -42,18 +42,28 @@ NB130 confirmed these constraints in the cascade formulation (L/Q at ρ: 1.0627,
 
 ---
 
-### GAP-02: Why do dissipation eigenvalues become mass exponents? [CRITICAL]
+### GAP-02: Why do dissipation eigenvalues become mass exponents? [CRITICAL — PARTIALLY RESOLVED]
 
 **What we know**: NB116 showed X₄_lep = γ₃/ω = p₄²/(2π) and X₄ = (γ₃−1)/ω = φ(P₄)/(2π). The dissipation eigenvalues γ_k = p_k² of Γ̃ are divided by the base frequency ω = 2π to give the exponents that convert cascade R-ratios into mass ratios: m_heavy/m_light = R^X.
 
-**What we don't know**: WHY does a dissipation rate become a mass amplification exponent? What physical process converts "how fast level k relaxes" into "the power law relating masses"? The formula works numerically, but we have no dynamical derivation. In standard physics, mass comes from coupling to the Higgs field. Here, mass apparently comes from cascade relaxation rates — but why?
+**NB133 findings — the character-counting mechanism**:
 
-**Key sub-questions**:
-- Is there a spectral theory argument? (Eigenvalues of the evolution operator → poles in a propagator → masses?)
-- Does the covering constraint energy scale with R^γ for geometric reasons?
-- Is there a RG flow interpretation where γ/ω is a scaling dimension?
+The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes into three facts:
 
-**Resolution would**: Explain the most important bridge in the framework — how dynamics becomes spectrum.
+1. **Exponent = character count / (2π)**: The exponent numerator at each level equals the number of Fourier characters of Z*₂₁₀ visible at that level of the covering tower:
+   - R₃: φ(p₂p₃p₄) = φ(105) = 48 → X₄ = 48/(2π)
+   - R₂: φ(p₂p₄) = φ(21) = 12 → X₃ = 12/(2π)
+   - R₁: φ(P₃) = φ(30) = 8 → X₂ = 8/(2π)
+
+2. **Four-prime cooperation (#255)**: γ₃ = p₄² = φ(P₄) + 1 because ∏(p_k−1, k=1..3) = p₄ + 1 = 8. This identity is specific to {2,3,5,7}. It makes γ₃ = character count + 1, with the "+1" being the lepton/quark differentiator.
+
+3. **1/(2π) per mode**: Each Fourier character completes one 2π-cycle per primorial window. The exponent in modes/(2π) = cycles per radian.
+
+4. **Window-0 lepton effective exponent ≈ p₂ = 3**: At window 0 (the only window that contributes), x_eff(lepton) = 3.000376. So m_μ/m_e ≈ C₀_lep³ to 0.067%. The chirality prime p₂ appearing as the T-independent exponent may indicate a simpler algebraic mass formula exists.
+
+**What remains open**: WHY does mass = exp(character signal)? The mechanism by which Fourier mode amplitudes on the coprime lattice become mass ratios is still not understood. The ALGEBRA determines the exponent; the CASCADE determines the CP ratio. But what physical process converts "accumulated phase at coprime crossings" into "mass"? This connects to GAP-07.
+
+**Status**: PARTIALLY RESOLVED. The "why γ₃" question is answered (character counting + four-prime cooperation). The deeper "why mass = exp(signal)" question remains.
 
 ---
 
@@ -163,11 +173,10 @@ NB130 confirmed these constraints in the cascade formulation (L/Q at ρ: 1.0627,
 
 ## RESOLVED GAPS
 
-*None yet. Move gaps here when a notebook provides the causal explanation.*
-
 | Gap | Resolved In | Mechanism |
 |-----|-------------|-----------|
-| — | — | — |
+| GAP-01 | NB130-131 | ρ = 1/√P₄ from impedance balance + differential wrapping between CRT crossings |
+| GAP-02 (partial) | NB133 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; deeper "why mass = exp(signal)" remains open → GAP-07 |
 
 ---
 
