@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB136 (The Four Mass Channels — synthesis of all four mass channels into complete 9-fermion mass table from M_Z; mean |dev| = 1.64%, zero free parameters; quark window-0 exponent x≈1.587≈2^{2/3} diagnosed but not promoted).
+> Last updated after NB137 (The Quark Exponent — quark window-0 exponent investigation; 2^(2/3) = p₁^{(p₂-1)/p₂} confirmed as best algebraic candidate at −475 ppm; per-level survey reveals R₀ quark exponent ≈ 4/7 at 3.7 ppm; exponent remains OPEN).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 136 (NB01–NB136) |
+| **Notebooks** | 137 (NB01–NB137) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -114,6 +114,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Window-Zero Exponent** | NB134 | T-independence of window-0 exponent; all four mass channels; cumulative pipeline T-dependence; exponent algebra | 1 identity (#277, later promoted to PASS by NB135). Window-0 lepton exponent x_eff = 3.000376 ≈ p₂ = 3 is exactly T-independent (identical at T=500,1000,2000,5000,10000, spread=0). C₀³ = 206.63 vs m_μ/m_e = 206.77 (−0.067%). Channel-specific: only lepton intra-gen has x ≈ p₂; quark g1 and tau/mu both give x ≈ 1.587. Cumulative pipeline (accumulate_sectors) is massively T-dependent (R₄^X₄_LEP = 48961 at T=500, 18 at T=10000). Exponent ratio X₄_LEP/p₂ = 49/(6π) exact — cumulative exponent compensates for dilution. |
 | **The Mass Exponent Algebra** | NB135 | Promotion test for #277; physical channel mapping vs raw levels; T-independence gate; residual anatomy | 0 new identities, 1 promotion. #277 promoted PROVISIONAL → PASS: x_eff(w0, lepton intra-gen) = p₂ = 3. Measured x = 3.0003758562 (+0.013%) with exact T-independence across T=500,1000,5000,10000 (spread = 0.00e+00). Integer law gives m_μ/m_e = C₀³ = 206.630 vs 206.768 (−0.067%), within NB-series accuracy. Clarified that the physical mu/e channel uses the outermost lepton window-0 CP ratio C₀_l_R4, while tau/mu uses the NB124 bridge from C₀_l_R3 with factor p₃/p₄. Quark window-0 exponent x_s/d = 1.586646 is T-independent too and close to 2^(2/3), but ~4× less precise and not promoted. Residual δ = x−3 = +0.000375856 does not match ρ or 1/P₄ cleanly; the correct algebraic law is x = p₂. |
 | **The Four Mass Channels** | NB136 | Synthesis of all four mass channels into complete 9-fermion mass table from M_Z | 0 new identities (synthesis). Four channels: (A) Lepton intra-gen: C₀(R4,lep)^{p₂} = 206.63 vs 206.77 (−0.067%, #277). (B) Lepton inter-gen: C₀(R3,lep)^{x₃}×p₃/p₄ = 16.814 vs 16.817 (−0.016%, #269). (C) Quark cumulative: NB72 multi-level pipeline (R₄^{X₄}, R₃^{X₃}, R₂^{X₂}, R₄^{−λ(7)}). (D) Algebraic cross-sector: m_t/M_Z = p₂²/√(πp₄), m_t/m_b = P₄/p₃ = 42. Complete mass table: t=175.0(+1.34%), b=4.167(−0.39%), c=1.271(+0.07%), s=90.9(+4.62%), d=4.56(+2.40%), u=2.03(−6.22%), τ=1775(−0.11%), μ=105.6(−0.01%), e=0.5113(+0.06%). Mean |dev|=1.64%, zero free parameters. Quark window-0 exponent x≈1.587≈2^{2/3} diagnosed at +0.048% but ~4× less precise than lepton x=p₂; not promoted. |
+| **The Quark Exponent** | NB137 | Quark window-0 exponent investigation; per-level survey; wrapping anatomy; algebraic candidate battery; T-convergence | 0 new identities (investigation). x_eff(s/d) = 1.5866463961 is perfectly T-independent (spread = 0 across T=1000–10000). Best candidate: 2^(2/3) = p₁^{(p₂-1)/p₂} at −475 ppm, 4× over next-best (19/12 at 2088 ppm). Per-level survey: R₀ quark x = 0.5714 ≈ ω(P₄)/p₄ = 4/7 (3.7 ppm); R₃ remains optimal for both channels. Quark-lepton bridge: (48/49)×(27/4)^{1/3} structure, with 48/49 = NB117 wrapping correction. Unified formula: lepton = p₂^{p₂/p₂}, quark = p₁^{(p₂-1)/p₂}. 475 ppm residual does not decompose into clean algebraic correction. Quark exponent remains OPEN. |
 
 ---
 
