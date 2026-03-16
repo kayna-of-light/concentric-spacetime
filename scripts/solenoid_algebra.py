@@ -85,23 +85,41 @@ OMEGA: float = 2.0 * np.pi
 """Base frequency on the solenoid."""
 
 
-# ── Algebraic mass exponents (NB70-73) ───────────────────────────────
+# ── Algebraic mass exponents (NB60-73, NB116 bridge, NB133 counting) ─
 # All derived from number theory of 210, zero free parameters.
+# Each exponent = character count / (2π) at the effective level.
+# Equivalently, dissipation eigenvalue (or eigenvalue − 1) / ω (NB116).
 
 X4: float = 48 / (2.0 * np.pi)
-"""φ(210)/(2π) = 48/(2π) ≈ 7.6394. R₄ exponent for m_s/m_d."""
+"""φ(P₄)/(2π) = 48/(2π) ≈ 7.6394. Quark intra-gen (R₄) exponent.
+Also = (γ₃−1)/ω where γ₃ = p₄² = 49 is the R₃ dissipation eigenvalue.
+NB133: character count at tower level 2 = φ(p₂p₃p₄) = φ(105) = 48."""
 
 X3: float = 12 / (2.0 * np.pi)
-"""λ(35)/(2π) = 12/(2π) ≈ 1.9099. R₃ exponent for inter-level ratios."""
+"""λ(P₄)/(2π) = φ(p₂p₄)/(2π) = 12/(2π) ≈ 1.9099. Inter-sector (R₃) exponent.
+NB133: character count at tower level 1 = φ(p₂p₄) = φ(21) = 12.
+Also = φ(P₄)/ω(P₄)/(2π) = 48/4/(2π)."""
 
 X2: float = 8 / (2.0 * np.pi)
-"""φ(30)/(2π) = 8/(2π) ≈ 1.2732. R₂ exponent for m_b/m_s."""
+"""φ(P₃)/(2π) = 8/(2π) ≈ 1.2732. Gen2→3 (R₂) exponent.
+NB133: = φ(P₄)/φ(p₄)/(2π) = 48/6/(2π)."""
 
 LAM7: int = 6
-"""λ(7) = 6. Generation period; cascade correction exponent."""
+"""λ(p₄) = λ(7) = 6. Generation period; cascade correction exponent for top quark."""
 
 X4_LEP: float = 49 / (2.0 * np.pi)
-"""p₇²/(2π) = 49/(2π) ≈ 7.7986. Lepton R₄ exponent for m_μ/m_e."""
+"""p₄²/(2π) = 49/(2π) ≈ 7.7986. Lepton intra-gen (R₄) exponent.
+= γ₃/ω where γ₃ = p₄² = 49 (NB116 dissipation-exponent bridge).
+X4_LEP/p₂ = 49/(6π) — exact algebraic identity (NB134)."""
+
+
+# ── Dissipation eigenvalues (NB115) ──────────────────────────────────
+# The cascade dissipation matrix Γ̃ = diag(p_k²) + bidiag(-p_{k+1}).
+# Eigenvalues are the prime squares; det(Γ̃) = P₄² = 44100.
+# These connect to mass exponents via the dissipation-exponent bridge (NB116).
+
+GAMMA: Tuple[int, ...] = tuple(p ** 2 for p in PRIMES)
+"""Dissipation eigenvalues γ_k = p_k² = (4, 9, 25, 49). See NB115."""
 
 
 # ── Discrete log tables (flattened form) ─────────────────────────────
@@ -140,6 +158,9 @@ SM_TARGETS: Dict[str, tuple] = {
     'm_b/m_d': (895.0, 100.0),
     'm_t/m_c': (135.8, 5.0),
     'm_mu/m_e': (206.768, 0.0),
+    'm_tau/m_mu': (16.817, 0.0),       # NB124 — essentially exact
+    'm_tau/m_e': (3477.2, 0.0),        # derived from tau and electron masses
+    'm_t/m_b': (41.28, 0.10),          # pole m_t / MS-bar m_b
 }
 """PDG 2024 mass ratio targets: name → (central_value, uncertainty)."""
 
@@ -402,6 +423,28 @@ class SolenoidAlgebra:
 
     # ── Spectral functions (for physics) ─────────────────────────────
 
+    def dissipation_matrix(self) -> np.ndarray:
+        """
+        The cascade dissipation matrix Γ̃ (NB115).
+
+        Upper-triangular n×n matrix with:
+          - Diagonal: p_k²  (prime squares)
+          - Super-diagonal: -p_{k+1}  (negative next prime)
+
+        Properties:
+          - Eigenvalues = GAMMA = (p₁², p₂², ..., pₙ²) = (4, 9, 25, 49)
+          - det(Γ̃) = P₄² = 44100
+          - The uniform relaxation theorem: A₄ = Γ̃⁻¹ K₄ has ALL eigenvalues = κ
+          - The cascade = gradient flow of V_covering with this dissipation
+        """
+        n = len(self.primes)
+        G = np.zeros((n, n))
+        for k in range(n):
+            G[k, k] = self.primes[k] ** 2
+            if k < n - 1:
+                G[k, k + 1] = -self.primes[k + 1]
+        return G
+
     def laplacian_energy(self, k: int) -> float:
         """
         Discrete Laplacian energy: Σ_p 2(1 − cos(2π k_p / p)).
@@ -515,6 +558,11 @@ class SolenoidAlgebra:
         """
         Compute fermion mass ratios from CP-pair ratios.
 
+        NOTE: This uses the cumulative pipeline (accumulate_sectors → cp_pair_ratios).
+        NB97-134 established that the cumulative pipeline is T-dependent and
+        the canonical method uses window-0 CP ratios instead. For inter-generation
+        ratios (m_tau/m_mu), use window-0 extraction + the formula from NB124.
+
         Parameters
         ----------
         cp_ratios : dict
@@ -528,12 +576,15 @@ class SolenoidAlgebra:
         R3_q = cp_ratios['QUARK'][2]
         R2_q = cp_ratios['QUARK'][1]
         R4_l = cp_ratios['LEPTON'][3]
+        R3_l = cp_ratios['LEPTON'][2]
+        p3, p4 = self.primes[2], self.primes[3]
         return {
             'm_s/m_d': R4_q ** X4,
             'm_c/m_u': R3_q ** X3 * R4_q ** X4,
             'm_b/m_s': R2_q ** X2,
             'm_t/m_c': R2_q ** X2 * R3_q ** X3 / R4_q ** LAM7,
             'm_mu/m_e': R4_l ** X4_LEP,
+            'm_tau/m_mu': R3_l ** X3 * (p3 / p4),  # NB124: C0^x3 × p3/p4
         }
 
     def __repr__(self) -> str:

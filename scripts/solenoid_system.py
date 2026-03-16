@@ -21,6 +21,12 @@ values are the fermion mass ratios, and the mass extraction pipeline
 (accumulate_sectors -> cp_pair_ratios -> SA.mass_ratios) operates
 directly on R values.
 
+NOTE (NB97-134): The canonical mass extraction method restricts to
+window-0 (ci < P_4 = 210), where all CP asymmetry is concentrated.
+Use window0_cp_ratios() for T-independent mass predictions.
+The cumulative pipeline (accumulate_sectors over all crossings) is
+T-dependent and degrades at large T.
+
 The solenoid is the inverse limit of covering maps:
     S^1 <--p1-- S^1 <--p2-- S^1 <--p3-- S^1 <--p4-- S^1
 
@@ -534,6 +540,16 @@ class SolenoidSystem:
         """
         Accumulate wrapped R^2 into CRT sectors and compute RMS.
 
+        WARNING: This computes cumulative RMS over ALL coprime crossings.
+        The result is T-dependent — at large T, late-time crossings
+        (where steady-state dilutes transient signal) dominate and the
+        mass predictions degrade. NB134 demonstrated that R4^X4_LEP
+        ranges from 48961 (T=500) to 18 (T=10000) through this pipeline.
+
+        For T-independent mass prediction, use window0_cp_ratios() instead,
+        which restricts to window-0 (first phi(P4)=48 coprime crossings)
+        where all CP asymmetry is concentrated (NB97 #216).
+
         Parameters
         ----------
         results : dict
@@ -617,6 +633,80 @@ class SolenoidSystem:
                 r.append(v1 / v2 if v2 > 0 else 0.0)
             ratios[pname] = r
         return ratios
+
+    # ── Window-0 mass extraction (NB97-134) ─────────────────────
+
+    @staticmethod
+    def window0_cp_ratios(
+        results: Dict[Tuple[int, ...], np.ndarray],
+        coprime_cis: np.ndarray,
+        ci_a3: np.ndarray,
+        ci_a5: np.ndarray,
+        ci_a7: np.ndarray,
+        P: int = 210,
+        n_levels: int = 4,
+        cp_pairs: Optional[Dict[str, tuple]] = None,
+    ) -> Tuple[Dict[str, list], np.ndarray]:
+        """
+        Extract CP-pair ratios from window-0 only (T-independent).
+
+        Window-0 contains the first φ(P) coprime crossings (ci < P).
+        NB97 (#216) established that ALL CP asymmetry is concentrated
+        in window-0 — cumulative dilution is monotonic beyond it.
+        This makes the resulting CP ratios perfectly T-independent
+        (verified by NB134: spread = 0 across T=500–10000).
+
+        Parameters
+        ----------
+        results : dict
+            branch -> R_vals array (n_coprime, n_levels).
+            Must include window-0 crossings (ci < P).
+        coprime_cis : ndarray
+            Coprime crossing indices (same as used for integration).
+        ci_a3, ci_a5, ci_a7 : ndarray
+            CRT sector labels for each coprime crossing.
+        P : int
+            Primorial P₄ = 210. Window-0 spans ci ∈ [1, P).
+        n_levels : int
+            Number of covering levels (default 4).
+        cp_pairs : dict, optional
+            Channel definitions. Default: QUARK=(1,4,2), LEPTON=(0,1,5).
+
+        Returns
+        -------
+        ratios : dict
+            channel name -> [R_1, R_2, R_3, R_4] CP-pair ratios.
+        sector_rms : ndarray, shape (4, 2, 6, n_levels)
+            Window-0 sector RMS (for further analysis).
+        """
+        # Window-0 mask: only crossings in [1, P)
+        w0_mask = coprime_cis < P
+        if not np.any(w0_mask):
+            raise ValueError(
+                f"No crossings in window-0 (ci < {P}). "
+                f"Ensure T >= {P} and integration covers ci < {P}."
+            )
+
+        # Filter to window-0
+        w0_cis = coprime_cis[w0_mask]
+        w0_a3 = ci_a3[w0_mask]
+        w0_a5 = ci_a5[w0_mask]
+        w0_a7 = ci_a7[w0_mask]
+
+        # Filter results: slice each branch to window-0 crossings
+        w0_results = {}
+        for branch, R_vals in results.items():
+            w0_results[branch] = R_vals[w0_mask]
+
+        # Accumulate sectors using window-0 only
+        sector_rms = SolenoidSystem.accumulate_sectors(
+            w0_results, w0_cis, w0_a3, w0_a5, w0_a7, n_levels
+        )
+
+        # Extract CP ratios
+        ratios = SolenoidSystem.cp_pair_ratios(sector_rms, cp_pairs)
+
+        return ratios, sector_rms
 
     # ── Utilities ─────────────────────────────────────────────────
 
