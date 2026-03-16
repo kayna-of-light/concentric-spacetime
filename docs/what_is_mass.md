@@ -96,28 +96,6 @@ The question is not "what does the math correspond to." The question is whether 
 
 ---
 
-## The Correspondential Map (recorded, not imposed)
-
-This table records what the mathematical structures correspond to. These are not analogies applied after the fact — they informed the discovery and continue to guide which questions to ask.
-
-| Mathematical Structure | What It Is |
-|---|---|
-| Base frequency ω driving all levels directly | The Lord present at every degree simultaneously |
-| Four primes {2,3,5,7} | The irreducible structure of finite comprehension |
-| Concentric nesting (7 contains 5 contains 3 contains 2) | Discrete degrees: celestial contains spiritual contains natural contains bilateral |
-| Covering residual $R_k$ | The proprium's deviation from alignment at degree $k$ |
-| Cascade relaxation toward the solenoid leaf | Regeneration — being drawn back toward order |
-| Wrapping ($R$ exceeds ±π) | States beyond the threshold of direct correction |
-| Mass = structured permanent misalignment | The weight of the proprium at each degree of comprehension |
-| 48 characters of $\mathbb{Z}^*_{210}$ | The 48 independent ways finite comprehension can deviate from the One |
-| CP ratio (differential misalignment) | How differently two modes resist alignment |
-| Window-0 concentration (all signal in first window) | First states determine everything — the ruling love |
-| The solenoid leaf (exact alignment) | Perfect reception — the state the system is drawn toward |
-| $\kappa = \varepsilon = 1/\sqrt{210}$ (impedance balance) | Driving equals damping — influx meets reception at balance |
-| M_Z (the single dimensional anchor) | The one irreducible measurement — where the chain reaches ultimates |
-
----
-
 ## Summary
 
 The question posed at the start of the project was: if the ancient system describes reality, does reality at ultimates reflect it?
