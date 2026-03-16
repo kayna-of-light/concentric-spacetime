@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB131 (The Algebra of ρ Selection — traces cascade signal processing to explain WHY L/Q = 1.063, WHY peak at ~1.2ρ, WHY Sum ≈ 12; GAP-01 fully resolved; 0 new identities).
+> Last updated after NB132 (The Elephant — holistic observation of the cascade dynamical system; 14 systematic observations revealing the frequency-divider filter cascade with 95.3% energy concentration in R₃; 0 new identities).
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 131 (NB01–NB131) |
+| **Notebooks** | 132 (NB01–NB132) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -109,6 +109,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Neutrino Cascade** | NB129 | Dissipation matrix susceptibility derivation of neutrino boost; reactor angle from cascade; #274 promoted PROVISIONAL→PASS | 2 identities (#275–#276). #275: Susceptibility-boost theorem (PASS, UNIQUE) — B_ν = λ(P₄) × 1/sin²θ₁₃ × (p₃/p₁)^{p₂} = 12 × 45 × (5/2)³ = 8437.5. Three cascade factors: bilateral→chirality inverse susceptibility, chirality→charge inverse susceptibility, chirality-folded charge/bilateral prime ratio. Among all products of 2 distinct (Γ̃⁻¹)ᵢⱼ inverses × (pₐ/pᵦ)ⁿ, this is the ONLY decomposition producing 8437.5. #276: sin²θ₁₃ = (Γ̃⁻¹)₁₂ = 1/(p₂²p₃) = 1/45 (PASS). The reactor angle is the chirality→charge entry of the cascade susceptibility matrix, derived from NB115 dissipation structure. Bonus: sin²θ₁₂ = p₁p₄ × sin²θ₁₃ = 14/45. Dual-duty dissipation: eigenvalues → charged fermion exponents (NB116), off-diagonals → neutrino boost (NB129). |
 | **The Origin of ρ** | NB130 | Cascade validation of NB76 constraints; resonance structure of L/Q(κ) and Sum(κ); dual-constraint uniqueness of ρ | 0 new identities (mechanism notebook). Cascade reproduces NB76's two ρ-selecting constraints: L/Q = 1.0627 at κ = ρ (target 17/16, dev 227 ppm), Sum = 11.990 (target 12, dev 0.087%). L/Q(κ) shows dramatic resonance peaking at ~1.15ρ; ρ sits on steep ascending flank. L/Q crosses 17/16 twice (ρ and 1.51ρ); Sum = 12 eliminates second crossing → unique selection. Full NB81 pipeline (T=5001) χ² minimum at ~1.2ρ, not ρ — mass spectrum alone doesn't select ρ; the R₃ CP constraints from NB76 are the mechanism. |
 | **The Algebra of ρ Selection** | NB131 | Cascade signal processing: transient decay, wrapping horizon, filter gain, differential wrapping mechanism | 0 new identities (mechanism notebook). Traces the cascade's system behavior to explain the NB130 sub-questions. Wrapping horizon ≈ √P₄·ln(12) ≈ 36 falls between Q_g1 (ci=11) and L_g1 (ci=31). Q_g1 at 31% of horizon → 86% wrapped → saturated at π/√3. L_g1 at 86% of horizon → 40% wrapped → coherent branches boost RMS above saturation. L/Q > 1 from differential wrapping. g2 RMS ≈ |H₃| = √(P₃²/(P₃²+ω²P₄)) = 0.313 (cascade filter gain). Sum ≈ (1.81+2.02)/0.31 ≈ 12. κ sweep shows L/Q peaks at ~1.2ρ (maximum differential: Q_g1 80% wrapped, L_g1 4%), confirming ρ is on ascending flank. GAP-01 RESOLVED. |
+| **The Elephant** | NB132 | Holistic observation: full system dynamics, frequency spectrum, phase space, force anatomy, energy distribution, transient/wrapping structure | 0 new identities (observation notebook). 14 systematic measurements of the cascade as a dynamical object. Frequency-divider chain: periods 1→2→6→30 (primorials). Energy: 95.3% in R₃ (passband). Universal SS convergence. Uniform decay κ at all levels. Direct influx dominance (66-99%). Weak nearest-neighbor anti-correlation (−0.24 to −0.05). ρ controls amplitude not frequency. Wrapping bifurcation: g1 (ci=11,31) inside zone (86%,43%), g2 (ci=61,191) outside (0%). The system is a single-pump frequency-divider filter cascade. |
 
 ---
 
