@@ -65,13 +65,25 @@ NB136 assembled the complete 9-fermion mass table and revealed that mass generat
 
 This is a gradient from **pure form** to **process-dominated form**. The top quark's mass is set by the same algebraic invariants that determine the group structure — no dynamics at all. The lepton μ/e channel accesses dynamics in the cleanest possible way: one window, one integer power, one CP ratio. The quark sector requires the full multi-level cascade because its CRT crossings sit deep inside the wrapping zone, where the simple relationship between CP ratio and mass breaks down.
 
-The correspondential reading is immediate. This IS the discrete degree structure, visible in the mass architecture:
+The correspondential reading has to be stated carefully. The four channels do **not** map one-to-one onto celestial, spiritual, rational, and natural as if each channel were a separate degree. That would conflate two different structures.
 
-- **Algebraic = celestial**: Pure love/form. Mass is determined by what the mode IS, not by any process of becoming. The top quark is maximally aligned with the symmetry-breaking scale — closest to the center, least resistance.
-- **Window-0 lepton = spiritual**: Form through process. The CP ratio (a dynamical quantity) is raised to an integer power (an algebraic quantity). Wisdom mediating between love and effect.
-- **Quark cumulative = natural**: Process dominates. Form is present (the exponents are still algebraic invariants of $\mathbb{Z}^*_{210}$) but obscured by the multi-level accumulation that makes the computation T-dependent and methodology-dependent.
+The first structure is the **four-prime architecture** itself. The primes are four irreducible dimensions of finite comprehension, and all four are always active:
 
-The mass hierarchy is not arbitrary. It is the degree structure printing itself onto the measurement plane. The fact that we need four different formulas is not a deficiency of the framework — it is the framework telling us that reality has discrete degrees, and measurement at ultimates sees each degree through its own mathematical window.
+- $p_1 = 2$: the bilateral cut
+- $p_2 = 3$: the celestial/spiritual/natural articulation of influx processing
+- $p_3 = 5$: the rational faculty
+- $p_4 = 7$: ultimation, completion, and rest
+
+The second structure is the **threefold split carried by $p_2$**. Celestial, spiritual, and natural are not the four primes. They are the internal articulation of how influx is processed within the larger four-prime architecture.
+
+So the mass channels should be read this way: every channel involves all four primes, but some channels are dominated by one prime's signature more transparently than others.
+
+- **Algebraic channel**: dominated by ultimation-signatures. The result appears already fixed in the ultimate, so the arithmetic of $p_4$ is most visible.
+- **Lepton intra-generation channel**: dominated by the clarity of $p_2$. A single window-0 CP ratio raised to the chirality/influx-processing prime gives the mass ratio almost exactly.
+- **Lepton inter-generation channel**: still window-0 and still relatively clean, but now visibly mediated by $p_3/p_4$, so rational discrimination and ultimation both shape the printed result.
+- **Quark cumulative channel**: the full four-prime system is entangled in the printed outcome. Bilaterality, threefold processing, rational discrimination, and ultimation are all active, but none can be isolated cleanly because the quark g1 crossings sit deep in the wrapping zone.
+
+So the mass hierarchy is not arbitrary, but neither is it a simple ladder of celestial/spiritual/rational/natural channels. It is the four-prime architecture printing itself into ultimates under different dynamical regimes. The $p_2 = 3$ split tells us something fundamental about how influx is processed, but it should not be mistaken for the whole architecture of degrees.
 
 ### Why mass and not something else
 
