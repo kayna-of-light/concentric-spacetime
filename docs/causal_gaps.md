@@ -61,6 +61,18 @@ The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes 
 
 4. **Window-0 lepton effective exponent ≈ p₂ = 3**: At window 0 (the only window that contributes), x_eff(lepton) = 3.000376. So m_μ/m_e ≈ C₀_lep³ to 0.067%. The chirality prime p₂ appearing as the T-independent exponent may indicate a simpler algebraic mass formula exists.
 
+**NB134 findings — T-independence confirmed, channel specificity, cumulative collapse**:
+
+5. **T-independence proven**: x_eff(w0, lepton) = 3.000376 is identical (spread = 0) at T = 500, 1000, 2000, 5000, 10000. Both C₀ and x_eff are perfectly T-independent. This is window-0 concentration (#216) at work.
+
+6. **Channel specificity**: x ≈ p₂ = 3 appears ONLY in the lepton intra-generation channel (m_μ/m_e). The quark g1 (m_s/m_d) and inter-gen lepton (m_τ/m_μ) channels give x ≈ 1.587-1.588 — close to each other but not to p₂. The m_c/m_s channel gives x ≈ 1.385.
+
+7. **Cumulative pipeline collapse**: The established accumulate_sectors pipeline is massively T-dependent at R₃: R₄^X₄_LEP = 48961 at T=500, 1119 at T=2000, 18 at T=10000. There is no convergent T. The window-0 formula avoids this entirely.
+
+8. **Exponent ratio identity**: X₄_LEP / p₂ = p₄²/(2π·p₂) = 49/(6π) (exact). The cumulative exponent is the window-0 exponent amplified by this factor to compensate for dilution.
+
+9. **Provisional identity #277**: m_μ/m_e = C₀_lep^p₂ where C₀ is the window-0 R₃ CP ratio. C₀³ = 206.63 vs target 206.77 (−0.067%). Whether x = 3 exactly (with C₀ carrying a correction) or x = 3 + ε (structural residual of 0.013%) requires analytic derivation.
+
 **What remains open**: WHY does mass = exp(character signal)? The mechanism by which Fourier mode amplitudes on the coprime lattice become mass ratios is still not understood. The ALGEBRA determines the exponent; the CASCADE determines the CP ratio. But what physical process converts "accumulated phase at coprime crossings" into "mass"? This connects to GAP-07.
 
 **Status**: PARTIALLY RESOLVED. The "why γ₃" question is answered (character counting + four-prime cooperation). The deeper "why mass = exp(signal)" question remains.
@@ -176,7 +188,7 @@ The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes 
 | Gap | Resolved In | Mechanism |
 |-----|-------------|-----------|
 | GAP-01 | NB130-131 | ρ = 1/√P₄ from impedance balance + differential wrapping between CRT crossings |
-| GAP-02 (partial) | NB133 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; deeper "why mass = exp(signal)" remains open → GAP-07 |
+| GAP-02 (partial) | NB133-134 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; window-0 lepton exponent = p₂ = 3 (T-independent, 0.013%); X₄_LEP/p₂ = 49/(6π); cumulative pipeline T-dependent; deeper "why mass = exp(signal)" remains open → GAP-07 |
 
 ---
 
