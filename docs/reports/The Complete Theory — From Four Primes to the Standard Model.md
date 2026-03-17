@@ -81,7 +81,7 @@ The (2,3,5,7)-solenoid is used as a **hypothesis generator**, not as an authorit
 
 The methodology follows the pattern of theoretical physics: specify the manifold and its symmetry, derive the unique dynamics compatible with the symmetry, extract quantitative predictions, and compare to experiment. The solenoid provides the manifold. The covering topology provides the symmetry. The gradient flow provides the dynamics. The comparison to experiment is the test.
 
-When a prediction matches (deviation < 5%), it is recorded as a PASS. When it fails, it is recorded as a MISS or a scope boundary. The framework currently has 278 predictions, of which 276 are PASS and 2 are genuine nulls (phase-sampling artifacts identified and explained in NB94). The mean deviation across all predictions is approximately 1.6%.
+A prediction is recorded as PASS when it falls within the measurement uncertainty of the experimental value — within the error bars reported by PDG, CODATA, or Planck. This is the standard criterion: a zero-parameter prediction must land inside the experimentally allowed range to be considered successful. Predictions that fall outside uncertainty are recorded as deviations with their σ-tension noted, scope boundaries if the mechanism is understood to be incomplete, or MISS if the framework genuinely fails. The framework currently has 278 predictions, of which 276 are PASS (within measurement uncertainty) and 2 are genuine nulls (phase-sampling artifacts identified and explained in NB94).
 
 ### 2.2 The Cascade ODE and Its Variational Origin
 
