@@ -264,7 +264,7 @@ Based on dependencies and accessibility (updated post-NB139):
 1. ~~**GAP-01**: ρ from geometry~~ — **RESOLVED** (NB130-131)
 2. ~~**GAP-10**: Action principle~~ — **SUBSTANTIALLY RESOLVED** (NB139)
 3. ~~**GAP-07**: Cascade interpretation~~ — **SUBSTANTIALLY RESOLVED** (NB139)
-4. **GAP-05**: Gauge emergence — NOW HIGHEST PRIORITY. The containment matrix U and the wreath product structure of deck transformations are the concrete objects to study. Does the interaction of deck transformations across levels (mediated by U) produce non-abelian gauge structure?
+4. **GAP-05**: Gauge emergence — SIGNIFICANT PROGRESS (NB140). Non-abelian structure located in wreath product Z₂≀Z₃ of deck transformations: produces 3 and 3̄ irreps (SU(3) color). New identity λ(P₄)=ω(P₄)+φ(P₃) (four-prime specific). Remaining: continuum limit from wreath product to continuous gauge group.
 5. **GAP-03**: Fermion map — may fall from GAP-05
 6. **GAP-06**: Wrapping → generations — now grounded in the derived cascade
 7. **GAP-02**: Remaining: "why mass = exp(signal)" — may need GAP-05
