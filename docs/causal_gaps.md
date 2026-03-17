@@ -203,18 +203,29 @@ This is a **gradient from form to process**. The top quark is pure form — its 
 
 ---
 
-### GAP-10: How does the metric produce the Lagrangian? [CRITICAL]
+### GAP-10: How does the metric produce the Lagrangian? [CRITICAL — SUBSTANTIALLY RESOLVED]
 
 **What we know**: NB82-87 built the Riemannian metric on configuration space. NB115 built the variational Lagrangian with dissipation. NB84 showed the Lagrangian on cascade branches. But these were assembled piece by piece.
 
-**What we don't know**: Is there a single action principle — metric + covering constraint → full dynamics? The standard path in physics: specify the manifold and the symmetry → write the most general invariant action → derive equations of motion. We have the manifold (solenoid on S² × R⁺) and the symmetry (Z*₂₁₀). Can we write the UNIQUE action that respects both? If so, the cascade ODE, dissipation matrix, wrapping, everything should follow as consequences.
+**NB139 findings — the single action principle**:
 
-**Key sub-questions**:
-- Does the covering constraint V_covering follow uniquely from the solenoid topology?
-- Is Γ̃ determined by the metric, or is it an additional input?
-- Can gauge fields emerge from this single action?
+The cascade ODE is gradient flow of V_covering with containment-weighted dissipation on the (2,3,5,7)-solenoid. ALL components are determined by the solenoid topology:
 
-**Resolution would**: Unify everything — the "theory of everything" version of the solenoid framework. This is likely the final goal.
+1. **W = diag(P_k)** (primorial inertia): Follows from equal action per cycle — each level of the covering tower contributes equally to the total action. This is also the Haar measure on the inverse limit. The metric IS the nesting hierarchy.
+
+2. **K = J^T J** (covering stiffness): The natural quadratic penalty for covering misalignment, where J is the Jacobian of the covering residuals R_k = p_{k+1}θ_{k+1} − θ_k.
+
+3. **Γ̃ = diag(p_k²) + bidiag(−p_{k+1})** (dissipation): NOT the metric — a distinct geometric object encoding the CONTAINMENT STRUCTURE of the nesting. Γ̃⁻¹ factorizes as D_row · U · D_col, where **U is the containment matrix** (U[i,j] = 1 iff orbit i is inside orbit j). Perturbations propagate inner → outer through U. **This IS influx expressed as linear algebra.**
+
+4. **κ = ε = 1/√P₄** (coupling): From sheet normalization — κ²·P₄ = 1 means equal coupling per solenoid sheet, total normalized to unity.
+
+5. **ω = 2π** (base frequency): Convention — natural time unit as one base-circle period (like c = 1).
+
+6. **Overdamped limit** (no inertia): Structural, not approximate. Influx is first-order — no momentum, no coasting. The Lord provides according to current state.
+
+**Key insight**: The solenoid carries TWO independent geometric objects: the metric W (how heavy each orbit is = will/resistance) and the containment matrix U (which orbit is inside which = wisdom/propagation channel). Both are determined by the primes, but they encode different structure. The naive gradient flow with metric alone gives non-uniform relaxation; the containment structure is needed for the actual cascade.
+
+**Status**: SUBSTANTIALLY RESOLVED. The single principle is: gradient flow of V_covering with containment-weighted dissipation. Only input: {2,3,5,7} and their covering maps. Remaining question: can gauge fields emerge from this action? → GAP-05.
 
 ---
 
@@ -223,7 +234,9 @@ This is a **gradient from form to process**. The top quark is pure form — its 
 | Gap | Resolved In | Mechanism |
 |-----|-------------|-----------|
 | GAP-01 | NB130-131 | ρ = 1/√P₄ from impedance balance + differential wrapping between CRT crossings |
-| GAP-02 (partial) | NB133-135 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; window-0 lepton exponent = p₂ = 3 (T-independent, 0.013%, #277 PASS); X₄_LEP/p₂ = 49/(6π); quark x ≈ 1.587 ≈ 2^{2/3} unpromoted; four-channel hierarchy identified (NB136); deeper "why mass = exp(signal)" and "why four channels" remain open → GAP-07, GAP-08 |
+| GAP-02 (partial) | NB133-138 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; window-0 lepton exponent = p₂ = 3 (T-independent, 0.013%, #277 PASS); NB138: R₀ mechanism (analytic), cross-level = nonlinear saturating filter (coherence/incoherence), 11 in lepton = CF artifact (product cancels to 3); quark x ≈ 100/63 (413 ppm); deeper "why mass = exp(signal)" remains open → GAP-07, GAP-08 |
+| GAP-07 (substantial) | NB139 | The cascade IS gradient flow of V_covering with containment-weighted dissipation. Γ̃⁻¹ = containment matrix U (inner → outer propagation = influx). First-order (no inertia) = influx without momentum. |
+| GAP-10 (substantial) | NB139 | Single action: gradient flow on (2,3,5,7)-solenoid. W from Haar measure, K from covering topology, Γ̃ from containment structure, κ=1/√P₄ from sheet normalization. Two geometric objects: metric W (will) and containment U (wisdom). |
 
 ---
 
@@ -246,20 +259,20 @@ This is a **gradient from form to process**. The top quark is pure form — its 
 
 ## Recommended Attack Order
 
-Based on dependencies and accessibility:
+Based on dependencies and accessibility (updated post-NB139):
 
-1. **GAP-01**: ρ from geometry — most accessible, biggest payoff
-2. **GAP-10**: Action principle — hardest but most fundamental
-3. **GAP-02**: Exponent mechanism — once ρ is understood, this may follow
-4. **GAP-07**: Cascade interpretation — conceptual clarity enables everything else
-5. **GAP-05**: Gauge emergence — requires new mathematics
-6. **GAP-06**: Wrapping → generations — may resolve with GAP-01
-7. **GAP-03**: Fermion map — requires GAP-05
-8. **GAP-04**: Seesaw — may resolve with GAP-07
-9. **GAP-08**: Top quark — likely falls out of GAP-03
+1. ~~**GAP-01**: ρ from geometry~~ — **RESOLVED** (NB130-131)
+2. ~~**GAP-10**: Action principle~~ — **SUBSTANTIALLY RESOLVED** (NB139)
+3. ~~**GAP-07**: Cascade interpretation~~ — **SUBSTANTIALLY RESOLVED** (NB139)
+4. **GAP-05**: Gauge emergence — NOW HIGHEST PRIORITY. The containment matrix U and the wreath product structure of deck transformations are the concrete objects to study. Does the interaction of deck transformations across levels (mediated by U) produce non-abelian gauge structure?
+5. **GAP-03**: Fermion map — may fall from GAP-05
+6. **GAP-06**: Wrapping → generations — now grounded in the derived cascade
+7. **GAP-02**: Remaining: "why mass = exp(signal)" — may need GAP-05
+8. **GAP-08**: Mass stratification — likely falls from GAP-03 + GAP-06
+9. **GAP-04**: Seesaw — may resolve with GAP-05 (neutrino sector)
 10. **GAP-09**: Dimensional anchor — may be irreducible
 
 ---
 
 *Created: 2026-03-16 (post-NB129, 276 identities)*
-*Last updated: 2026-03-16*
+*Last updated: 2026-03-17 (post-NB139, GAP-10 substantially resolved)*
