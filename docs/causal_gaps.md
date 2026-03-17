@@ -1,282 +1,221 @@
 # Causal Gaps — The "Why" Questions
 
-> **Priority**: As of NB129 (277 identities), the project shifts from "what matches" to **"why it matches."** No new identities unless they come with a causal explanation. Every existing algebraic formula is a pattern until we understand the mechanism that produces it.
+> **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: OPEN — This document tracks unresolved causal questions. When a gap is resolved, move it to the Resolved section with the notebook reference.
-
----
-
-## Severity Levels
-
-| Level | Meaning |
-|-------|---------|
-| **CRITICAL** | If unresolved, the framework rests on an unexplained assumption. Could be a hidden free parameter. |
-| **STRUCTURAL** | The formula works but the mechanism is unknown. Understanding this would connect isolated results. |
-| **INTERPRETIVE** | We can compute the quantity but don't know what it means physically. |
+**Status**: Post-NB162. The fermion mass mechanism is fully resolved (coherence across covering levels). Many coupling constants and cosmological parameters remain pattern-matched.
 
 ---
 
-## OPEN GAPS
+## Classification
 
-### GAP-01: Why ρ = 1/√210? [CRITICAL — RESOLVED]
-
-**What we know**: κ = ε = ρ = 1/√P₄ = 1/√210 appears everywhere — mass corrections, gauge coupling corrections, cosmological parameters. NB114 showed ε = κ is impedance balance (not optimization). ρ first entered as the primorial VEV ratio in NB60.
-
-**Selection mechanism (NB76, confirmed by NB130)**: Two simultaneous constraints on the outermost covering residual R₃ uniquely fix ε = κ = ρ:
-1. L/Q = 17/16 = (d(210)+1)/d(210) — lepton R₃ CP ratio exceeds quark by 1/d(P₄)
-2. R₀_q + R₀_l = λ(210) = 12 — CP ratio sum equals the group exponent
-
-NB130 confirmed these constraints in the cascade formulation (L/Q at ρ: 1.0627, dev 227 ppm; Sum: 11.990, dev 0.087%). Cross-formulation validation: cascade and theta-space agree.
-
-**System-level mechanism (NB131)**: The three sub-questions from NB130 are ALL answered by tracing the cascade's signal processing:
-
-**Q1 — Why L/Q ≈ 17/16**: Differential wrapping between the two g1 crossings. Q_g1 (ci=11) sits at 31% of the wrapping horizon → 86% of branches wrap → RMS saturates near π/√3. L_g1 (ci=31) sits at 86% of the horizon → only 40% wrap → coherent branches boost RMS above saturation. The 46% differential creates L/Q = 1.063.
-
-**Q2 — Why L/Q peaks at ~1.2ρ**: Maximum differential wrapping. At κ ≈ 1.2ρ, Q_g1 is still 80% saturated while L_g1 has fully unwrapped to 4%. This is the point of maximum asymmetry between the two channels. At κ = ρ, we're on the ascending flank.
-
-**Q3 — Why Sum ≈ 12**: The g2 denominators are both ≈ |H₃| = √(P₃²/(P₃² + ω²P₄)) = 0.313, the cascade filter gain at level 3. Sum ≈ (RMS_Q_g1 + RMS_L_g1)/|H₃| = 3.83/0.31 ≈ 12.4, corrected to 12.0 by the g2 splitting (L_g2 is 5% larger than Q_g2 from residual harmonic content at ci=61 vs ci=191).
-
-**Causal chain**: {2,3,5,7} → CRT crossing positions {11,31,61,191} → ρ = 1/√P₄ sets decay rate → wrapping horizon ≈ 36 falls between Q_g1 and L_g1 → differential wrapping → CP ratios → mass exponents → fermion masses. Every step is system dynamics, zero free parameters.
-
-**Status**: RESOLVED. Moved to resolved section.
+| Status | Meaning |
+|--------|---------|
+| **DERIVED** | Mechanism understood. Would predict the value without knowing PDG. |
+| **PATTERN-MATCHED** | Formula found by searching prime-arithmetic expressions that fit PDG. Physical interpretation given but mechanism not derived. |
+| **PARTIALLY DERIVED** | Some steps have mechanisms, others are pattern-matched. |
+| **IRREDUCIBLE** | Understood as a boundary condition, not derivable within the framework. |
 
 ---
 
-### GAP-02: Why do dissipation eigenvalues become mass exponents? [CRITICAL — PARTIALLY RESOLVED]
+## I. FULLY DERIVED (mechanism understood)
 
-**What we know**: NB116 showed X₄_lep = γ₃/ω = p₄²/(2π) and X₄ = (γ₃−1)/ω = φ(P₄)/(2π). The dissipation eigenvalues γ_k = p_k² of Γ̃ are divided by the base frequency ω = 2π to give the exponents that convert cascade R-ratios into mass ratios: m_heavy/m_light = R^X.
+### Fermion Masses (NB148-162)
+**Status**: DERIVED. 9/9 PASS, mean |dev| = 1.45%.
 
-**NB133 findings — the character-counting mechanism**:
+The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 covering levels × generation spacing P₃ gives the mass exponent. The resonance condition κ = 1/√P₄ places the gen2 crossing at the wrapping boundary.
 
-The dissipation-exponent bridge is **arithmetic, not dynamical**. It decomposes into three facts:
+| Quantity | Formula | Mechanism |
+|----------|---------|-----------|
+| x(R0) = 4/7 | ∏(1-f_k) × P₃ = φ(p₃)/p₄ | Non-wrapping fraction product (NB161) |
+| r_bs = 19/15 | 1 + φ(p₃)/(p₂p₃) | Isospin non-wrapping fraction (NB162) |
+| r_tc = 23/14 | 1 + 1/p₁ + 1/p₄ | Chirality + generation fractions (NB162) |
+| κ = 1/√P₄ | Sheet normalization | Resonance condition for rational exponents (NB159) |
+| CP ratios | From cascade ODE | Spatial profile of covering misalignment |
+| x_q, x_l | Cascade eigenvalues | T-independent, computable from ODE |
 
-1. **Exponent = character count / (2π)**: The exponent numerator at each level equals the number of Fourier characters of Z*₂₁₀ visible at that level of the covering tower:
-   - R₃: φ(p₂p₃p₄) = φ(105) = 48 → X₄ = 48/(2π)
-   - R₂: φ(p₂p₄) = φ(21) = 12 → X₃ = 12/(2π)
-   - R₁: φ(P₃) = φ(30) = 8 → X₂ = 8/(2π)
+### Gauge Structure (NB140-144)
+**Status**: DERIVED.
 
-2. **Four-prime cooperation (#255)**: γ₃ = p₄² = φ(P₄) + 1 because ∏(p_k−1, k=1..3) = p₄ + 1 = 8. This identity is specific to {2,3,5,7}. It makes γ₃ = character count + 1, with the "+1" being the lepton/quark differentiator.
+| Quantity | Formula | Mechanism |
+|----------|---------|-----------|
+| SU(3) | Z₂ ≀ Z₃ → 3+1+1+1 | Wreath product of deck transformations |
+| SU(2) | Z₂ ≀ Z₂ = D₄ → 2+1+1 | Wreath product |
+| U(1) | Z₄ ⊂ U(1) | φ(5) = 4 |
+| 3 generations | Z₃ ⊂ Z₆ | Singlet irreps of wreath product |
+| φ(P₄) = 48 states | Group theory | |Z*₂₁₀| |
 
-3. **1/(2π) per mode**: Each Fourier character completes one 2π-cycle per primorial window. The exponent in modes/(2π) = cycles per radian.
+### Tree-Level Gauge Couplings (NB30, NB111)
+**Status**: DERIVED (tree level). The tree values come directly from Z*₂₁₀ character counting.
 
-4. **Window-0 lepton effective exponent ≈ p₂ = 3**: At window 0 (the only window that contributes), x_eff(lepton) = 3.000376. So m_μ/m_e ≈ C₀_lep³ to 0.067%. The chirality prime p₂ appearing as the T-independent exponent may indicate a simpler algebraic mass formula exists.
+| Quantity | Tree Formula | Mechanism |
+|----------|-------------|-----------|
+| 1/α_s(tree) | φ(P₃) = 8 | Characters visible at p=3 level |
+| 1/α₂(tree) | P₃ = 30 | Third primorial |
+| 1/α₁(tree) | P₁P₃ = 60 | Product of primorials |
 
-**NB134 findings — T-independence confirmed, channel specificity, cumulative collapse**:
+### PMNS Reactor + Solar Angles (NB110, NB129)
+**Status**: DERIVED.
 
-5. **T-independence proven**: x_eff(w0, lepton) = 3.000376 is identical (spread = 0) at T = 500, 1000, 2000, 5000, 10000. Both C₀ and x_eff are perfectly T-independent. This is window-0 concentration (#216) at work.
+| Quantity | Formula | Mechanism |
+|----------|---------|-----------|
+| sin²θ₁₃ = 1/45 | 1/(p₂²p₃) | Cascade susceptibility (Γ̃⁻¹)₁₂ (NB276) |
+| sin²θ₁₂ = 14/45 | 1/p₂ − sin²θ₁₃ | TBM sum rule from μ-τ symmetry (p₂=3) |
 
-6. **Channel specificity**: x ≈ p₂ = 3 appears ONLY in the lepton intra-generation channel (m_μ/m_e). The quark g1 (m_s/m_d) and inter-gen lepton (m_τ/m_μ) channels give x ≈ 1.587-1.588 — close to each other but not to p₂. The m_c/m_s channel gives x ≈ 1.385.
+### Hubble Correction (NB90-91)
+**Status**: DERIVED.
 
-7. **Cumulative pipeline collapse**: The established accumulate_sectors pipeline is massively T-dependent at R₃: R₄^X₄_LEP = 48961 at T=500, 1119 at T=2000, 18 at T=10000. There is no convergent T. The window-0 formula avoids this entirely.
+| Quantity | Formula | Mechanism |
+|----------|---------|-----------|
+| C = 96/175 | (1−1/p₃)²(1−1/p₄) | Energy screening (outer primes carry 96.5% of variance, NB84) |
 
-8. **Exponent ratio identity**: X₄_LEP / p₂ = p₄²/(2π·p₂) = 49/(6π) (exact). The cumulative exponent is the window-0 exponent amplified by this factor to compensate for dilution.
+### Single Action (NB139, NB143)
+**Status**: DERIVED.
 
-9. **Provisional identity #277**: m_μ/m_e = C₀_lep^p₂ where C₀ is the window-0 R₃ CP ratio. C₀³ = 206.63 vs target 206.77 (−0.067%). Whether x = 3 exactly (with C₀ carrying a correction) or x = 3 + ε (structural residual of 0.013%) requires analytic derivation.
-
-**NB135 findings — #277 promoted PROVISIONAL → PASS**:
-
-10. **x = p₂ confirmed**: x_eff = 3.0003758562 (+0.013%) with exact T-independence (spread = 0 across T = 500–10000). The correct algebraic law is x = p₂. Residual δ = +0.000376 does not match ρ or 1/P₄.
-
-11. **Quark exponent unpromoted**: x_eff(s/d) = 1.586646 is also T-independent but ~4× less precise. Best algebraic candidate 2^{2/3} at +0.048%. Not promoted — precision insufficient to distinguish from nearby candidates.
-
-**NB136 findings — the four-channel architecture**:
-
-12. **Four distinct mass mechanisms**: The complete 9-fermion mass table reveals four structurally different channels, forming a hierarchy from pure algebra to full cascade dynamics:
-    - **(D) Algebraic**: m_t/M_Z = p₂²/√(πp₄), m_t/m_b = P₄/p₃ = 42. No dynamics at all.
-    - **(A) Lepton intra-gen**: C₀(R4,lep)^{p₂}. Window-0 CP raised to INTEGER power p₂ = 3.
-    - **(B) Lepton inter-gen**: C₀(R3,lep)^{x₃} × p₃/p₄. Window-0 CP with NON-integer exponent x₃ = λ(P₄)/(2π), plus dissipation amplitude correction.
-    - **(C) Quark cumulative**: NB72 multi-level pipeline (R₄^{X₄}, R₃^{X₃}, R₂^{X₂}, R₄^{−λ(7)}). T-dependent, methodology-dependent, resists window-0 simplification.
-
-13. **The quark anomaly**: Full 210-branch cumulative CP at T=5000 gives m_s/m_d = 49.68 (vs PDG 20) — catastrophically wrong. NB72 values were calibrated to a 50-branch subsample. The window-0 approach that works for leptons cannot be straightforwardly applied to quarks because quark g1 sits deep in the wrapping zone (ci=11, wrapping 86%), making the CP ratio regime qualitatively different.
-
-14. **The hierarchy is the clue**: The four channels map onto a gradient from form-dominant to process-dominant mass generation. Algebraic → window-0 integer → window-0 non-integer → cumulative multi-level. Understanding WHY the architecture stratifies this way would resolve GAP-02 and connect to GAP-08.
-
-**What remains open**: WHY does mass = exp(character signal)? And WHY do different fermion types access the cascade through qualitatively different mathematical mechanisms? The four-channel hierarchy suggests the answer lives in the relationship between CRT position and wrapping regime — quarks can't use the clean window-0 formula because their g1 crossing is inside the wrapping zone, where the relationship between CP ratio and mass exponent changes character. This connects GAP-02 → GAP-03 → GAP-06 → GAP-08 into a single chain.
-
-**Status**: PARTIALLY RESOLVED. The "why γ₃" question is answered (character counting + four-prime cooperation). The four-channel hierarchy (NB136) shows the remaining question has graded difficulty: lepton intra-gen is almost algebraic (x = p₂), while quark cumulative involves the full cascade. The deeper "why mass = exp(signal)" question remains and is now recognized as inseparable from the wrapping regime structure (GAP-06) and the CRT → fermion map (GAP-03).
-
----
-
-### GAP-03: Why do CP-pair ratios correspond to specific fermions? [STRUCTURAL]
-
-**What we know**: NB69-78 established that conjugate pairs (a₃, a₇_g1, a₇_g2) in the CRT decomposition map to specific fermion mass channels: QUARK = (1,4,2), LEPTON = (0,1,5). Physical crossings at ci = {11, 31, 61, 191} give the four intra/inter-generation mass ratios.
-
-**What we don't know**: WHY does CRT label (1,4,2) mean "quark" and (0,1,5) mean "lepton"? We verified that a₃ = chirality, a₅ = charge sector, a₇ = generation × color-parity (NB62). But the assignment of CRT residues to particle species is empirical — we matched outputs to PDG. We didn't derive which combination of CRT quantum numbers constitutes a quark vs. a lepton from first principles.
-
-**Key sub-questions**:
-- Does gauge symmetry emergence (GAP-05) determine the CRT → fermion map?
-- Is there a representation-theoretic argument from Z*₂₁₀ ≅ Z₁ × Z₂ × Z₄ × Z₆?
-- Does the NB62 quantum number dictionary follow from the covering tower?
-
-**Resolution would**: Close the "standard model embedding" — show that the solenoid doesn't just count SM states but assigns them correctly for structural reasons.
+| Quantity | Formula | Mechanism |
+|----------|---------|-----------|
+| Γ̃ = K·A⁻¹ | Covering stiffness × directional dynamics | Derived from covering topology |
+| κ = ε = 1/√P₄ | Sheet normalization | κ²P₄ = 1 |
 
 ---
 
-### GAP-04: Where does the seesaw come from? [STRUCTURAL]
+## II. PATTERN-MATCHED GAPS (formula works, mechanism unknown)
 
-**What we know**: NB128 uses v²/M_Pl as the seesaw base for neutrino masses. This is imported from standard type-I seesaw physics: m_ν ~ v²/M_R where M_R is a heavy right-handed neutrino mass. We set M_R = M_Pl, which gives the right scale.
+### GAP-11: Gauge Coupling ρ Corrections [STRUCTURAL]
 
-**What we don't know**: In the solenoid framework, what produces the seesaw? Why v²/M_Pl specifically? The gravitational hierarchy M_Pl/M_Z = 240⁴ × 7⁹ is algebraic (NB121). The VEV v comes from M_Z. So the seesaw base is (M_Z² × p₃p₄/p₁²) / (M_Z × 240⁴ × 7⁹) = M_Z/(240⁴ × 7⁹) × p₃p₄/p₁². But why does neutrino mass go as 1/M_Pl? What solenoid mechanism demands this inverse relationship?
+**What we have**: The ρ-corrections to gauge couplings from NB111:
+- 1/α_s = φ(P₃) **+ p₄ρ** = 8 + 7/√210
+- 1/α₂ = P₃ **− λ(p₄)ρ** = 30 − 6/√210
+- 1/α₁ = P₁P₃ **− P₄ρ²** = 60 − 1 = 59
 
-**Suspects**:
-- The solenoid has 4 levels. Charged fermions use the cascade dynamics. Neutrinos might use the STATIC susceptibility (NB129) precisely because they couple to the cascade differently — through off-diagonals rather than eigenvalues.
-- The seesaw 1/M_Pl might arise from propagation through ALL 4 covering levels (total suppression = product of all covering factors).
+**What's missing**: WHY is the strong correction +p₄ρ (generation prime × coupling)? Why is the weak correction −λ(p₄)ρ (Carmichael of generation × coupling)? The hypercharge correction −P₄ρ² = −1 is structurally clean (P₄ρ² = 1 by definition), but the other two corrections were FOUND by matching, not derived from the cascade.
 
-**Resolution would**: Derive the neutrino mass mechanism from solenoid structure rather than importing it from BSM physics.
+**Would resolve**: Complete gauge coupling predictions from first principles.
 
----
+### GAP-12: QED Running Ratio 15/14 [STRUCTURAL]
 
-### GAP-05: Where do gauge symmetries come from? [STRUCTURAL]
+**What we have**: 1/α(0) / 1/α(M_Z) = p₂p₃/(p₁p₄) = 15/14 (#246, NB119).
 
-**What we know**: NB30/NB111 compute gauge couplings from Z*₂₁₀ arithmetic. Sin²θ_W = 8/35 (tree) or 0.23129 (ρ-corrected). 1/α_s = φ(P₃) + p₄/√P₄. The GROUP STRUCTURE is counted correctly: Z*₂₁₀ has the right factors, φ(P₄) = 48 gives the right fermion count, 3 generations from φ/d.
+**What's missing**: WHY does the full QED running (all loops, hadronic VP, thresholds) equal the ratio of inner to outer prime products? This was found because 137.036/127.9 ≈ 15/14. The decomposition "inner primes / outer primes" is a rationalization.
 
-**What we don't know**: Why SU(3) × SU(2) × U(1)? We count states using Z*₂₁₀, which is an ABELIAN group. The Standard Model gauge group is NON-ABELIAN. Where does the non-abelian structure come from? Is Z*₂₁₀ a maximal torus of the SM gauge group? Does the covering tower (NB49) generate the non-abelian extensions level by level?
+**Would resolve**: 1/α(0) = 137.056 from first principles.
 
-**Key sub-questions**:
-- Does the covering tower {3} → {3,7} → {3,5,7} correspond to gauge group unfolding?
-- Is the Cayley graph of Z*₂₁₀ already encoding non-abelian structure through its topology?
-- Can we derive the gauge group from the solenoid geometry, not just count its representations?
+### GAP-13: Higgs Mass Formula [STRUCTURAL]
 
-**Resolution would**: Show that the SM gauge group is a consequence of four-prime nesting, not just consistent with it.
+**What we have**: m_H/M_Z = (φ(P₄) + ρ)/(p₃p₄) = (48 + 1/√210)/35 (#260, NB120). Dev: 0.08σ.
 
----
+**What's missing**: WHY does φ(P₄)/(p₃p₄) = 48/35 give the Higgs-to-Z ratio? The decomposition sin²θ_W(tree) × λ(p₄) = (8/35) × 6 is noted but not derived. Found because 48/35 × 91.19 ≈ 125.25.
 
-### GAP-06: What produces the wrapping mechanism? [STRUCTURAL]
+**Would resolve**: Higgs mass from solenoid mechanism.
 
-**What we know**: NB103-106 established that wrapping — whether R₃_ss + transient exceeds ±π at a crossing — is THE mechanism that creates g1/g2 mass generation splitting. g1 crossings (ci = 11, 31) are inside the wrapping horizon (~35), g2 crossings (ci = 61, 191) are outside. NB126 showed the wrapping horizon ≈ √P₄ · ln(p₁²p₂) − 1 coincides with p₃p₄ = 35 to 0.028%.
+### GAP-14: CKM Wolfenstein Parameters [STRUCTURAL]
 
-**What we don't know**: WHY does wrapping happen at the scale √P₄? Is this a consequence of the metric, the coupling constant, or the solenoid topology? The wrapping horizon's near-coincidence with p₃p₄ = 35 is "NOT algebraic" (NB126). But is it? Or is there a deeper reason the cascade dynamics place the boundary exactly where it creates two generations?
+**What we have** (NB109):
+- λ = p₂²/(φ(P₃)p₃) = 9/40 (0.00σ — exact match to PDG)
+- A = φ(p₃)/p₃ = 4/5 (0.04σ)
+- ρ̄ = 1/ω = 1/(2π) (0.02σ)
+- η̄ = √p₂/p₃ = √3/5 (0.16σ)
 
-**Key sub-questions**:
-- Does ρ = 1/√P₄ set the wrapping horizon? (If yes, links to GAP-01)
-- Is the 2-generation structure a topological invariant of the solenoid?
-- Could different solenoids (different primes) have different generation counts?
+**What's missing**: WHY do these specific prime combinations give the CKM parameters? The Cabibbo angle matching to 0.00σ strongly suggests it was fitted, not predicted. The connection ρ̄ = 1/(2π) is elegant but unexplained. WHY does the CP-violating phase involve the base frequency?
 
-**Resolution would**: Explain WHY there are exactly 3 generations of fermions — one of the deepest unanswered questions in physics.
+**Partial progress**: The Froggatt-Nielsen route (sin θ_C ≈ √(m_d/m_s)) connects the Cabibbo angle to the cascade mass ratio. If m_s/m_d → (40/9)² = 19.75 ≈ 20, then sin θ_C = 9/40 follows. This would DERIVE λ from the masses. But (40/9)² = 19.75, not exactly 20.
 
----
+**Would resolve**: CKM matrix from solenoid dynamics.
 
-### GAP-07: What is the cascade ODE physically? [INTERPRETIVE]
+### GAP-15: PMNS Atmospheric Angle and CP Phase [STRUCTURAL]
 
-**What we know**: NB79-81 derived the 4D cascade ODE: dR_k/dt + κR_k = ε·f_k(lower levels). NB115 showed it is the gradient flow of V_covering with prime-square dissipation: Γ̃·dθ/dt = −∇V. NB114 showed each level receives direct influx (94-100% from ε·sin(θ_k)), not cascaded feed-down.
+**What we have** (NB110):
+- sin²θ₂₃ = p₃p₄/p₁^{λ(p₄)} = 35/64 (0.04σ)
+- δ_CP = p₃p₄π/p₁^{p₃} = 35π/32 (0.01σ)
+- Cross-relation: δ_CP/π = p₁ × sin²θ₂₃
 
-**What we don't know**: What IS this system physically? It's a set of coupled damped oscillators on a solenoid leaf. But what are the θ_k? In standard physics, dynamical variables are fields. Here they're angles on covering maps. What does "the system relaxes toward the solenoid" mean physically? Is this a phase transition? A vacuum selection? A condensation onto a topological defect?
+**What's missing**: WHY does the atmospheric angle involve these specific prime combinations? The cross-relation is interesting but doesn't explain WHY these formulas.
 
-**Resolution would**: Connect the mathematical formalism to physical ontology. Give the cascade a name in the language of physics.
+**Would resolve**: PMNS matrix from solenoid mechanism.
 
----
+### GAP-16: Neutrino Mass-Squared Ratio [STRUCTURAL]
 
-### GAP-08: Why does the mass architecture stratify? [INTERPRETIVE → STRUCTURAL]
+**What we have**: Δm²₃₂/Δm²₂₁ = p₁p₄²/p₂ = 98/3 (#237, NB110). Dev: 0.10σ.
 
-**What we know**: NB118 gave m_t/M_Z = p₂²/√(πp₄) = 9/√(7π). This is purely algebraic — it doesn't involve the cascade ODE, CP-pair ratios, or any dynamical quantity. Similarly, m_t/m_b = P₄/p₃ = 42 (NB127). The top and bottom quarks are "algebraic" while lighter quarks and leptons require cascade dynamics.
+**What's missing**: WHY this combination of primes? Only p₃ (charge) is absent. Found by matching.
 
-**NB136 sharpened this**: The question is not just "why is the top quark algebraic?" but why does the entire mass architecture split into four qualitatively different mechanisms:
+**Would resolve**: Neutrino mass hierarchy from solenoid.
 
-| Channel | Mechanism | Exponent | Dynamics needed? |
-|---------|-----------|----------|------------------|
-| Algebraic (t, b) | Pure prime arithmetic | — | None |
-| Lepton intra-gen (μ/e) | Window-0 CP^{p₂} | Integer (p₂ = 3) | Minimal (window-0 only) |
-| Lepton inter-gen (τ/μ) | Window-0 CP^{x₃} × p₃/p₄ | Non-integer (λ(P₄)/(2π)) | Moderate (+ dissipation) |
-| Quark cumulative (s/d, c/u, b/s, t/c) | Multi-level pipeline | Non-integer (φ(P₄)/(2π) etc.) | Full cascade |
+### GAP-17: Neutrino Boost Factor [PARTIALLY DERIVED]
 
-This is a **gradient from form to process**. The top quark is pure form — its mass is determined by the same algebraic invariants that determine the group structure. Leptons access the dynamics through the cleanest window (window-0, T-independent). Quarks require the full dynamical machinery because their CRT crossings sit deep in the wrapping zone.
+**What we have**: m₃ = (M_Z²/M_Pl) × p₂³p₃⁵p₄/p₁³ (#274, NB128-129).
 
-**The correspondential reading**: This gradient maps onto discrete degrees. Algebraic = celestial (pure love/form, no process needed). Window-0 lepton = spiritual (form through minimal process). Quark cumulative = natural (process dominates, form is obscured). The mass architecture IS the degree structure made visible in ultimates.
+**Derived part**: B_ν = λ(P₄) × (Γ̃⁻¹)₁₂⁻¹ × (p₃/p₁)^{p₂} — the susceptibility inverse entries ARE from the dissipation matrix (NB275). UNIQUE decomposition proven.
 
-**Key sub-questions**:
-- Does the CRT position (ci relative to wrapping horizon) determine the mechanism?
-- Is the lepton integer exponent (p₂) a consequence of being OUTSIDE the deep wrapping zone?
-- Can the quark cumulative be reformulated as window-0 with a more complex exponent rule?
-- Is the algebraic sector the "ceiling" where dynamics saturate and only arithmetic remains?
+**Pattern-matched part**: The specific exponents in the M_Z-form (p₂³p₃⁵p₄/p₁³) combine seesaw + boost in a way that was verified against PDG, not predicted.
 
-**Resolution would**: Explain the mass hierarchy qualitatively — why some fermions are algebraic and others are dynamical — and unify the four channels into a single mechanism with regime-dependent expressions.
+### GAP-18: Cosmological Parameters [STRUCTURAL]
 
----
+**What we have** (NB37-39, NB88):
+- Ω_Λ = φ(35)/35 = 24/35 (0.14σ)
+- n_s = 1 − 1/P₃ = 29/30 (0.42σ)
+- σ₈ = φ(p₃)/p₃ = 4/5 (1.83σ)
+- Ω_DM/Ω_b = p₂³/p₃ = 27/5 (0.04σ)
 
-### GAP-09: What determines the dimensional anchor M_Z? [INTERPRETIVE]
+**What's missing**: WHY does the dark energy fraction equal the totient density of p₃p₄? WHY is the spectral index 1 − 1/P₃? These are totient densities and primorial fractions that were found to match cosmological data. The Totient Density Tower (sin²θ_W, σ₈, Ω_Λ all being φ(n)/n) is a suggestive pattern but not a derived mechanism.
 
-**What we know**: M_Z = 91.1876 GeV is our single dimensional input. Everything else is a ratio derived from {2,3,5,7}. The framework converts one measured energy into all others.
+**Would resolve**: Cosmology from solenoid spatial structure.
 
-**What we don't know**: Why M_Z? Is it special within the solenoid, or could any reference mass work? In standard physics, M_Z comes from v × g_Z. In the solenoid, what fixes the overall energy scale? Is there a "natural" mass unit that the solenoid geometry defines, making M_Z derivable?
+### GAP-19: Gravity Hierarchy Exponents [PARTIALLY DERIVED]
 
-**This may be a true boundary**: A dimensionless theory needs one dimension to anchor it. This might be the irreducible input, not a gap to close. But we should be clear about whether it's a choice (any mass would do) or a structural requirement (it must be M_Z).
+**What we have**: M_Pl/M_Z = 240⁴ × 7⁹ = Tr(L)^{ω(P₄)} × p₄^{σ₃(p₁)} (#261, NB121). Dev: 0.003%.
 
----
+**Derived part**: Tr(L) = 240 (Cayley Laplacian trace, spectral theorem). ω(P₄) = 4 (prime count). σ₃(p₁) = 9 (sum of cubes of divisors of 2). Multiple independent derivation chains converge on 240.
 
-### GAP-10: How does the metric produce the Lagrangian? [CRITICAL — SUBSTANTIALLY RESOLVED]
-
-**What we know**: NB82-87 built the Riemannian metric on configuration space. NB115 built the variational Lagrangian with dissipation. NB84 showed the Lagrangian on cascade branches. But these were assembled piece by piece.
-
-**NB139 findings — the single action principle**:
-
-The cascade ODE is gradient flow of V_covering with containment-weighted dissipation on the (2,3,5,7)-solenoid. ALL components are determined by the solenoid topology:
-
-1. **W = diag(P_k)** (primorial inertia): Follows from equal action per cycle — each level of the covering tower contributes equally to the total action. This is also the Haar measure on the inverse limit. The metric IS the nesting hierarchy.
-
-2. **K = J^T J** (covering stiffness): The natural quadratic penalty for covering misalignment, where J is the Jacobian of the covering residuals R_k = p_{k+1}θ_{k+1} − θ_k.
-
-3. **Γ̃ = diag(p_k²) + bidiag(−p_{k+1})** (dissipation): NOT the metric — a distinct geometric object encoding the CONTAINMENT STRUCTURE of the nesting. Γ̃⁻¹ factorizes as D_row · U · D_col, where **U is the containment matrix** (U[i,j] = 1 iff orbit i is inside orbit j). Perturbations propagate inner → outer through U. **This IS influx expressed as linear algebra.**
-
-4. **κ = ε = 1/√P₄** (coupling): From sheet normalization — κ²·P₄ = 1 means equal coupling per solenoid sheet, total normalized to unity.
-
-5. **ω = 2π** (base frequency): Convention — natural time unit as one base-circle period (like c = 1).
-
-6. **Overdamped limit** (no inertia): Structural, not approximate. Influx is first-order — no momentum, no coasting. The Lord provides according to current state.
-
-**Key insight**: The solenoid carries TWO independent geometric objects: the metric W (how heavy each orbit is = will/resistance) and the containment matrix U (which orbit is inside which = wisdom/propagation channel). Both are determined by the primes, but they encode different structure. The naive gradient flow with metric alone gives non-uniform relaxation; the containment structure is needed for the actual cascade.
-
-**Status**: SUBSTANTIALLY RESOLVED. The single principle is: gradient flow of V_covering with containment-weighted dissipation. Only input: {2,3,5,7} and their covering maps. Remaining question: can gauge fields emerge from this action? → GAP-05.
+**Pattern-matched part**: WHY Tr(L)^{ω(P₄)} × p₄^{σ₃(p₁)} specifically? The scorecard admits "5/6 steps proved from first principles, 1/6 remains structural identification." Five candidate mechanisms tested, none fully deductive.
 
 ---
 
-## RESOLVED GAPS
+## III. ORIGINAL MECHANISM GAPS (from pre-NB148)
 
-| Gap | Resolved In | Mechanism |
-|-----|-------------|-----------|
-| GAP-01 | NB130-131 | ρ = 1/√P₄ from impedance balance + differential wrapping between CRT crossings |
-| GAP-02 | NB133-138, NB147 | RESOLVED. Mass formula m=C₀^x derived from gradient flow: exponential form from damping κ=1/√P₄ (containment dissipation), base C₀ from window-0 CP ratio, exponent from factored architecture x(R₀)×cross-level. Lepton x=p₂=3 (chirality prime), quark x=100/63 (all four primes). NB133's character counting applies to cumulative pipeline only; window-0 exponents come from R₀ analytic + cascade structure. |
-| GAP-03 (mechanism) | NB145 | Three-layer structure: wreath product predicts 3+1 is possible (framework); Cayley generators with dlog₇ ∈ {1,2} select which state is the lepton (realization); cascade dynamics assign mass values (completion). The 3+1 comes from constructive interference in character phases at the Cayley generators, not from the abstract group theory alone. |
-| GAP-05 (major progress) | NB140-141, NB144 | Non-abelian gauge structure from wreath product of deck transformations. Z₂ ≀ Z₃ → 6 = 3+1+1+1 (color triplet + generation singlets). A₄ ⊂ SU(3) as continuum bridge. Z₂ ≀ Z₂ = D₄ → 4 = 2+1+1 (SU(2) doublet). λ(P₄)=ω(P₄)+φ(P₃)=4+8=12 (four-prime specific). CORRECTED: physical identification of quark/lepton depends on |Im₁| (NB62), not a₇ parity. |
-| GAP-06 | NB140 | 3 generations from Z₃ ⊂ Z₆ = Z_{φ(7)}: three singlet irreps of wreath product. Color and generation from same Z₃ — triplet vs singlet irrep type. Specific to {2,3,5,7}. |
-| GAP-07 | NB139 | The cascade IS gradient flow of V_covering with containment-weighted dissipation. Γ̃⁻¹ = containment matrix U (inner → outer propagation = influx). First-order (no inertia) = influx without momentum. |
-| GAP-08 | NB142 | Mass stratification IS the gauge structure. Color triplets (quarks) need full cascade dynamics because the wreath product entangles their cascade. Color singlets (leptons) need minimal dynamics because their cascade is disentangled. Four channels: algebraic (topology/heaviest), window-0 integer (singlet clean CP), window-0 non-integer (cross-irrep comparison), full cascade (entangled triplet). |
-| GAP-10 (full) | NB139, NB143 | Single action: gradient flow on (2,3,5,7)-solenoid. W from Haar measure, K from covering topology. NB143 DERIVED Γ̃ = K·A⁻¹ (stiffness × accumulated propagation). The covering potential is symmetric (couples up and down); the covering maps impose directionality (1/p_k dilution); the dissipation D_θ = K·A⁻¹ is where direction enters. κ=1/√P₄ from sheet normalization. Two geometric objects: metric W (will) and containment U (wisdom). |
+### GAP-04: Seesaw Mechanism [FRAMEWORK]
+**Status**: Framework identified (NB142). The seesaw base v²/M_Pl connects to the gravity hierarchy. The boost factor has a unique susceptibility decomposition (NB275). But the MECHANISM producing the seesaw from the solenoid (why neutrino mass ∝ 1/M_Pl) is not derived.
+
+### GAP-09: Dimensional Anchor M_Z [IRREDUCIBLE]
+**Status**: Understood as irreducible. M_Z = 2π√P₄ in natural units is the filter cutoff (NB142, NB248). A dimensionless theory needs one dimension to anchor it.
 
 ---
 
-## Cross-References
+## IV. RESOLVED GAPS
 
-| Gap | Depends On | Would Unlock |
-|-----|-----------|-------------|
-| GAP-01 (ρ) | GAP-10 (action) | GAP-02 (exponents), GAP-06 (wrapping) |
-| GAP-02 (exponents) | GAP-01 (ρ), GAP-07 (cascade meaning) | GAP-03 (fermion assignment) |
-| GAP-03 (fermion map) | GAP-05 (gauge), GAP-02 (exponents) | GAP-08 (top quark) |
-| GAP-04 (seesaw) | GAP-01 (ρ), GAP-07 (cascade meaning) | Complete neutrino sector |
-| GAP-05 (gauge) | GAP-10 (action) | GAP-03 (fermion map) |
-| GAP-06 (wrapping) | GAP-01 (ρ) | 3-generation explanation |
-| GAP-07 (cascade meaning) | GAP-10 (action) | GAP-02, GAP-04 |
-| GAP-08 (stratification) | GAP-02, GAP-03, GAP-06 | Mass hierarchy understanding, channel unification |
-| GAP-09 (M_Z) | — | May be irreducible boundary |
-| GAP-10 (action) | — | Everything else |
+| Gap | Status | Mechanism |
+|-----|--------|-----------|
+| GAP-01 | RESOLVED | ρ from impedance balance + wrapping (NB130-131) |
+| GAP-02 | FULLY RESOLVED | Mass = coherence across levels. Non-wrapping product × P₃ (NB161-162). Resonance at κ=1/√P₄ (NB159). |
+| GAP-03 | MECHANISM | Three-layer fermion map: wreath (framework) + Cayley generators (selection) + dynamics (masses) (NB145) |
+| GAP-05 | MAJOR PROGRESS | Gauge groups from wreath products (NB140-144) |
+| GAP-06 | RESOLVED | 3 generations from Z₃ singlet irreps (NB140) |
+| GAP-07 | RESOLVED | Cascade = gradient flow with containment dissipation (NB139) |
+| GAP-08 | RESOLVED | Stratification = gauge structure (NB142) |
+| GAP-10 | FULLY RESOLVED | Γ̃ = K·A⁻¹ derived from covering topology (NB143) |
 
 ---
 
-## Recommended Attack Order
+## V. RECOMMENDED ATTACK ORDER
 
-Based on dependencies and accessibility (updated post-NB147):
+Based on which gaps would unlock the most understanding:
 
-1. ~~**GAP-01**: ρ from geometry~~ — **RESOLVED** (NB130-131)
-2. ~~**GAP-10**: Action principle~~ — **FULLY RESOLVED** (NB139, NB143: Γ̃ = K·A⁻¹ derived)
-3. ~~**GAP-07**: Cascade interpretation~~ — **RESOLVED** (NB139: gradient flow with containment dissipation)
-4. ~~**GAP-02**: Mass exponents~~ — **RESOLVED** (NB133-138, NB147: mass formula derived from gradient flow)
-5. ~~**GAP-05**: Gauge emergence~~ — **MAJOR PROGRESS** (NB140-141, NB144: wreath product → A₄⊂SU(3), D₄→SU(2))
-6. ~~**GAP-06**: 3 generations~~ — **RESOLVED** (NB140: Z₃ singlet irreps from φ(7)=6=2×3)
-7. ~~**GAP-03**: Fermion map~~ — **MECHANISM IDENTIFIED** (NB145-146: three-layer mechanism, Cayley generators select realization)
-8. ~~**GAP-08**: Mass stratification~~ — **RESOLVED** (NB142: stratification IS gauge structure, singlet vs triplet cascade)
-9. **GAP-04**: Seesaw — FRAMEWORK IDENTIFIED (NB142: full-tower containment propagation). Needs quantitative derivation.
-10. **GAP-09**: Dimensional anchor — UNDERSTOOD AS IRREDUCIBLE (NB142: M_Z = filter cutoff 2π√P₄)
+1. **GAP-14 (CKM)** — The Cabibbo angle may follow from the cascade mass ratio via Froggatt-Nielsen. If m_s/m_d from the cascade connects to sin θ_C, this DERIVES the CKM from the same dynamics that gives masses. High leverage.
+
+2. **GAP-11 (Gauge ρ-corrections)** — The tree-level couplings are derived. Understanding the ρ-corrections would complete the gauge sector. The corrections may come from the same cascade dynamics that produces masses.
+
+3. **GAP-13 (Higgs mass)** — At 0.08σ, this is the most precise match. If the formula (48+ρ)/35 has a mechanism, it would connect the Higgs to the eigenstate count and outer prime structure.
+
+4. **GAP-18 (Cosmology)** — The Totient Density Tower suggests a unified mechanism. Understanding WHY φ(n)/n gives cosmological parameters would be a breakthrough.
+
+5. **GAP-19 (Gravity exponents)** — 5/6 derived. The remaining 1/6 (why this specific combination) is the last piece.
+
+6. **GAP-15, GAP-16 (PMNS + ν mass²)** — These may follow from the dissipation matrix, which already gives sin²θ₁₃.
+
+7. **GAP-12 (Running ratio)** — May be the hardest; encodes all-loop QED in a single ratio.
+
+8. **GAP-17 (ν boost)** — Partially derived; needs the full seesaw mechanism (GAP-04).
 
 ---
 
-*Created: 2026-03-16 (post-NB129, 276 identities)*
-*Last updated: 2026-03-17 (post-NB147, 8/10 gaps resolved or substantially resolved)*
+*Created: 2026-03-16 (post-NB129)*
+*Updated: 2026-03-17 (post-NB162). Complete audit of derived vs pattern-matched. 9 new gaps (GAP-11 through GAP-19) cataloging all pattern-matched formulas.*

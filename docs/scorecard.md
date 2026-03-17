@@ -1,21 +1,23 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB147 (session NB138–147). NB138: R₀ mechanism. NB139: single action principle (Γ̃ = containment matrix). NB140: gauge emergence (6=3+1+1+1). NB141: A₄⊂SU(3). NB142: mass stratification. NB143: Γ̃=K·A⁻¹ derived. NB144: SU(2) from D₄=Z₂≀Z₂. NB145: fermion bijection (three-layer mechanism: wreath product + Cayley generators + dynamics). NB146: wreath-eigenvalue bridge (Cayley Laplacian eigenvalue structure from Z₂⁴×Z₃ character algebra, binomial degeneracy). NB147: mass formula derived (exponential from damping, base from window-0 CP, exponent from factored architecture).
+> Last updated after NB162 (session NB138–162). NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156: spatial/influx reinterpretation (solenoid as resonant spatial structure, not temporal evolution). NB157: multi-level spatial analysis (cross-gen ratios NOT factored). NB158: R0 analytic mass formula. NB159: kappa sweep — x(R0)=4/7 is a RESONANCE at κ=1/√P₄, not structural. NB160: fine kappa sweep confirms resonance, gen2 at wrapping boundary. NB161: DERIVATION — x(R0) = Product(1-f_k) × P₃ = φ(p₃)/p₄ = 4/7 from non-wrapping fractions. NB162: inter-gen scaling factors r_bs=19/15, r_tc=23/14 derived from non-wrapping fraction subsets.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 278 (λ(P₄)=ω(P₄)+φ(P₃) new, four-prime specific) |
+| **Structural identities** | 278+ |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 147 (NB01–NB147) |
+| **Notebooks** | 162 (NB01–NB162) |
 | **Causal gaps resolved** | 8/10 (GAP-01, 02, 03 mechanism, 05 major, 06, 07, 08, 10; see causal_gaps.md) |
+| **Mass pipeline** | 9/9 PASS, mean |dev| = 1.45%, all from single T=211 cascade |
+| **Mass mechanism** | Coherence: non-wrapping fraction across 4 levels × P₃ = exponent |
 
-Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
+Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV. The mass spectrum is determined by the spatial coherence of the influx pattern across the solenoid's four covering levels.
 
 ---
 
@@ -126,6 +128,17 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Fermion Bijection** | NB145 | 48 CRT elements ↔ 48 SM states; sign pattern algebra; three-layer mechanism | 0 new identities (mechanism investigation). The 3+1 color-lepton split from NB62 comes from constructive interference: each |Im₁| contribution has magnitude √3/2, the lepton (a₃=0,a₇=1) has all-positive sines (→ 3√3/2), quarks have mixed signs (→ √3/2). The split is NOT intrinsic: full-group sum=0, sign census identical for all 4 states. The wreath product predicts 3+1 IS POSSIBLE (irrep structure); Cayley generators [17,23,37] with dlog₇∈{1,2} select WHICH state is the singlet; all 56 triples from generators with this mod-7 property confirm (a₃=0,a₇=1) as lepton. Three-layer structure: wreath product (framework) + Cayley generators (selection) + cascade dynamics (masses). GAP-03 mechanism identified; connects to NB41-48 Cayley graph spectral properties. |
 | **The Wreath-Eigenvalue Bridge** | NB146 | Cayley Laplacian structure from Z₂⁴×Z₃ character algebra | 0 new identities (structural analysis). Level-1 Cayley Laplacian eigenvalues for all 12 (a₃,a₇) characters computed. Gen0 (a₇∈{0,3}): all Im₁=0 (real sector). Gen1 (a₇∈{1,4}): 3+1 split with lepton at (0,1). Gen2 (a₇∈{2,5}): complex conjugate of Gen1. Binomial degeneracy in eigenvalue spectrum: multiplicities follow C(4,k) = {1,4,6,4,1} from 4 binary bits (one per covering level). The 12 characters decompose as Z₂⁴ × Z₃ = 16 × 3 = 48, matching d(210) × 3. |
 | **The Mass Formula** | NB147 | Mass = C₀^x derived from gradient flow; exponential from damping; factored exponent architecture | 0 new identities (derivation, GAP-02 resolved). The mass formula m_heavy/m_light = C₀^x follows from the overdamped gradient flow: (1) exponential form from the damping operator e^{−κt} acting on the covering residual, (2) base C₀ from window-0 CP ratio (T-independent per #216), (3) exponent from the factored architecture x(R₃) = x(R₀) × cross-level where x(R₀) is set by CRT crossing positions and cross-level by the nonlinear cascade filter. Lepton: x = p₂ = 3 (chirality prime, the 11s cancel in (27/11)(11/9)). Quark: x = 100/63 = (p₁²p₃²)/(p₂²p₄) (all four primes). The character counting from NB133 applies to the cumulative pipeline exponent, not the window-0 exponent; the window-0 exponents come from the R₀ analytic solution + cascade cross-level structure. |
+| **Mass Pipeline** | NB148–152 | End-to-end pipeline: primes → cascade → masses, 9/9 PASS | solenoid_mass.py: compute_mass_table() takes {2,3,5,7}+M_Z, returns 9 fermion masses. All from single T=211 cascade. |
+| **Wave Propagation** | NB153 | Dynamical exponents x_l=3.0004, x_q=1.5866 from wave physics | T-independent eigenvalues of the cascade. Exact from per-level wrapping onset analysis. x_l from lepton sector, x_q from quark sector. |
+| **Breaking the Circle** | NB154 | m_e follows from M_Z; top mass filter correction | m_t = M_Z × p₂²/√(πp₄) × (1-\|H₃\|²/p₄). Only ONE dimensional input (M_Z). |
+| **Inter-Gen Dynamics** | NB155 | All inter-gen ratios from same cascade run | m_t/m_c, m_b/m_s, m_c/m_u all from CP ratios at different levels. No NB72 hardcodes. |
+| **Spatial Influx** | NB156 | Solenoid as spatial structure, not temporal evolution | T=211 = one complete traversal of the space, not "integration time." Window-0 concentration = the solenoid IS one period. κ = spatial decay rate. 7-tooth comb + wrapping = mass mechanism. |
+| **Multi-Level Spatial** | NB157 | Cross-gen ratios NOT factored; systematic CP search empty | Only the CP pair has the factored architecture. No simple multi-level CP product gives inter-gen ratios. |
+| **R0 Analytic Mass** | NB158 | R0 exponent 4/7 verified; no R0-only derivation of inter-gen | CP_R0 computable analytically from primes. x(R0) = 4/7 to 37 ppm. But inter-gen ratios cannot come from R0 alone. |
+| **Kappa Sweep** | NB159 | x(R0) = 4/7 is a RESONANCE at κ=1/√P₄ | x(R0) varies linearly with κ. At natural κ: 0.004% from 4/7. At κ±10%: 3% deviation. The sheet normalization is not a convention — it is the resonance condition for rational mass exponents. |
+| **The Resonance** | NB160 | Fine sweep + wrapping boundary analysis | gen2 crossing (ci=11) sits 0.96 past wrapping boundary (ci=10.04). The resonance = gen2 at wrapping transition. Wrapping fractions: 0%, 50%, 73.3%, 85.7% across 4 levels. |
+| **The Derivation** | NB161 | x(R0) = ∏(1-f_k) × P₃ = φ(p₃)/p₄ = 4/7 | DERIVED from non-wrapping fractions: 1, 1/p₁, φ(p₃)/(p₂p₃), 1/p₄. Product = φ(p₃)/P₄. × P₃ = φ(p₃)/p₄ = 4/7. Match: 0.00%. Physical meaning: mass exponent = fraction of branches coherent across all 4 levels × generation spacing. |
+| **Inter-Gen Derivation** | NB162 | Scaling factors from non-wrapping fraction subsets | r_bs = 1 + φ(p₃)/(p₂p₃) = 19/15 (down-type 2→3: adds isospin coherent fraction). r_tc = 1 + 1/p₁ + 1/p₄ = 23/14 (up-type 2→3: adds chirality + generation fractions). m_b/m_s = 44.5 (0.08σ), m_t/m_c = 137.3 (0.30σ). Pipeline: 9/9 PASS, mean |dev| = 1.45%. |
 
 ---
 

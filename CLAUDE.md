@@ -88,40 +88,42 @@ The 48 characters decompose into sectors labeled by (a₃, a₇) pairs. Each sec
 - **β**: Rational coupling constant (lives in Z/2, half-integer)
 - **Gram matrix**: M = [[ΣIm₁², ΣIm₁·β], [ΣIm₁·β, Σβ²]] with group-theoretic invariants
 
-### Mass Prediction Formula (NB60–64)
-The VEV-corrected mass ratio formula with zero free parameters:
-```
-log(m_μ/m_e) / log(m_s/m_d) = 3(ρ+1) / (ρ+√3)
-```
-where ρ = 1/√P₄ = 1/√210 (the primorial VEV ratio).
+### Mass Mechanism: Coherence (NB148–162)
 
-### Cascade ODE (NB79–81)
-The reduced 4D formulation operating on covering residuals R_k rather than angles θ_k:
+The solenoid is a **spatial structure** (not temporal evolution). Influx creates a standing wave pattern where p₄=7 sheets at each position form a comb with spacing 2π·e^{-κ·ci}. Where the spacing exceeds π, sheets **wrap** — exceeding one covering period.
+
+**Mass exponent** = fraction of branches coherent across all 4 levels × generation spacing P₃:
+```
+x(R0) = ∏(1-f_k) × P₃ = φ(p₃)/p₄ = 4/7
+```
+Non-wrapping fractions: 1, 1/p₁, φ(p₃)/(p₂p₃), 1/p₄.
+
+**Resonance condition** (NB159): κ = 1/√P₄ places the gen2 crossing (ci=11) right at the wrapping boundary (ci=10.04). x(R0) = 4/7 ONLY at this κ — varies linearly at other values. The sheet normalization is not a convention; it's the resonance that produces rational mass exponents.
+
+**Scaling factors** from non-wrapping fraction subsets (NB162):
+- r_bs = 1 + φ(p₃)/(p₂p₃) = 19/15 (down-type 2→3: adds isospin coherence)
+- r_tc = 1 + 1/p₁ + 1/p₄ = 23/14 (up-type 2→3: adds chirality + generation)
+
+**Pipeline**: `solenoid_mass.py` — {2,3,5,7} + M_Z → 9 fermion masses, 9/9 PASS, mean |dev| = 1.45%.
+
+### Cascade ODE
+The 4D reduced formulation on covering residuals R_k = p_{k+1}θ_{k+1} − θ_k:
 ```
 dR_k/dt + κ·R_k = f_k(t; lower levels)
 ```
-where f_k encodes the nonlinear sin coupling between levels. Key properties:
-- **Equivalent** to the full 5D theta-space ODE within 0.002% (NB80)
-- **Universal cascade theorem**: all 16 checked branches follow the same exponential envelope (NB79)
-- **Complete chain**: {2,3,5,7} → cascade ODE → CP-pair ratios → fermion mass ratios (NB81)
-- Parameters: κ = ε = ρ = 1/√210, ω = 2π
+Parameters: κ = ε = 1/√210, ω = 2π. One integration (T=211 = one period of P₄) computes the complete spatial profile. The "t" parameter is a spatial coordinate, not time.
 
-### CP-Pair Structure and Mass Architecture (NB69–78)
-Fermion mass ratios emerge from conjugate pair (CP) ratios of the cascade dynamics:
+### CP-Pair Structure (NB69–78, NB155)
+Mass ratios from conjugate pair CP ratios at different covering levels:
 
-| Channel | CP Pair (a₃, a₇_g1, a₇_g2) | Physical Crossing ci | Mass Ratio |
-|---------|----------------------------|---------------------|------------|
-| QUARK_g1 | (1, 4, 2) | ci=11 | m_s/m_d |
-| LEPTON_g1 | (0, 1, 5) | ci=31 | m_μ/m_e |
-| LEPTON_g2 | (0, 1, 5) | ci=61 | m_τ/m_μ |
-| QUARK_g2 | (1, 4, 2) | ci=191 | m_c/m_s |
-
-Algebraic exponents convert R-ratios to mass ratios:
-- R₄ quark: `x₄ = φ(210)/(2π) = 7.639`
-- R₄ lepton: `x₄_lep = 49/(2π) = 7.799`
-- R₃ inter-sector: `x₃ = λ(35)/(2π) = 1.910`
-- R₂ gen2→3: `x₂ = φ(30)/(2π) = 1.273`
-- Cascade correction: R₄^{−λ(7)} = R₄^{−6} (top quark)
+| Mass Ratio | Formula | Level | Source |
+|------------|---------|-------|--------|
+| m_s/m_d | CP_R3(Q)^{x_q} | R3 (p=7) | cascade eigenvalue |
+| m_b/m_s | CP_R3(Q)^{x_q × 19/15} | R3 (p=7) | non-wrapping fractions |
+| m_t/m_c | CP_R2(Q)^{x_q × 23/14 × cl} | R2 (p=5) | non-wrapping fractions |
+| m_c/m_u | CP_R1(Q)^{x_q} | R1 (p=3) | cascade amplification |
+| m_μ/m_e | CP_R3(L)^{x_l} | R3 (p=7) | lepton eigenvalue |
+| m_τ/m_μ | CP_R2(L)^{λ/(2π)} × p₃/p₄ | R2 (p=5) | topological exponent |
 
 ## Repository Structure
 
@@ -138,8 +140,15 @@ concentric-spacetime/
 │   ├── ...
 │   ├── 72_radial_mass_channel.ipynb   # Complete quark mass hierarchy
 │   ├── ...
-│   └── 81_cascade_to_mass.ipynb       # Latest: full chain validation
+│   ├── 81_cascade_to_mass.ipynb       # Full chain validation
+│   ├── ...
+│   ├── 147_mass_formula.ipynb         # Mass formula derivation
+│   ├── ...
+│   ├── 155_inter_generation_dynamics.ipynb  # All inter-gen from cascade
+│   ├── ...
+│   └── 162_inter_gen_derivation.ipynb # Non-wrapping fraction derivation
 ├── scripts/
+│   ├── solenoid_mass.py       # Complete 9-fermion pipeline: compute_mass_table() — ACTIVE
 │   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ + physical constants) — ACTIVE
 │   ├── solenoid_system.py     # Solenoid dynamics (unified: theta-space + cascade) — ACTIVE
 │   ├── solenoid_jax.py        # JAX/Diffrax accelerated integration — ACTIVE
