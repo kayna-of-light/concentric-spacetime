@@ -95,7 +95,7 @@ log(m_μ/m_e) / log(m_s/m_d) = 3(ρ+1) / (ρ+√3)
 ```
 where ρ = 1/√P₄ = 1/√210 (the primorial VEV ratio).
 
-### Cascade ODE (NB79–81)
+### Cascade ODE (NB79–81) and Variational Origin (NB115, NB139, NB143)
 The reduced 4D formulation operating on covering residuals R_k rather than angles θ_k:
 ```
 dR_k/dt + κ·R_k = f_k(t; lower levels)
@@ -105,6 +105,27 @@ where f_k encodes the nonlinear sin coupling between levels. Key properties:
 - **Universal cascade theorem**: all 16 checked branches follow the same exponential envelope (NB79)
 - **Complete chain**: {2,3,5,7} → cascade ODE → CP-pair ratios → fermion mass ratios (NB81)
 - Parameters: κ = ε = ρ = 1/√210, ω = 2π
+- **Variational origin** (NB115, NB139): The cascade is gradient flow of V_covering with dissipation Γ̃
+- **Γ̃ derived** (NB143): Γ̃ = K·A⁻¹ where K = J^T J (symmetric stiffness) and A = I−L (directional dynamics). The potential is symmetric; the covering maps impose directionality; the dissipation is where direction enters.
+- **Containment matrix** (NB139): Γ̃⁻¹ = D_row · U · D_col where U[i,j] = 1 iff orbit i ⊆ orbit j (inner→outer propagation = influx)
+- **Two geometric objects**: metric W = diag(P_k) (will/resistance, from Haar measure) and containment U (wisdom/propagation, from covering topology)
+- κ = 1/√P₄ from equal coupling per sheet (κ²·P₄ = 1)
+
+### Gauge Emergence (NB140–141, NB144)
+Non-abelian gauge symmetry emerges from the wreath product of covering deck transformations:
+- **SU(3)**: Z₂ ≀ Z₃ (order 24) → 6D perm rep = 3+1+1+1 → A₄ ⊂ SU(3) (tetrahedral subgroup)
+- **SU(2)**: Z₂ ≀ Z₂ = D₄ (order 8) → 4D perm rep = 2+1+1 → binary dihedral ⊂ SU(2)
+- **U(1)**: Z₄ ⊂ U(1) (from φ(5) = 4)
+- **Identity #278**: λ(P₄) = ω(P₄) + φ(P₃) = 4+8 = 12 (gauge dim = rank + roots, four-prime specific)
+- **3 generations** (NB140): from Z₃ ⊂ Z₆ = Z_{φ(7)}, three singlet irreps of wreath product
+- **CORRECTED**: quark/lepton assignment depends on |Im₁| (NB62 Level 1 Color Theorem), not on a₇ parity
+
+### Fermion Bijection (NB145, building on NB62)
+The 3+1 color-lepton split has a three-layer mechanism:
+- **Wreath product** predicts 3+1 IS POSSIBLE (irrep decomposition allows it)
+- **Cayley generators** [17,23,37] with dlog₇ ∈ {1,2} SELECT which state is the lepton (constructive interference for (a₃=0, a₇=1))
+- **Cascade dynamics** assign mass values through CP ratios
+- The specific generators are constrained by Cayley Laplacian spectrum (NB41–48)
 
 ### CP-Pair Structure and Mass Architecture (NB69–78)
 Fermion mass ratios emerge from conjugate pair (CP) ratios of the cascade dynamics:
