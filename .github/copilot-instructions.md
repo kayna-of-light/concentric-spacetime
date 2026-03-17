@@ -120,12 +120,22 @@ Non-abelian gauge symmetry emerges from the wreath product of covering deck tran
 - **3 generations** (NB140): from Z₃ ⊂ Z₆ = Z_{φ(7)}, three singlet irreps of wreath product
 - **CORRECTED**: quark/lepton assignment depends on |Im₁| (NB62 Level 1 Color Theorem), not on a₇ parity
 
-### Fermion Bijection (NB145, building on NB62)
+### Fermion Bijection (NB145-146, building on NB62)
 The 3+1 color-lepton split has a three-layer mechanism:
 - **Wreath product** predicts 3+1 IS POSSIBLE (irrep decomposition allows it)
 - **Cayley generators** [17,23,37] with dlog₇ ∈ {1,2} SELECT which state is the lepton (constructive interference for (a₃=0, a₇=1))
 - **Cascade dynamics** assign mass values through CP ratios
 - The specific generators are constrained by Cayley Laplacian spectrum (NB41–48)
+- **Eigenvalue structure** (NB146): Cayley Laplacian eigenvalue degeneracies follow binomial coefficients C(4,k) from the rank-3 Z₂⁴ character structure. The 12 level-1 characters decompose as Z₂⁴ × Z₃ = 16 × 3 = 48 matching d(210) × 3.
+
+### Mass Formula (NB147, building on NB133-138)
+The mass formula m_heavy/m_light = C₀^x is DERIVED from the gradient flow:
+- **Exponential form**: from damping operator e^{−κt} in the overdamped cascade (κ = 1/√P₄)
+- **Base C₀**: window-0 CP ratio (T-independent per #216)
+- **Exponent**: factored architecture x(R₃) = x(R₀) × cross-level (NB137-138)
+  - Lepton: x = p₂ = 3 (chirality prime; the 11s cancel in (27/11)(11/9) = 3)
+  - Quark: x = 100/63 = (p₁²p₃²)/(p₂²p₄) (all four primes)
+- NB133's character counting applies to cumulative pipeline only; window-0 exponents come from R₀ analytic + cascade structure
 
 ### CP-Pair Structure and Mass Architecture (NB69–78)
 Fermion mass ratios emerge from conjugate pair (CP) ratios of the cascade dynamics:

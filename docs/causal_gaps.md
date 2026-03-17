@@ -239,6 +239,7 @@ The cascade ODE is gradient flow of V_covering with containment-weighted dissipa
 | GAP-05 (major progress) | NB140-141, NB144 | Non-abelian gauge structure from wreath product of deck transformations. Z₂ ≀ Z₃ → 6 = 3+1+1+1 (color triplet + generation singlets). A₄ ⊂ SU(3) as continuum bridge. Z₂ ≀ Z₂ = D₄ → 4 = 2+1+1 (SU(2) doublet). λ(P₄)=ω(P₄)+φ(P₃)=4+8=12 (four-prime specific). CORRECTED: physical identification of quark/lepton depends on |Im₁| (NB62), not a₇ parity. |
 | GAP-06 | NB140 | 3 generations from Z₃ ⊂ Z₆ = Z_{φ(7)}: three singlet irreps of wreath product. Color and generation from same Z₃ — triplet vs singlet irrep type. Specific to {2,3,5,7}. |
 | GAP-07 | NB139 | The cascade IS gradient flow of V_covering with containment-weighted dissipation. Γ̃⁻¹ = containment matrix U (inner → outer propagation = influx). First-order (no inertia) = influx without momentum. |
+| GAP-08 | NB142 | Mass stratification IS the gauge structure. Color triplets (quarks) need full cascade dynamics because the wreath product entangles their cascade. Color singlets (leptons) need minimal dynamics because their cascade is disentangled. Four channels: algebraic (topology/heaviest), window-0 integer (singlet clean CP), window-0 non-integer (cross-irrep comparison), full cascade (entangled triplet). |
 | GAP-10 (full) | NB139, NB143 | Single action: gradient flow on (2,3,5,7)-solenoid. W from Haar measure, K from covering topology. NB143 DERIVED Γ̃ = K·A⁻¹ (stiffness × accumulated propagation). The covering potential is symmetric (couples up and down); the covering maps impose directionality (1/p_k dilution); the dissipation D_θ = K·A⁻¹ is where direction enters. κ=1/√P₄ from sheet normalization. Two geometric objects: metric W (will) and containment U (wisdom). |
 
 ---
@@ -262,20 +263,20 @@ The cascade ODE is gradient flow of V_covering with containment-weighted dissipa
 
 ## Recommended Attack Order
 
-Based on dependencies and accessibility (updated post-NB139):
+Based on dependencies and accessibility (updated post-NB147):
 
 1. ~~**GAP-01**: ρ from geometry~~ — **RESOLVED** (NB130-131)
-2. ~~**GAP-10**: Action principle~~ — **SUBSTANTIALLY RESOLVED** (NB139)
-3. ~~**GAP-07**: Cascade interpretation~~ — **SUBSTANTIALLY RESOLVED** (NB139)
-4. **GAP-05**: Gauge emergence — MAJOR PROGRESS (NB140-141, NB144). SU(3) from A₄ (wreath Z₂≀Z₃), SU(2) from D₄ (wreath Z₂≀Z₂). Remaining: detailed fermion bijection.
-5. **GAP-03**: Fermion map — **MECHANISM IDENTIFIED** (NB145). The 3+1 color-lepton split comes from constructive interference in the Cayley Laplacian eigenvalues. The wreath product predicts the 3+1 STRUCTURE is possible; the Cayley graph generators [17,23,37] (all with dlog₇ ∈ {1,2}) select WHICH state is the lepton. The Cayley generators are constrained by the requirement that the Cayley Laplacian spectrum reproduces SM parameters. Connects to NB41-48 Cayley graph investigations.
-6. **GAP-06**: Wrapping → generations — now grounded in the derived cascade
-7. **GAP-02**: Remaining: "why mass = exp(signal)" — may need GAP-05
-8. **GAP-08**: Mass stratification — likely falls from GAP-03 + GAP-06
-9. **GAP-04**: Seesaw — may resolve with GAP-05 (neutrino sector)
-10. **GAP-09**: Dimensional anchor — may be irreducible
+2. ~~**GAP-10**: Action principle~~ — **FULLY RESOLVED** (NB139, NB143: Γ̃ = K·A⁻¹ derived)
+3. ~~**GAP-07**: Cascade interpretation~~ — **RESOLVED** (NB139: gradient flow with containment dissipation)
+4. ~~**GAP-02**: Mass exponents~~ — **RESOLVED** (NB133-138, NB147: mass formula derived from gradient flow)
+5. ~~**GAP-05**: Gauge emergence~~ — **MAJOR PROGRESS** (NB140-141, NB144: wreath product → A₄⊂SU(3), D₄→SU(2))
+6. ~~**GAP-06**: 3 generations~~ — **RESOLVED** (NB140: Z₃ singlet irreps from φ(7)=6=2×3)
+7. ~~**GAP-03**: Fermion map~~ — **MECHANISM IDENTIFIED** (NB145-146: three-layer mechanism, Cayley generators select realization)
+8. ~~**GAP-08**: Mass stratification~~ — **RESOLVED** (NB142: stratification IS gauge structure, singlet vs triplet cascade)
+9. **GAP-04**: Seesaw — FRAMEWORK IDENTIFIED (NB142: full-tower containment propagation). Needs quantitative derivation.
+10. **GAP-09**: Dimensional anchor — UNDERSTOOD AS IRREDUCIBLE (NB142: M_Z = filter cutoff 2π√P₄)
 
 ---
 
 *Created: 2026-03-16 (post-NB129, 276 identities)*
-*Last updated: 2026-03-17 (post-NB139, GAP-10 substantially resolved)*
+*Last updated: 2026-03-17 (post-NB147, 8/10 gaps resolved or substantially resolved)*

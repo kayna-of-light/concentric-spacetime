@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB145 (session NB138–145). NB138: R₀ mechanism. NB139: single action principle (Γ̃ = containment matrix). NB140: gauge emergence (6=3+1+1+1). NB141: A₄⊂SU(3). NB142: mass stratification. NB143: Γ̃=K·A⁻¹ derived. NB144: SU(2) from D₄=Z₂≀Z₂. NB145: fermion bijection (in progress, Z₂⁴×Z₃=16×3 identified).
+> Last updated after NB147 (session NB138–147). NB138: R₀ mechanism. NB139: single action principle (Γ̃ = containment matrix). NB140: gauge emergence (6=3+1+1+1). NB141: A₄⊂SU(3). NB142: mass stratification. NB143: Γ̃=K·A⁻¹ derived. NB144: SU(2) from D₄=Z₂≀Z₂. NB145: fermion bijection (three-layer mechanism: wreath product + Cayley generators + dynamics). NB146: wreath-eigenvalue bridge (Cayley Laplacian eigenvalue structure from Z₂⁴×Z₃ character algebra, binomial degeneracy). NB147: mass formula derived (exponential from damping, base from window-0 CP, exponent from factored architecture).
 
 ## Summary
 
@@ -12,8 +12,8 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 145 (NB01–NB145) |
-| **Causal gaps resolved** | 7/10 (GAP-01, 02 partial, 05 major, 06, 07, 10; see causal_gaps.md) |
+| **Notebooks** | 147 (NB01–NB147) |
+| **Causal gaps resolved** | 8/10 (GAP-01, 02, 03 mechanism, 05 major, 06, 07, 08, 10; see causal_gaps.md) |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV.
 
@@ -124,6 +124,8 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Deriving Gamma** | NB143 | Γ̃ = K·A⁻¹ derived from covering topology | 0 new identities (derivation). D_θ = K·A⁻¹ where K = J^T J (symmetric stiffness) and A = I−L (directional dynamics, L[k,k-1]=1/p_{k+1}). Verified: D_θ = NB115's Γ̃ exactly. D_θ⁻¹ = A·K⁻¹ matches NB139's containment formula. Key insight: potential is symmetric (up+down), covering maps are directional (1/p_k dilution), dissipation = stiffness × direction = where direction enters. GAP-10 fully resolved. |
 | **SU(2) Emergence** | NB144 | D₄ = Z₂ ≀ Z₂ → SU(2) fundamental representation | 0 new identities (parallel to NB140). Z₂ ≀ Z₂ = D₄ (dihedral, order 8). 4D perm rep = 2(doublet)+1+1(singlets). 2-dim irrep = SU(2) fundamental. D₄ ⊂ O(2), binary dihedral ⊂ SU(2). Same mechanism as SU(3): bilateral Z₂ wreath with higher-level Z_n. |
 | **The Fermion Bijection** | NB145 | 48 CRT elements ↔ 48 SM states; sign pattern algebra; three-layer mechanism | 0 new identities (mechanism investigation). The 3+1 color-lepton split from NB62 comes from constructive interference: each |Im₁| contribution has magnitude √3/2, the lepton (a₃=0,a₇=1) has all-positive sines (→ 3√3/2), quarks have mixed signs (→ √3/2). The split is NOT intrinsic: full-group sum=0, sign census identical for all 4 states. The wreath product predicts 3+1 IS POSSIBLE (irrep structure); Cayley generators [17,23,37] with dlog₇∈{1,2} select WHICH state is the singlet; all 56 triples from generators with this mod-7 property confirm (a₃=0,a₇=1) as lepton. Three-layer structure: wreath product (framework) + Cayley generators (selection) + cascade dynamics (masses). GAP-03 mechanism identified; connects to NB41-48 Cayley graph spectral properties. |
+| **The Wreath-Eigenvalue Bridge** | NB146 | Cayley Laplacian structure from Z₂⁴×Z₃ character algebra | 0 new identities (structural analysis). Level-1 Cayley Laplacian eigenvalues for all 12 (a₃,a₇) characters computed. Gen0 (a₇∈{0,3}): all Im₁=0 (real sector). Gen1 (a₇∈{1,4}): 3+1 split with lepton at (0,1). Gen2 (a₇∈{2,5}): complex conjugate of Gen1. Binomial degeneracy in eigenvalue spectrum: multiplicities follow C(4,k) = {1,4,6,4,1} from 4 binary bits (one per covering level). The 12 characters decompose as Z₂⁴ × Z₃ = 16 × 3 = 48, matching d(210) × 3. |
+| **The Mass Formula** | NB147 | Mass = C₀^x derived from gradient flow; exponential from damping; factored exponent architecture | 0 new identities (derivation, GAP-02 resolved). The mass formula m_heavy/m_light = C₀^x follows from the overdamped gradient flow: (1) exponential form from the damping operator e^{−κt} acting on the covering residual, (2) base C₀ from window-0 CP ratio (T-independent per #216), (3) exponent from the factored architecture x(R₃) = x(R₀) × cross-level where x(R₀) is set by CRT crossing positions and cross-level by the nonlinear cascade filter. Lepton: x = p₂ = 3 (chirality prime, the 11s cancel in (27/11)(11/9)). Quark: x = 100/63 = (p₁²p₃²)/(p₂²p₄) (all four primes). The character counting from NB133 applies to the cumulative pipeline exponent, not the window-0 exponent; the window-0 exponents come from the R₀ analytic solution + cascade cross-level structure. |
 
 ---
 
