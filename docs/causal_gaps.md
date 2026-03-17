@@ -235,8 +235,10 @@ The cascade ODE is gradient flow of V_covering with containment-weighted dissipa
 |-----|-------------|-----------|
 | GAP-01 | NB130-131 | ρ = 1/√P₄ from impedance balance + differential wrapping between CRT crossings |
 | GAP-02 (partial) | NB133-138 | Exponent = character count/(2π); γ₃ = φ(P₄)+1 via four-prime cooperation; window-0 lepton exponent = p₂ = 3 (T-independent, 0.013%, #277 PASS); NB138: R₀ mechanism (analytic), cross-level = nonlinear saturating filter (coherence/incoherence), 11 in lepton = CF artifact (product cancels to 3); quark x ≈ 100/63 (413 ppm); deeper "why mass = exp(signal)" remains open → GAP-07, GAP-08 |
-| GAP-07 (substantial) | NB139 | The cascade IS gradient flow of V_covering with containment-weighted dissipation. Γ̃⁻¹ = containment matrix U (inner → outer propagation = influx). First-order (no inertia) = influx without momentum. |
-| GAP-10 (substantial) | NB139 | Single action: gradient flow on (2,3,5,7)-solenoid. W from Haar measure, K from covering topology, Γ̃ from containment structure, κ=1/√P₄ from sheet normalization. Two geometric objects: metric W (will) and containment U (wisdom). |
+| GAP-05 (major progress) | NB140-141, NB144 | Non-abelian gauge structure from wreath product of deck transformations. Z₂ ≀ Z₃ → 6 = 3+1+1+1 (color triplet + generation singlets). A₄ ⊂ SU(3) as continuum bridge. Z₂ ≀ Z₂ = D₄ → 4 = 2+1+1 (SU(2) doublet). λ(P₄)=ω(P₄)+φ(P₃)=4+8=12 (four-prime specific). Remaining: detailed fermion bijection, continuum limit for SU(2). |
+| GAP-06 | NB140 | 3 generations from Z₃ ⊂ Z₆ = Z_{φ(7)}: three singlet irreps of wreath product. Color and generation from same Z₃ — triplet vs singlet irrep type. Specific to {2,3,5,7}. |
+| GAP-07 | NB139 | The cascade IS gradient flow of V_covering with containment-weighted dissipation. Γ̃⁻¹ = containment matrix U (inner → outer propagation = influx). First-order (no inertia) = influx without momentum. |
+| GAP-10 (full) | NB139, NB143 | Single action: gradient flow on (2,3,5,7)-solenoid. W from Haar measure, K from covering topology. NB143 DERIVED Γ̃ = K·A⁻¹ (stiffness × accumulated propagation). The covering potential is symmetric (couples up and down); the covering maps impose directionality (1/p_k dilution); the dissipation D_θ = K·A⁻¹ is where direction enters. κ=1/√P₄ from sheet normalization. Two geometric objects: metric W (will) and containment U (wisdom). |
 
 ---
 
@@ -264,8 +266,8 @@ Based on dependencies and accessibility (updated post-NB139):
 1. ~~**GAP-01**: ρ from geometry~~ — **RESOLVED** (NB130-131)
 2. ~~**GAP-10**: Action principle~~ — **SUBSTANTIALLY RESOLVED** (NB139)
 3. ~~**GAP-07**: Cascade interpretation~~ — **SUBSTANTIALLY RESOLVED** (NB139)
-4. **GAP-05**: Gauge emergence — SIGNIFICANT PROGRESS (NB140). Non-abelian structure located in wreath product Z₂≀Z₃ of deck transformations: produces 3 and 3̄ irreps (SU(3) color). New identity λ(P₄)=ω(P₄)+φ(P₃) (four-prime specific). Remaining: continuum limit from wreath product to continuous gauge group.
-5. **GAP-03**: Fermion map — may fall from GAP-05
+4. **GAP-05**: Gauge emergence — MAJOR PROGRESS (NB140-141, NB144). SU(3) from A₄ (wreath Z₂≀Z₃), SU(2) from D₄ (wreath Z₂≀Z₂). Remaining: detailed fermion bijection.
+5. **GAP-03**: Fermion map — **CURRENTLY ACTIVE** (NB145, in progress). The Z₂⁴ × Z₃ = 16 × 3 decomposition identified; the 4 binary digits map to the 4 primes. Need to connect to NB62's established quantum number dictionary (a₅=0 = down+charged lepton, a₅=1/3 = isospin doublet, a₅=2 = tower-protected) and verify against existing CP pair structure and mass predictions.
 6. **GAP-06**: Wrapping → generations — now grounded in the derived cascade
 7. **GAP-02**: Remaining: "why mass = exp(signal)" — may need GAP-05
 8. **GAP-08**: Mass stratification — likely falls from GAP-03 + GAP-06
