@@ -295,12 +295,12 @@ def compute_mass_table(
     P3 = primorials[3]  # = 30
     H3_sq = P3**2 / (P3**2 + omega**2 * P4)  # R3 filter gain
     m_t = M_Z * p2**2 / np.sqrt(np.pi * p4) * (1 - H3_sq / p4)
-    # Bottom: tree-level WITHOUT the top correction
-    # m_b/M_Z = p2/(p1*p4*sqrt(pi*p4)) = tree-level m_t/M_Z / (P4/p3)
-    m_b = M_Z * p2**2 / np.sqrt(np.pi * p4) / (P4 / p3)
-    # Note: m_b uses the UNCORRECTED tree-level ratio, not m_t/42.
-    # This is because m_t/m_b = 42 is a separate tree-level formula
-    # and the filter correction applies to m_t only, not to the ratio.
+    # Bottom: tree-level with OPPOSITE filter correction (NB168 S3)
+    # The P3-scale filter redistributes energy between t and b:
+    #   m_t gets -(H3^2/p4): generation absorbs signal from top
+    #   m_b gets +(H3^2/(P4/p3)): bottom recovers signal proportional to t/b ratio
+    # This is energy conservation in the filter: top loses, bottom gains.
+    m_b = M_Z * p2**2 / np.sqrt(np.pi * p4) / (P4 / p3) * (1 + H3_sq / (P4 / p3))
 
     # -- LEPTON SECTOR (from m_e anchor) --
     # 1->2 gen (mu/e): dynamical eigenvalue x_l at outermost level
