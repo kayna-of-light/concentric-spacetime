@@ -115,11 +115,21 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 - ρ̄ = 1/ω = 1/(2π) (0.02σ)
 - η̄ = √p₂/p₃ = √3/5 (0.16σ)
 
-**What's missing**: WHY do these specific prime combinations give the CKM parameters? The Cabibbo angle matching to 0.00σ strongly suggests it was fitted, not predicted. The connection ρ̄ = 1/(2π) is elegant but unexplained. WHY does the CP-violating phase involve the base frequency?
+**What's missing**: WHY do these specific prime combinations give the CKM parameters?
 
-**Partial progress**: The Froggatt-Nielsen route (sin θ_C ≈ √(m_d/m_s)) connects the Cabibbo angle to the cascade mass ratio. If m_s/m_d → (40/9)² = 19.75 ≈ 20, then sin θ_C = 9/40 follows. This would DERIVE λ from the masses. But (40/9)² = 19.75, not exactly 20.
+**NB163 investigation (partial progress)**:
 
-**Would resolve**: CKM matrix from solenoid dynamics.
+1. *Froggatt-Nielsen route*: sin θ_C = √(m_d/m_s) = 1/√20 = 0.2236. Gives 2.1σ from PDG (0.22500). Close but not exact. The cascade gives m_s/m_d = 20.000 (not (40/9)² = 19.753). The 0.6% correction needed is unexplained.
+
+2. *Directed Cayley splitting* (NB59): The antisymmetric operator A_g breaks generation degeneracy through Im(χ(g)). The a5 sector determines up/down type. ρ = 1/√210 breaks the Im(a5=1) = -Im(a5=3) mirror symmetry, creating gen2-gen3 asymmetry of ρ√3. But this gives gen2↔gen3 splitting, NOT gen1↔gen2 (Cabibbo) mixing.
+
+3. *Wrapping as generation mixer*: At wrapping crossings, branches lose their j₃ (generation) identity. A particle at ci=11 (85.7% wrapped) is only 14.3% pure generation — the wrapped branches become generation-mixed. The differential purity between the DOWN (a5=0) and UP (a5=1) crossings could give the CKM, but the specific mapping from purity differences to mixing angles is not yet established.
+
+4. *CRT entanglement*: The isospin step Δci = 126 is uniform across generations, but the NONLINEAR wrapping response makes the mass change generation-dependent. Gen2 crosses the wrapping boundary under isospin rotation while gen3 stays in the coherent zone. This asymmetry is the physical origin of the CKM.
+
+5. *Key obstacle*: The solenoid mass matrix is DIAGONAL in the CRT basis. The F-N relation requires off-diagonal texture. The off-diagonal elements must come from the wrapping nonlinearity mixing generations at wrapping crossings.
+
+**Would resolve**: CKM matrix from solenoid dynamics. Attack via the wrapping-induced generation mixing at the 11 wrapping crossings, using proper SA module CRT mapping.
 
 ### GAP-15: PMNS Atmospheric Angle and CP Phase [STRUCTURAL]
 
