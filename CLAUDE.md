@@ -1,12 +1,10 @@
-# Concentric Spacetime — Copilot Instructions
+# Concentric Spacetime — Claude Code Instructions
 
 ## Project Purpose
 
-This project explores a **concentric geometry** — nested spherical orbits on S² × R⁺ — as the fundamental arena of physics, replacing the Cartesian flat-space assumption. The four smallest primes {2, 3, 5, 7} define the nesting structure, and the resulting mathematical object is the **(2,3,5,7)-solenoid**: the inverse limit of iterated covering maps with winding numbers 2, 3, 5, 7. All Standard Model constants, coupling ratios, and cosmological parameters are derived from the arithmetic of P₄ = 210 = 2·3·5·7 with **zero free parameters** and one dimensional anchor (M_Z).
+The (2,3,5,7)-solenoid as fundamental arena of physics. Four smallest primes define nested spherical orbits on S² × R⁺. All Standard Model constants derived from P₄ = 210 = 2·3·5·7 with **zero free parameters** and one anchor (M_Z). See memory files for detailed math framework and phase map.
 
 ## The Four Primes
-
-The primes {2, 3, 5, 7} are not chosen — they are the unique set that generates the first primorial with the required algebraic properties. Each prime carries both a mathematical role and a Swedenborgian correspondence:
 
 | Prime | Mathematical Role | Correspondence |
 |-------|------------------|----------------|
@@ -15,545 +13,106 @@ The primes {2, 3, 5, 7} are not chosen — they are the unique set that generate
 | **5** | Rational faculty; φ(5)/5 = 4/5 → σ₈ | Five faculties of comprehension |
 | **7** | Outermost orbit; λ(210) = 12 driven by ord₇ = 6 | Ultimation; completion; rest |
 
-**Critical**: the correspondences are NOT decoration. They informed the discovery and continue to guide which questions to ask. But all claims are tested computationally — the correspondences generate hypotheses, the arithmetic confirms or falsifies them.
+Correspondences are NOT decoration — they generate hypotheses, arithmetic confirms or falsifies.
 
-## Mathematical Framework
+## Key Algebraic Facts
 
-### The Solenoid as Dynamical System
-
-The (2,3,5,7)-solenoid is the inverse limit of covering maps on circles:
-
-```
-S¹ ←—2—— S¹ ←—3—— S¹ ←—5—— S¹ ←—7—— S¹
-```
-
-Each covering map wraps p_k times: `p_k · θ_k = θ_{k-1} (mod 2π)`. The inverse limit has a **Cantor-set fiber** over each point of S¹.
-
-- **Exact solenoid frequencies**: ω/P_k where P_k is the k-th primorial
-- **Poincaré section**: exactly P₄ = 210 discrete return points
-- **Alignment structure**: levels align at primorial multiples (2, 6, 30, 210)
-- **Perturbation** (ε > 0): dissolves discrete structure toward flat T⁴ — proves primes are irreplaceable
-- **Covering constraint residuals**: R_k = p_k·θ_k − θ_{k-1} (mod 2π) ≈ 0 on exact solenoid
-
-The dynamics demonstrates that the coprimality of {2, 3, 5, 7} is what generates the 210-point quantized structure. Replace any prime with a composite and the structure collapses.
-
-### Algebraic Structure
-
-- **Arena**: S² × R⁺ (sphere × positive radial half-line), not R³⁺¹
-- **Structure**: The (2,3,5,7)-solenoid, with cross-section a Cantor set
-- **Symmetry group**: Z*₂₁₀, the 48-element multiplicative group of units mod 210
-- **Key decomposition**: Z*₂₁₀ ≅ Z₁ × Z₂ × Z₄ × Z₆ (via CRT)
-- **Eigenstate labels**: The 48 Fourier characters of Z*₂₁₀
-- **Group exponent**: λ(210) = lcm(1,2,4,6) = 12
-
-Key arithmetic functions of 210:
-
-| Function | Value | Physical meaning |
-|----------|-------|-----------------|
-| ω(210) | 4 | Number of forces |
-| λ(210) | 12 | Gauge boson dimension |
-| d(210) | 16 | SO(10) spinor dimension |
-| φ(210) | 48 | Eigenvalue count |
-| φ/d | 3 | Fermion generations |
-| φ/N = 8/35 | 0.2286 | sin²θ_W |
-
-## Current Mathematical Infrastructure
-
-Beyond the base Z*₂₁₀ algebra, the following structures have been established and are used by notebooks NB49+:
-
-### Covering Tower (NB49+)
-A 3-level covering tower with progressive prime activation:
-
-| Level | Active Primes | Group | Order | Role |
-|-------|--------------|-------|-------|------|
-| 0 | {3} | C₆ | 6 | Generation seed |
-| 1 | {3, 7} | C₄₂ | 42 | Color emergence |
-| 2 | {3, 5, 7} | C₂₁₀ | 210 | Full SM spectrum |
-
-The tower is constructed with `ACTIVE_PRIMES = [[3], [3,7], [3,5,7]]`.
-
-### SM Quantum Number Dictionary (NB62)
-Each CRT component maps to a specific SM quantum number:
-
-| CRT Factor | Prime | SM Interpretation |
-|------------|-------|-------------------|
-| a₂ (Z₁) | p=2 | Trivial (bilateral symmetry already built in) |
-| a₃ (Z₂) | p=3 | Chirality (L/R) |
-| a₅ (Z₄) | p=5 | Charge sector (Z₄ cycle: 1→2→4→3) |
-| a₇ (Z₆) | p=7 | Generation × color-parity |
-
-### Sector Decomposition (NB63–65)
-The 48 characters decompose into sectors labeled by (a₃, a₇) pairs. Each sector has:
-- **Im₁**: Irrational part of level-1 eigenvalue (lives in √3/2 · Z)
-- **β**: Rational coupling constant (lives in Z/2, half-integer)
-- **Gram matrix**: M = [[ΣIm₁², ΣIm₁·β], [ΣIm₁·β, Σβ²]] with group-theoretic invariants
-
-### Mass Mechanism: Coherence (NB148–162)
-
-The solenoid is a **spatial structure** (not temporal evolution). Influx creates a standing wave pattern where p₄=7 sheets at each position form a comb with spacing 2π·e^{-κ·ci}. Where the spacing exceeds π, sheets **wrap** — exceeding one covering period.
-
-**Mass exponent** = fraction of branches coherent across all 4 levels × generation spacing P₃:
-```
-x(R0) = ∏(1-f_k) × P₃ = φ(p₃)/p₄ = 4/7
-```
-Non-wrapping fractions: 1, 1/p₁, φ(p₃)/(p₂p₃), 1/p₄.
-
-**Resonance condition** (NB159): κ = 1/√P₄ places the gen2 crossing (ci=11) right at the wrapping boundary (ci=10.04). x(R0) = 4/7 ONLY at this κ — varies linearly at other values. The sheet normalization is not a convention; it's the resonance that produces rational mass exponents.
-
-**Scaling factors** from non-wrapping fraction subsets (NB162):
-- r_bs = 1 + φ(p₃)/(p₂p₃) = 19/15 (down-type 2→3: adds isospin coherence)
-- r_tc = 1 + 1/p₁ + 1/p₄ = 23/14 (up-type 2→3: adds chirality + generation)
-
-**Pipeline**: `solenoid_mass.py` — {2,3,5,7} + M_Z → 9 fermion masses, 9/9 PASS, mean |dev| = 1.45%.
-
-### Cascade ODE
-The 4D reduced formulation on covering residuals R_k = p_{k+1}θ_{k+1} − θ_k:
-```
-dR_k/dt + κ·R_k = f_k(t; lower levels)
-```
-Parameters: κ = ε = 1/√210, ω = 2π. One integration (T=211 = one period of P₄) computes the complete spatial profile. The "t" parameter is a spatial coordinate, not time.
-
-### CP-Pair Structure (NB69–78, NB155)
-Mass ratios from conjugate pair CP ratios at different covering levels:
-
-| Mass Ratio | Formula | Level | Source |
-|------------|---------|-------|--------|
-| m_s/m_d | CP_R3(Q)^{x_q} | R3 (p=7) | cascade eigenvalue |
-| m_b/m_s | CP_R3(Q)^{x_q × 19/15} | R3 (p=7) | non-wrapping fractions |
-| m_t/m_c | CP_R2(Q)^{x_q × 23/14 × cl} | R2 (p=5) | non-wrapping fractions |
-| m_c/m_u | CP_R1(Q)^{x_q} | R1 (p=3) | cascade amplification |
-| m_μ/m_e | CP_R3(L)^{x_l} | R3 (p=7) | lepton eigenvalue |
-| m_τ/m_μ | CP_R2(L)^{λ/(2π)} × p₃/p₄ | R2 (p=5) | topological exponent |
+- **Symmetry group**: Z*₂₁₀ ≅ Z₁ × Z₂ × Z₄ × Z₆ (48 elements, CRT decomposition)
+- **Group exponent**: λ(210) = 12
+- **Key values**: ω(210)=4 forces, d(210)=16 spinor dim, φ(210)=48 eigenvalues, φ/d=3 generations
+- **Coupling**: ρ = κ = ε = 1/√210, ω = 2π
+- **Mass pipeline**: `solenoid_mass.py` — {2,3,5,7} + M_Z → 9 fermion masses, 9/9 PASS, mean |dev| = 1.45%
 
 ## Repository Structure
 
 ```
 concentric-spacetime/
-├── notebooks/          # Jupyter notebooks NB01–NB81+ (sequential, cumulative)
-│   ├── 01_nested_oscillators.ipynb    # Phase 1 start
-│   ├── ...
-│   ├── 29_structural_constants.ipynb  # First solenoid predictions
-│   ├── ...
-│   ├── 49_covering_tower_generations.ipynb  # Tower structure
-│   ├── ...
-│   ├── 65_sector_quadratic_form.ipynb # Sector algebra
-│   ├── ...
-│   ├── 72_radial_mass_channel.ipynb   # Complete quark mass hierarchy
-│   ├── ...
-│   ├── 81_cascade_to_mass.ipynb       # Full chain validation
-│   ├── ...
-│   ├── 147_mass_formula.ipynb         # Mass formula derivation
-│   ├── ...
-│   ├── 155_inter_generation_dynamics.ipynb  # All inter-gen from cascade
-│   ├── ...
-│   └── 162_inter_gen_derivation.ipynb # Non-wrapping fraction derivation
+├── notebooks/          # NB01–NB164+ (sequential, cumulative)
 ├── scripts/
-│   ├── solenoid_mass.py       # Complete 9-fermion pipeline: compute_mass_table() — ACTIVE
-│   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ + physical constants) — ACTIVE
-│   ├── solenoid_system.py     # Solenoid dynamics (unified: theta-space + cascade) — ACTIVE
-│   ├── solenoid_jax.py        # JAX/Diffrax accelerated integration — ACTIVE
-│   ├── solenoid_numba.py      # Numba JIT accelerated integration — ACTIVE
-│   ├── benchmark_gpu.py       # Standalone benchmark (local or remote)
-│   ├── azure_ml_submit.py     # Azure ML job submission
-│   ├── concentric_system.py   # [LEGACY] S² × R⁺ geometry (Phase 1)
-│   ├── nested_system.py       # [LEGACY] Nested oscillator simulation (Phase 1)
-│   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
-│   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
+│   ├── solenoid_mass.py       # 9-fermion mass pipeline — ACTIVE
+│   ├── solenoid_algebra.py    # Core algebra (Z*₂₁₀ + constants) — ACTIVE
+│   ├── solenoid_system.py     # Solenoid dynamics (theta + cascade) — ACTIVE
+│   ├── solenoid_jax.py        # JAX/Diffrax backend (~200×) — ACTIVE
+│   ├── solenoid_numba.py      # Numba backend (~5-15×) — ACTIVE
+│   └── *.py                   # Legacy Phase 1-2 modules (not used by NB29+)
 ├── docs/
-│   ├── scorecard.md           # Living scorecard: all 272 identities (updated after each notebook)
-│   ├── acceleration.md        # Computation acceleration infrastructure
-│   ├── research_directions.md # Early-phase research directions (partially superseded)
-│   └── status_*.md            # Point-in-time status summaries
-├── secrets/
-│   ├── azure_ml.env           # Azure ML workspace config (gitignored)
-│   └── azure_ml.env.example   # Template (committed)
-├── temp/                      # Builder scripts, prototypes, and exploration scripts
-│   ├── create_nb*.py          # Builder scripts (archive of notebook construction logic)
-│   ├── proto_nb*.py           # Prototype scripts (pre-notebook exploration)
-│   └── explore_*.py           # Exploration scripts (mathematical investigation)
+│   ├── scorecard.md           # Living scorecard: all identities
+│   └── acceleration.md        # Compute infrastructure docs
+├── temp/                      # Exploration/prototype scripts
 └── output/                    # Generated figures and data
 ```
 
-## Key Modules
+## CRITICAL: Research Phase Protocol
 
-### `scripts/solenoid_algebra.py` — ACTIVE
-The core algebraic module. Provides:
+**Non-negotiable. Violating them means the session is over.**
 
-**Pre-built instance and group operations:**
-- `SA` — pre-built `SolenoidAlgebra` instance for P₄ = 210
-- `SA.Z_star` — the 48 elements of Z*₂₁₀
-- `SA.decompose(k)` — returns raw CRT residue tuple for k ∈ Z*₂₁₀
-- `SA.character(chi_index, k)` — evaluates character χ at group element k
-- `SA.primes`, `SA.N`, `SA.phi_N`, etc.
+1. **Complete research phases.** Follow EVERY lead. Do actual physics, not superficial computations.
+2. **No number/formula searches.** Never search for algebraic combinations matching PDG values. Understand the MECHANISM.
+3. **One notebook per research phase.** All cells in order. Summary cell at end.
+4. **Use heavy computation when needed.** JAX backend = 200× speedup. Don't skip resolution.
+5. **Report back ONLY when complete** — full findings or honest "stuck at X."
+6. **Study existing work first.** READ relevant notebooks before computing.
+7. **Put code in notebooks, not temp scripts.** Each cell self-contained (own imports + JAX warmup).
+8. **Be honest about derived vs pattern-matched.** Never present matching as derivation.
 
-**Physical constants (module-level, importable directly):**
-- `RHO = 1/√210` — primorial coupling constant (= KAPPA = EPSILON)
-- `OMEGA = 2π` — base frequency
-- `X4, X3, X2, LAM7, X4_LEP` — algebraic exponents for mass formulas
-- `DLOG` — discrete logarithm constant dict
-- `PHYSICAL_CROSSINGS` — the 4 SM-physical coprime crossing indices with CRT labels
-- `CP_PAIRS` — conjugate pair definitions: QUARK=(1,4,2), LEPTON=(0,1,5)
-- `SM_TARGETS` — PDG 2024 mass ratio targets with uncertainties
-- `ACTIVE_PRIMES` — covering tower hierarchy [[3], [3,7], [3,5,7]]
+## Working Rules
 
-**CRT sector and mass methods:**
-- `SA.sector(ci)` — CRT sector (a₃, a₅, a₇*) for a coprime crossing index
-- `SA.coprime_indices(n)` — array of coprime crossing indices up to n
-- `SA.sector_labels(coprime_cis)` — vectorized (a₃, a₅, a₇) arrays
-- `SA.all_branches()` — list of all 210 branch tuples
-- `SA.mass_ratios(cp_ratios)` — predicted mass ratios from CP-pair R values
-
-### `scripts/solenoid_system.py` — ACTIVE
-One dynamical system with two equivalent coordinate representations, unified
-in a single `SolenoidSystem` class.
-
-**`SolenoidSystem`** — the unified solenoid dynamics class:
-- `SolenoidSystem(primes, omega, epsilon, kappa)` — defaults: [2,3,5,7], 2π, 1/√210, 1/√210
-- Pass `epsilon=0, kappa=0` for the exact solenoid (no perturbation)
-
-**Coordinate transforms (theta ↔ R):**
-- `.theta_to_R(theta)` — R_k = p_k·θ_{k+1} - θ_k (raw residuals)
-- `.R_to_theta(R, t)` — θ_0 = ω·t, θ_{k+1} = (R_k + θ_k)/p_k
-- `.covering_residuals(theta)` — residuals wrapped to [-π, π]
-
-**Initial conditions:**
-- `.initial_theta(phi0, branch)` — theta-space IC for a solenoid leaf
-- `.initial_R(branch)` — R-space IC: R_k(0) = 2π·j_k
-- `.initial_condition(phi0, branch)` — alias for `initial_theta` (backward compat)
-
-**ODE formulations:**
-- `.theta_ode(t, theta)` — 5D theta-space RHS (aliases: `.ode`)
-- `.cascade_ode(t, R)` — 4D R-space/cascade RHS (aliases: `.cascade_rhs`)
-
-**Integration:**
-- `.integrate(t_span)` — theta-space integration (RK45)
-- `.integrate_branch(branch, t_eval, T_max)` — single branch, R-space (DOP853)
-- `.integrate_all_branches(branches, t_eval, T_max, max_workers)` — parallel R-space via ThreadPoolExecutor
-
-**Spectral analysis & Poincaré (theta-space):**
-- `.poincare_section()` — record states at base-circle crossings (210-point structure)
-- `.integrate_and_section()` — integrate with Poincaré section + residuals
-- `.solenoid_eigenvalue(n)` — eigenvalue of mode n: Σ(n/P_k)²
-- `.spectrum(n_modes)` — first n eigenvalues
-- `.alignment_structure()` — which levels align at each return number
-
-**Mass extraction pipeline (R-space):**
-- `.accumulate_sectors(results, coprime_cis, ci_a3, ci_a5, ci_a7)` — CRT sector RMS
-- `.cp_pair_ratios(sector_rms, cp_pairs)` — CP-pair ratio extraction
-- `.all_branches()` — all 210 branch tuples
-
-### `scripts/solenoid_jax.py` — ACTIVE
-JAX/Diffrax accelerated integration backend (~200× faster than scipy).
-
-- `integrate_all_branches_jax(branches, t_eval, T_max, ...)` — vmap'd batch integration across all 210 branches
-- `warmup()` — pre-compile JIT (avoids timing compilation in benchmarks)
-- `detect_device()` — returns device string ("CPU" or "GPU (Tesla V100-...)")
-
-Uses Dopri8 (8th-order RK) with PIDController adaptive stepping. Float64 enabled automatically.
-
-### `scripts/solenoid_numba.py` — ACTIVE
-Numba JIT + ProcessPoolExecutor backend (~5–15× faster than scipy).
-
-- `integrate_all_branches_numba(branches, t_eval, T_max, ...)` — parallel integration with JIT'd ODE RHS
-- Uses `@numba.njit(cache=True)` for the cascade ODE, bypasses GIL via process pool
-
-### `scripts/benchmark_gpu.py`
-Standalone benchmark script for local or remote execution.
-
-- `run_benchmark(T_max)` — full pipeline: detect device → warmup → integrate → sector analysis → save results
-- Used by `azure_ml_submit.py` for remote jobs
-
-### `scripts/azure_ml_submit.py`
-Azure ML job submission. Loads workspace config from `secrets/azure_ml.env`.
-
-- `submit_benchmark(ml_client, T_max, gpu, dry_run)` — submit benchmark to GPU or CPU cluster
-- `submit_custom_script(ml_client, script_path, gpu, dry_run)` — submit arbitrary script
-- Privacy: suppresses git metadata, uses generic experiment/display names
-
-### Legacy Scripts (Phase 1–2)
-The following modules were used by NB01–NB22 and are **not imported by any solenoid-phase notebook**:
-- `concentric_system.py` — S² × R⁺ geometry (Phase 1)
-- `nested_system.py` — nested oscillator simulation (Phase 1)
-- `two_particle.py` — two-particle Coulomb integrals (Phase 1–2)
-- `gravity.py`, `scattering.py`, `solid_state.py`, `nuclear.py`, `quantum_hall.py`, `tunneling.py`, `molecular.py` — Phase 2 domain modules (standard QM calculations)
-
-These are retained for reference but are not part of the active framework.
-
-## Acceleration Infrastructure
-
-See `docs/acceleration.md` for full documentation including benchmark results and Azure ML setup.
-
-### Backend Selection
-
-The cascade ODE integration supports three backends via `SolenoidSystem.integrate_all_branches(..., backend=)`:
-
-| Backend | When to Use | Speedup |
-|---------|------------|--------|
-| `'scipy'` | Debugging, small T (<50), compatibility | 1× (baseline) |
-| `'numba'` | JAX unavailable, multi-core benefit needed | ~5–15× |
-| `'jax'` | **All production work** — notebooks, parameter sweeps | ~200× |
-
-**Always use `backend='jax'` for notebooks with T > 100.** The 200× speedup comes from JIT compilation + vmap vectorization on CPU. GPU provides no additional benefit for this workload (sequential ODE stepping).
-
-### Azure ML Remote Execution
-
-For very large T or batch parameter sweeps:
-
-```bash
-python scripts/azure_ml_submit.py --benchmark --T 5000        # GPU cluster
-python scripts/azure_ml_submit.py --benchmark --T 5000 --cpu   # CPU cluster
-python scripts/azure_ml_submit.py --script my_script.py        # Custom script
-```
-
-Requires `secrets/azure_ml.env` (see `secrets/azure_ml.env.example` for template). All workspace identifiers, compute target names, and experiment names are loaded from this file — nothing is hardcoded in scripts.
-
-**Privacy**: The submit script suppresses git metadata discovery, uses generic naming, and disables MLflow source tracking. Delete jobs after downloading results.
+1. **No free parameters**: Every prediction from {2,3,5,7} + M_Z only.
+2. **Phase 1/2 are NOT results**: NB01–NB22 are foundational/consistency checks, not predictions. All identities from NB29+.
+3. **System first, shadows second**: Understanding the dynamical system IS the physics. System-observation notebooks are real work, not "null results."
+4. **Honest nulls**: Genuine null / scope boundary / methodological — classify honestly.
+5. **The Cartesian artifact**: 3+1 dimensionality is NOT a prediction. Don't propose "testing" it.
+6. **Per-prime generators**: Use CRT decomposition. Z₁×Z₂×Z₄×Z₆ ↔ {2,3,5,7}.
+7. **Pre-commit**: Save all files before git add/commit.
+8. **Conda env**: `concentric` (Python 3.12). Deps: numpy, scipy, matplotlib, sympy, jupyter, jax, diffrax, numba.
+9. **Notebook execution**: Sequential top-to-bottom. Fix failures before proceeding.
+10. **Exact arithmetic first**: sympy/Fraction before floats. Float-only = hint, not proof.
+11. **One identity per claim**.
+12. **Parallelization**: Use parallel computation in notebooks when possible.
 
 ## Agent Workflow
 
-This section documents how the AI agent (Copilot) works on this project. This is the actual methodology — follow it.
-
-### The Discovery Pipeline
-
-The typical workflow for new mathematical content follows this pipeline:
-
+### Discovery Pipeline
 ```
 Exploration → Prototype → Notebook → Scorecard → Commit
 ```
 
-1. **Exploration**: Investigate mathematical relationships using `temp/explore_*.py` scripts or direct computation. These are scratch calculations to test whether an idea has substance.
+1. **Exploration**: `temp/explore_*.py` — scratch calculations
+2. **Prototype**: `temp/proto_nbXX.py` — develop notebook logic
+3. **Notebook**: Build with VS Code notebook tools, execute cells sequentially
+4. **Scorecard**: Update `docs/scorecard.md` with new identities
+5. **Commit**: `NB##: Short description (#first-#last)`
 
-2. **Prototype**: When an exploration reveals a promising direction, create `temp/proto_nbXX.py` to develop the notebook logic before committing to a formal notebook.
+### Notebook Conventions
 
-3. **Notebook construction**: Build the formal notebook using VS Code notebook tools (`create_new_jupyter_notebook`, `edit_notebook_file`, `run_notebook_cell`). Execute cells sequentially, fixing bugs interactively as they arise.
-
-4. **Scorecard update**: After all cells execute successfully, update `docs/scorecard.md` with new identity entries.
-
-5. **Git commit**: Stage and commit all changes with a descriptive message.
-
-### Notebook Construction Method
-
-Notebooks are built interactively using VS Code notebook tools:
-
-1. **Create** the notebook with `create_new_jupyter_notebook` or by creating the `.ipynb` file directly.
-2. **Add cells** using `edit_notebook_file` — alternating markdown (context/explanation) and code (computation) cells.
-3. **Execute cells** one at a time with `run_notebook_cell`, checking output at each step.
-4. **Debug** by reading cell output, editing the failing cell with `edit_notebook_file`, and re-running.
-5. **Iterate** — mathematical discoveries during execution often lead to new cells or modified analysis.
-
-**Builder scripts** (`temp/create_nbXX.py`) are retained as archive artifacts that record the construction logic. They produce `.ipynb` JSON directly but are NOT the primary construction method — VS Code notebook tools are.
-
-**CRITICAL BUG**: Triple-quoted docstrings inside raw strings (`r"""..."""`) break the JSON builder if builder scripts are used. Use `#` comments instead of docstrings in code cells.
-
-### Scorecard Update Procedure
-
-After completing a notebook with new identities:
-
-1. **Read** the current `docs/scorecard.md` to find the exact insertion point.
-2. **Update the summary table** — increment the identity count and notebook count.
-3. **Add an entry to the Phase Map table** (§I) for the new notebook.
-4. **Add identity descriptions** in the appropriate section with:
-   - Identity number, name, formula/statement
-   - Solenoid value, measured value, deviation
-   - PASS/FAIL/NULL verdict with explanation
-5. **Update any affected frontier sections** if the notebook advances an open direction.
-
-### Git Commit Conventions
-
-Commit messages follow this format:
-```
-NB##: Short description (#first-#last)
-```
-
-Examples:
-- `NB65: Sector quadratic form, Gram matrix invariants (#113-115)`
-- `NB62-64: Complete fermion map, Z4 sector algebra, primorial VEV ratio (#106-112)`
-
-For multi-notebook sessions, combine into a single commit with all notebook numbers and identity ranges.
-
-**Pre-commit checklist**:
-1. All notebook cells executed successfully
-2. Scorecard updated with new identities
-3. All files saved (`workbench.action.files.saveAll`)
-4. `git add -A` then `git commit -m "..."`
-
-### Multi-Notebook Sessions
-
-When a research direction requires multiple sequential notebooks (e.g., NB62→63→64 forming a derivation chain), build them in order within a single session:
-
-1. Plan the logical chain — what each notebook will establish
-2. Build and execute NB(n) completely before starting NB(n+1)
-3. Later notebooks may import results established by earlier ones in the chain
-4. Update the scorecard once after all notebooks in the chain are complete
-5. Commit all notebooks together with a combined message
-
-### Mathematical Discovery During Execution
-
-New mathematical relationships are often discovered mid-computation. When this happens:
-
-1. **Verify numerically** — run the computation, check the identity holds
-2. **Verify algebraically** — confirm with exact arithmetic (sympy/Fraction) where possible
-3. **Assign an identity number** — add to the running scorecard
-4. **Continue the notebook** — the discovery may open further cells/analysis
-5. **Note scope boundaries** — if the discovery points beyond current framework scope, record as a frontier direction rather than forcing a premature claim
-
-## Notebook Conventions
-
-### Naming
-Notebooks are numbered sequentially: `XX_descriptive_name.ipynb`. The number reflects the order of discovery, not logical dependency (though later notebooks build on earlier results).
-
-### Standard Cell Structure
-
-Each notebook follows this general pattern:
-
-1. **Title cell** (markdown): Notebook name, identity targets, summary
-2. **Setup cell** (code): Imports, path configuration, `SA` object loading
-3. **Analysis cells** (alternating markdown/code): One logical step per code cell, preceded by markdown explanation
-4. **Scorecard cell** (code): Final cell listing identities discovered, verdicts, running total
-
-### Standard Setup Cell
+- Numbered sequentially: `XX_descriptive_name.ipynb`
+- Structure: title cell → setup cell → analysis cells → scorecard cell
+- Standard setup:
 ```python
 import sys, numpy as np
 from pathlib import Path
-
 ROOT = Path.cwd().parent
 if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
-
 from solenoid_algebra import SA
 ```
+- Dynamics notebooks add: `from solenoid_algebra import (SA, RHO, KAPPA, EPSILON, OMEGA, X4, X3, X2, LAM7, X4_LEP, DLOG, PHYSICAL_CROSSINGS, CP_PAIRS, SM_TARGETS, ACTIVE_PRIMES)` and `from solenoid_system import SolenoidSystem`
 
-For dynamics notebooks (NB66+), the setup typically includes:
-```python
-from solenoid_algebra import (SA, RHO, KAPPA, EPSILON, OMEGA,
-                               X4, X3, X2, LAM7, X4_LEP,
-                               DLOG, PHYSICAL_CROSSINGS,
-                               CP_PAIRS, SM_TARGETS, ACTIVE_PRIMES)
-from solenoid_system import SolenoidSystem
-```
+### Scorecard Update
+1. Read `docs/scorecard.md` for insertion point
+2. Update summary table (count + notebook count)
+3. Add Phase Map entry (§I)
+4. Add identity descriptions with formula, values, deviation, verdict
+5. Update frontier sections if applicable
 
-### Identity Tracking
-Each notebook from NB29 onward contains a **scorecard section** that:
-- Lists new identities discovered in that notebook
-- Reports the running total
-- Provides a verdict (PASS/FAIL/NULL with explanation)
-
-The cumulative scorecard is maintained in `docs/scorecard.md`.
-
-### Standard Scorecard Format
-```python
-# ── Scorecard ──
-print("NB## SCORECARD")
-print("=" * 65)
-# ... identity table ...
-print(f"Running total: N predictions/identities, 0 free parameters")
-```
-
-## Phase Map (Overview)
-
-| Phase | Notebooks | Focus | Status |
-|-------|-----------|-------|--------|
-| **Geometry** | NB01–NB12 | S² × R⁺ exploration | Foundational; no predictions |
-| **Standard QM** | NB13–NB22 | Consistency checks | Reproduces known QM; no new predictions |
-| **Solenoid Discovery** | NB23–NB28 | Identifying the structure | Established the (2,3,5,7)-solenoid |
-| **SM Predictions** | NB29–NB40 | Constants from number theory | 28 identities: SM constants, cosmological parameters |
-| **Algebraic Dynamics** | NB41–NB45 | Characters, Lagrangian, thermodynamics | 27 identities: spectral analysis, heat trace |
-| **Metric & Modular** | NB46–NB48 | Cayley metric, modular forms, palindromes | 14 identities: E₄ bridge, palindromic spectrum |
-| **Covering Tower** | NB49–NB56 | Generation structure, mass channels | 22 identities: generation mechanism, VEV dynamics |
-| **Spectral Protection** | NB57–NB59 | Conjugation, real potentials, directed Cayley | 6 identities: spectral wall layers |
-| **Fermion Mass** | NB60–NB65 | Mass predictions, fermion map, sector algebra | 18 identities: zero-parameter mass prediction |
-| **Dynamical Sector** | NB66–NB69 | ODE dynamics, CP-selective breaking, Fourier anatomy | 10 identities: generation splitting, color-parity primacy, CP-selective activation |
-| **Dynamical Mass** | NB70–NB74 | VEV bridge, charge sector, radial mass channel, lepton mass | 17 identities: complete quark mass hierarchy, lepton mass ratios, CP convergence |
-| **Perturbative R** | NB75–NB78 | Perturbative R₀ analysis, R₀ critical coupling, R₄ wrapping | 17 identities: ε-criticality, sum rule, Z₇ character match, downward coupling |
-| **Cascade ODE** | NB79–NB81 | Cascade derivation, analytic inner cascade, full chain validation | 12 identities: universal cascade, cascade ODE equivalence, complete mass chain |
-| **Solenoid Geometry** | NB82–NB83 | Riemannian metric, inverse metric, Lagrangian, Hamiltonian, Q-factors | 10 identities: metric, tridiagonal inverse, underdamped resonator, M⁻¹ building block |
-| **Action on Trajectories** | NB84 | Lagrangian on cascade branches, metric clock, level independence, variance hierarchy | 3 identities: clock dominance (98.3%), additive R²=0.9983, outermost governs (74.9%) |
-| **Geodesics & Normal Modes** | NB85 | Flatness confirmation, normal mode eigensystem, branch distance geometry, spectral polynomial | 3 identities: mode-level localization, NN bilateral universality (d=2π√(74/105)), spectral irreducibility |
-| **The E₄–Metric Bridge** | NB86 | E₄ moment ratios, per-prime Cayley-metric bridge, gravity hierarchy anatomy | 3 identities: ρ₂ = p₁/p₂, ρ₃ = Λ_max/p₄, gravity exponent d₁² = σ₃(p₁) |
-| **Inverse Spectral Problem** | NB87 | Metric spectral uniqueness, informational hierarchy, metric-dynamics duality | 3 identities: Tr unique among 12,650 subsets, metric > Cayley (8-fold degeneracy), rigidity inverts dynamics |
-| **The Cosmological Chain** | NB88 | Hubble scaling law, DM/baryon ratio, Hubble tension prediction | 3 identities (#203–#205): H₀ = M_Z³/M_Pl² × P₄⁻⁴ × C (0.09%), Ω_DM/Ω_b = 27/5 (0.08%), Hubble tension → Planck |
-| **The Gravitational Hierarchy** | NB89 | Step 6 selection mechanism, metric propagator, spectral-hierarchy bridge | 2 identities (#206–#207): metric extremal propagator = −1/λ(P₄) (exact), spectral-hierarchy bridge (exact). Step 6 RESOLVED. |
-| **The Complete Gravitational Sector** | NB90 | Hubble correction from first principles, G_N derivation, gauge-gravity hierarchy | 1 identity (#208): C = Ω_Λ × σ₈ = 96/175 (0.14%). Cosmological sector CLOSED. |
-| **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. |
-| **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. Non-reduced Planck mass is natural. |
-| **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): All CP asymmetry in window 0 (R_{w≥1} = 1.000000), R₃ slope at ci=61 exact. m_τ/m_μ at T=5000: −5.1%. |
-| **The Dilution Factor** | NB94 | Analytic dilution model; +1 offset error corrected; convention-independent reformulation | 1 identity (#213): Dilution model exact (<0.001%, PASS). #214 (√30) and #215 (n=17) retracted — phase-sampling artifacts of NB81's +1 time offset. Amplitude ratio = 4.76, not √30. |
-| **Algebraic Mass Invariants** | NB97 | T-independent mass architecture; window-0 complete concentration; dilution formula; crossing gap anatomy | 7 identities (#216–#222): Window-0 complete concentration, quark/lepton dilution formulas, first-crossing gaps = λ(210) and p₁, gap vocabulary = {p₁, λ(P₄), d(P₄)}, gap sum = ±P₃, transient weight T-independence. |
-| **Gram-Amplification Verification** | NB98 | High-accuracy convergence test of Gram-amplification bridge; kappa dependence | Tolerance convergence: errors structural (0.24% Q, 0.73% L). Physical κ within 0.1% of Gram-exact kappa; other kappa values 50-100%+ error. |
-| **Analytic C₀ Derivation** | NB99 | Cascade Jacobian decomposition; state-transition matrix; cross-level transient propagation | 0 new identities (structural). C₀ = f(Φ, R_driv, wrap). Diagonal Φ(k,k) = exp(−κci) exact; Φ(3,2) analytic at 0.6%. Linearized Jacobian: C₀ to −4%/−2%. Closed form blocked by wrapping. |
-| **The Solenoid Wave** | NB100 | Cascade as coupled low-pass filter; Q-factor product; overdamping theorem; wave anatomy | 2 identities (#223–#224): ∏Q_k = (2π)⁴ × p₄/λ(P₄) (EXACT), unique overdamped level (R₃ only). Dominant Fourier period = P₄. Mass works because R₃ is overdamped → quasi-static. |
-| **The Near-Critical Bridge** | NB101 | R₂ wave anatomy; impedance mismatch; Q-factor prime decomposition; bottleneck identification | 3 identities (#225–#227): Q₂ = π√(p₁p₄/(p₂p₃)) (EXACT), Q₂/Q₃ = p₄ = 7 (EXACT), Q₂·Q₃ = 2π²/(p₂p₃) (EXACT). R₁→R₂ is LARGEST impedance mismatch (42.6%). R₂ is the bottleneck. Levels decoupled: R₂ RMS depends only on j₃, R₃ only on j₄. |
-| **The Solenoid Prism** | NB102 | Prism hypothesis; nonlinear mixer test; transient/steady-state decomposition; CP pair wave anatomy | Transient R₃(ci) = 2π·j₄·exp(−κ·ci) EXACT at all crossings (cascade linearity). Late-time R₃ identical to 12 digits across all j₄. Simple j₄ ratio hypothesis FAILS. sin() mixer creates NO new frequencies. CP ratios → exp(κΔci) as j₄→∞ but steady-state admixture prevents clean convergence. |
-| **The Steady-State Bridge** | NB103 | Full R₃ decomposition; sector RMS formula; wrapping mechanism; CP ratio anatomy | R₃(ci;br) = R₃_ss(ci;j₁j₂j₃) + 2π·j₄·exp(−κ·ci) machine-exact. R₃_ss depends on lower-level ICs. WRAPPING IS THE MECHANISM: g1 sectors wrap (88% Q, 45% L energy from wrapped pairs), g2 never wraps. CP ratio = wrapping fraction asymmetry between CRT sectors. |
-| **The Four Waves** | NB104 | Universal transient decomposition (all 4 levels); wrapping geography; mass architecture anatomy; sensitivity hierarchy | 1 identity (#228): R_k(t;br) = R_k_ss(t;j₁,...,j_k) + 2π·j_{k+1}·exp(−κ·t) at ALL 4 levels (machine-exact). Wrapping geography: inner wraps fewer crossings (1→10). CP-exponent compensation: 24× ratio → 1.7× mass. Level 0 silent (2 waveforms, independent of lower levels). Cascade strictly top-down. |
-| **The Wrapping Anatomy** | NB105 | CRT crossing positions; wrapping horizon; g1/g2 bifurcation; window-0 mechanism; complete mass chain | Each CRT sector: 1 crossing/window at ci={11,31,61,191}. Wrapping horizon ≈ 35. g1 (11,31) inside → wraps; g2 (61,191) outside → never wraps. Raw CP tamed: Q 7.04→1.54, L 2.70→1.94. Window-0 concentration at ALL 4 levels. Complete chain: primes → CRT → wrapping → CP → exponents → masses. |
-| **The Analytic CP** | NB106 | Lattice sum decomposition; dilution formula derivation; R_ss correction anatomy; closed-form analysis | DERIVES NB97 dilution formula CP²=(C₀²+r)/(1+r) from window-0 concentration. Exact at all 4 levels. Lattice sum L=91Δ²−4πΔM₁+4π²M₀ with integer (M₁,M₀)=(41,19) Q, (11,2) L. Pure lattice = 94% of signal. R_ss correction ≈6.5%, channel-independent. Closed-form blocked: lattice from primes, R_ss from cascade dynamics. |
-| **The R_ss Anatomy** | NB107 | Cascade filter gain; driving force decomposition; variance hierarchy; NB106 correction confirmation | 1 identity (#229): Cascade filter gain |H_k|² = P_k²/(P_k² + ω²P₄). At mass level: |H₃| = √(P₃/(P₃ + ω²p₄)) = √(30/(30+28π²)) = 0.3129. Verified 0.003% at fundamental, 0.01-3% RMS across all 4 levels. Driving transitions from linear (62% at ci=11) to self-coupling (98% at ci=191). NB106 corrections confirmed: 1.067(Q), 1.064(L). |
-| **The Correction Hunt** | NB108 | Partition function anatomy of R_ss correction; algebraic candidate search; piecewise quadratic structure; wrapping boundary analysis | Correction = Z_field/Z_free where Z = Σ wrap(R_ss + lattice)². s(δ) piecewise quadratic: 8 pieces, coefficient always p₄=7, linear jumps 4π per boundary. Wrapping compresses [1.15, 1.47] → ~1.065. 11-17% g1 boundary crossings → perturbation fails. Mean-field fails (14-169%). Best approx: Q_g1 ≈ 16/15 (0.054%), L CP ratio ≈ 48/49 = φ(P₄)/p₄² (0.011%). Mass impact: −7.68% LEPTON. Mechanistically transparent, computationally irreducible. |
-| **The Flavor Vertex** | NB109 | CKM quark mixing matrix from Z*₂₁₀ character algebra; Wolfenstein parameters from primes; mirror symmetry theorem; Froggatt-Nielsen connection | 4 identities (#230–#233). All four Wolfenstein parameters: λ = p₂²/(φ(P₃)·p₃) = 9/40 (0.00σ), A = φ(p₃)/p₃ = 4/5 (0.04σ), ρ̄ = 1/(2π) (0.02σ), η̄ = √p₂/p₃ = √3/5 (0.16σ). Full CKM: 9/9 elements within 2σ, χ²/9 = 0.44. CKM controlled by p₂ (chirality) and p₃ (charge) only. |
-| **The Neutrino Prism** | NB110 | PMNS neutrino mixing from {2,3,5,7} arithmetic; TBM sum rule; mass-squared ratio; CP phase cross-relation | 5 identities (#234–#238). sin²θ₁₃ = 1/(p₂²·p₃) = 1/45 (0.32σ). TBM sum rule: sin²θ₁₂ + sin²θ₁₃ = 1/p₂ → sin²θ₁₂ = 14/45 (0.32σ). sin²θ₂₃ = p₃·p₄/p₁^λ(p₄) = 35/64 (0.04σ). Δm²₃₂/Δm²₂₁ = p₁·p₄²/p₂ = 98/3 (0.10σ). δ_CP = (p₃·p₄/p₁^p₃)·π = 35π/32 (0.01σ, tentative). χ²/4 = 0.053. Cross-relation: δ_CP/π = p₁·sin²θ₂₃. PMNS uses all four primes; CKM uses {p₂, p₃} only. |
-| **The Gauge Coupling Hierarchy** | NB111 | ρ-corrected gauge couplings; QCD β = p₄; GUT normalization = p₃/p₂; sin²θ_W derived via EW identity | 6 identities (#239–#244). b₃ = p₄ = 7 (EXACT): QCD β decomposes as ((λ(P₄)−1)p₂−2λ(p₄))/p₂ with N_c=p₂, n_f=λ(p₄). GUT normalization 5/3 = p₃/p₂ (CRT, not SU(5)). 1/α_s = φ(P₃)+p₄/√P₄ (0.1σ). 1/α₂ = P₃−λ(p₄)/√P₄ (0.3σ). 1/α₁ = P₁P₃−1 (0.0σ). sin²θ_W derived via EW identity = 0.23129 (2.2σ, supersedes 8/35 at 88σ). Correction coefficients: {+p₄, −λ(p₄), −1}. Statics (NB30) + dynamics (ρ = 1/√P₄) = full couplings. |
-| **Electroweak Precision** | NB112 | Dual sin²θ_W schemes; M_W routes; Δr radiative correction anatomy; gauge-mass bridge | Solenoid produces TWO sin²θ_W: on-shell-like φ(P₄)/P₄ = 8/35 and MS-bar 0.23129. M_W: tree 80.091 GeV (−0.35%), ρ-corrected 80.233 GeV (−0.17%). Δr gap traced to tree top mass m_t = v/2. Projection: cascade-corrected m_t → M_W = 80.365 GeV (0.3σ, 71× improvement). BRIDGE: gauge+mass sectors meet at M_W through Δρ ∝ m_t². |
-| **The Fine Structure Constant** | NB113 | α(0) = 1/137 from {2,3,5,7}? EM charge sum; running ratio; arithmetic search | 2 identities (#245–#246). Σ N_c Q² = φ(P₃) = 8 (EXACT). Running ratio 1/α(0)/1/α(M_Z) ≈ p₂p₃/(p₁p₄) = 15/14 (PROVISIONAL, 149 ppm). α(0) is NOT pure number theory — requires cascade + absolute mass scale. |
-| **Influx and Response** | NB114 | Cascade wave dynamics: κ sweep, energy flow decomposition, Bode analysis, 2D ε-κ landscape, impedance balance | 3 structural identities (#247–#249). Direct influx dominance: each level receives 94–100% power from direct ε·sin(θ_k), NOT feed-down (R₃: 99.8%). Filter cutoff classification theorem: P_crit = 2π√P₄ ≈ 91.1 between P₃ and P₄ → R₃ unique passband; requires {2,3,5,7} (fails for {2,3,5}). Energy concentration: 95.7% of cascade energy in R₃ at ρ. CASCADE IS PARALLEL RECEIVER. ε=κ is impedance balance, NOT optimization. |
-| **The Variational Cascade** | NB115 | Lagrangian origin of the cascade; dissipation matrix derivation; gradient flow interpretation; coordinate transform proof | 4 structural identities (#250–#253). Dissipation matrix Γ̃ = diag(p_k²) + bidiag(−p_{k+1}), eigenvalues = {4,9,25,49} = prime squares. Uniform relaxation theorem: A₄ = Γ̃⁻¹K₄ has ALL eigenvalues = κ. Cascade = exact coordinate transform via primorial recursion (residual < 10⁻¹⁵). det(Γ̃) = P₄² = 44100. The cascade is the GRADIENT FLOW of V_covering with prime-square dissipation and uniform relaxation. |
-| **Mass Exponents from Filter** | NB116 | Dissipation-exponent bridge; four-prime cooperation identity; exponent hierarchy from φ(P₄) = 48 | 3 structural identities (#254–#256). X₄_LEP = γ₃/ω = p₄²/(2π) — lepton exponent = dissipation eigenvalue / base (EXACT bridge). ∏(pₖ−1, k=1..3) = p₄+1 = 8 — four-prime cooperation specific to {2,3,5,7}, making φ(P₄) = p₄²−1. X₄ = (γ₃−1)/ω = φ(P₄)/(2π) — quark exponent = (eigenvalue−1)/base; −1 = color mode. All 5 exponents from φ(P₄): X₃ = φ(P₄)/ω(P₄)/(2π), X₂ = φ(P₄)/φ(p₄)/(2π). Scope boundary: no uniform x_k = f(γ_k)/(2π) at all levels. |
-| **The Exponent Correction** | NB117 | Lepton wrapping correction anatomy; CP² mechanism; algebraic mass correction formula | 1 identity (#257): mass_corr = (φ(P₄)/p₄²)^{p₄²/(4π)} = (48/49)^{49/(4π)} = −7.73%, matching NB108's −7.68% to 0.05%. Wrapping acts on CP² (energy ratio). Large-p₄ limit → exp(−1/(4π)). Already in cascade simulations. Quark 16/15 = d(P₄)/(p₂p₃) is total sector energy, not per-crossing (scope boundary). |
-| **The Top Quark Bridge** | NB118 | Convention correction (NB34 vs NB112); compact top mass formula; EW precision; up-type chain | 1 identity (#258): m_t/M_Z = p₂²/√(πp₄) = 9/√(7π) → 175.0 GeV (PDG: 172.69, +1.34%, PASS). p₁ and p₃ cancel; only chirality (p₂) and ultimation (p₄) survive. M_W(sol) = 80.384 GeV (1.1σ), 18.7× over NB112. NB112's −29% error was convention misread. |
-| **The Complete α(0) Chain** | NB119 | Compact fine-structure constant; error cancellation; NB113 frontier closed; #246 promoted to PASS | 1 identity (#259): 1/α(0) = 275/2 − 45/(7√210) = 137.056 (PDG: 137.036, +0.015%, PASS). Tree 275/2 = 137.500 (pure integer), ρ-correction −0.444. Errors cancel: −0.025% (gauge) + 0.040% (ratio) → +0.015%. α(0) is 99.68% statics. |
-| **The Higgs Sector** | NB120 | Compact Higgs mass formula; tree-vs-corrected VEV; formula scan; algebraic anatomy; NB34 revision | 1 identity (#260): m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV (PDG: 125.25, −0.01%, 0.08σ, PASS). Tree 48/35 = sin²θ_W(tree) × λ(p₄). Supersedes #18 (m_H=v/P₁, −0.9%) and #19 (λ=1/8, −3.4%). EW hierarchy from M_Z complete. |
-| **The Gauge-Gravity Bridge** | NB121 | Gauge-gravity unification anatomy; Tr(L) = gauge coupling product; hypercharge exclusion; complete mass hierarchy from M_Z | 2 structural identities (#261–#262). Tr(L) = (1/α₂)_tree × (1/α₃)_tree = P₃ × φ(P₃) = 30 × 8 = 240 — three chains (gauge CRT, spectral Cayley, modular E₄) converge. Only SU(2)×SU(3) enter gravity — U(1)_Y excluded (extra p₁ factor). M_Pl/M_Z = [(1/α₂)(1/α₃)]^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹. G_N at 0.006% from CODATA. Gauge 55.6% / ultimation 44.4% of hierarchy. |
-| **The Gravity Amplifier** | NB122 | Gravity exponent anatomy; bilateral-chirality crossing; σ₃ perfect square uniqueness; metric product identity | 3 structural identities (#263–#265). d₀² = γ₁ and d₁² = γ₀: metric-dissipation transposition at inner two levels, uniquely possible for {2,3}. σ₃(p) is perfect square only for p=2. ∏d_k = φ(P₃)/p₃ = 8/5 connects metric to strong coupling. Gravity exponent 9 = bilateral-chirality crossing: inner geometry → outer amplitude. |
-| **The Triple Convergence** | NB123 | Bernoulli-primorial bridge; spectral-gauge bridge; gravity tree-exactness; ρ-correction anatomy | 3 structural identities (#266–#268). Von Staudt-Clausen at 2n = ω(P₄) = 4 selects {2,3,5}, excludes 7 → den(B₄) = P₃ = 30, giving c₁(E₄) = φ(P₃)·P₃ = 240 = gauge product (Bernoulli bridge). p₄-1 = p₁p₂ makes Cayley |S| = p₃, so Tr(L) = p₃·φ(P₄) = P₃·φ(P₃) = 240 (spectral-gauge bridge). Gravity uses algebraic 240, NOT ρ-corrected 251: tree 0.003% vs corrected +19.6% catastrophic. |
-| **The Tau-Muon Bridge** | NB124 | Window-0 CP ratio + dissipation amplitude correction p₃/p₄; m_τ/m_μ resolved; NB93 frontier closed | 2 identities (#269–#270). m_τ/m_μ = C₀(R3,lep)^{x₃} × p₃/p₄ = 16.814 (−0.016%, PASS). C₀ = window-0 CP ratio (T-independent, #216). p₃/p₄ = √(γ₂/γ₃) = dissipation amplitude ratio between R₃ receiver and R₄ source. R₃ mass uses window-0 not cumulative dilution (#270). Combined m_τ/m_e = 3464 (−0.39%, 11× over NB73). |
-| **The Unified Mass Architecture** | NB125 | Investigates WHY the mass formulas work; destructive interference at R₃; three-mechanism taxonomy; quark-lepton asymmetry from CRT crossing geography | 0 new identities (honest investigation). Full R₃ CP (5.227) < Transient CP (5.781) < SS CP (6.251) — destructive interference. p₃/p₄ exact to 0.016%, emerges at CRT sector level not branch level. Three mechanisms: (A) R₄ cumulative (intra-gen), (B) R₃ window-0 × p₃/p₄ (inter-gen lepton), (C) cumulative multi-level (inter-gen quark), (D) algebraic top. Quark R₃ window-0 CP = 39.80 vs lepton 5.23 — quark g1 at ci=11 deep in wrapping zone. Window-0 concentration universal: all four panels max|CP(w>0)−1| < 0.06%. |
-| **The Wrapping Horizon** | NB126 | CRT derivation of mechanism selection; a5=0 sieve; g1/g2 bifurcation; wrapping horizon anatomy; NB125 open question resolved | 0 new identities (mechanism derivation). Wrapping horizon = sqrt(P₄)·ln(p₁²p₂)−1 = 35.010, coincidence with p₃p₄ = 35 (0.028%, NOT algebraic). Physical crossings reproduced from CRT: ci ≡ g₃^{a₃} (mod 3), ci ≡ 1 (mod 5) [a5=0], ci ≡ g₇^{a₇} (mod 7), gcd(ci,210)=1. The a5=0 sieve selects g1 at position 0 (inside horizon), pushes g2 to later positions (outside). g1-g2 gap = 30 = P₃. NB125 open question RESOLVED. |
-| **The Bottom Quark** | NB127 | m_t/m_b cross-sector bridge; charge-neutral subgroup; cascade consistency; complete 6-quark mass table from M_Z | 2 identities (#271–#272). m_t/m_b = P₄/p₃ = 42 = p₁p₂p₄ (−0.39%, PASS). Charge prime removed from primorial → charge-neutral subgroup Z*₄₂. φ(42) = 12 = λ(P₄): Z₄ charge factor invisible to group exponent. Cascade consistency: (m_t/m_c)/(m_b/m_s) = 3.0046 ≈ p₂ = 3 (+0.15%, PASS). b-τ check: m_b/m_τ ≈ p₄/p₂ = 7/3 (−0.52%, derived). Complete 6-quark + 3-lepton mass table from M_Z, mean |dev| = 2.16%, zero free parameters. || **The Neutrino Mass Scale** | NB128 | Normal Ordering structural prediction; absolute neutrino mass from seesaw + primorial boost; reactor angle connection | 2 identities (#273–#274): Normal Ordering predicted (PASS) — #237 ratio positive-definite + covering tower p₄ before p₃. m₃ = (v²/M_Pl) × p₂³p₃⁴/p₁ = (M_Z²/M_Pl) × p₂³p₃⁵p₄/p₁³ = 50.284 meV (+0.004%, PASS — promoted by NB129). Seesaw v²/M_Pl from NB88/NB121. Boost = λ(P₄) × 1/sin²θ₁₃ × (p₃/p₁)^p₂ — uniquely determined by cascade susceptibility (NB129). Σm_ν = 59.0 meV < DESI/Planck. m₃/M_Z = p₃/(p₁¹⁹p₂p₄⁸): net p₄⁻⁸ explains neutrino lightness. |
-| **The Neutrino Cascade** | NB129 | Dissipation matrix susceptibility derivation of neutrino boost; reactor angle from cascade; dual-duty dissipation | 2 identities (#275–#276): B_ν = λ(P₄) × 1/sin²θ₁₃ × (p₃/p₁)^{p₂} = 12 × 45 × (5/2)³ UNIQUE decomposition (PASS). sin²θ₁₃ = (Γ̃⁻¹)₁₂ = chirality→charge cascade susceptibility (PASS). Dual-duty: eigenvalues → charged fermion exponents (NB116), off-diagonals → neutrino boost (NB129). #274 promoted PROVISIONAL→PASS. |
-| **The Origin of ρ** | NB130 | Cascade validation of NB76 constraints; resonance structure; dual-constraint uniqueness of ρ | 0 new identities (mechanism notebook). GAP-01 investigation: ρ = 1/√P₄ from impedance balance + differential wrapping. L/Q(κ) shows dramatic resonance peaking at ~1.15ρ; Sum = 12 eliminates second crossing → unique selection. |
-| **The Algebra of ρ Selection** | NB131 | Cascade signal processing: transient decay, wrapping horizon, filter gain, differential wrapping mechanism | 0 new identities (mechanism notebook). Wrapping horizon ≈ √P₄·ln(12) ≈ 36. Differential wrapping between Q_g1 (86%) and L_g1 (40%) creates L/Q > 1. GAP-01 RESOLVED. |
-| **The Elephant** | NB132 | Complete dynamical portrait: frequency spectrum, phase space, force anatomy, energy distribution | 14 systematic observations. Frequency-divider chain: periods 1→2→6→30 (primorials). Energy: 95.3% in R₃. Direct influx dominance (66-99%). System = single-pump frequency-divider filter cascade. |
-| **The Relaxation-Mass Bridge** | NB133 | GAP-02 mechanism: why dissipation eigenvalues become mass exponents; character counting; window-0 exponent probe | 0 new identities (mechanism). Exponent = character count/(2π): R₃ φ(105)=48→X₄, R₂ φ(21)=12→X₃, R₁ φ(30)=8→X₂. γ₃ = φ(P₄)+1 via four-prime cooperation. Window-0 lepton x_eff = 3.000376 ≈ p₂. GAP-02 PARTIALLY RESOLVED. |
-| **The Window-Zero Exponent** | NB134 | T-independence of window-0 exponent; four mass channels; cumulative pipeline T-dependence; exponent algebra | 1 identity (#277, PROVISIONAL). x_eff(w0,lep) = 3.000376 identical at T=500–10000 (spread=0). C₀³ = 206.63 vs 206.77 (−0.067%). Channel-specific: only lepton intra-gen has x ≈ p₂. Cumulative pipeline massively T-dependent. X₄_LEP/p₂ = 49/(6π) exact. |
-| **The Mass Exponent Algebra** | NB135 | Promotion test for #277; physical channel mapping vs raw levels; T-independence gate; residual anatomy | 0 new identities, 1 promotion. #277 promoted PROVISIONAL→PASS. x = 3.0003758562 (+0.013%) with exact T-independence. Lepton intra-gen: C₀³ = 206.630 vs 206.768 (−0.067%). Quark x_s/d = 1.586646 remained unpromoted; later NB137 refinement found 100/63 fits slightly better than 2^(2/3), but no quark law was promoted. |
-| **The Four Mass Channels** | NB136 | Synthesis of all four mass channels; complete 9-fermion mass table from M_Z; quark window-0 exponent anatomy | 0 new identities (synthesis). Four channels: (A) lepton intra-gen C₀^{p₂}, (B) lepton inter-gen C₀^{x₃}×p₃/p₄, (C) quark cumulative NB72, (D) algebraic cross-sector. Mean |dev| = 1.64%, zero free parameters. |
-| **The Quark Exponent** | NB137 | Quark window-0 exponent investigation; per-level survey; wrapping anatomy; algebraic battery; T-convergence | 0 new identities (investigation). x_eff(s/d) = 1.5866464 is perfectly T-independent. Initial best simple candidate was 2^(2/3), but extended notebook analysis found 100/63 = (4/7)×(25/9) fits the measured value slightly better and wins consistently across T=1000,2000,5000. R₀ quark x ≈ 4/7 (+36.8 ppm); cross-level ratio x_q(R₃)/x_q(R₀) ≈ 25/9 (−449.5 ppm). Mechanism: j₃ controls 92.7% of SS variance at ci=11, and the j₃=4 branch with s̄(4)/s̄(0) ≈ p₂ is the wrapping outlier that lifts x into the observed range. Exponent remains OPEN. |
-See `docs/scorecard.md` for the complete phase map and identity details.
-
-## Working Rules
-
-1. **No free parameters**: Every prediction must derive from {2, 3, 5, 7} (or equivalently P₄ = 210) plus the single anchor M_Z. If a fit parameter is needed, it's not a prediction.
-
-2. **Phase 1/2 are NOT results**: NB01–NB08 used a preliminary model (nested torus T⁴) that was abandoned. NB13–NB22 reproduce standard QM textbook calculations on S² × R⁺ — they are consistency checks, not predictions. Do NOT cite Phase 1/2 notebook verdicts ("EXACT match", "PASS") as framework findings. All identities come from NB29+ (solenoid arithmetic). See `docs/scorecard.md` §V for details.
-
-3. **System first, shadows second**: Numerical identities are projections — shadows the system casts onto the measurement plane. Understanding the dynamical system that produces them is the actual physics. A notebook that observes, characterizes, or explains the system is not a "null result" — it is the real work. Do NOT frame system-observation notebooks as "0 new identities (honest null)" as if the purpose was identity-hunting and we failed. The identity count tracks the shadows; understanding tracks the system.
-
-4. **Honest nulls**: When a test generates a specific prediction and it fails, classify it honestly:
-   - **Genuine null**: The framework predicts X, data shows not-X → report as failure
-   - **Scope boundary**: The framework correctly identifies that the question requires a deeper layer (e.g., dynamics rather than statics)
-   - **Methodological**: The test wasn't discriminating enough
-
-5. **The Cartesian artifact**: 3+1 dimensionality is NOT a prediction of this framework. It is what Cartesian-trained observers project onto the concentric nesting. Do NOT propose "testing" whether 3+1 emerges — that is circular. See the four-prime theses for the full argument.
-
-6. **Per-prime generators**: When working with Z*₂₁₀, use the CRT decomposition. The four cyclic factors {Z₁, Z₂, Z₄, Z₆} correspond to the four primes {2, 3, 5, 7}. Characters factor per-prime.
-
-7. **Pre-commit workflow**: Always save all files (`workbench.action.files.saveAll`) before `git add`/`git commit`. VS Code may hold unsaved buffer state.
-
-8. **Conda environment**: `concentric` (Python 3.12). Dependencies: numpy, scipy, matplotlib, sympy, jupyter, jax, diffrax, numba.
-
-9. **Notebook execution order**: Always execute cells sequentially from top to bottom. Later cells depend on variables established by earlier cells. If a cell fails, fix it and re-run — do not skip ahead.
-
-10. **Exact arithmetic first**: Use `sympy` or `fractions.Fraction` to verify identities exactly before reporting numerical values. An identity that holds only to floating-point precision is not proven — it is a hint.
-
-11. **One identity per claim**: Each identity must be a single, verifiable statement. Do not bundle multiple claims into one identity number.
-
-12. **Parallelization**: When writing out calculations, whenever possible use parallelization in code to speed up execution. This is especially important for notebooks that involve large computations.
+### Acceleration
+- **Always use `backend='jax'` for T > 100** (200× over scipy)
+- Numba (~5-15×) when JAX unavailable
+- Azure ML for very large T: `python scripts/azure_ml_submit.py --benchmark --T 5000`
 
 ## Connection to Literary Compilation
 
-This project provides the computational verification for claims in the `literary-compilation` repository, specifically:
-- "Orbits That Lost Their Center" (four-prime theses on space-time emergence)
+Computational verification for `literary-compilation` repository:
+- "Orbits That Lost Their Center" (four-prime theses)
 - "The Resolution of the Finite Mind" (numbers as perceiver properties)
-- The Swedenborgian correspondence framework applied to mathematical physics
-
-The scorecard in `docs/scorecard.md` serves as the empirical backbone for these theses.
+- Swedenborgian correspondence framework applied to mathematical physics
