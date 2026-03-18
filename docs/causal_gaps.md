@@ -129,7 +129,11 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 5. *Key obstacle*: The solenoid mass matrix is DIAGONAL in the CRT basis. The F-N relation requires off-diagonal texture. The off-diagonal elements must come from the wrapping nonlinearity mixing generations at wrapping crossings.
 
-**Would resolve**: CKM matrix from solenoid dynamics. Attack via the wrapping-induced generation mixing at the 11 wrapping crossings, using proper SA module CRT mapping.
+**Fundamental obstacle**: The solenoid mass matrix is DIAGONAL in the CRT basis (each crossing = one generation, no off-diagonal elements). Diagonal matrices commute → CKM = Identity. The CKM requires OFF-DIAGONAL mass matrix elements, which come from the Higgs VEV on the covering tower (NB53-55), NOT from the cascade dynamics. The cascade gives masses (diagonal). The Higgs gives mixing (off-diagonal). These are different layers of the solenoid.
+
+**Next step**: Complete the Higgs VEV computation on the covering tower (NB53-55 frontier). Show that up-type and down-type VEV profiles on the fiber are misaligned by the a5 (isospin) structure. The misalignment angle = the CKM.
+
+**Would resolve**: CKM matrix from solenoid Higgs sector.
 
 ### GAP-15: PMNS Atmospheric Angle and CP Phase [STRUCTURAL]
 
