@@ -131,9 +131,11 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 **Fundamental obstacle**: The solenoid mass matrix is DIAGONAL in the CRT basis (each crossing = one generation, no off-diagonal elements). Diagonal matrices commute → CKM = Identity. The CKM requires OFF-DIAGONAL mass matrix elements, which come from the Higgs VEV on the covering tower (NB53-55), NOT from the cascade dynamics. The cascade gives masses (diagonal). The Higgs gives mixing (off-diagonal). These are different layers of the solenoid.
 
-**Next step**: Complete the Higgs VEV computation on the covering tower (NB53-55 frontier). Show that up-type and down-type VEV profiles on the fiber are misaligned by the a5 (isospin) structure. The misalignment angle = the CKM.
+**Key breakthrough (NB164)**: The cascade wrapping IS the non-constant fiber VEV that NB53 proves is the only exit through the spectral wall. At ci=11 (down gen2), the j₃ profile = [0.93, 2.49, 0.57, 2.83, 0.33, 2.86, 0.46] — a strongly non-constant function on C₇. At ci=17 (up gen2), the profile = [0.82, 2.62, 1.71, 0.47, 2.25, 2.15, 0.41] — a DIFFERENT non-constant function. The Fourier m≥1 modes of these profiles provide the off-diagonal generation coupling. The two profiles are different because they're at different ci positions (determined by CRT + isospin step Δci=-84).
 
-**Would resolve**: CKM matrix from solenoid Higgs sector.
+**Next step**: Use the NB55 covering tower infrastructure (C₆ base + C₇ fiber, with projection/lifting operators) substituting the CASCADE j₃ profiles for the Mexican-hat VEV. Compute the mass matrix on the TOWER (not the C₄₂ cycle) which properly separates base=generation from fiber=p₇. Do this for both a5=0 (down, ci=11) and a5=1 (up, ci=17). Extract CKM from eigenvector misalignment.
+
+**Would resolve**: CKM matrix from cascade dynamics + covering tower structure.
 
 ### GAP-15: PMNS Atmospheric Angle and CP Phase [STRUCTURAL]
 
