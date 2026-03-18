@@ -151,9 +151,11 @@ This matches the SM hierarchy: V_us ∝ λ, V_cb ∝ λ² where λ = Cabibbo par
 
 The tower coupling √κ is the geometric mean of the cascade damping rate (κ) and the kinetic unit (1). V_cb emerges naturally. V_us requires F-N. V_ub is the remaining open element.
 
-**Open**: V_ub is 4× too large. May need 3-level tower (C₆ + C₄₂ + C₂₁₀) or V_ub ≈ V_us × V_cb (Wolfenstein hierarchy).
+**3-level tower (C₆+C₄₂+C₂₁₀, N=258)**: V_ub drops to 0.003 (PDG: 0.004), but V_cb drops to 0.0001 (destroyed). The truncation level matters — 2-level gets V_cb right, 3-level gets V_ub closer, but not both simultaneously.
 
-**Would resolve**: Full CKM from solenoid covering tower + F-N texture.
+**Honest wall**: The full CKM requires the profinite tower limit (all covering levels), not a fixed truncation. Each level adds sites that dilute generation-specific effects differently. The correct CKM elements emerge from the balance of all levels. This is a well-defined computation but exceeds current session capacity.
+
+**Would resolve**: Full CKM from profinite tower limit + F-N texture.
 
 ### GAP-15: PMNS Atmospheric Angle and CP Phase [STRUCTURAL]
 
