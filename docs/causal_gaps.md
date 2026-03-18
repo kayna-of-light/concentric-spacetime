@@ -133,9 +133,20 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 **Key breakthrough (NB164)**: The cascade wrapping IS the non-constant fiber VEV that NB53 proves is the only exit through the spectral wall. At ci=11 (down gen2), the j₃ profile = [0.93, 2.49, 0.57, 2.83, 0.33, 2.86, 0.46] — a strongly non-constant function on C₇. At ci=17 (up gen2), the profile = [0.82, 2.62, 1.71, 0.47, 2.25, 2.15, 0.41] — a DIFFERENT non-constant function. The Fourier m≥1 modes of these profiles provide the off-diagonal generation coupling. The two profiles are different because they're at different ci positions (determined by CRT + isospin step Δci=-84).
 
-**Next step**: Use the NB55 covering tower infrastructure (C₆ base + C₇ fiber, with projection/lifting operators) substituting the CASCADE j₃ profiles for the Mexican-hat VEV. Compute the mass matrix on the TOWER (not the C₄₂ cycle) which properly separates base=generation from fiber=p₇. Do this for both a5=0 (down, ci=11) and a5=1 (up, ci=17). Extract CKM from eigenvector misalignment.
+**NB164 computation**: Using NB55 tower (C₆ + C₄₂) with cascade j₃ profiles as fiber tilt at scale κ = 1/√P₄:
+- V_cb ≈ 0.10 (PDG: 0.04) — right order, set by cascade coupling κ
+- V_us ≈ 0 — too small; the Cabibbo angle needs F-N amplification
+- Sigma pairs break (1-4 per sector), generation weights reach 0.55-0.66
 
-**Would resolve**: CKM matrix from cascade dynamics + covering tower structure.
+**The CKM has TWO sources**:
+1. **V_cb, V_ub scale** (∝ κ ≈ 0.07): Tower Sigma breaking via cascade fiber VEV
+2. **V_us (Cabibbo) scale** (∝ √(m_d/m_s) ≈ 0.22): F-N mass texture
+
+This matches the SM hierarchy: V_us ∝ λ, V_cb ∝ λ² where λ = Cabibbo parameter. The tower breaking gives the λ² scale; the mass texture gives λ.
+
+**Remaining**: Combine both mechanisms into a single computation. The F-N texture connects to the cascade via m_s/m_d = 20 → sin θ_C = 1/√20 = 0.224 (2.1σ). The tower breaking gives V_cb ∝ κ. Together they should give the full CKM.
+
+**Would resolve**: CKM matrix from cascade + tower + F-N texture.
 
 ### GAP-15: PMNS Atmospheric Angle and CP Phase [STRUCTURAL]
 
