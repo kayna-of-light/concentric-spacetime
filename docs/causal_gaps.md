@@ -144,9 +144,16 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 This matches the SM hierarchy: V_us ∝ λ, V_cb ∝ λ² where λ = Cabibbo parameter. The tower breaking gives the λ² scale; the mass texture gives λ.
 
-**Remaining**: Combine both mechanisms into a single computation. The F-N texture connects to the cascade via m_s/m_d = 20 → sin θ_C = 1/√20 = 0.224 (2.1σ). The tower breaking gives V_cb ∝ κ. Together they should give the full CKM.
+**NB164 results**: At t_hop = √κ = P₄^{-1/4} (geometric mean of cascade and kinetic):
+- V_cb = 0.040 (PDG: 0.041, 3% off) — from tower gen0↔gen2 coupling
+- V_us = 0.224 from F-N (PDG: 0.225, 2.1σ) — from cascade mass ratio
+- V_ub = 0.016 (PDG: 0.004, 4× off) — OPEN
 
-**Would resolve**: CKM matrix from cascade + tower + F-N texture.
+The tower coupling √κ is the geometric mean of the cascade damping rate (κ) and the kinetic unit (1). V_cb emerges naturally. V_us requires F-N. V_ub is the remaining open element.
+
+**Open**: V_ub is 4× too large. May need 3-level tower (C₆ + C₄₂ + C₂₁₀) or V_ub ≈ V_us × V_cb (Wolfenstein hierarchy).
+
+**Would resolve**: Full CKM from solenoid covering tower + F-N texture.
 
 ### GAP-15: PMNS Atmospheric Angle and CP Phase [STRUCTURAL]
 
