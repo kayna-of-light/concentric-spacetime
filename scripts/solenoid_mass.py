@@ -295,12 +295,12 @@ def compute_mass_table(
     P3 = primorials[3]  # = 30
     H3_sq = P3**2 / (P3**2 + omega**2 * P4)  # R3 filter gain
     m_t = M_Z * p2**2 / np.sqrt(np.pi * p4) * (1 - H3_sq / p4)
-    # Bottom: tree-level with OPPOSITE filter correction (NB168 S3)
-    # The P3-scale filter redistributes energy between t and b:
-    #   m_t gets -(H3^2/p4): generation absorbs signal from top
-    #   m_b gets +(H3^2/(P4/p3)): bottom recovers signal proportional to t/b ratio
-    # This is energy conservation in the filter: top loses, bottom gains.
-    m_b = M_Z * p2**2 / np.sqrt(np.pi * p4) / (P4 / p3) * (1 + H3_sq / (P4 / p3))
+    # Bottom: tree-level, no filter correction yet
+    # The uncorrected ratio m_t_tree/m_b = P4/p3 = 42 gives m_b at 2.3 sigma.
+    # PDG wants m_t/m_b ≈ 41.25, not 42. The 1.78% gap is an OPEN QUESTION:
+    # it signals that either the ratio 42 or the tree-level formula needs correction,
+    # but the correction has not been derived from the cascade dynamics.
+    m_b = M_Z * p2**2 / np.sqrt(np.pi * p4) / (P4 / p3)
 
     # -- LEPTON SECTOR (from m_e anchor) --
     # 1->2 gen (mu/e): dynamical eigenvalue x_l at outermost level
