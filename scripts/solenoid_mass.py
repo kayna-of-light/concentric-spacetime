@@ -246,6 +246,29 @@ def compute_mass_table(
     for name, (idx_g1, idx_g2) in cp_indices.items():
         cp_ratios[name] = {k: rms[idx_g1, k] / rms[idx_g2, k] for k in range(4)}
 
+    # Sector-resolved CP ratios for UP quarks (NB165-167):
+    # The UP sector (a5=2) has its own natural CP pair determined by
+    # wrapping geography. The Q-factor mechanism (NB166) shows that
+    # m_c/m_u uses R1 (underdamped level) with the UP sector's own pair.
+    # Natural UP pair: highest vs lowest total RMS in Z2=0 coset at a5=2.
+    up_cp_ratios = None
+    if 'QUARK' in CP_PAIRS:
+        ch_a3 = CP_PAIRS['QUARK'][0]
+        z2_0_up = []
+        for a7_val in [0, 2, 4]:  # Z2=0 coset
+            mask = (a3 == ch_a3) & (a5 == 2) & (a7 == a7_val)
+            hits = np.where(mask)[0]
+            if len(hits) > 0:
+                idx = hits[0]
+                total_rms = np.sqrt(np.sum(rms[idx]**2))
+                z2_0_up.append((total_rms, idx))
+        if len(z2_0_up) >= 2:
+            z2_0_up.sort(key=lambda x: x[0], reverse=True)
+            up_g1_idx = z2_0_up[0][1]
+            up_g2_idx = z2_0_up[-1][1]
+            up_cp_ratios = {k: rms[up_g1_idx, k] / rms[up_g2_idx, k]
+                          for k in range(4)}
+
     # ====================================================================
     # Step 4: Dynamical exponents (T-independent cascade eigenvalues)
     # ====================================================================
@@ -305,7 +328,13 @@ def compute_mass_table(
     m_t_over_m_c = cp_ratios['QUARK'][2] ** (x_q_intra * r_tc *
                    np.log(cp_ratios['QUARK'][3]) /
                    np.log(cp_ratios['QUARK'][2]))                     # factored to R2
-    m_c_over_m_u = cp_ratios['QUARK'][1] ** x_q_intra                # CP_R1^x_q
+    # m_c/m_u: use UP sector R1 if available (sector-resolved, NB167)
+    # The Q-factor mechanism (NB166) shows UP gen1→gen2 uses the
+    # underdamped R1 level with the UP sector's own natural CP pair.
+    if up_cp_ratios is not None:
+        m_c_over_m_u = up_cp_ratios[1] ** x_q_intra              # UP CP_R1^x_q
+    else:
+        m_c_over_m_u = cp_ratios['QUARK'][1] ** x_q_intra        # fallback: DOWN CP_R1^x_q
 
     m_c = m_t / m_t_over_m_c
     m_s = m_b / m_b_over_m_s
@@ -331,7 +360,7 @@ def compute_mass_table(
         'c':   (m_c,  'x_q*r_tc=x_q*23/14 (NB162)'),
         's':   (m_s,  'x_q*r_bs=x_q*19/15 (NB162)'),
         'd':   (m_d,  'x_q=phi(p3)/p4 (NB161)'),
-        'u':   (m_u,  'x_q at R1 (NB155)'),
+        'u':   (m_u,  'x_q at UP R1 (NB167)'),
         'tau': (m_tau, 'lam/(2pi) at R2 (NB136)'),
         'mu':  (m_mu,  'x_l at R3 (NB135)'),
         'e':   (m_e,   'anchor'),
