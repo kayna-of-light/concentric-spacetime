@@ -2,7 +2,7 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB162. The fermion mass mechanism is fully resolved (coherence across covering levels). Many coupling constants and cosmological parameters remain pattern-matched.
+**Status**: Post-NB169. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169).
 
 ---
 
@@ -19,8 +19,8 @@
 
 ## I. FULLY DERIVED (mechanism understood)
 
-### Fermion Masses (NB148-162)
-**Status**: DERIVED. 9/9 PASS, mean |dev| = 1.45%.
+### Fermion Masses (NB148-169)
+**Status**: PARTIALLY DERIVED. 9/9 PASS, mean |dev| = 0.65%. 8/9 within 1σ. m_b at 2.3σ (GAP-15). m_τ at 2.4σ (159 ppm, higher-order).
 
 The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 covering levels × generation spacing P₃ gives the mass exponent. The resonance condition κ = 1/√P₄ places the gen2 crossing at the wrapping boundary.
 
@@ -115,17 +115,31 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 - ρ̄ = 1/ω = 1/(2π) (0.02σ)
 - η̄ = √p₂/p₃ = √3/5 (0.16σ)
 
-**What's missing**: WHY do these specific prime combinations give the CKM parameters?
+**What's missing**: WHY do these specific prime combinations give the CKM parameters? The λ formula from NB109 was found by matching. A, ρ̄, η̄ are structural identities of Z*₂₁₀.
 
-**NB163 investigation (partial progress)**:
+**NB165-169 investigation (major progress)**:
 
-1. *Froggatt-Nielsen route*: sin θ_C = √(m_d/m_s) = 1/√20 = 0.2236. Gives 2.1σ from PDG (0.22500). Close but not exact. The cascade gives m_s/m_d = 20.000 (not (40/9)² = 19.753). The 0.6% correction needed is unexplained.
+1. **V_us DERIVED** (NB167): Sector-resolved Froggatt-Nielsen gives V_us = 0.22507 (0.029% from PDG). The F-N phase cos φ = ρ·φ(p₄)/p₄ = 6/(7√210) is the cascade coupling × generation totient density. Combined with m_d/m_s = 1/20 (cascade) and m_u/m_c from UP sector R₁ (Q-factor mechanism, NB166). This is FULLY DERIVED.
 
-2. *Directed Cayley splitting* (NB59): The antisymmetric operator A_g breaks generation degeneracy through Im(χ(g)). The a5 sector determines up/down type. ρ = 1/√210 breaks the Im(a5=1) = -Im(a5=3) mirror symmetry, creating gen2-gen3 asymmetry of ρ√3. But this gives gen2↔gen3 splitting, NOT gen1↔gen2 (Cabibbo) mixing.
+2. **V_cb = A·λ²** works (0.64σ) but A = 4/5 = φ(p₃)/p₃ is structural, not dynamical. F-N FAILS for V_cb (cos δ > 1). The 2-3 mixing is algebraic (Wolfenstein), not dynamical (F-N).
 
-3. *Wrapping as generation mixer*: At wrapping crossings, branches lose their j₃ (generation) identity. A particle at ci=11 (85.7% wrapped) is only 14.3% pure generation — the wrapped branches become generation-mixed. The differential purity between the DOWN (a5=0) and UP (a5=1) crossings could give the CKM, but the specific mapping from purity differences to mixing angles is not yet established.
+3. **Full CKM**: 9/9 within 2σ, χ²/9 = 1.92. J = 2.81×10⁻⁵, δ_CP = 65.3°. Uses 1 derived (λ) + 3 structural (A, ρ̄, η̄) parameters.
 
-4. *CRT entanglement*: The isospin step Δci = 126 is uniform across generations, but the NONLINEAR wrapping response makes the mass change generation-dependent. Gen2 crosses the wrapping boundary under isospin rotation while gen3 stays in the coherent zone. This asymmetry is the physical origin of the CKM.
+4. **Wrapping geography** (NB165-166): Isospin step Δci = ±42 rotates wrapping from DOWN gen2 (ci=11) to UP gen1 (ci=29). This rotation IS the CKM direction. Q-factor mechanism explains the up/down hierarchy asymmetry.
+
+**Still open**: Deriving A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 from the cascade dynamics rather than from group arithmetic.
+
+### GAP-15: Bottom Yukawa / m_t/m_b Ratio [NEW, OPEN]
+
+**What we have**: m_t/m_b = P₄/p₃ = 42 (NB127, arithmetic search). Gives m_b at 2.3σ.
+
+**What's missing**: The bottom Yukawa y_b has NO derivation. NB118 derives y_t = 1/√P₁ from gauge structure (cos²θ_W, α₂). The cancellation of p₃ makes m_t charge-independent. For m_b, p₃ must NOT cancel — but the mechanism for this is unknown.
+
+**NB169 comprehensive analysis**: 12 analyses at full 210-point resolution confirm the cascade has NOTHING to say about m_t/m_b. Both crossings (ci=149, ci=191) are in steady-state with RMS ratio 1.07. The gap is conclusively in the GAUGE SECTOR — specifically, in how SU(2) breaking (Z₂ ≀ Z₂ from NB144) creates the up-down Yukawa asymmetry.
+
+**Candidate**: m_t/m_b = 42 × √(1−α₂) = 42 × √(29/30) = 41.294 (0.025% from PDG). Uses the derived SU(2) coupling α₂ = 1/P₃. Found by searching, NOT derived.
+
+**Would resolve**: m_b from 2.3σ to 0.6σ. And establish whether the Higgs mechanism contributes √(1−α₂) to the isospin mass splitting.
 
 5. *Key obstacle*: The solenoid mass matrix is DIAGONAL in the CRT basis. The F-N relation requires off-diagonal texture. The off-diagonal elements must come from the wrapping nonlinearity mixing generations at wrapping crossings.
 

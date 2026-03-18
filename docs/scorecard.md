@@ -12,10 +12,11 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 162 (NB01–NB162) |
-| **Causal gaps resolved** | 8/10 (GAP-01, 02, 03 mechanism, 05 major, 06, 07, 08, 10; see causal_gaps.md) |
-| **Mass pipeline** | 9/9 PASS, mean |dev| = 1.45%, all from single T=211 cascade |
+| **Notebooks** | 169 (NB01–NB169) |
+| **Causal gaps resolved** | 8/10 + GAP-15 open (GAP-01, 02, 03 mech, 05 major, 06, 07, 08, 10; see causal_gaps.md) |
+| **Mass pipeline** | 9/9 PASS, mean |dev| = 0.65%, sector-resolved (NB167), 8/9 within 1σ |
 | **Mass mechanism** | Coherence: non-wrapping fraction across 4 levels × P₃ = exponent |
+| **CKM** | 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%, δ_CP = 65.3° |
 
 Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group of units modulo 210. The single dimensional anchor M_Z converts pure ratios to GeV. The mass spectrum is determined by the spatial coherence of the influx pattern across the solenoid's four covering levels.
 
