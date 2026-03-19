@@ -2,7 +2,7 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB169. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three new gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived."
+**Status**: Post-NB170. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 upgraded to PARTIALLY DERIVED: x_q = 100/63 confirmed (NB170), base factor 4/7 derived, cross-level 25/9 open.
 
 ---
 
@@ -38,7 +38,7 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 | Quantity | Numerical Value | Status |
 |----------|----------------|--------|
-| x_q | 1.5866463961 | Hardcoded in pipeline. Measured from cascade. 475 ppm from ∛4. Analytical form OPEN → **GAP-20** |
+| x_q | 100/63 = 1.58730159 | Analytical form CONFIRMED (NB170 #279). Cascade measures 1.58664640 (413 ppm off). Factored: (4/7)(25/9). Base 4/7 DERIVED, cross-level 25/9 OPEN → **GAP-20** |
 | x_l | 3.0003758562 | Hardcoded in pipeline. Measured from cascade. 125 ppm from p₂ = 3. Promoted to exact 3 in NB147, but mechanism open |
 | x_l_inter | 1.2730 | Hardcoded. ~φ(P₃)/(2π). Mechanism open |
 
@@ -209,17 +209,19 @@ The tower coupling √κ is the geometric mean of the cascade damping rate (κ) 
 
 **Would resolve**: Neutrino mass hierarchy from solenoid.
 
-### GAP-20: Quark Mass Exponent x_q [HIGHEST PRIORITY]
+### GAP-20: Quark Mass Exponent x_q [PARTIALLY DERIVED — NB170]
 
-**What we have**: x_q = 1.5866463961, hardcoded in solenoid_mass.py (line 307). Controls ALL 4 quark mass ratios (m_s/m_d, m_c/m_s, m_b/m_s via r_bs, m_t/m_c via r_tc). T-independent — measured from cascade, same value at T=500, T=1000, T=5000.
+**What we have**: x_q = 100/63 = p₁²p₃²/(p₂²p₄) CONFIRMED (NB170, #279). Cascade-measured value 1.58664640 matches 100/63 = 1.58730159 to 413 ppm. Applied to PDG: m_s/m_d = C₀^{100/63} = 20.025 vs 20.0 ± 2.69 (0.01σ). T-independence: 0.0 ppm spread across T=211–2000 (#280).
 
-**Numerical clues**: 475 ppm from ∛4 = 1.5874. Also close to 100/63 = p₁²p₃²/(p₂²p₄) = 1.5873 (mentioned in copilot-instructions as one candidate). Neither has a derivation.
+**Factored decomposition** (#281): x_q = (4/7) × (25/9) = x(R₀) × (p₃/p₂)².
+- x(R₀) = 4/7 = p₁²/p₄: DERIVED (NB161, +37 ppm)
+- Cross-level factor (p₃/p₂)² = 25/9: MEASURED from cascade (−450 ppm), derivation OPEN
 
-**What the cascade actually does** (NB169 Thread 10): The R₃ profile at quark crossings shows wrapping compression of a linear spatial profile. The exponent emerges from the ratio of wrapped to unwrapped amplitude. The b/H₃ ratio controls the compression geometry. This is the most promising analytical handle.
+**R₃ anomaly** (NB170): The outermost cascade level has non-vanishing far-field driven oscillation at frequency ω/P₃ = 2π/30, unlike R₀–R₂ which decay to ~0. Linearized model predicts far-field RMS within 7% of measured value. The driven oscillation determines the CP ratio denominator and hence the cross-level factor.
 
-**Why this matters**: x_q is the single hardcoded number with the most leverage. Deriving it would promote 4 quark mass ratios from "cascade-measured" to "analytically derived."
+**What remains**: WHY does the cross-level factor equal (p₃/p₂)²? The linearized cascade suggests it involves the ratio of driving frequency to damping rate, but the analytical connection to p₃²/p₂² has not been established. Four hypotheses tested in NB170 (φ ratio, sheet ratio, frequency ratio, prime density) — none fully explain it.
 
-**Would resolve**: All 4 quark mass ratios from first principles.
+**Would resolve**: Promoting all 4 quark mass ratios from "cascade-measured" to "analytically derived."
 
 ### GAP-21: Top Mass Anchor Formula [STRUCTURAL]
 
@@ -300,7 +302,7 @@ Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The c
 
 Based on which gaps would unlock the most understanding:
 
-1. **GAP-20 (x_q derivation)** — The quark exponent controls 4 mass ratios. NB169 Thread 10 identified the mechanism (wrapping compression geometry). A clean wrapping integral could yield an analytical form. **HIGHEST LEVERAGE — currently being pursued.**
+1. **GAP-20 (x_q cross-level factor)** — The base factor x(R₀) = 4/7 is DERIVED and the analytical form x_q = 100/63 = (4/7)(25/9) is CONFIRMED (NB170, 0.01σ). What remains: deriving WHY the cross-level factor equals (p₃/p₂)² = 25/9. The R₃ far-field driven oscillation at ω/P₃ is the physical mechanism — an analytical expression for the amplification ratio would close this. **HIGHEST REMAINING LEVERAGE.**
 
 2. **GAP-21 (Top mass anchor)** — y_t = 1/√P₁ = √(cos²θ_W × α₂) may be a one-loop identity connecting the gauge sector to the Yukawa sector. If derived, the entire top mass becomes mechanism-free.
 

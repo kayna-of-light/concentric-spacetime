@@ -167,7 +167,7 @@ concentric-spacetime/
 │   ├── ...
 │   ├── 147_the_mass_formula.ipynb     # Mass formula derived
 │   ├── ...
-│   └── 169_tb_ratio_from_cascade.ipynb # Latest: t/b analysis, GAP-15
+│   └── 170_the_quark_exponent.ipynb    # Latest: x_q = 100/63 confirmed
 ├── scripts/
 │   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ + physical constants) — ACTIVE
 │   ├── solenoid_system.py     # Solenoid dynamics (unified: theta-space + cascade) — ACTIVE
@@ -492,10 +492,11 @@ The project has progressed through 169 notebooks. The full per-notebook Phase Ma
 | Gauge Emergence | NB138–NB147 | Single action, wreath product → SU(3)×SU(2)×U(1), fermion bijection, mass formula derived. Identity #278. |
 | Mass Pipeline | NB148–NB162 | End-to-end pipeline: {2,3,5,7}+M_Z → 9 fermion masses. x(R0)=4/7 DERIVED. r_bs, r_tc DERIVED. 9/9 PASS. |
 | CKM + Frontier | NB163–NB169 | CKM from dynamics, V_us derived (0.029%), sector-resolved pipeline. GAP-15 (bottom Yukawa) confirmed OPEN. |
+| Exponent Derivation | NB170 | x_q = 100/63 confirmed (0.01σ). Factored: (4/7)(25/9). Base derived, cross-level open. 3 new identities (#279–281). |
 
-### Current State (Post-NB169)
+### Current State (Post-NB170)
 
-- **278+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **281+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
 - **Causal gaps**: see `docs/causal_gaps.md` for full classification (DERIVED / PATTERN-MATCHED / OPEN)
@@ -507,7 +508,7 @@ The project has progressed through 169 notebooks. The full per-notebook Phase Ma
 | **GAP-15** | Bottom Yukawa y_b has no derivation. m_t/m_b = 42 is structural (pattern-matched). Cascade does NOT determine it — both crossings in steady-state. Gap is in the **gauge sector** (SU(2) breaking). | NB169 |
 | **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
 | **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |
-| **x_q** | Quark mass exponent 1.5866 is T-independent and tested on 4 ratios, but 475 ppm from ∛4 — analytical form OPEN. | NB137, NB168 |
+| **GAP-20** | Quark mass exponent x_q = 100/63 CONFIRMED (NB170, 0.01σ). Base x(R₀) = 4/7 DERIVED. Cross-level (p₃/p₂)² = 25/9 MEASURED — derivation OPEN. | NB170 |
 | **GAP-12/13** | QED running ratio 15/14, Higgs mass formula — found by matching. | NB113, NB120 |
 
 ## Working Rules
