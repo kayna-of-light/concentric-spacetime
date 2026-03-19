@@ -2,7 +2,7 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB169. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169).
+**Status**: Post-NB169. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three new gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived."
 
 ---
 
@@ -24,6 +24,8 @@
 
 The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 covering levels × generation spacing P₃ gives the mass exponent. The resonance condition κ = 1/√P₄ places the gen2 crossing at the wrapping boundary.
 
+**Genuinely derived** (mechanism understood, would predict without PDG):
+
 | Quantity | Formula | Mechanism |
 |----------|---------|-----------|
 | x(R0) = 4/7 | ∏(1-f_k) × P₃ = φ(p₃)/p₄ | Non-wrapping fraction product (NB161) |
@@ -31,7 +33,24 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 | r_tc = 23/14 | 1 + 1/p₁ + 1/p₄ | Chirality + generation fractions (NB162) |
 | κ = 1/√P₄ | Sheet normalization | Resonance condition for rational exponents (NB159) |
 | CP ratios | From cascade ODE | Spatial profile of covering misalignment |
-| x_q, x_l | Cascade eigenvalues | T-independent, computable from ODE |
+
+**Cascade-measured** (T-independent, computable from ODE, but no analytical closed form):
+
+| Quantity | Numerical Value | Status |
+|----------|----------------|--------|
+| x_q | 1.5866463961 | Hardcoded in pipeline. Measured from cascade. 475 ppm from ∛4. Analytical form OPEN → **GAP-20** |
+| x_l | 3.0003758562 | Hardcoded in pipeline. Measured from cascade. 125 ppm from p₂ = 3. Promoted to exact 3 in NB147, but mechanism open |
+| x_l_inter | 1.2730 | Hardcoded. ~φ(P₃)/(2π). Mechanism open |
+
+**Pattern-matched anchor formulas** (found by searching, not derived):
+
+| Quantity | Formula | Where | Gap |
+|----------|---------|-------|-----|
+| m_t/M_Z | p₂²/√(πp₄) × (1 − H₃²/p₄) | solenoid_mass.py L279, NB118 | **GAP-21** |
+| y_t = 1/√P₁ | Top Yukawa from √(cos²θ_W × α₂) | NB118, but WHY this cancellation? | **GAP-21** |
+| m_t/m_b = 42 | P₄/p₃ | NB127, arithmetic search | **GAP-15** |
+| p₃/p₄ in m_τ | m_τ = m_μ × R_lep² ^ x_l_inter × 5/7 | solenoid_mass.py L331 | **GAP-22** |
+| H₃²/π coupling | Cascade oscillation to top mass | solenoid_mass.py L279 | **GAP-21** |
 
 ### Gauge Structure (NB140-144)
 **Status**: DERIVED.
@@ -190,6 +209,38 @@ The tower coupling √κ is the geometric mean of the cascade damping rate (κ) 
 
 **Would resolve**: Neutrino mass hierarchy from solenoid.
 
+### GAP-20: Quark Mass Exponent x_q [HIGHEST PRIORITY]
+
+**What we have**: x_q = 1.5866463961, hardcoded in solenoid_mass.py (line 307). Controls ALL 4 quark mass ratios (m_s/m_d, m_c/m_s, m_b/m_s via r_bs, m_t/m_c via r_tc). T-independent — measured from cascade, same value at T=500, T=1000, T=5000.
+
+**Numerical clues**: 475 ppm from ∛4 = 1.5874. Also close to 100/63 = p₁²p₃²/(p₂²p₄) = 1.5873 (mentioned in copilot-instructions as one candidate). Neither has a derivation.
+
+**What the cascade actually does** (NB169 Thread 10): The R₃ profile at quark crossings shows wrapping compression of a linear spatial profile. The exponent emerges from the ratio of wrapped to unwrapped amplitude. The b/H₃ ratio controls the compression geometry. This is the most promising analytical handle.
+
+**Why this matters**: x_q is the single hardcoded number with the most leverage. Deriving it would promote 4 quark mass ratios from "cascade-measured" to "analytically derived."
+
+**Would resolve**: All 4 quark mass ratios from first principles.
+
+### GAP-21: Top Mass Anchor Formula [STRUCTURAL]
+
+**What we have**: m_t/M_Z = p₂²/√(πp₄) × (1 − H₃²/p₄) (NB118, solenoid_mass.py L279).
+
+Decomposition: y_t = 1/√P₁ = √(cos²θ_W × α₂). This is numerically clean — it uses only derived quantities (sin²θ_W, α₂). But the cancellation pattern was FOUND by searching, not predicted.
+
+Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The coupling H₃²/p₄ was found to improve the top mass match but has no mechanism.
+
+**What's missing**: WHY does the top Yukawa equal √(cos²θ_W × α₂)? Is this a one-loop relation? And WHY does H₃² couple as H₃²/p₄?
+
+**Would resolve**: Top mass from gauge structure without pattern matching.
+
+### GAP-22: Tau Mass Factor p₃/p₄ [STRUCTURAL]
+
+**What we have**: m_τ = m_μ × R_lep₂^{x_l_inter} × p₃/p₄ (solenoid_mass.py L331). The factor 5/7 was found empirically — it makes the tau prediction work (from ~7σ off to 2.4σ).
+
+**What's missing**: WHY does the tau acquire a factor of p₃/p₄ = 5/7 that the muon doesn't? Is this a higher-order wrapping effect at the third generation? Or does it reflect the charge sector (p₃ = charge prime) interacting with the generation sector (p₄ = generation prime)?
+
+**Would resolve**: m_τ prediction from mechanism rather than empirical correction.
+
 ### GAP-17: Neutrino Boost Factor [PARTIALLY DERIVED]
 
 **What we have**: m₃ = (M_Z²/M_Pl) × p₂³p₃⁵p₄/p₁³ (#274, NB128-129).
@@ -249,15 +300,23 @@ The tower coupling √κ is the geometric mean of the cascade damping rate (κ) 
 
 Based on which gaps would unlock the most understanding:
 
-1. **GAP-14 (CKM)** — The Cabibbo angle may follow from the cascade mass ratio via Froggatt-Nielsen. If m_s/m_d from the cascade connects to sin θ_C, this DERIVES the CKM from the same dynamics that gives masses. High leverage.
+1. **GAP-20 (x_q derivation)** — The quark exponent controls 4 mass ratios. NB169 Thread 10 identified the mechanism (wrapping compression geometry). A clean wrapping integral could yield an analytical form. **HIGHEST LEVERAGE — currently being pursued.**
 
-2. **GAP-11 (Gauge ρ-corrections)** — The tree-level couplings are derived. Understanding the ρ-corrections would complete the gauge sector. The corrections may come from the same cascade dynamics that produces masses.
+2. **GAP-21 (Top mass anchor)** — y_t = 1/√P₁ = √(cos²θ_W × α₂) may be a one-loop identity connecting the gauge sector to the Yukawa sector. If derived, the entire top mass becomes mechanism-free.
 
-3. **GAP-13 (Higgs mass)** — At 0.08σ, this is the most precise match. If the formula (48+ρ)/35 has a mechanism, it would connect the Higgs to the eigenstate count and outer prime structure.
+3. **GAP-15 (Bottom Yukawa / m_t/m_b)** — The cascade conclusively has nothing to say (NB169). The gap is in the gauge sector (SU(2) breaking). The candidate √(1−α₂) correction connects to derived quantities but needs a mechanism.
 
-4. **GAP-18 (Cosmology)** — The Totient Density Tower suggests a unified mechanism. Understanding WHY φ(n)/n gives cosmological parameters would be a breakthrough.
+4. **GAP-14 (CKM Wolfenstein A, ρ̄, η̄)** — V_us is derived. The remaining 3 Wolfenstein parameters are structural. The profinite tower limit is the theoretically correct approach but computationally demanding.
 
-5. **GAP-19 (Gravity exponents)** — 5/6 derived. The remaining 1/6 (why this specific combination) is the last piece.
+5. **GAP-11 (Gauge ρ-corrections)** — The tree-level couplings are derived. Understanding the ρ-corrections would complete the gauge sector.
+
+6. **GAP-13 (Higgs mass)** — At 0.08σ, this is the most precise match. If the formula (48+ρ)/35 has a mechanism, it would connect the Higgs to the eigenstate count.
+
+7. **GAP-22 (Tau p₃/p₄ factor)** — May resolve automatically if x_q derivation reveals the wrapping geometry for all fermions.
+
+8. **GAP-18 (Cosmology)** — The Totient Density Tower suggests a unified mechanism. Lower priority since cosmological predictions already work.
+
+9. **GAP-19 (Gravity exponents)** — 5/6 derived. The remaining 1/6 is the last piece.
 
 6. **GAP-15, GAP-16 (PMNS + ν mass²)** — These may follow from the dissipation matrix, which already gives sin²θ₁₃.
 
