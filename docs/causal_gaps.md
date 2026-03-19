@@ -2,7 +2,7 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB170. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 upgraded to PARTIALLY DERIVED: x_q = 100/63 confirmed (NB170), base factor 4/7 derived, cross-level 25/9 open.
+**Status**: Post-NB171. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism identified: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification ≈ p₃² (NB171, 0.018% analytical match). Remaining target: SS amplification law.
 
 ---
 
@@ -38,7 +38,7 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 | Quantity | Numerical Value | Status |
 |----------|----------------|--------|
-| x_q | 100/63 = 1.58730159 | Analytical form CONFIRMED (NB170 #279). Cascade measures 1.58664640 (413 ppm off). Factored: (4/7)(25/9). Base 4/7 DERIVED, cross-level 25/9 OPEN → **GAP-20** |
+| x_q | 100/63 = 1.58730159 | Analytical form CONFIRMED (NB170 #279). Factored: (4/7)(25/9). Base 4/7 DERIVED. Cross-level 25/9 MECHANISM IDENTIFIED (NB171): transient wrapping + SS amplification ≈ p₃². Remaining: prove SS₃/SS₀ = p₃² → **GAP-20** |
 | x_l | 3.0003758562 | Hardcoded in pipeline. Measured from cascade. 125 ppm from p₂ = 3. Promoted to exact 3 in NB147, but mechanism open |
 | x_l_inter | 1.2730 | Hardcoded. ~φ(P₃)/(2π). Mechanism open |
 
@@ -209,17 +209,26 @@ The tower coupling √κ is the geometric mean of the cascade damping rate (κ) 
 
 **Would resolve**: Neutrino mass hierarchy from solenoid.
 
-### GAP-20: Quark Mass Exponent x_q [PARTIALLY DERIVED — NB170]
+### GAP-20: Quark Mass Exponent x_q [MECHANISM IDENTIFIED — NB170–171]
 
 **What we have**: x_q = 100/63 = p₁²p₃²/(p₂²p₄) CONFIRMED (NB170, #279). Cascade-measured value 1.58664640 matches 100/63 = 1.58730159 to 413 ppm. Applied to PDG: m_s/m_d = C₀^{100/63} = 20.025 vs 20.0 ± 2.69 (0.01σ). T-independence: 0.0 ppm spread across T=211–2000 (#280).
 
 **Factored decomposition** (#281): x_q = (4/7) × (25/9) = x(R₀) × (p₃/p₂)².
 - x(R₀) = 4/7 = p₁²/p₄: DERIVED (NB161, +37 ppm)
-- Cross-level factor (p₃/p₂)² = 25/9: MEASURED from cascade (−450 ppm), derivation OPEN
+- Cross-level factor (p₃/p₂)² = 25/9: MECHANISM IDENTIFIED (NB171, 0.018% analytical match)
 
-**R₃ anomaly** (NB170): The outermost cascade level has non-vanishing far-field driven oscillation at frequency ω/P₃ = 2π/30, unlike R₀–R₂ which decay to ~0. Linearized model predicts far-field RMS within 7% of measured value. The driven oscillation determines the CP ratio denominator and hence the cross-level factor.
+**R₃ anomaly** (NB170): The outermost cascade level has non-vanishing far-field driven oscillation at frequency ω/P₃ = 2π/30, unlike R₀–R₂ which decay to ~0. Linearized model predicts far-field RMS within 7% of measured value.
 
-**What remains**: WHY does the cross-level factor equal (p₃/p₂)²? The linearized cascade suggests it involves the ratio of driving frequency to damping rate, but the analytical connection to p₃²/p₂² has not been established. Four hypotheses tested in NB170 (φ ratio, sheet ratio, frequency ratio, prime density) — none fully explain it.
+**Cross-level mechanism** (NB171): Decomposition into transient (wrapping) and steady-state components:
+- **Transient R₀ at ci=11**: Trans(R₀) ≈ π√2 · e^{−κ·11} (binary branch wrapping), verified 0.2%
+- **Transient R₃ at ci=191**: Trans(R₃) ≈ π/√3 (quasi-uniform wrapping across 210 branches), verified 1.8%
+- **SS amplification**: SS₃/SS₀ ≈ p₃² = 25 (steady-state amplitude grows ~25× from innermost to outermost level), verified 1.9%
+- **R₀ exact solution**: R₀(n) = (2πj₀ + α)·e^{−κn} − α, where α = εω/(ω²+κ²) ≈ 0.01098
+- **β = 1/α = 2π√P₄ ≈ 91.1** (the primorial VEV ratio appears naturally)
+- **Analytical formula**: cross-level = (ln β + A)/(ln β + B) where A = ln(π√2 · e^{−κ·11}), B = ln(π/(√3·p₃²))
+- **Result**: analytical = 2.7773 vs 25/9 = 2.7778 (0.018% — individual ~2% errors absorbed by log structure)
+
+**What remains**: The SS amplification ≈ p₃² is the dominant effect but comes from the nonlinear cascade transfer function. A derivation showing WHY the steady-state amplitude ratio between R₃ and R₀ equals p₃² would close this gap completely. The transient components (π√2 binary wrapping, π/√3 uniform wrapping) also need exact proofs.
 
 **Would resolve**: Promoting all 4 quark mass ratios from "cascade-measured" to "analytically derived."
 
@@ -302,7 +311,7 @@ Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The c
 
 Based on which gaps would unlock the most understanding:
 
-1. **GAP-20 (x_q cross-level factor)** — The base factor x(R₀) = 4/7 is DERIVED and the analytical form x_q = 100/63 = (4/7)(25/9) is CONFIRMED (NB170, 0.01σ). What remains: deriving WHY the cross-level factor equals (p₃/p₂)² = 25/9. The R₃ far-field driven oscillation at ω/P₃ is the physical mechanism — an analytical expression for the amplification ratio would close this. **HIGHEST REMAINING LEVERAGE.**
+1. **GAP-20 (x_q cross-level factor)** — Mechanism IDENTIFIED (NB171): cross-level = (ln β + A)/(ln β + B) reproduces 25/9 to 0.018%. Three components: transient wrapping (π√2 binary, π/√3 uniform), SS amplification ≈ p₃² = 25, and β = 2π√P₄. What remains: proving SS₃/SS₀ = p₃² from the nonlinear cascade transfer function. **HIGHEST REMAINING LEVERAGE.**
 
 2. **GAP-21 (Top mass anchor)** — y_t = 1/√P₁ = √(cos²θ_W × α₂) may be a one-loop identity connecting the gauge sector to the Yukawa sector. If derived, the entire top mass becomes mechanism-free.
 

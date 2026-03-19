@@ -474,7 +474,7 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 
 ## Phase Map (Overview)
 
-The project has progressed through 169 notebooks. The full per-notebook Phase Map is in `docs/scorecard.md` — consult it for identity details and notebook-level descriptions. Below is the high-level arc.
+The project has progressed through 171 notebooks. The full per-notebook Phase Map is in `docs/scorecard.md` — consult it for identity details and notebook-level descriptions. Below is the high-level arc.
 
 | Phase | Notebooks | Focus |
 |-------|-----------|-------|
@@ -492,9 +492,9 @@ The project has progressed through 169 notebooks. The full per-notebook Phase Ma
 | Gauge Emergence | NB138–NB147 | Single action, wreath product → SU(3)×SU(2)×U(1), fermion bijection, mass formula derived. Identity #278. |
 | Mass Pipeline | NB148–NB162 | End-to-end pipeline: {2,3,5,7}+M_Z → 9 fermion masses. x(R0)=4/7 DERIVED. r_bs, r_tc DERIVED. 9/9 PASS. |
 | CKM + Frontier | NB163–NB169 | CKM from dynamics, V_us derived (0.029%), sector-resolved pipeline. GAP-15 (bottom Yukawa) confirmed OPEN. |
-| Exponent Derivation | NB170 | x_q = 100/63 confirmed (0.01σ). Factored: (4/7)(25/9). Base derived, cross-level open. 3 new identities (#279–281). |
+| Exponent Derivation | NB170–171 | x_q = 100/63 confirmed (0.01σ). Factored: (4/7)(25/9). Base derived. Cross-level 25/9 mechanism: transient wrapping + SS amplification ≈ p₃² (NB171, 0.018%). 3 new identities (#279–281). |
 
-### Current State (Post-NB170)
+### Current State (Post-NB171)
 
 - **281+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
@@ -508,7 +508,7 @@ The project has progressed through 169 notebooks. The full per-notebook Phase Ma
 | **GAP-15** | Bottom Yukawa y_b has no derivation. m_t/m_b = 42 is structural (pattern-matched). Cascade does NOT determine it — both crossings in steady-state. Gap is in the **gauge sector** (SU(2) breaking). | NB169 |
 | **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
 | **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |
-| **GAP-20** | Quark mass exponent x_q = 100/63 CONFIRMED (NB170, 0.01σ). Base x(R₀) = 4/7 DERIVED. Cross-level (p₃/p₂)² = 25/9 MEASURED — derivation OPEN. | NB170 |
+| **GAP-20** | Quark mass exponent x_q = 100/63 CONFIRMED (NB170, 0.01σ). Base x(R₀) = 4/7 DERIVED. Cross-level 25/9 MECHANISM IDENTIFIED (NB171): transient wrapping + SS amplification ≈ p₃². Remaining: prove SS₃/SS₀ = p₃² from cascade transfer function. | NB170–171 |
 | **GAP-12/13** | QED running ratio 15/14, Higgs mass formula — found by matching. | NB113, NB120 |
 
 ## Working Rules
