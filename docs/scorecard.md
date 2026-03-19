@@ -1,7 +1,7 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB171. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². Analytical formula to 0.018%.
+> Last updated after NB172. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². NB172: cascade visualization on 6×5×7 lattice — hierarchical prime activation discovered.
 
 ## Summary
 
@@ -12,7 +12,7 @@
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 171 (NB01–NB171) |
+| **Notebooks** | 172 (NB01–NB172) |
 | **Causal gaps resolved** | 8/10 + GAP-15, GAP-20 partially open (see causal_gaps.md) |
 | **Mass pipeline** | 9/9 PASS, mean |dev| = 0.65%, sector-resolved (NB167), 8/9 within 1σ |
 | **Mass mechanism** | Coherence: non-wrapping fraction across 4 levels × P₃ = exponent |
@@ -149,6 +149,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The t/b Ratio** | NB169 | Comprehensive cascade analysis at t/b crossings; GAP-15 confirmed | 0 new identities (investigation). 16 analysis threads. Cascade does NOT determine m_t/m_b — both crossings in steady-state with RMS ratio 1.07. Gap conclusively in gauge sector. r_bs, r_tc derived from character-based level assignment (CRT constructive coupling). RMS² is the ONLY exact mass functional. Isospin redirect mechanism: Z₄ character determines level coupling. |
 | **The Quark Exponent** | NB170 | x_q = 100/63 confirmed at 0.01σ; factored as (4/7)(25/9) | 3 new identities (#279–281). x_q = 100/63 = p₁²p₃²/(p₂²p₄) CONFIRMED (413 ppm from cascade, 0.01σ from PDG m_s/m_d). T-independence: 0.0 ppm spread across T=211–2000. x(R₀) = 4/7 DERIVED (NB161). Cross-level (p₃/p₂)² = 25/9 MEASURED, derivation OPEN. R₃ far-field driven oscillation at ω/P₃. GAP-20 upgraded to PARTIALLY DERIVED. |
 | **The Cross-Level Factor** | NB171 | Mechanism of 25/9: transient wrapping + SS amplification ≈ p₃² | 0 new identities (mechanism). Cross-level = (lnβ+A)/(lnβ+B) where β=2π√P₄. Three components: R₀ trans ≈ π√2·e^{-κ·11} (0.2%), R₃ trans ≈ π/√3 (1.8%), SS₃/SS₀ ≈ p₃²=25 (1.9%). Log structure absorbs deviations: formula reproduces 25/9 to 0.018%. SS amplification law p₃² is remaining target. Subsystem cascades failed (wrong crossing selection). R₀ exactly solvable (verified). |
+| **Cascade Visualization** | NB172 | Spatial projection on 6×5×7 lattice reveals hierarchical prime activation | 0 new identities (visualization). 210 branches → (2×3)×5×7 grid. Each cascade level activates exactly one prime's spatial dimension: R₀=binary(p₁), R₁=6-fold(p₂), R₂=5-stripe(p₃), R₃=full 5×7(p₄). Filmstrip shows transient→SS transition. SS amplification 25.46≈p₃² confirmed visually. Mass ratios = contrast between structured (g1) and uniform (g2) spatial fields. |
 
 ---
 
