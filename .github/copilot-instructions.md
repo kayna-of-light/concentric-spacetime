@@ -158,21 +158,21 @@ Algebraic exponents convert R-ratios to mass ratios:
 
 ```
 concentric-spacetime/
-├── notebooks/          # Jupyter notebooks NB01–NB81+ (sequential, cumulative)
+├── notebooks/          # Jupyter notebooks NB01–NB169 (sequential, cumulative)
 │   ├── 01_nested_oscillators.ipynb    # Phase 1 start
 │   ├── ...
 │   ├── 29_structural_constants.ipynb  # First solenoid predictions
 │   ├── ...
-│   ├── 49_covering_tower_generations.ipynb  # Tower structure
+│   ├── 81_cascade_to_mass.ipynb       # Cascade chain validated
 │   ├── ...
-│   ├── 65_sector_quadratic_form.ipynb # Sector algebra
+│   ├── 147_the_mass_formula.ipynb     # Mass formula derived
 │   ├── ...
-│   ├── 72_radial_mass_channel.ipynb   # Complete quark mass hierarchy
-│   ├── ...
-│   └── 81_cascade_to_mass.ipynb       # Latest: full chain validation
+│   └── 169_tb_ratio_from_cascade.ipynb # Latest: t/b analysis, GAP-15
 ├── scripts/
 │   ├── solenoid_algebra.py    # Core algebraic module (Z*₂₁₀ + physical constants) — ACTIVE
 │   ├── solenoid_system.py     # Solenoid dynamics (unified: theta-space + cascade) — ACTIVE
+│   ├── solenoid_mass.py       # Complete fermion mass pipeline — ACTIVE
+│   ├── solenoid_predict.py    # Full SM + cosmology predictions — ACTIVE
 │   ├── solenoid_jax.py        # JAX/Diffrax accelerated integration — ACTIVE
 │   ├── solenoid_numba.py      # Numba JIT accelerated integration — ACTIVE
 │   ├── benchmark_gpu.py       # Standalone benchmark (local or remote)
@@ -182,7 +182,8 @@ concentric-spacetime/
 │   ├── two_particle.py        # [LEGACY] Two-particle interaction (Phase 1–2)
 │   └── *.py                   # [LEGACY] Phase 2 domain modules (gravity, scattering, etc.)
 ├── docs/
-│   ├── scorecard.md           # Living scorecard: all 272 identities (updated after each notebook)
+│   ├── scorecard.md           # Living scorecard: all 278+ identities (updated after each notebook)
+│   ├── causal_gaps.md         # What's derived vs pattern-matched; open gaps
 │   ├── acceleration.md        # Computation acceleration infrastructure
 │   ├── research_directions.md # Early-phase research directions (partially superseded)
 │   └── status_*.md            # Point-in-time status summaries
@@ -473,74 +474,41 @@ print(f"Running total: N predictions/identities, 0 free parameters")
 
 ## Phase Map (Overview)
 
-| Phase | Notebooks | Focus | Status |
-|-------|-----------|-------|--------|
-| **Geometry** | NB01–NB12 | S² × R⁺ exploration | Foundational; no predictions |
-| **Standard QM** | NB13–NB22 | Consistency checks | Reproduces known QM; no new predictions |
-| **Solenoid Discovery** | NB23–NB28 | Identifying the structure | Established the (2,3,5,7)-solenoid |
-| **SM Predictions** | NB29–NB40 | Constants from number theory | 28 identities: SM constants, cosmological parameters |
-| **Algebraic Dynamics** | NB41–NB45 | Characters, Lagrangian, thermodynamics | 27 identities: spectral analysis, heat trace |
-| **Metric & Modular** | NB46–NB48 | Cayley metric, modular forms, palindromes | 14 identities: E₄ bridge, palindromic spectrum |
-| **Covering Tower** | NB49–NB56 | Generation structure, mass channels | 22 identities: generation mechanism, VEV dynamics |
-| **Spectral Protection** | NB57–NB59 | Conjugation, real potentials, directed Cayley | 6 identities: spectral wall layers |
-| **Fermion Mass** | NB60–NB65 | Mass predictions, fermion map, sector algebra | 18 identities: zero-parameter mass prediction |
-| **Dynamical Sector** | NB66–NB69 | ODE dynamics, CP-selective breaking, Fourier anatomy | 10 identities: generation splitting, color-parity primacy, CP-selective activation |
-| **Dynamical Mass** | NB70–NB74 | VEV bridge, charge sector, radial mass channel, lepton mass | 17 identities: complete quark mass hierarchy, lepton mass ratios, CP convergence |
-| **Perturbative R** | NB75–NB78 | Perturbative R₀ analysis, R₀ critical coupling, R₄ wrapping | 17 identities: ε-criticality, sum rule, Z₇ character match, downward coupling |
-| **Cascade ODE** | NB79–NB81 | Cascade derivation, analytic inner cascade, full chain validation | 12 identities: universal cascade, cascade ODE equivalence, complete mass chain |
-| **Solenoid Geometry** | NB82–NB83 | Riemannian metric, inverse metric, Lagrangian, Hamiltonian, Q-factors | 10 identities: metric, tridiagonal inverse, underdamped resonator, M⁻¹ building block |
-| **Action on Trajectories** | NB84 | Lagrangian on cascade branches, metric clock, level independence, variance hierarchy | 3 identities: clock dominance (98.3%), additive R²=0.9983, outermost governs (74.9%) |
-| **Geodesics & Normal Modes** | NB85 | Flatness confirmation, normal mode eigensystem, branch distance geometry, spectral polynomial | 3 identities: mode-level localization, NN bilateral universality (d=2π√(74/105)), spectral irreducibility |
-| **The E₄–Metric Bridge** | NB86 | E₄ moment ratios, per-prime Cayley-metric bridge, gravity hierarchy anatomy | 3 identities: ρ₂ = p₁/p₂, ρ₃ = Λ_max/p₄, gravity exponent d₁² = σ₃(p₁) |
-| **Inverse Spectral Problem** | NB87 | Metric spectral uniqueness, informational hierarchy, metric-dynamics duality | 3 identities: Tr unique among 12,650 subsets, metric > Cayley (8-fold degeneracy), rigidity inverts dynamics |
-| **The Cosmological Chain** | NB88 | Hubble scaling law, DM/baryon ratio, Hubble tension prediction | 3 identities (#203–#205): H₀ = M_Z³/M_Pl² × P₄⁻⁴ × C (0.09%), Ω_DM/Ω_b = 27/5 (0.08%), Hubble tension → Planck |
-| **The Gravitational Hierarchy** | NB89 | Step 6 selection mechanism, metric propagator, spectral-hierarchy bridge | 2 identities (#206–#207): metric extremal propagator = −1/λ(P₄) (exact), spectral-hierarchy bridge (exact). Step 6 RESOLVED. |
-| **The Complete Gravitational Sector** | NB90 | Hubble correction from first principles, G_N derivation, gauge-gravity hierarchy | 1 identity (#208): C = Ω_Λ × σ₈ = 96/175 (0.14%). Cosmological sector CLOSED. |
-| **The Solenoid Vacuum** | NB91 | Structural derivation of Hubble correction; coprime screening; infrared dominance | 1 identity (#209): C = φ(p₃p₄)/(p₃p₄) × φ(p₃)/p₃ = energy screening × rate screening. |
-| **The Gravitational Propagator** | NB92 | Why G_N = 1/M_Pl² without 8π; metric propagator anatomy; discrete vs continuous Gauss's law | 1 identity (#210): 8π = ω(P₄) × ω_base. Non-reduced Planck mass is natural. |
-| **The Lepton Third Generation** | NB93 | Window-0 total CP concentration; R₃ analytic structure at LEPTON_g2; m_τ/m_μ dilution analysis | 2 identities (#211–#212): All CP asymmetry in window 0 (R_{w≥1} = 1.000000), R₃ slope at ci=61 exact. m_τ/m_μ at T=5000: −5.1%. |
-| **The Dilution Factor** | NB94 | Analytic dilution model; +1 offset error corrected; convention-independent reformulation | 1 identity (#213): Dilution model exact (<0.001%, PASS). #214 (√30) and #215 (n=17) retracted — phase-sampling artifacts of NB81's +1 time offset. Amplitude ratio = 4.76, not √30. |
-| **Algebraic Mass Invariants** | NB97 | T-independent mass architecture; window-0 complete concentration; dilution formula; crossing gap anatomy | 7 identities (#216–#222): Window-0 complete concentration, quark/lepton dilution formulas, first-crossing gaps = λ(210) and p₁, gap vocabulary = {p₁, λ(P₄), d(P₄)}, gap sum = ±P₃, transient weight T-independence. |
-| **Gram-Amplification Verification** | NB98 | High-accuracy convergence test of Gram-amplification bridge; kappa dependence | Tolerance convergence: errors structural (0.24% Q, 0.73% L). Physical κ within 0.1% of Gram-exact kappa; other kappa values 50-100%+ error. |
-| **Analytic C₀ Derivation** | NB99 | Cascade Jacobian decomposition; state-transition matrix; cross-level transient propagation | 0 new identities (structural). C₀ = f(Φ, R_driv, wrap). Diagonal Φ(k,k) = exp(−κci) exact; Φ(3,2) analytic at 0.6%. Linearized Jacobian: C₀ to −4%/−2%. Closed form blocked by wrapping. |
-| **The Solenoid Wave** | NB100 | Cascade as coupled low-pass filter; Q-factor product; overdamping theorem; wave anatomy | 2 identities (#223–#224): ∏Q_k = (2π)⁴ × p₄/λ(P₄) (EXACT), unique overdamped level (R₃ only). Dominant Fourier period = P₄. Mass works because R₃ is overdamped → quasi-static. |
-| **The Near-Critical Bridge** | NB101 | R₂ wave anatomy; impedance mismatch; Q-factor prime decomposition; bottleneck identification | 3 identities (#225–#227): Q₂ = π√(p₁p₄/(p₂p₃)) (EXACT), Q₂/Q₃ = p₄ = 7 (EXACT), Q₂·Q₃ = 2π²/(p₂p₃) (EXACT). R₁→R₂ is LARGEST impedance mismatch (42.6%). R₂ is the bottleneck. Levels decoupled: R₂ RMS depends only on j₃, R₃ only on j₄. |
-| **The Solenoid Prism** | NB102 | Prism hypothesis; nonlinear mixer test; transient/steady-state decomposition; CP pair wave anatomy | Transient R₃(ci) = 2π·j₄·exp(−κ·ci) EXACT at all crossings (cascade linearity). Late-time R₃ identical to 12 digits across all j₄. Simple j₄ ratio hypothesis FAILS. sin() mixer creates NO new frequencies. CP ratios → exp(κΔci) as j₄→∞ but steady-state admixture prevents clean convergence. |
-| **The Steady-State Bridge** | NB103 | Full R₃ decomposition; sector RMS formula; wrapping mechanism; CP ratio anatomy | R₃(ci;br) = R₃_ss(ci;j₁j₂j₃) + 2π·j₄·exp(−κ·ci) machine-exact. R₃_ss depends on lower-level ICs. WRAPPING IS THE MECHANISM: g1 sectors wrap (88% Q, 45% L energy from wrapped pairs), g2 never wraps. CP ratio = wrapping fraction asymmetry between CRT sectors. |
-| **The Four Waves** | NB104 | Universal transient decomposition (all 4 levels); wrapping geography; mass architecture anatomy; sensitivity hierarchy | 1 identity (#228): R_k(t;br) = R_k_ss(t;j₁,...,j_k) + 2π·j_{k+1}·exp(−κ·t) at ALL 4 levels (machine-exact). Wrapping geography: inner wraps fewer crossings (1→10). CP-exponent compensation: 24× ratio → 1.7× mass. Level 0 silent (2 waveforms, independent of lower levels). Cascade strictly top-down. |
-| **The Wrapping Anatomy** | NB105 | CRT crossing positions; wrapping horizon; g1/g2 bifurcation; window-0 mechanism; complete mass chain | Each CRT sector: 1 crossing/window at ci={11,31,61,191}. Wrapping horizon ≈ 35. g1 (11,31) inside → wraps; g2 (61,191) outside → never wraps. Raw CP tamed: Q 7.04→1.54, L 2.70→1.94. Window-0 concentration at ALL 4 levels. Complete chain: primes → CRT → wrapping → CP → exponents → masses. |
-| **The Analytic CP** | NB106 | Lattice sum decomposition; dilution formula derivation; R_ss correction anatomy; closed-form analysis | DERIVES NB97 dilution formula CP²=(C₀²+r)/(1+r) from window-0 concentration. Exact at all 4 levels. Lattice sum L=91Δ²−4πΔM₁+4π²M₀ with integer (M₁,M₀)=(41,19) Q, (11,2) L. Pure lattice = 94% of signal. R_ss correction ≈6.5%, channel-independent. Closed-form blocked: lattice from primes, R_ss from cascade dynamics. |
-| **The R_ss Anatomy** | NB107 | Cascade filter gain; driving force decomposition; variance hierarchy; NB106 correction confirmation | 1 identity (#229): Cascade filter gain |H_k|² = P_k²/(P_k² + ω²P₄). At mass level: |H₃| = √(P₃/(P₃ + ω²p₄)) = √(30/(30+28π²)) = 0.3129. Verified 0.003% at fundamental, 0.01-3% RMS across all 4 levels. Driving transitions from linear (62% at ci=11) to self-coupling (98% at ci=191). NB106 corrections confirmed: 1.067(Q), 1.064(L). |
-| **The Correction Hunt** | NB108 | Partition function anatomy of R_ss correction; algebraic candidate search; piecewise quadratic structure; wrapping boundary analysis | Correction = Z_field/Z_free where Z = Σ wrap(R_ss + lattice)². s(δ) piecewise quadratic: 8 pieces, coefficient always p₄=7, linear jumps 4π per boundary. Wrapping compresses [1.15, 1.47] → ~1.065. 11-17% g1 boundary crossings → perturbation fails. Mean-field fails (14-169%). Best approx: Q_g1 ≈ 16/15 (0.054%), L CP ratio ≈ 48/49 = φ(P₄)/p₄² (0.011%). Mass impact: −7.68% LEPTON. Mechanistically transparent, computationally irreducible. |
-| **The Flavor Vertex** | NB109 | CKM quark mixing matrix from Z*₂₁₀ character algebra; Wolfenstein parameters from primes; mirror symmetry theorem; Froggatt-Nielsen connection | 4 identities (#230–#233). All four Wolfenstein parameters: λ = p₂²/(φ(P₃)·p₃) = 9/40 (0.00σ), A = φ(p₃)/p₃ = 4/5 (0.04σ), ρ̄ = 1/(2π) (0.02σ), η̄ = √p₂/p₃ = √3/5 (0.16σ). Full CKM: 9/9 elements within 2σ, χ²/9 = 0.44. CKM controlled by p₂ (chirality) and p₃ (charge) only. |
-| **The Neutrino Prism** | NB110 | PMNS neutrino mixing from {2,3,5,7} arithmetic; TBM sum rule; mass-squared ratio; CP phase cross-relation | 5 identities (#234–#238). sin²θ₁₃ = 1/(p₂²·p₃) = 1/45 (0.32σ). TBM sum rule: sin²θ₁₂ + sin²θ₁₃ = 1/p₂ → sin²θ₁₂ = 14/45 (0.32σ). sin²θ₂₃ = p₃·p₄/p₁^λ(p₄) = 35/64 (0.04σ). Δm²₃₂/Δm²₂₁ = p₁·p₄²/p₂ = 98/3 (0.10σ). δ_CP = (p₃·p₄/p₁^p₃)·π = 35π/32 (0.01σ, tentative). χ²/4 = 0.053. Cross-relation: δ_CP/π = p₁·sin²θ₂₃. PMNS uses all four primes; CKM uses {p₂, p₃} only. |
-| **The Gauge Coupling Hierarchy** | NB111 | ρ-corrected gauge couplings; QCD β = p₄; GUT normalization = p₃/p₂; sin²θ_W derived via EW identity | 6 identities (#239–#244). b₃ = p₄ = 7 (EXACT): QCD β decomposes as ((λ(P₄)−1)p₂−2λ(p₄))/p₂ with N_c=p₂, n_f=λ(p₄). GUT normalization 5/3 = p₃/p₂ (CRT, not SU(5)). 1/α_s = φ(P₃)+p₄/√P₄ (0.1σ). 1/α₂ = P₃−λ(p₄)/√P₄ (0.3σ). 1/α₁ = P₁P₃−1 (0.0σ). sin²θ_W derived via EW identity = 0.23129 (2.2σ, supersedes 8/35 at 88σ). Correction coefficients: {+p₄, −λ(p₄), −1}. Statics (NB30) + dynamics (ρ = 1/√P₄) = full couplings. |
-| **Electroweak Precision** | NB112 | Dual sin²θ_W schemes; M_W routes; Δr radiative correction anatomy; gauge-mass bridge | Solenoid produces TWO sin²θ_W: on-shell-like φ(P₄)/P₄ = 8/35 and MS-bar 0.23129. M_W: tree 80.091 GeV (−0.35%), ρ-corrected 80.233 GeV (−0.17%). Δr gap traced to tree top mass m_t = v/2. Projection: cascade-corrected m_t → M_W = 80.365 GeV (0.3σ, 71× improvement). BRIDGE: gauge+mass sectors meet at M_W through Δρ ∝ m_t². |
-| **The Fine Structure Constant** | NB113 | α(0) = 1/137 from {2,3,5,7}? EM charge sum; running ratio; arithmetic search | 2 identities (#245–#246). Σ N_c Q² = φ(P₃) = 8 (EXACT). Running ratio 1/α(0)/1/α(M_Z) ≈ p₂p₃/(p₁p₄) = 15/14 (PROVISIONAL, 149 ppm). α(0) is NOT pure number theory — requires cascade + absolute mass scale. |
-| **Influx and Response** | NB114 | Cascade wave dynamics: κ sweep, energy flow decomposition, Bode analysis, 2D ε-κ landscape, impedance balance | 3 structural identities (#247–#249). Direct influx dominance: each level receives 94–100% power from direct ε·sin(θ_k), NOT feed-down (R₃: 99.8%). Filter cutoff classification theorem: P_crit = 2π√P₄ ≈ 91.1 between P₃ and P₄ → R₃ unique passband; requires {2,3,5,7} (fails for {2,3,5}). Energy concentration: 95.7% of cascade energy in R₃ at ρ. CASCADE IS PARALLEL RECEIVER. ε=κ is impedance balance, NOT optimization. |
-| **The Variational Cascade** | NB115 | Lagrangian origin of the cascade; dissipation matrix derivation; gradient flow interpretation; coordinate transform proof | 4 structural identities (#250–#253). Dissipation matrix Γ̃ = diag(p_k²) + bidiag(−p_{k+1}), eigenvalues = {4,9,25,49} = prime squares. Uniform relaxation theorem: A₄ = Γ̃⁻¹K₄ has ALL eigenvalues = κ. Cascade = exact coordinate transform via primorial recursion (residual < 10⁻¹⁵). det(Γ̃) = P₄² = 44100. The cascade is the GRADIENT FLOW of V_covering with prime-square dissipation and uniform relaxation. |
-| **Mass Exponents from Filter** | NB116 | Dissipation-exponent bridge; four-prime cooperation identity; exponent hierarchy from φ(P₄) = 48 | 3 structural identities (#254–#256). X₄_LEP = γ₃/ω = p₄²/(2π) — lepton exponent = dissipation eigenvalue / base (EXACT bridge). ∏(pₖ−1, k=1..3) = p₄+1 = 8 — four-prime cooperation specific to {2,3,5,7}, making φ(P₄) = p₄²−1. X₄ = (γ₃−1)/ω = φ(P₄)/(2π) — quark exponent = (eigenvalue−1)/base; −1 = color mode. All 5 exponents from φ(P₄): X₃ = φ(P₄)/ω(P₄)/(2π), X₂ = φ(P₄)/φ(p₄)/(2π). Scope boundary: no uniform x_k = f(γ_k)/(2π) at all levels. |
-| **The Exponent Correction** | NB117 | Lepton wrapping correction anatomy; CP² mechanism; algebraic mass correction formula | 1 identity (#257): mass_corr = (φ(P₄)/p₄²)^{p₄²/(4π)} = (48/49)^{49/(4π)} = −7.73%, matching NB108's −7.68% to 0.05%. Wrapping acts on CP² (energy ratio). Large-p₄ limit → exp(−1/(4π)). Already in cascade simulations. Quark 16/15 = d(P₄)/(p₂p₃) is total sector energy, not per-crossing (scope boundary). |
-| **The Top Quark Bridge** | NB118 | Convention correction (NB34 vs NB112); compact top mass formula; EW precision; up-type chain | 1 identity (#258): m_t/M_Z = p₂²/√(πp₄) = 9/√(7π) → 175.0 GeV (PDG: 172.69, +1.34%, PASS). p₁ and p₃ cancel; only chirality (p₂) and ultimation (p₄) survive. M_W(sol) = 80.384 GeV (1.1σ), 18.7× over NB112. NB112's −29% error was convention misread. |
-| **The Complete α(0) Chain** | NB119 | Compact fine-structure constant; error cancellation; NB113 frontier closed; #246 promoted to PASS | 1 identity (#259): 1/α(0) = 275/2 − 45/(7√210) = 137.056 (PDG: 137.036, +0.015%, PASS). Tree 275/2 = 137.500 (pure integer), ρ-correction −0.444. Errors cancel: −0.025% (gauge) + 0.040% (ratio) → +0.015%. α(0) is 99.68% statics. |
-| **The Higgs Sector** | NB120 | Compact Higgs mass formula; tree-vs-corrected VEV; formula scan; algebraic anatomy; NB34 revision | 1 identity (#260): m_H/M_Z = (φ(P₄)+ρ)/(p₃p₄) = (48+1/√210)/35 → 125.24 GeV (PDG: 125.25, −0.01%, 0.08σ, PASS). Tree 48/35 = sin²θ_W(tree) × λ(p₄). Supersedes #18 (m_H=v/P₁, −0.9%) and #19 (λ=1/8, −3.4%). EW hierarchy from M_Z complete. |
-| **The Gauge-Gravity Bridge** | NB121 | Gauge-gravity unification anatomy; Tr(L) = gauge coupling product; hypercharge exclusion; complete mass hierarchy from M_Z | 2 structural identities (#261–#262). Tr(L) = (1/α₂)_tree × (1/α₃)_tree = P₃ × φ(P₃) = 30 × 8 = 240 — three chains (gauge CRT, spectral Cayley, modular E₄) converge. Only SU(2)×SU(3) enter gravity — U(1)_Y excluded (extra p₁ factor). M_Pl/M_Z = [(1/α₂)(1/α₃)]^{ω(P₄)} × p₄^{σ₃(p₁)} = 240⁴ × 7⁹. G_N at 0.006% from CODATA. Gauge 55.6% / ultimation 44.4% of hierarchy. |
-| **The Gravity Amplifier** | NB122 | Gravity exponent anatomy; bilateral-chirality crossing; σ₃ perfect square uniqueness; metric product identity | 3 structural identities (#263–#265). d₀² = γ₁ and d₁² = γ₀: metric-dissipation transposition at inner two levels, uniquely possible for {2,3}. σ₃(p) is perfect square only for p=2. ∏d_k = φ(P₃)/p₃ = 8/5 connects metric to strong coupling. Gravity exponent 9 = bilateral-chirality crossing: inner geometry → outer amplitude. |
-| **The Triple Convergence** | NB123 | Bernoulli-primorial bridge; spectral-gauge bridge; gravity tree-exactness; ρ-correction anatomy | 3 structural identities (#266–#268). Von Staudt-Clausen at 2n = ω(P₄) = 4 selects {2,3,5}, excludes 7 → den(B₄) = P₃ = 30, giving c₁(E₄) = φ(P₃)·P₃ = 240 = gauge product (Bernoulli bridge). p₄-1 = p₁p₂ makes Cayley |S| = p₃, so Tr(L) = p₃·φ(P₄) = P₃·φ(P₃) = 240 (spectral-gauge bridge). Gravity uses algebraic 240, NOT ρ-corrected 251: tree 0.003% vs corrected +19.6% catastrophic. |
-| **The Tau-Muon Bridge** | NB124 | Window-0 CP ratio + dissipation amplitude correction p₃/p₄; m_τ/m_μ resolved; NB93 frontier closed | 2 identities (#269–#270). m_τ/m_μ = C₀(R3,lep)^{x₃} × p₃/p₄ = 16.814 (−0.016%, PASS). C₀ = window-0 CP ratio (T-independent, #216). p₃/p₄ = √(γ₂/γ₃) = dissipation amplitude ratio between R₃ receiver and R₄ source. R₃ mass uses window-0 not cumulative dilution (#270). Combined m_τ/m_e = 3464 (−0.39%, 11× over NB73). |
-| **The Unified Mass Architecture** | NB125 | Investigates WHY the mass formulas work; destructive interference at R₃; three-mechanism taxonomy; quark-lepton asymmetry from CRT crossing geography | 0 new identities (honest investigation). Full R₃ CP (5.227) < Transient CP (5.781) < SS CP (6.251) — destructive interference. p₃/p₄ exact to 0.016%, emerges at CRT sector level not branch level. Three mechanisms: (A) R₄ cumulative (intra-gen), (B) R₃ window-0 × p₃/p₄ (inter-gen lepton), (C) cumulative multi-level (inter-gen quark), (D) algebraic top. Quark R₃ window-0 CP = 39.80 vs lepton 5.23 — quark g1 at ci=11 deep in wrapping zone. Window-0 concentration universal: all four panels max|CP(w>0)−1| < 0.06%. |
-| **The Wrapping Horizon** | NB126 | CRT derivation of mechanism selection; a5=0 sieve; g1/g2 bifurcation; wrapping horizon anatomy; NB125 open question resolved | 0 new identities (mechanism derivation). Wrapping horizon = sqrt(P₄)·ln(p₁²p₂)−1 = 35.010, coincidence with p₃p₄ = 35 (0.028%, NOT algebraic). Physical crossings reproduced from CRT: ci ≡ g₃^{a₃} (mod 3), ci ≡ 1 (mod 5) [a5=0], ci ≡ g₇^{a₇} (mod 7), gcd(ci,210)=1. The a5=0 sieve selects g1 at position 0 (inside horizon), pushes g2 to later positions (outside). g1-g2 gap = 30 = P₃. NB125 open question RESOLVED. |
-| **The Bottom Quark** | NB127 | m_t/m_b cross-sector bridge; charge-neutral subgroup; cascade consistency; complete 6-quark mass table from M_Z | 2 identities (#271–#272). m_t/m_b = P₄/p₃ = 42 = p₁p₂p₄ (−0.39%, PASS). Charge prime removed from primorial → charge-neutral subgroup Z*₄₂. φ(42) = 12 = λ(P₄): Z₄ charge factor invisible to group exponent. Cascade consistency: (m_t/m_c)/(m_b/m_s) = 3.0046 ≈ p₂ = 3 (+0.15%, PASS). b-τ check: m_b/m_τ ≈ p₄/p₂ = 7/3 (−0.52%, derived). Complete 6-quark + 3-lepton mass table from M_Z, mean |dev| = 2.16%, zero free parameters. || **The Neutrino Mass Scale** | NB128 | Normal Ordering structural prediction; absolute neutrino mass from seesaw + primorial boost; reactor angle connection | 2 identities (#273–#274): Normal Ordering predicted (PASS) — #237 ratio positive-definite + covering tower p₄ before p₃. m₃ = (v²/M_Pl) × p₂³p₃⁴/p₁ = (M_Z²/M_Pl) × p₂³p₃⁵p₄/p₁³ = 50.284 meV (+0.004%, PASS — promoted by NB129). Seesaw v²/M_Pl from NB88/NB121. Boost = λ(P₄) × 1/sin²θ₁₃ × (p₃/p₁)^p₂ — uniquely determined by cascade susceptibility (NB129). Σm_ν = 59.0 meV < DESI/Planck. m₃/M_Z = p₃/(p₁¹⁹p₂p₄⁸): net p₄⁻⁸ explains neutrino lightness. |
-| **The Neutrino Cascade** | NB129 | Dissipation matrix susceptibility derivation of neutrino boost; reactor angle from cascade; dual-duty dissipation | 2 identities (#275–#276): B_ν = λ(P₄) × 1/sin²θ₁₃ × (p₃/p₁)^{p₂} = 12 × 45 × (5/2)³ UNIQUE decomposition (PASS). sin²θ₁₃ = (Γ̃⁻¹)₁₂ = chirality→charge cascade susceptibility (PASS). Dual-duty: eigenvalues → charged fermion exponents (NB116), off-diagonals → neutrino boost (NB129). #274 promoted PROVISIONAL→PASS. |
-| **The Origin of ρ** | NB130 | Cascade validation of NB76 constraints; resonance structure; dual-constraint uniqueness of ρ | 0 new identities (mechanism notebook). GAP-01 investigation: ρ = 1/√P₄ from impedance balance + differential wrapping. L/Q(κ) shows dramatic resonance peaking at ~1.15ρ; Sum = 12 eliminates second crossing → unique selection. |
-| **The Algebra of ρ Selection** | NB131 | Cascade signal processing: transient decay, wrapping horizon, filter gain, differential wrapping mechanism | 0 new identities (mechanism notebook). Wrapping horizon ≈ √P₄·ln(12) ≈ 36. Differential wrapping between Q_g1 (86%) and L_g1 (40%) creates L/Q > 1. GAP-01 RESOLVED. |
-| **The Elephant** | NB132 | Complete dynamical portrait: frequency spectrum, phase space, force anatomy, energy distribution | 14 systematic observations. Frequency-divider chain: periods 1→2→6→30 (primorials). Energy: 95.3% in R₃. Direct influx dominance (66-99%). System = single-pump frequency-divider filter cascade. |
-| **The Relaxation-Mass Bridge** | NB133 | GAP-02 mechanism: why dissipation eigenvalues become mass exponents; character counting; window-0 exponent probe | 0 new identities (mechanism). Exponent = character count/(2π): R₃ φ(105)=48→X₄, R₂ φ(21)=12→X₃, R₁ φ(30)=8→X₂. γ₃ = φ(P₄)+1 via four-prime cooperation. Window-0 lepton x_eff = 3.000376 ≈ p₂. GAP-02 PARTIALLY RESOLVED. |
-| **The Window-Zero Exponent** | NB134 | T-independence of window-0 exponent; four mass channels; cumulative pipeline T-dependence; exponent algebra | 1 identity (#277, PROVISIONAL). x_eff(w0,lep) = 3.000376 identical at T=500–10000 (spread=0). C₀³ = 206.63 vs 206.77 (−0.067%). Channel-specific: only lepton intra-gen has x ≈ p₂. Cumulative pipeline massively T-dependent. X₄_LEP/p₂ = 49/(6π) exact. |
-| **The Mass Exponent Algebra** | NB135 | Promotion test for #277; physical channel mapping vs raw levels; T-independence gate; residual anatomy | 0 new identities, 1 promotion. #277 promoted PROVISIONAL→PASS. x = 3.0003758562 (+0.013%) with exact T-independence. Lepton intra-gen: C₀³ = 206.630 vs 206.768 (−0.067%). Quark x_s/d = 1.586646 remained unpromoted; later NB137 refinement found 100/63 fits slightly better than 2^(2/3), but no quark law was promoted. |
-| **The Four Mass Channels** | NB136 | Synthesis of all four mass channels; complete 9-fermion mass table from M_Z; quark window-0 exponent anatomy | 0 new identities (synthesis). Four channels: (A) lepton intra-gen C₀^{p₂}, (B) lepton inter-gen C₀^{x₃}×p₃/p₄, (C) quark cumulative NB72, (D) algebraic cross-sector. Mean |dev| = 1.64%, zero free parameters. |
-| **The Quark Exponent** | NB137 | Quark window-0 exponent investigation; factored exponent architecture; lepton cross-level 11/9 discovery | 0 new identities (investigation + structural discovery). x_eff(s/d) = 1.5866464 is perfectly T-independent (spread = 0 across T=1000–20000). Best descriptor: 100/63 = p₁²p₃²/(p₂²p₄) (−413 ppm). **Factored architecture**: x(R₃) = x(R₀) × cross-level, both T-independent. QUARK: (4/7)(25/9) = 100/63. LEPTON: (27/11)(11/9) = 3, where 11 = ci of quark g1 crossing cancels. ord₂₁₀(11) = 6 = λ(p₄), 11⁵ ≡ 191 (quark g2). Cross-level denominators universal: p₂² = 9. Wrapping mechanism: g1 constant via compression, g2 grows ×25.5 (pure SS). Exponent remains OPEN but factored architecture constrains derivation. |
-See `docs/scorecard.md` for the complete phase map and identity details.
+The project has progressed through 169 notebooks. The full per-notebook Phase Map is in `docs/scorecard.md` — consult it for identity details and notebook-level descriptions. Below is the high-level arc.
+
+| Phase | Notebooks | Focus |
+|-------|-----------|-------|
+| Geometry + Standard QM | NB01–NB22 | S² × R⁺ exploration, consistency checks. No predictions. Phase 1/2 are NOT results. |
+| Solenoid Discovery | NB23–NB28 | Identified the (2,3,5,7)-solenoid as the fundamental structure. |
+| SM Constants | NB29–NB40 | 28 identities from number theory — structural constants, coupling constants, cosmological parameters. |
+| Algebraic Dynamics | NB41–NB48 | Characters, Lagrangian, Cayley metric, modular forms. 41 identities. |
+| Covering Tower + Spectral | NB49–NB59 | Generation mechanism, VEV dynamics, spectral wall. 28 identities. |
+| Fermion Mass (Static) | NB60–NB65 | Zero-parameter mass predictions from Z*₂₁₀ sector algebra. 18 identities. |
+| Cascade Dynamics | NB66–NB81 | ODE dynamics → CP-pair ratios → fermion mass ratios. Complete chain validated. 44 identities. |
+| Solenoid Geometry + Gravity | NB82–NB92 | Metric, Lagrangian, cosmology (H₀, Ω_DM/Ω_b, G_N). Cosmological sector CLOSED. 23 identities. |
+| Lepton Mass + Wrapping | NB93–NB108 | Window-0 concentration, dilution, wrapping anatomy. Mass mechanism understood. 18 identities. |
+| Mixing + EW Precision | NB109–NB123 | CKM (4 Wolfenstein), PMNS (5 angles), gauge couplings, α(0), m_H, gravity bridge. 42 identities. |
+| Mass Architecture | NB124–NB137 | τ-μ bridge, unified mass architecture, exponent derivation, factored x(R₃). 8 identities + mechanism. |
+| Gauge Emergence | NB138–NB147 | Single action, wreath product → SU(3)×SU(2)×U(1), fermion bijection, mass formula derived. Identity #278. |
+| Mass Pipeline | NB148–NB162 | End-to-end pipeline: {2,3,5,7}+M_Z → 9 fermion masses. x(R0)=4/7 DERIVED. r_bs, r_tc DERIVED. 9/9 PASS. |
+| CKM + Frontier | NB163–NB169 | CKM from dynamics, V_us derived (0.029%), sector-resolved pipeline. GAP-15 (bottom Yukawa) confirmed OPEN. |
+
+### Current State (Post-NB169)
+
+- **278+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
+- **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
+- **Causal gaps**: see `docs/causal_gaps.md` for full classification (DERIVED / PATTERN-MATCHED / OPEN)
+
+### Open Frontier
+
+| Gap | Description | Where |
+|-----|-------------|-------|
+| **GAP-15** | Bottom Yukawa y_b has no derivation. m_t/m_b = 42 is structural (pattern-matched). Cascade does NOT determine it — both crossings in steady-state. Gap is in the **gauge sector** (SU(2) breaking). | NB169 |
+| **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
+| **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |
+| **x_q** | Quark mass exponent 1.5866 is T-independent and tested on 4 ratios, but 475 ppm from ∛4 — analytical form OPEN. | NB137, NB168 |
+| **GAP-12/13** | QED running ratio 15/14, Higgs mass formula — found by matching. | NB113, NB120 |
 
 ## Working Rules
 
