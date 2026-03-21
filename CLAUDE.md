@@ -110,6 +110,11 @@ from solenoid_algebra import SA
 - Numba (~5-15×) when JAX unavailable
 - Azure ML for very large T: `python scripts/azure_ml_submit.py --benchmark --T 5000`
 
+## Code Standards
+- Print statements: results only. Numbers, paths, genuine logging. No messages to self. No narrative print statements.
+- Clean code. Functions do one thing. Comments explain what code does, not what I think it means.
+- Optimize compute. 210 branches × integration = expensive. Use vectorization, parallel execution where possible.
+
 ## Connection to Literary Compilation
 
 Computational verification for `literary-compilation` repository:
