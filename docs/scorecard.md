@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB175. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². NB172: cascade visualization on 6×5×7 lattice — hierarchical prime activation discovered. NB173: icosahedral truncation — A₅ as geometric truncation of S² harmonics, 8 new identities (#282–#289). NB174: algebraic bridge — A₅ ↔ Z*₂₁₀ via McKay correspondence, character-geometry factorization, 5 new identities (#290–#294). NB175: monodromy dynamics — tower genus preservation, monodromy coupling theorem, balanced branching structure, 3 new identities (#295–#297).
+> Last updated after NB175. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². NB172: cascade visualization on 6×5×7 lattice — hierarchical prime activation discovered. NB173: icosahedral truncation — A₅ as geometric truncation of S² harmonics, 8 new identities (#282–#289). NB174: algebraic bridge — A₅ ↔ Z*₂₁₀ via McKay correspondence, character-geometry factorization, 5 new identities (#290–#294). NB175: monodromy dynamics — tower genus preservation, monodromy coupling theorem, balanced branching structure, 3 new identities (#295–#297). NB176: cascade is gradient flow — base-independence theorem, monodromy forcing, low-pass filter, Haar parameter derivation, gradient flow classification, 5 new identities (#298–#302). Phase 3 of reconstruction RESOLVED.
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 297+ |
+| **Structural identities** | 302+ |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 175 (NB01–NB175) |
+| **Notebooks** | 176 (NB01–NB176) |
 | **Causal gaps resolved** | 8/10 + GAP-15, GAP-20 partially open (see causal_gaps.md) |
 | **Mass pipeline** | 9/9 PASS, mean |dev| = 0.65%, sector-resolved (NB167), 8/9 within 1σ |
 | **Mass mechanism** | Coherence: non-wrapping fraction across 4 levels × P₃ = exponent |
@@ -153,6 +153,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **The Icosahedral Truncation** | NB173 | A₅ as geometric truncation of S² harmonics; Platonic nesting of branch points; two-group architecture; termination theorem | 8 identities (#282–#289): φ(P₄)+λ(P₄)=|A₅|=60 (termination), B_p=2φ(p) (Riemann-Hurwitz), Platonic vertex nesting 2<4<8<12, d(210)=sum(A₅ irreps)=harmonics(l≤3)=16 (16-network), gcd(60,48)=12=λ(210), P₄/|A₅|=p₄/p₁, B₇=ico vertices=λ(210)=12, termination theorem at k=4 (A₅ last exceptional SO(3) subgroup). |
 | **The Algebraic Bridge** | NB174 | A₅ ↔ Z*₂₁₀ bridge via McKay correspondence; character-geometry factorization 48=16×3; binary polyhedral prime chain; A₄ as geometric-algebraic intersection | 5 identities (#290–#294): φ(P₄)=d(P₄)×3 (character-geometry factorization), |2O|=φ(P₄)=48 (McKay E₇ bridge), lcm(|A₅|,φ(P₄))=240=roots(E₈)=Tr(L) (E₈ root LCM), A₄ bridge group with prime indices (|A₅|/|A₄|=p₃, |S₄|/|A₄|=p₁), McKay prime chain (all binary polyhedral orders are primorial expressions). |
 | **Monodromy Dynamics** | NB175 | S² branched covering tower: Riemann-Hurwitz genus preservation, monodromy coupling theorem, balanced branching with Berry phase | 3 identities (#295–#297): tower genus preservation (B=2(p-1) → genus 0 at every level), monodromy coupling theorem (branch points generate Z₂₁₀, IS the coupling — no sin perturbation needed), balanced branching (13 conjugate pairs, Berry phase = 2π×593/210 with P₄ denominator). κ = 1/√210 from Haar metric. |
+| **Cascade Is Gradient Flow** | NB176 | Base-independence theorem: Γ̃ = K·A⁻¹ depends only on {p_k}. Monodromy forcing: sin(θ) = leading Fourier mode. Low-pass filter: 1/n² suppression. Parameter derivation: κ = ε = 1/√P₄ from Haar | 5 identities (#298–#302): base-independence theorem (Γ̃ identical on S¹ and S²), monodromy forcing theorem (sin(θ) = leading Fourier mode of branch-point forcing), cascade low-pass filter (CP ratios insensitive to forcing shape), Haar parameter derivation (κ = ε from Haar normalization), gradient flow classification (0 invented elements remain). Phase 3 of reconstruction: RESOLVED. |
 
 ---
 
@@ -444,6 +445,13 @@ The S¹ solenoid has unramified coverings (no branch points), so the inter-level
 | 295 | Tower Genus Preservation | Riemann-Hurwitz with B = 2(p−1) simple branch points: 2g−2 = p(−2) + 2(p−1) = −2 → genus 0 at every level. Tower: S² ←₂ S² ←₃ S² ←₅ S² ←₇ S² | **PASS** — exact (algebraic identity for all p) |
 | 296 | Monodromy Coupling Theorem | Branch point monodromy generates Z₂₁₀ = Z₂ × Z₃ × Z₅ × Z₇ (full cyclic fiber). Deck symmetry is Z*₂₁₀ (48 units). Monodromy IS the inter-level coupling — no external perturbation | **PASS** — exact (topological) |
 | 297 | Balanced Branching Structure | Σ(p_k − 1) = 1+2+4+6 = 13 conjugate branch point pairs. Total Berry phase = 2π × 593/210 (denominator = P₄). 173 (fractional numerator) is prime | **PASS** — exact (arithmetic) |
+| 298 | Base-Independence Theorem | The dissipation matrix Γ̃ = K·A⁻¹ depends only on covering degrees {p_k}. J has entries {p_k, -1}; K = J^T J; A = I - L with L_{k,k-1} = 1/p_{k+1}. All base-manifold independent. Γ̃ is IDENTICAL on S¹ and S² | **PASS** — exact (algebraic theorem) |
+| 299 | Monodromy Forcing Theorem | The sin(θ) coupling in the cascade ODE is the leading Fourier mode of branch-point monodromy forcing on S². Branch points at Platonic vertices create periodic forcing; sin is the first mode. Not invented — correct to first order | **PASS** — structural (Fourier analysis) |
+| 300 | Cascade Low-Pass Filter | The cascade suppresses Fourier harmonics of order n by ~1/n² (Fourier decay × transfer function). CP ratios divide conjugate sectors with same forcing shape → harmonic content cancels to first order. Mass predictions insensitive to forcing shape | **PASS** — structural + numerical |
+| 301 | Haar Parameter Derivation | κ = ε = 1/√P₄ from Haar normalization of covering fiber: κ²·P₄ = 1 (unit norm per sheet). The "equal coupling per sheet" convention on S¹ IS the geometric normalization on S². κ = ε means system at natural forcing/damping balance | **PASS** — exact (geometric derivation) |
+| 302 | Gradient Flow Classification | ALL 10 components of cascade ODE classified: 9 DERIVED (base-independent, from covering topology), 1 GROUNDED (sin forcing = leading Fourier mode of monodromy). Zero invented elements remain. The cascade IS the S² gradient flow | **PASS** — structural (complete classification) |
+
+**Key finding — Phase 3 resolved**: The cascade ODE is the S² gradient flow. The linear structure (Γ̃, κ, restoring terms) is base-independent. The forcing (sin coupling) is the leading Fourier mode of monodromy. All parameters are derived from Haar normalization. The 9/9 mass predictions survive unchanged. The reconstruction GROUNDS the cascade while preserving its predictions.
 
 **Key finding — Coupling upgrade**: The S¹ solenoid was the RIGHT GROUP THEORY on the WRONG GEOMETRY. Moving to S² preserves all 294 algebra-based identities while upgrading the dynamics from invented (sin perturbation) to topological (monodromy).
 
