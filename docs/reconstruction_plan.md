@@ -388,53 +388,123 @@ Everything in this reconstruction hinges on one question:
 provide the natural mathematical embedding of the four primes {2, 3, 5, 7} into the 
 geometry of S²?**
 
-If yes: the primes emerge from the spectrum of the Laplacian on S², the nesting is 
-the containment of harmonic subspaces, and the entire framework has a geometric foundation 
-that the S¹ solenoid lacked.
+### Phase 0 Answer (2025-07-14)
 
-If no: we need to find the correct way the primes enter S² × R⁺, which might involve 
-covering maps on S², fiber bundle structure, or something else entirely.
+**Partially. The primes enter S² × R⁺ through four structurally DIFFERENT mechanisms:**
 
-Note that the degeneracy sequence is 2l+1 = 1, 3, 5, 7, 9, 11, ... The first four 
-values match our four primes. The fifth would be 9 = 3², which is NOT prime. The 
-sequence of primes {2,3,5,7} corresponds to the sequence of odd numbers {1,3,5,7} 
-shifted by +1 at the first entry only (2 vs 1). This near-match needs careful examination:
+| Prime | Mechanism | How it enters S² × R⁺ |
+|-------|-----------|------------------------|
+| 2 | Z₂ parity ⊂ O(3) | Bilateral reflection θ → π−θ (not an irrep dimension) |
+| 3 | l=1 irrep of SO(3) (dim 3) | First nontrivial angular momentum level |
+| 5 | Radial quantum number n on R⁺ | Principal quantum number; l < n constraint |
+| 7 | Developmental arc (time) | Cumulative state evolution, parametric |
 
-- The "Resolution" report assigns 2 = bilateral cut. On S², the l=1 harmonics give 
-  2 hemispheres (bilateral) with 3 basis functions. So the bilateral cut (prime 2) 
-  creates 2 regions using l=1 harmonics that have degeneracy 3.
-- The l=0 harmonic (degeneracy 1) is the undivided One — before any cut.
-- Perhaps: l=0 → One (no prime), l=1 → 2 (bilateral), l=2 → 3 (vertical), 
-  l=3 → 5 (radial)? But then where is 7?
+The degeneracy match {1,3,5,7} ↔ {–,3,5,7} is explained: 2l+1 is the sequence of ALL 
+odd numbers, and {3,5,7} happen to be the first three odd primes. The match breaks at 
+l=4 (2l+1=9=3², composite). Prime 2 enters through PARITY, not through an irrep dimension.
 
-Or perhaps: the primes are NOT the degeneracies but the number of REGIONS each cut creates:
-- l=1 → 2 hemispheres (prime 2, bilateral)
-- l=2 → 3 zones (prime 3, vertical)  
-- The combination l=1,2 → 2×3 = 6 cells on S²
-- l=3 → 7 stages? But l=3 harmonics create 4 zones, not 7.
+**Key findings:**
+1. The 16 harmonics through l=3 do NOT form a closed algebra under multiplication 
+   (73% of products escape to l>3). Z*₂₁₀ cannot emerge from harmonic products.
+2. S² alone provides NO truncation at l=3. Something else selects 4 levels.
+3. The icosahedral group A₅ uses {2,3,5} naturally; prime 7 requires external structure.
+4. The four primes are four structurally distinct features of O(3) × R⁺, not four levels 
+   of the same operator. This CONFIRMS the reports' description.
 
-This is exactly the kind of question that Phase 0 and Phase 1 must resolve. The 
-reports' descriptions should guide us to look at the RIGHT thing, but the mathematics 
-must be what decides.
+See `docs/phase0_findings.md` for full details.
+
+### Updated Key Question for Phase 1
+
+The key question is no longer whether the primes emerge from S² eigenvalues (they don't, 
+uniformly). The question is:
+
+**What mathematical structure on S² × R⁺ naturally produces the constraint that exactly 
+four primes {2,3,5,7} organize the system, with each entering through a different mechanism?**
+
+### Phase 1 Answer (2025-07-15)
+
+**The exceptional finite subgroup ladder of SO(3) terminates at A₅.** Specifically:
+
+1. **Truncation**: The icosahedral group A₅ ⊂ SO(3) provides a geometric truncation at 
+   l = 3: this is where SO(3) irreps first SPLIT under restriction to A₅. (Phase 1A)
+
+2. **Two groups, two spaces**: A₅ (order 60) acts on the base S²; Z*₂₁₀ (order 48) acts 
+   on the covering fiber Z₂₁₀. They are NOT competing descriptions — they describe 
+   different aspects of the geometry. (Phase 1B)
+
+3. **Branch-point Platonic nesting**: The Riemann-Hurwitz branch points 2(p−1) of each 
+   covering level sit at nested Platonic solid vertices: 2 (bilateral) ⊂ 4 (tetrahedron) 
+   ⊂ 8 (cube) ⊂ 12 (icosahedron). (Phase 1B)
+
+4. **The Termination Identity**: φ(Pₖ) + λ(Pₖ) = |A_{ₖ+1}| holds for k = 3 (A₄, 
+   order 12) and k = 4 (A₅, order 60). It CANNOT continue beyond k = 4 because A₅ is 
+   the last exceptional finite subgroup of SO(3). **This gives a non-circular reason for 
+   exactly four primes.** (Phase 1C)
+
+5. **8 new identities** emerged that were inaccessible from the S¹ solenoid, including 
+   the termination identity, branch-point CRT correspondence, and the 16-network (d(210) 
+   = A₅ irrep sum = harmonics through l=3 = orbit count). (Phase 1C)
+
+See `docs/phase1a_findings.md`, `docs/phase1b_findings.md`, `docs/phase1c_findings.md` 
+for full details.
 
 ---
 
-## 6. Immediate Next Steps
+## 6. Progress Log
 
-1. **Create Phase 0 exploration notebook**: Compute the spectral structure of the 
-   Laplacian on S², examine the harmonic degeneracies, and test the {1,3,5,7} → {2,3,5,7} 
-   correspondence hypothesis carefully.
+### Completed
 
-2. **Read the existing NB01-NB12**: These early notebooks explored S² × R⁺ before the 
-   solenoid was identified. They may contain insights about the geometry that were abandoned 
-   too early.
+1. ~~**Create Phase 0 exploration script**~~ 
+   **DONE** (2025-07-14). See `docs/phase0_findings.md`.
 
-3. **Investigate covering maps on S²**: What does a (2,3,5,7)-tower of coverings look like 
-   on S² instead of S¹? What additional structure does S² provide?
+2. ~~**Read the existing NB01-NB12**~~ 
+   **DONE** (2025-07-14). NB09 established S² × R⁺ as the correct manifold.
 
-4. **Document what Z*₂₁₀ properties are independent of the formalization**: Many of the 
-   algebraic findings use only the NUMBER 210 and its group, not any specific geometric 
-   embedding. Separating these cleanly from the geometry-dependent ones is essential.
+3. ~~**Investigate truncation mechanism (Phase 1A)**~~ 
+   **DONE** (2025-07-15). See `docs/phase1a_findings.md`. **Result**: Icosahedral A₅ 
+   branching is the strongest candidate. l=3 is where SO(3) irreps first SPLIT under A₅ 
+   restriction. A₅ irrep dims {1,3,3',4,5} sum to 16 = d(210). Hydrogen l < n at n=4 
+   gives 30 = P₃ states (corroborating identity). Prime/composite transition at l=4 
+   (dim 9 = 3²) supports the boundary.
+
+4. ~~**Investigate covering maps on S² and algebra bridge (Phase 1B)**~~ 
+   **DONE** (2025-07-15). See `docs/phase1b_findings.md`. **Key discoveries**:
+   - A₅ and Z*₂₁₀ are **different groups on different spaces**: A₅ acts on the base (S²), 
+     Z*₂₁₀ acts on the fiber (deck group Z₂₁₀)
+   - Z*₂₁₀ = deck transformations avoiding all branch points (geometric meaning)
+   - Z*₂₁₀ action on Z₂₁₀ has exactly **16 orbits = d(210)** (one per divisor)
+   - **Branch points sit at nested Platonic vertices**: 
+     p=2 → 2 pts (bilateral), p=3 → 4 pts (tetrahedron), p=5 → 8 pts (cube), 
+     p=7 → 12 pts (icosahedron)
+   - The nesting 2 ⊂ 4 ⊂ 8 ⊂ 12 matches Platonic solid vertex counts exactly
+   - gcd(|A₅|, |Z*₂₁₀|) = gcd(60, 48) = 12 = λ(210)
+
+### Next Steps
+
+5. ~~**Phase 1C — New identities from S² geometry**~~ 
+   **DONE** (2025-07-15). See `docs/phase1c_findings.md`. **8 new identities**, all exact.
+   **Key discovery — the Termination Identity**:
+   - φ(P₃) + λ(P₃) = 12 = |A₄| (tetrahedral group)
+   - φ(P₄) + λ(P₄) = 60 = |A₅| (icosahedral group)
+   - φ(P₅) + λ(P₅) = 540 → no exceptional group of SO(3) matches
+   - **The pattern terminates at P₄ because A₅ is the last exceptional finite subgroup 
+     of SO(3).** This gives a NON-CIRCULAR structural reason for exactly four primes.
+   
+   Other new identities: branch points = 2·φ(pₖ) (= 2× CRT factors), branch points 
+   at Platonic vertices (concentric nesting on S²), d(210) = 16 from four independent 
+   paths, gcd(|A₅|, φ(210)) = λ(210) = 12, P₄/|A₅| = 7/2 = p₄/p₁.
+
+6. **Phase 2 — Dynamics**: What replaces the cascade ODE? The branching structure 
+   (monodromy around branch points) should provide the coupling mechanism, replacing 
+   the invented sin perturbation. The monodromy group encodes how fiber and base interact.
+
+7. **Phase 2A — Separate arithmetic from geometry**: Which of the 281 identities are pure 
+   number theory (depend only on P₄ = 210) vs which require geometric structure? The 
+   pure arithmetic ones are independent of the formalization choice.
+
+8. **Phase 3 — Mass pipeline**: Can mass ratios be derived from the monodromy/branching 
+   structure instead of from the cascade ODE? The branch points on S² should create a 
+   natural "coupling" between levels that the S¹ solenoid lacked.
 
 ---
 
