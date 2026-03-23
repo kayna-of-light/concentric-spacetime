@@ -295,6 +295,34 @@ mathematical structure of S² × R⁺ with four-prime nesting REQUIRE?
   parameters but has accumulated a phase.
 - Can the dynamics be derived from the holonomy of the four-prime fiber bundle?
 
+### Phase 3 Answer (2025-07-15)
+
+**YES. The cascade ODE is the S² gradient flow.** The exploration 
+(`temp/phase3_dynamics_derivation.py`) established:
+
+1. **Base-independence of linear structure**: The covering Jacobian J has entries {p_k, -1} 
+   determined by covering degrees alone. K = J^T J, A = I - L, and Γ̃ = K · A⁻¹ are all 
+   IDENTICAL on S¹ and S². The dissipation matrix — the entire linear structure of the 
+   cascade — is base-independent.
+
+2. **Monodromy as forcing**: On S², branch points at Platonic vertices create monodromy. 
+   The base dynamics orbit with frequency ω/P_k, passing near branch points periodically. 
+   The sin(θ) perturbation is the FIRST FOURIER MODE of this periodic monodromy forcing.
+
+3. **Low-pass filter robustness**: The cascade suppresses higher Fourier harmonics by 1/n². 
+   CP ratios cancel the forcing shape to first order. Mass predictions are insensitive 
+   to the exact monodromy waveform.
+
+4. **Parameter derivation**: κ = ε = 1/√P₄ is derived from Haar metric normalization of 
+   monodromy over P₄ = 210 sheets. The "equal coupling per sheet" convention was the 
+   correct geometric normalization all along.
+
+**Consequence**: ALL components of the cascade ODE are either derived from covering topology 
+or grounded in S² geometry. The 9/9 mass predictions survive unchanged. Phases 4-5 collapse 
+to reclassification only.
+
+See `docs/reconstruction/phase3_findings.md` for full details.
+
 **Deliverable**: A notebook or set of notebooks deriving the natural dynamics of the 
 four-prime structure on S² × R⁺, comparing with the cascade ODE, and identifying 
 what the geometry requires vs. what was invented.
@@ -513,14 +541,26 @@ for full details.
    - κ = 1/√P₄ from Haar metric normalization (same value, but now derived from geometry)
    - All previous algebraic identities preserved (algebra unchanged, dynamics upgraded)
 
-8. **Phase 3 — Dynamics derivation**: Can the monodromy coupling produce a concrete ODE 
-   that replaces the cascade? The monodromy provides the coupling MECHANISM, but the 
-   specific gradient flow equation on S² still needs to be derived. Key open question: 
-   does the S² monodromy gradient flow reproduce the same CP ratios as the S¹ cascade?
+8. ~~**Phase 3 — Dynamics derivation**~~ 
+   **DONE** (2025-07-15). See `docs/reconstruction/phase3_findings.md`. **Result: RESOLVED.**
+   The cascade ODE IS the S² gradient flow. Key results:
+   - The linear structure (Γ̃ = K · A⁻¹) is BASE-INDEPENDENT — the Jacobian J depends only 
+     on covering degrees {p_k}, not on whether the base is S¹ or S².
+   - The sin(θ) forcing is the LEADING FOURIER MODE of monodromy forcing around S² branch 
+     points. It was not "invented" — it was the correct functional form.
+   - The cascade acts as a LOW-PASS FILTER (1/n² suppression), making mass predictions 
+     first-order insensitive to forcing shape.
+   - κ = ε = 1/√P₄ is DERIVED from Haar metric normalization (same value, now grounded).
+   - ALL components of the cascade ODE are either derived or grounded in S² geometry.
+   - The 9/9 mass predictions survive unchanged — same CP ratios, same parameters.
+   - Phases 4-5 collapse: the mass pipeline needs no re-derivation, only reclassification.
 
-9. **Phase 4 — Mass pipeline**: Re-derive mass ratios from the S² dynamics. The exponents 
-   x_q, x_l were partly derived (NB161, NB170-171) but the base dynamics were invented. 
-   If S² dynamics give different CP ratios, the mass predictions may change.
+9. **Phase 4-5 — Mass pipeline and scorecard reclassification**: Now simplified. The mass 
+   pipeline is already correct (Phase 3 proved this). Phase 5 reclassifies identities:
+   - sin(θ) forcing: invented → grounded (leading Fourier mode of monodromy)
+   - κ = ε = 1/√P₄: convention → derived (Haar metric normalization)
+   - Cascade ODE: constructed → derived (gradient flow of covering potential)
+   - 16 new identities (#282-#297) from the S² geometry added to scorecard
 
 ---
 
