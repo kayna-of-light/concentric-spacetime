@@ -411,7 +411,7 @@ l=4 (2l+1=9=3², composite). Prime 2 enters through PARITY, not through an irrep
 4. The four primes are four structurally distinct features of O(3) × R⁺, not four levels 
    of the same operator. This CONFIRMS the reports' description.
 
-See `docs/phase0_findings.md` for full details.
+See `docs/reconstruction/phase0_findings.md` for full details.
 
 ### Updated Key Question for Phase 1
 
@@ -445,7 +445,7 @@ four primes {2,3,5,7} organize the system, with each entering through a differen
    the termination identity, branch-point CRT correspondence, and the 16-network (d(210) 
    = A₅ irrep sum = harmonics through l=3 = orbit count). (Phase 1C)
 
-See `docs/phase1a_findings.md`, `docs/phase1b_findings.md`, `docs/phase1c_findings.md` 
+See `docs/reconstruction/phase1a_findings.md`, `docs/reconstruction/phase1b_findings.md`, `docs/reconstruction/phase1c_findings.md` 
 for full details.
 
 ---
@@ -455,20 +455,20 @@ for full details.
 ### Completed
 
 1. ~~**Create Phase 0 exploration script**~~ 
-   **DONE** (2025-07-14). See `docs/phase0_findings.md`.
+   **DONE** (2025-07-14). See `docs/reconstruction/phase0_findings.md`.
 
 2. ~~**Read the existing NB01-NB12**~~ 
    **DONE** (2025-07-14). NB09 established S² × R⁺ as the correct manifold.
 
 3. ~~**Investigate truncation mechanism (Phase 1A)**~~ 
-   **DONE** (2025-07-15). See `docs/phase1a_findings.md`. **Result**: Icosahedral A₅ 
+   **DONE** (2025-07-15). See `docs/reconstruction/phase1a_findings.md`. **Result**: Icosahedral A₅ 
    branching is the strongest candidate. l=3 is where SO(3) irreps first SPLIT under A₅ 
    restriction. A₅ irrep dims {1,3,3',4,5} sum to 16 = d(210). Hydrogen l < n at n=4 
    gives 30 = P₃ states (corroborating identity). Prime/composite transition at l=4 
    (dim 9 = 3²) supports the boundary.
 
 4. ~~**Investigate covering maps on S² and algebra bridge (Phase 1B)**~~ 
-   **DONE** (2025-07-15). See `docs/phase1b_findings.md`. **Key discoveries**:
+   **DONE** (2025-07-15). See `docs/reconstruction/phase1b_findings.md`. **Key discoveries**:
    - A₅ and Z*₂₁₀ are **different groups on different spaces**: A₅ acts on the base (S²), 
      Z*₂₁₀ acts on the fiber (deck group Z₂₁₀)
    - Z*₂₁₀ = deck transformations avoiding all branch points (geometric meaning)
@@ -482,7 +482,7 @@ for full details.
 ### Next Steps
 
 5. ~~**Phase 1C — New identities from S² geometry**~~ 
-   **DONE** (2025-07-15). See `docs/phase1c_findings.md`. **8 new identities**, all exact.
+   **DONE** (2025-07-15). See `docs/reconstruction/phase1c_findings.md`. **8 new identities**, all exact.
    **Key discovery — the Termination Identity**:
    - φ(P₃) + λ(P₃) = 12 = |A₄| (tetrahedral group)
    - φ(P₄) + λ(P₄) = 60 = |A₅| (icosahedral group)
@@ -494,17 +494,33 @@ for full details.
    at Platonic vertices (concentric nesting on S²), d(210) = 16 from four independent 
    paths, gcd(|A₅|, φ(210)) = λ(210) = 12, P₄/|A₅| = 7/2 = p₄/p₁.
 
-6. **Phase 2 — Dynamics**: What replaces the cascade ODE? The branching structure 
-   (monodromy around branch points) should provide the coupling mechanism, replacing 
-   the invented sin perturbation. The monodromy group encodes how fiber and base interact.
+6. ~~**Phase 2A — Algebraic bridge (A₅ ↔ Z*₂₁₀)**~~ 
+   **DONE** (2025-07-15). See `docs/reconstruction/phase2_findings.md` and NB174. 
+   **5 new identities (#290–#294)**. Key results:
+   - McKay correspondence: |2O| = φ(P₄) = 48 → E₇; lcm(|A₅|, φ(P₄)) = 240 = roots(E₈)
+   - Character-geometry factorization: φ(P₄) = d(P₄) × 3 = 16 × 3 (geometric slots × generations)
+   - A₄ bridge group: gcd = 12 = λ(P₄), with prime indices in both embeddings
+   - Z*₂₁₀ does NOT emerge from S² geometry alone — the fiber brings additional structure
+   - But A₅ truncation constrains the algebra: 16 geometric slots force 48/16 = 3 generations
 
-7. **Phase 2A — Separate arithmetic from geometry**: Which of the 281 identities are pure 
-   number theory (depend only on P₄ = 210) vs which require geometric structure? The 
-   pure arithmetic ones are independent of the formalization choice.
+7. ~~**Phase 2B — Monodromy dynamics**~~ 
+   **DONE** (2025-07-15). See `docs/reconstruction/phase2b_findings.md` and NB175. 
+   **3 new identities (#295–#297)**. Key results:
+   - Tower genus preservation: Riemann-Hurwitz gives genus 0 at every level (all spheres)
+   - Monodromy IS the coupling: branch point monodromy generates Z₂₁₀ (full fiber). 
+     On S¹, coupling was INVENTED (sin perturbation). On S², it's TOPOLOGICAL.
+   - 13 conjugate branch point pairs; Berry phase = 2π × 593/210 (P₄ in denominator)
+   - κ = 1/√P₄ from Haar metric normalization (same value, but now derived from geometry)
+   - All previous algebraic identities preserved (algebra unchanged, dynamics upgraded)
 
-8. **Phase 3 — Mass pipeline**: Can mass ratios be derived from the monodromy/branching 
-   structure instead of from the cascade ODE? The branch points on S² should create a 
-   natural "coupling" between levels that the S¹ solenoid lacked.
+8. **Phase 3 — Dynamics derivation**: Can the monodromy coupling produce a concrete ODE 
+   that replaces the cascade? The monodromy provides the coupling MECHANISM, but the 
+   specific gradient flow equation on S² still needs to be derived. Key open question: 
+   does the S² monodromy gradient flow reproduce the same CP ratios as the S¹ cascade?
+
+9. **Phase 4 — Mass pipeline**: Re-derive mass ratios from the S² dynamics. The exponents 
+   x_q, x_l were partly derived (NB161, NB170-171) but the base dynamics were invented. 
+   If S² dynamics give different CP ratios, the mass predictions may change.
 
 ---
 
