@@ -493,18 +493,23 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | Mass Pipeline | NB148–NB162 | End-to-end pipeline: {2,3,5,7}+M_Z → 9 fermion masses. x(R0)=4/7 DERIVED. r_bs, r_tc DERIVED. 9/9 PASS. |
 | CKM + Frontier | NB163–NB169 | CKM from dynamics, V_us derived (0.029%), sector-resolved pipeline. GAP-15 (bottom Yukawa) confirmed OPEN. |
 | Exponent Derivation | NB170–171 | x_q = 100/63 confirmed (0.01σ). Factored: (4/7)(25/9). Base derived. Cross-level 25/9 mechanism: transient wrapping + SS amplification ≈ p₃² (NB171, 0.018%). 3 new identities (#279–281). |
+| S² Reconstruction | NB172–176 | Cascade visualization (NB172). A₅ icosahedral truncation → non-circular reason for 4 primes (NB173, #282–289). A₅ ↔ Z*₂₁₀ McKay bridge (NB174, #290–294). Monodromy IS the coupling (NB175, #295–297). Cascade = S² gradient flow, all dynamics grounded (NB176, #298–302). Reconstruction Phases 0–3 RESOLVED. |
+| Concentric Geometry | NB177–178 | Primorial radii r_k = P_k from covering constraint. Area ratios = Γ̃ eigenvalues. Geometric Laplacian = 2K_k. Path graph reduction. Metric radii sum. Gauge-gravity bridge r₃+r₄ = Tr(L) = 240 (unique). Consecutive quartet 5,6,7,8 (unique). Gravity in curvature language. 11 identities (#303–313). |
 
-### Current State (Post-NB171)
+### Current State (Post-NB178)
 
-- **281+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **313+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
+- **Reconstruction**: Phases 0–3 RESOLVED. Cascade = S² gradient flow. All dynamics grounded.
+- **Concentric sphere arena**: r_k = P_k, K_k = 1/P_k², Tr(L) = r₃+r₄ = 240, gravity in curvature language
 - **Causal gaps**: see `docs/causal_gaps.md` for full classification (DERIVED / PATTERN-MATCHED / OPEN)
 
 ### Open Frontier
 
 | Gap | Description | Where |
 |-----|-------------|-------|
+| **GAP-19** | Gravity hierarchy M_Pl/M_Z = 240⁴ × 7⁹. Constituents now geometric (240 = r₃+r₄, 9 = K₁/K₂). Full formula in curvature language (#313). But WHY these specific exponents? Derivation from concentric sphere curvature gradient is the next target. | NB121, NB178 |
 | **GAP-15** | Bottom Yukawa y_b has no derivation. m_t/m_b = 42 is structural (pattern-matched). Cascade does NOT determine it — both crossings in steady-state. Gap is in the **gauge sector** (SU(2) breaking). | NB169 |
 | **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
 | **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |
