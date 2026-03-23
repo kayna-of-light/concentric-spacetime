@@ -2,7 +2,7 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB179. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism identified: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification ≈ p₃² (NB171, 0.018% analytical match). Remaining target: SS amplification law.
+**Status**: Post-NB180. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism identified: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification ≈ p₃² (NB171, 0.018% analytical match). Remaining target: SS amplification law. **GAP-19 RESOLVED** (NB180): bridge exponents σ₃(p₁) and λ(P₄) forced by p-adic consistency of det'(L). All valuations determined by v₂ = p₃² = |S|². Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)}.
 
 **Reconstruction (NB173–178)**: Phases 0–3 RESOLVED. The cascade ODE is the S² gradient flow — all components derived from covering topology or grounded in S² geometry. Key results: A₅ icosahedral truncation gives non-circular reason for exactly 4 primes (NB173). A₅ ↔ Z*₂₁₀ bridge via McKay correspondence (NB174). Monodromy IS the coupling — sin forcing is the leading Fourier mode of topological monodromy, not an invention (NB175). κ = ε = 1/√P₄ from Haar metric (NB176). Concentric sphere arena: primorial radii r_k = P_k, area ratios = Γ̃ eigenvalues, Γ_geom = 2K_k (NB177). Geometric gravity dictionary: D·Γ_geom·D = path graph Laplacian, metric radii sum (D·g⁻¹·D)_kk = r_k + r_{k+1}, gauge-gravity bridge r₃+r₄ = Tr(L) = 240 unique to {2,3,5,7}, consecutive quartet p₃,P₂,p₄,φ(P₃) = 5,6,7,8 unique (NB178). GAP-19 upgraded: gravity hierarchy now expressible in pure curvature language K_k = 1/P_k².
 
@@ -278,7 +278,7 @@ Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The c
 
 **Would resolve**: Cosmology from solenoid spatial structure.
 
-### GAP-19: Gravity Hierarchy Exponents [PARTIALLY DERIVED → SPECTRAL DETERMINANT IDENTIFIED]
+### GAP-19: Gravity Hierarchy Exponents [RESOLVED — NB180]
 
 **What we have**: M_Pl/M_Z = 240⁴ × 7⁹ = Tr(L)^{ω(P₄)} × p₄^{σ₃(p₁)} (#261, NB121). Dev: 0.003%.
 
@@ -299,7 +299,14 @@ Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The c
 - Canonical factorization: H = p₁^{λ(P₄)} × P₄^{ω(P₄)} × p₄^{p₃} = 2¹² × 210⁴ × 7⁵ (#318).
 - Supporting: σ₃(p₁) = ω(P₄) + p₃ → 9 = 4 + 5 (#319); λ(P₄) + ω(P₄) = p₁^{ω(P₄)} → 16 = 16 (#320).
 
-**What remains**: The spectral bridge connects H to the spectral determinant of the Cayley graph — a well-defined algebraic invariant. The denominator uses σ₃(p₁) and λ(P₄), both framework invariants. Remaining question: derive WHY the normalizing exponents are σ₃(p₁) and λ(P₄) specifically — i.e., what structural principle selects these as the bridge denominators.
+**NB180 p-adic derivation** (RESOLVED):
+- All four p-adic valuations of det'(L) are determined by v₂ = p₃² = |S|² = 25 (#321).
+- Pairwise valuation differences are all framework invariants: v₂−v₃ = σ₃(p₁) = 9, v₂−v₅ = λ(P₄) = 12, v₅−v₇ = p₃ = 5, v₃−v₇ = φ(P₃) = 8 (#322).
+- The bridge exponents are **forced by p-adic consistency**: since Λ_max = p₁·p₃ = 10 contains both primes 2 and 5, the exponent a must satisfy BOTH v₂ and v₅ constraints, which forces a = σ₃(p₁). The v₃ constraint independently forces b = λ(P₄) (#323).
+- Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)} = 25 = 9 + 16 (#324). Connects |S|² to bilateral arithmetic and group exponent tower.
+- Complete valuation formula: det'(L) = ∏_p p^{p₃²−δ_p} with δ₂=0, δ₃=σ₃(p₁), δ₅=λ(P₄), δ₇=λ(P₄)+p₃ (#325).
+
+**Full causal chain**: {2,3,5,7} → Z*₂₁₀ → CRT generators (|S|=p₃) → integer eigenvalues 0..2p₃ → p-adic valuations v_p = p₃²−δ_p → bridge exponents forced by consistency → H = 240⁴ × 7⁹ = M_Pl/M_Z.
 
 ---
 

@@ -1,19 +1,19 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB175. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². NB172: cascade visualization on 6×5×7 lattice — hierarchical prime activation discovered. NB173: icosahedral truncation — A₅ as geometric truncation of S² harmonics, 8 new identities (#282–#289). NB174: algebraic bridge — A₅ ↔ Z*₂₁₀ via McKay correspondence, character-geometry factorization, 5 new identities (#290–#294). NB175: monodromy dynamics — tower genus preservation, monodromy coupling theorem, balanced branching structure, 3 new identities (#295–#297). NB176: cascade is gradient flow — base-independence theorem, monodromy forcing, low-pass filter, Haar parameter derivation, gradient flow classification, 5 new identities (#298–#302). Phase 3 of reconstruction RESOLVED. NB177: concentric sphere arena — primorial radii from covering constraint, area ratios = Γ̃ eigenvalues, geometric Laplacian = 2× curvature, Gauss-Bonnet universality, radial gap identity, covering potential exactness (corrects #299), 6 new identities (#303–#308). NB178: geometric gravity dictionary — path graph reduction (D·Γ_geom·D = tridiag(2,−1)), metric radii sum, gauge-gravity as radii sum (r₃+r₄ = Tr(L) = 240, unique), consecutive quartet (p₃,P₂,p₄,φ(P₃) = 5,6,7,8, unique), gravity in curvature language, 5 new identities (#309–#313). NB179: spectral bridge — det'(L) of natural Cayley graph on Z*₂₁₀ gives exact gravity hierarchy via spectral bridge formula, canonical factorization H = p₁^λ × P₄^ω × p₄^p₃, 7 new identities (#314–#320).
+> Last updated after NB175. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². NB172: cascade visualization on 6×5×7 lattice — hierarchical prime activation discovered. NB173: icosahedral truncation — A₅ as geometric truncation of S² harmonics, 8 new identities (#282–#289). NB174: algebraic bridge — A₅ ↔ Z*₂₁₀ via McKay correspondence, character-geometry factorization, 5 new identities (#290–#294). NB175: monodromy dynamics — tower genus preservation, monodromy coupling theorem, balanced branching structure, 3 new identities (#295–#297). NB176: cascade is gradient flow — base-independence theorem, monodromy forcing, low-pass filter, Haar parameter derivation, gradient flow classification, 5 new identities (#298–#302). Phase 3 of reconstruction RESOLVED. NB177: concentric sphere arena — primorial radii from covering constraint, area ratios = Γ̃ eigenvalues, geometric Laplacian = 2× curvature, Gauss-Bonnet universality, radial gap identity, covering potential exactness (corrects #299), 6 new identities (#303–#308). NB178: geometric gravity dictionary — path graph reduction (D·Γ_geom·D = tridiag(2,−1)), metric radii sum, gauge-gravity as radii sum (r₃+r₄ = Tr(L) = 240, unique), consecutive quartet (p₃,P₂,p₄,φ(P₃) = 5,6,7,8, unique), gravity in curvature language, 5 new identities (#309–#313). NB179: spectral bridge — det'(L) of natural Cayley graph on Z*₂₁₀ gives exact gravity hierarchy via spectral bridge formula, canonical factorization H = p₁^λ × P₄^ω × p₄^p₃, 7 new identities (#314–#320). NB180: p-adic bridge derivation — bridge exponents σ₃(p₁) and λ(P₄) derived from p-adic valuation consistency, fundamental identity p₃² = σ₃(p₁) + p₁^{ω(P₄)}, GAP-19 RESOLVED, 5 new identities (#321–#325).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 320+ |
+| **Structural identities** | 325+ |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 179 (NB01–NB179) |
-| **Causal gaps resolved** | 8/10 + GAP-15, GAP-20 partially open (see causal_gaps.md) |
+| **Notebooks** | 180 (NB01–NB180) |
+| **Causal gaps resolved** | 9/10 + GAP-15, GAP-20 partially open (see causal_gaps.md). GAP-19 RESOLVED (NB180). |
 | **Mass pipeline** | 9/9 PASS, mean |dev| = 0.65%, sector-resolved (NB167), 8/9 within 1σ |
 | **Mass mechanism** | Coherence: non-wrapping fraction across 4 levels × P₃ = exponent |
 | **CKM** | 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%, δ_CP = 65.3° |
@@ -157,6 +157,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Concentric Sphere Arena** | NB177 | Primorial radii from covering constraint. Area ratios = Γ̃ eigenvalues. Geometric Laplacian = 2× curvature. Gauss-Bonnet universality. Radial gap = Euler totient. Covering potential exactness (corrects #299). | 6 identities (#303–#308): primorial radii (r_k = P_k, derived), area ratio theorem (Γ̃ eigenvalues = p_k² = area ratios of adjacent S²(P_k)), geometric Laplacian (Γ_geom diagonal = 2K_k), Gauss-Bonnet universality (K_k×A_k = 4π at every level), radial gap (Δr_k/r_k = φ(p_{k+1})), covering potential exactness (V=1−cos(R) is exact S¹-invariant potential; sin is exact gradient, not Fourier approximation — corrects #299). |
 | **Geometric Gravity Dictionary** | NB178 | Path graph reduction of Γ_geom. Metric radii sum. Gauge-gravity as radii sum r₃+r₄ = Tr(L) = 240 (unique). Consecutive quartet p₃,P₂,p₄,φ(P₃) = 5,6,7,8 (unique). Gravity in curvature language. | 5 identities (#309–#313): path graph reduction (D·Γ_geom·D = tridiag(2,−1), det = p₃), metric radii sum ((D·g_R⁻¹·D)_kk = r_k + r_{k+1}), gauge-gravity as radii sum (r₃+r₄ = P₃+P₄ = Tr(L) = 240 with uniqueness proof), consecutive quartet (p₃,P₂,p₄,φ(P₃) = 5,6,7,8 are four consecutive integers — unique to {2,3,5,7}), gravity in curvature language (M_Pl/M_Z = (K₁/K₂)^(σ₃(p₁)) × Tr(L)⁴ in pure curvature). |
 | **Spectral Bridge** | NB179 | Natural per-factor Cayley graph on Z*₂₁₀: |S| = p₃ = 5 (unique). Integer eigenvalues 0..10 with palindromic multiplicities (bipartite). Exact spectral determinant det'(L) = 2²⁵ × 3¹⁶ × 5¹³ × 7⁸. Spectral bridge: H = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — EXACT. Canonical factorization H = p₁^λ × P₄^ω × p₄^{p₃}. | 7 identities (#314–#320): unique per-factor gen set |S|=p₃, integer palindromic eigenvalues, exact det'(L), spectral bridge formula (HEADLINE — exact gravity hierarchy from spectral determinant, 0.003%), canonical factorization, σ₃(p₁)=ω+p₃ (9=4+5), λ+ω=p₁^ω (16=16). GAP-19 upgraded: spectral determinant identified. |
+| **p-Adic Bridge Derivation** | NB180 | p-adic valuation structure of det'(L) derives WHY σ₃(p₁) and λ(P₄) are the bridge exponents. All four valuations determined by v₂ = p₃² = |S|². Pairwise differences are framework invariants. Bridge exponents forced by Λ_max = p₁·p₃ consistency. Fundamental identity p₃² = σ₃(p₁) + p₁^{ω(P₄)}. | 5 identities (#321–#325): v₂ = p₃² (#321), pairwise differences = framework invariants (#322), bridge exponents forced by p-adic consistency (#323, HEADLINE — GAP-19 RESOLVED), fundamental identity p₃² = σ₃(p₁) + p₁^ω (#324), complete valuation formula (#325). |
 
 ---
 
@@ -1225,6 +1226,14 @@ The arithmetic of P₄ = 210 is **closed over** the Standard Model:
 ### Spectral Determinant Factorization
 
 det′(L) = 2²⁵ · 3¹⁶ · 5¹³ · 7⁸ — the prime exponents {25, 16, 13, 8} are decreasing, consistent with outer primes carrying less spectral weight.
+
+**NB180 derivation**: All four exponents are determined by a single number v₂ = p₃² = |S|² = 25:
+- v₂ = p₃² = 25
+- v₃ = p₃² − σ₃(p₁) = 16
+- v₅ = p₃² − λ(P₄) = 13
+- v₇ = p₃² − λ(P₄) − p₃ = 8
+
+Pairwise differences are all framework invariants: v₂−v₃ = σ₃(p₁), v₂−v₅ = λ(P₄), v₅−v₇ = p₃, v₃−v₇ = φ(P₃). The bridge exponents σ₃(p₁) and λ(P₄) are **forced** by two-prime consistency of Λ_max = p₁·p₃. Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)} = 25 = 9 + 16.
 
 ---
 
