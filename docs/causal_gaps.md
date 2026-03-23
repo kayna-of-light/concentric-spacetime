@@ -347,35 +347,82 @@ Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The c
 
 ---
 
-## V. RECOMMENDED ATTACK ORDER
+## V. PRIMARY RESEARCH DIRECTION: GEOMETRIC PROGRAM
 
-Based on which gaps would unlock the most understanding:
+> **CRITICAL**: The pattern-matched gaps below (GAP-11 through GAP-22) are SECONDARY to the geometric program. They are formulas found by algebraic search — matching prime-arithmetic expressions to PDG values. Closing them one by one is pattern-matching, not physics. The geometric program addresses the root cause: the mass pipeline runs on S¹ dynamics (circles wrapping circles) when the actual arena is S² × R⁺ (concentric spheres with primorial radii). Many of these gaps may resolve AUTOMATICALLY once the geometry is correctly formalized.
 
-1. **GAP-20 (x_q cross-level factor)** — Mechanism UNDERSTOOD (NB171 + NB181): cross-level = (ln β + A)/(ln β + B) reproduces 25/9 to 0.018%. **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 from frequency gradient (confirmed by FFT + Jacobian analysis), NOT p₃² = 25 as claimed. The p₃² enters the formula through the specific coprime-crossing decomposition, not the raw SS ratio. What remains: re-examining how P₃ appears as p₃² in the B term of NB171's formula. **HIGHEST REMAINING LEVERAGE.**
+### The Problem with the Current Pipeline
 
-2. **GAP-21 (Top mass anchor)** — y_t = 1/√P₁ = √(cos²θ_W × α₂) may be a one-loop identity connecting the gauge sector to the Yukawa sector. If derived, the entire top mass becomes mechanism-free.
+The mass pipeline (solenoid_mass.py) contains three layers of phenomenological input that have no geometric origin:
 
-3. **GAP-15 (Bottom Yukawa / m_t/m_b)** — NARROWED (NB182). 42 = charge-neutral sub-covering degree. m_t/m_b = 42×√(29/30) at 0.40σ. Formula structural, mechanism (√(1−α₂) from D₄ irreps) interpretive. Gap remains in gauge sector.
+1. **Hardcoded exponents measured from cascade integration**:
+   - x_lep_intra = 3.0003758562 (a number read off a numerical ODE solution)
+   - x_q_intra = 1.5866463961 (same)
+   - x_lep_inter = λ(210)/(2π) (pattern-matched to algebraic expression)
 
-4. **GAP-14 (CKM Wolfenstein A, ρ̄, η̄)** — V_us is derived. The remaining 3 Wolfenstein parameters are structural. The profinite tower limit is the theoretically correct approach but computationally demanding.
+2. **Pattern-matched anchor formulas**:
+   - m_t/M_Z = p₂²/√(πp₄) × (1 − H₃²/p₄) — arithmetic search
+   - m_t/m_b = P₄/p₃ = 42 × correction — arithmetic search
+   - p₃/p₄ factor in m_τ — empirical patch
 
-5. **GAP-11 (Gauge ρ-corrections)** — The tree-level couplings are derived. Understanding the ρ-corrections would complete the gauge sector.
+3. **S¹ dynamics projected from S² arena**:
+   - The cascade ODE operates on S¹ covering residuals R_k
+   - The reconstruction (NB175-176) proved this is the S² gradient flow projection
+   - But the S² arena has structure the S¹ projection cannot see: oriented axes, radial coordinate, spherical harmonics, curvature eigenmodes
 
-6. **GAP-13 (Higgs mass)** — At 0.08σ, this is the most precise match. If the formula (48+ρ)/35 has a mechanism, it would connect the Higgs to the eigenstate count.
+### What the Geometric Program Must Address
 
-7. **GAP-22 (Tau p₃/p₄ factor)** — May resolve automatically if x_q derivation reveals the wrapping geometry for all fermions.
+The reconstruction (NB172-178) established the arena but never derived dynamics FROM it:
 
-8. **GAP-18 (Cosmology)** — The Totient Density Tower suggests a unified mechanism. Lower priority since cosmological predictions already work.
+| Established (NB172-178) | NOT yet explored |
+|------------------------|------------------|
+| Arena = concentric spheres | Dynamics ON those spheres |
+| Radii r_k = P_k | What the radial coordinate (p=5) does |
+| Curvatures K_k = 1/P_k² | Whether mass ratios come from curvature ratios |
+| A₅ truncation → 4 primes | Spherical harmonics Y_l^m as the natural basis |
+| Monodromy = coupling | Oriented axes (2→φ, 3→θ, 5→r, 7→arc) |
+| κ from Haar metric | Discrete degrees (quantization from geometry) |
+| Cascade = S² gradient flow | What S² gives BEYOND what S¹ gives |
 
-9. **GAP-19 (Gravity exponents)** — 5/6 derived. The remaining 1/6 is the last piece.
+The central question: **Do the Laplacian eigenvalues on nested concentric spheres with Gaussian curvatures K_k = 1/P_k² produce mass ratios, coupling constants, and mixing angles WITHOUT need for the current phenomenological pipeline?**
 
-6. **GAP-15, GAP-16 (PMNS + ν mass²)** — These may follow from the dissipation matrix, which already gives sin²θ₁₃.
+If yes, the hardcoded exponents and pattern-matched anchors are replaced by geometric derivations. If partially, we identify exactly which quantities are geometric and which remain phenomenological.
 
-7. **GAP-12 (Running ratio)** — May be the hardest; encodes all-loop QED in a single ratio.
+### Concrete Next Steps
 
-8. **GAP-17 (ν boost)** — Partially derived; needs the full seesaw mechanism (GAP-04).
+1. **Laplacian on concentric sphere system**: Compute the eigenvalues of the Laplace-Beltrami operator on the nested sphere system {S²(P_1), S²(P_2), S²(P_3), S²(P_4)} with covering map connections. What is the spectrum?
+
+2. **Curvature ratios and mass**: The curvature ratio K_k/K_{k+1} = p_{k+1}² is a primorial square ratio. Test whether mass hierarchies emerge from these ratios without ODE integration.
+
+3. **Spherical harmonic decomposition**: The cascade on S¹ uses Fourier modes e^{inθ}. On S², the natural basis is Y_l^m(θ,φ). What does the covering constraint look like in the Y_l^m basis? Does the harmonic structure produce quantized mass ratios?
+
+4. **Oriented axes**: The reports assign 2→φ (azimuthal), 3→θ (polar), 5→r (radial), 7→arc (developmental). What does this axis assignment mean mathematically for the dynamics?
+
+5. **Radial structure**: Prime 5 is the radial prime but the current pipeline completely ignores the radial coordinate. What do discrete radial shells at r = P_k contribute?
+
+---
+
+## VI. ALGEBRAIC GAP REGISTER (SECONDARY)
+
+> These gaps document pattern-matched formulas. They are tracked for completeness but are NOT the active research direction. Many may resolve as consequences of the geometric program.
+
+| # | Gap | Status | Priority |
+|---|-----|--------|----------|
+| 20 | x_q cross-level 25/9 | Mechanism identified (NB171) | Low — may follow from curvature |
+| 21 | Top mass anchor m_t/M_Z | Pattern-matched | Low — needs geometric origin |
+| 15 | Bottom Yukawa m_t/m_b | Narrowed (NB182) | Low — gauge sector, not geometry |
+| 14 | CKM Wolfenstein A, ρ̄, η̄ | Structural | Low — profinite tower |
+| 11 | Gauge ρ-corrections | Pattern-matched | Low — may follow from curvature |
+| 13 | Higgs mass formula | Pattern-matched | Low |
+| 22 | Tau p₃/p₄ factor | Empirical patch | Low — may resolve with geometry |
+| 18 | Cosmological parameters | Pattern-matched | Low |
+| 12 | QED running 15/14 | Pattern-matched | Low |
+| 15b | PMNS atmospheric + CP | Pattern-matched | Low |
+| 16 | ν mass² ratio | Pattern-matched | Low |
+| 17 | ν boost factor | Partially derived | Low |
 
 ---
 
 *Created: 2026-03-16 (post-NB129)*
 *Updated: 2026-03-17 (post-NB162). Complete audit of derived vs pattern-matched. 9 new gaps (GAP-11 through GAP-19) cataloging all pattern-matched formulas.*
+*Updated: 2026-03-23 (post-NB182). Research priority shifted from algebraic gap-hunting to geometric program. Pattern-matched gaps demoted to secondary register. The mass pipeline's phenomenological inputs (hardcoded exponents, pattern-matched anchors, S¹ dynamics) are the real problem — individual gaps are symptoms.*

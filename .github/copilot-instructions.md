@@ -510,16 +510,33 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 - **Spectral bridge**: M_Pl/M_Z = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — exact (NB179). Bridge exponents derived from p-adic consistency (NB180). GAP-19 RESOLVED.
 - **Causal gaps**: see `docs/causal_gaps.md` for full classification (DERIVED / PATTERN-MATCHED / OPEN)
 
-### Open Frontier
+### Open Frontier — Geometric Program (PRIMARY)
+
+The reconstruction (NB172–178) established the S² × R⁺ arena with concentric spheres but never derived dynamics FROM it. The mass pipeline still runs on S¹ covering maps with hardcoded exponents and pattern-matched anchors. The geometric program is the primary research direction:
+
+| Priority | Question | Status |
+|----------|----------|--------|
+| **GEO-1** | Laplacian spectrum on nested concentric spheres {S²(P_k)} with covering connections | NOT STARTED |
+| **GEO-2** | Do curvature ratios K_k/K_{k+1} = p_{k+1}² produce mass hierarchies without ODE integration? | NOT STARTED |
+| **GEO-3** | Covering constraint in Y_l^m basis — what do spherical harmonics give that Fourier modes on S¹ don't? | NOT STARTED |
+| **GEO-4** | Oriented axes (2→φ, 3→θ, 5→r, 7→arc) — mathematical content of axis assignment | NOT STARTED |
+| **GEO-5** | Radial structure — what does the radial coordinate (prime 5) contribute? Currently unused. | NOT STARTED |
+
+The current mass pipeline phenomenological inputs that the geometric program should replace:
+- Hardcoded exponents: x_q = 1.587, x_l = 3.000, x_l_inter from cascade measurement
+- Pattern-matched anchors: m_t/M_Z = p₂²/√(πp₄)×..., m_t/m_b = 42×...
+- S¹ dynamics projected from S² arena (cascade ODE on covering residuals)
+
+### Algebraic Gaps (SECONDARY — tracked, not actively pursued)
 
 | Gap | Description | Where |
 |-----|-------------|-------|
-| **GAP-19** | Gravity hierarchy M_Pl/M_Z = 240⁴ × 7⁹. **RESOLVED** (NB180): bridge exponents σ₃(p₁) and λ(P₄) forced by p-adic consistency of det'(L). All valuations determined by v₂ = p₃² = |S|². Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)}. Full causal chain established. | NB121, NB178–180 |
-| **GAP-15** | Bottom Yukawa NARROWED (NB182). 42 = charge-neutral sub-covering degree (P₄/p₃). m_t/m_b = 42×√(29/30) at 0.40σ. Formula structural, √(1−α₂) mechanism not derived. Gap remains in gauge sector (SU(2) breaking via D₄ wreath product). | NB169, NB182 |
-| **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
-| **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |
-| **GAP-20** | Quark mass exponent x_q = 100/63 CONFIRMED (NB170, 0.01σ). Base x(R₀) = 4/7 DERIVED. Cross-level 25/9 MECHANISM IDENTIFIED (NB171). **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 (frequency gradient), not p₃² = 25. Remaining: re-examine how P₃ enters NB171 formula as p₃². | NB170–171, NB181 |
-| **GAP-12/13** | QED running ratio 15/14, Higgs mass formula — found by matching. | NB113, NB120 |
+| **GAP-19** | RESOLVED (NB180). Full causal chain established. | NB178–180 |
+| **GAP-15** | NARROWED (NB182). Formula structural, mechanism not derived. May follow from geometry. | NB169, NB182 |
+| **GAP-20** | Mechanism IDENTIFIED (NB171). Cross-level factor may follow from curvature ratios. | NB170–171, NB181 |
+| **GAP-11** | Gauge ρ-corrections — pattern-matched. | NB111 |
+| **GAP-14** | CKM Wolfenstein parameters — structural. | NB109, NB168 |
+| **GAP-12/13** | QED running, Higgs mass — pattern-matched. | NB113, NB120 |
 
 ## Working Rules
 

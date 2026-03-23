@@ -564,7 +564,51 @@ for full details.
 
 ---
 
-## 7. What We Are NOT Doing
+## 7. CURRENT PRIORITY: Exploit S² Beyond S¹ (Post-NB182)
+
+> **Updated 2026-03-23**. Phases 0–3 established that the cascade ODE is the S² gradient 
+> flow — its linear structure is base-independent. This was progress: it grounded the S¹ 
+> dynamics in S² geometry. But it also means we have NOT yet exploited what S² gives us 
+> BEYOND what S¹ gives. The mass pipeline still runs entirely on S¹ covering residuals 
+> with hardcoded numerical exponents and pattern-matched anchor formulas.
+
+### What the Mass Pipeline Still Assumes (Without Geometric Origin)
+
+| Pipeline component | What it is | Where in code |
+|-------------------|-----------|---------------|
+| x_lep_intra = 3.000376 | Lepton intra-gen exponent | solenoid_mass.py L265 |
+| x_q_intra = 1.586646 | Quark intra-gen exponent | solenoid_mass.py L266 |
+| x_lep_inter = λ(210)/(2π) | Lepton inter-gen exponent | solenoid_mass.py L269 |
+| m_t = M_Z × p₂²/√(πp₄) × ... | Top mass anchor | solenoid_mass.py L279 |
+| m_t/m_b = 42 × correction | Bottom mass | solenoid_mass.py L293 |
+| p₃/p₄ in m_τ | Tau correction factor | solenoid_mass.py L331 |
+
+These are the quantities the geometric program must either derive or honestly classify 
+as irreducible.
+
+### What S² Has That S¹ Doesn't
+
+| S² × R⁺ structure | Mathematical content | Pipeline quantity it might explain |
+|-------------------|---------------------|----------------------------------|
+| Spherical harmonics Y_l^m | Eigenvalues l(l+1), selection rules | Mass exponents (discrete, not continuous) |
+| Curvature K_k = 1/P_k² | Ratio K_k/K_{k+1} = p_{k+1}² | Mass hierarchy from curvature gradient |
+| Oriented axes (2→φ, 3→θ, 5→r) | Different boundary conditions per axis | CP-pair structure from geometry |
+| Radial quantization | Discrete shells at r = P_k | The unused radial prime (p=5) |
+| Branch point monodromy on S² | Holonomy around Platonic vertices | Gauge coupling corrections (GAP-11) |
+| A₅ truncation | Finite subgroup selection rules | Why l ≤ 3 (four-prime termination) |
+
+### The Concrete Questions (GEO-1 through GEO-5)
+
+These are defined in `docs/causal_gaps.md` §V. The sequence follows the reconstruction 
+plan's principle: arena → structure → dynamics.
+
+**Do NOT return to algebraic gap-hunting (GAP-11 through GAP-22) until the geometric 
+program has been explored.** The pattern-matched gaps are symptoms; the S¹ → S² 
+transition is the root cause.
+
+---
+
+## 8. What We Are NOT Doing
 
 - **NOT abandoning the solenoid.** The solenoid may turn out to be the S¹-projection of 
   the correct S² structure. If so, the solenoid findings are a subset of the full picture.
@@ -577,6 +621,10 @@ for full details.
   
 - **NOT forcing correspondences.** The reports' descriptions guide where to look. The 
   mathematics decides what's there.
+
+- **NOT closing individual algebraic gaps** (GAP-11 through GAP-22) until the geometric 
+  program has been explored. Many of these gaps are symptoms of the S¹ → S² transition 
+  not being completed.
 
 ---
 
