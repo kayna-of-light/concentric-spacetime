@@ -499,14 +499,16 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | p-Adic Bridge Derivation | NB180 | All four p-adic valuations of det'(L) determined by v₂ = p₃² = |S|². Pairwise differences = framework invariants. Bridge exponents forced by Λ_max = p₁·p₃ consistency. Fundamental identity p₃² = σ₃(p₁) + p₁^{ω(P₄)}. GAP-19 RESOLVED. 5 identities (#321–325). |
 | SS Amplification Mechanism | NB181 | Frequency gradient drives SS₃/SS₀ ≈ P₃ = 30 (not p₃² = 25). Jacobian: lower-triangular, eigenvalue −κ (stable). FFT confirms ω/P_k descent. CORRECTION of NB171 SS claim. 0 new identities. |
 | Bottom Yukawa | NB182 | 42 = P₄/p₃ charge-neutral sub-covering. λ(P₄) = p₁p₂(p₄−p₃) (also holds for {3,5,7,11}). m_t/m_b = 42×√(29/30) at 0.40σ. D₄ wreath product context. GAP-15 NARROWED. 2 identities (#326–327). |
+| Concentric Sphere Laplacian | NB183 | GEO-1: x_lep = l(l+1)/P₁² at l=3 = 3.0 (125 ppm). x_q = (3/2)×(200/189) at l=2 = 100/63 (geometric decomposition). p₁³p₃²−p₂³p₄ = 11 = p₅. Covering singlet/triplet: p₂=3 gives 1 mode at l=2, 3 modes at l=3. S²/S¹ separation. 4 identities (#328–331), 1 NULL (#332). |
 
-### Current State (Post-NB182)
+### Current State (Post-NB183)
 
-- **327+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **332+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
 - **Reconstruction**: Phases 0–3 RESOLVED. Cascade = S² gradient flow. All dynamics grounded.
 - **Concentric sphere arena**: r_k = P_k, K_k = 1/P_k², Tr(L) = r₃+r₄ = 240, gravity in curvature language
+- **Geometric program**: GEO-1 PRODUCTIVE — mass exponents from S² Laplacian eigenvalues (NB183)
 - **Spectral bridge**: M_Pl/M_Z = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — exact (NB179). Bridge exponents derived from p-adic consistency (NB180). GAP-19 RESOLVED.
 - **Causal gaps**: see `docs/causal_gaps.md` for full classification (DERIVED / PATTERN-MATCHED / OPEN)
 
@@ -516,9 +518,9 @@ The reconstruction (NB172–178) established the S² × R⁺ arena with concentr
 
 | Priority | Question | Status |
 |----------|----------|--------|
-| **GEO-1** | Laplacian spectrum on nested concentric spheres {S²(P_k)} with covering connections | NOT STARTED |
+| **GEO-1** | Laplacian spectrum on nested concentric spheres {S²(P_k)} with covering connections | NB183: x_lep = l(l+1)/P₁² at l=3 = 3.0 (125 ppm). x_q = (3/2)×200/189 at l=2. Covering singlet/triplet. PRODUCTIVE. |
 | **GEO-2** | Do curvature ratios K_k/K_{k+1} = p_{k+1}² produce mass hierarchies without ODE integration? | NOT STARTED |
-| **GEO-3** | Covering constraint in Y_l^m basis — what do spherical harmonics give that Fourier modes on S¹ don't? | NOT STARTED |
+| **GEO-3** | Covering constraint in Y_l^m basis — what do spherical harmonics give that Fourier modes on S¹ don't? | NB183 partial: p₂=3 covering filters Y_l^m by p|m. Singlet/triplet split at l=2/l=3. Full basis analysis needed. |
 | **GEO-4** | Oriented axes (2→φ, 3→θ, 5→r, 7→arc) — mathematical content of axis assignment | NOT STARTED |
 | **GEO-5** | Radial structure — what does the radial coordinate (prime 5) contribute? Currently unused. | NOT STARTED |
 
