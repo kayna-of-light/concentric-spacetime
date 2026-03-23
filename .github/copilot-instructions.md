@@ -497,8 +497,9 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | Concentric Geometry | NB177–178 | Primorial radii r_k = P_k from covering constraint. Area ratios = Γ̃ eigenvalues. Geometric Laplacian = 2K_k. Path graph reduction. Metric radii sum. Gauge-gravity bridge r₃+r₄ = Tr(L) = 240 (unique). Consecutive quartet 5,6,7,8 (unique). Gravity in curvature language. 11 identities (#303–313). |
 | Spectral Bridge | NB179 | Natural per-factor Cayley graph on Z*₂₁₀: |S| = p₃ = 5 (unique). Integer eigenvalues 0..10, palindromic (bipartite). det'(L) = 2²⁵ × 3¹⁶ × 5¹³ × 7⁸. Spectral bridge: H = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — EXACT. Canonical: H = p₁^λ × P₄^ω × p₄^{p₃}. 7 identities (#314–320). |
 | p-Adic Bridge Derivation | NB180 | All four p-adic valuations of det'(L) determined by v₂ = p₃² = |S|². Pairwise differences = framework invariants. Bridge exponents forced by Λ_max = p₁·p₃ consistency. Fundamental identity p₃² = σ₃(p₁) + p₁^{ω(P₄)}. GAP-19 RESOLVED. 5 identities (#321–325). |
+| SS Amplification Mechanism | NB181 | Frequency gradient drives SS₃/SS₀ ≈ P₃ = 30 (not p₃² = 25). Jacobian: lower-triangular, eigenvalue −κ (stable). FFT confirms ω/P_k descent. CORRECTION of NB171 SS claim. 0 new identities. |
 
-### Current State (Post-NB180)
+### Current State (Post-NB181)
 
 - **325+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
@@ -516,7 +517,7 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | **GAP-15** | Bottom Yukawa y_b has no derivation. m_t/m_b = 42 is structural (pattern-matched). Cascade does NOT determine it — both crossings in steady-state. Gap is in the **gauge sector** (SU(2) breaking). | NB169 |
 | **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
 | **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |
-| **GAP-20** | Quark mass exponent x_q = 100/63 CONFIRMED (NB170, 0.01σ). Base x(R₀) = 4/7 DERIVED. Cross-level 25/9 MECHANISM IDENTIFIED (NB171): transient wrapping + SS amplification ≈ p₃². Remaining: prove SS₃/SS₀ = p₃² from cascade transfer function. | NB170–171 |
+| **GAP-20** | Quark mass exponent x_q = 100/63 CONFIRMED (NB170, 0.01σ). Base x(R₀) = 4/7 DERIVED. Cross-level 25/9 MECHANISM IDENTIFIED (NB171). **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 (frequency gradient), not p₃² = 25. Remaining: re-examine how P₃ enters NB171 formula as p₃². | NB170–171, NB181 |
 | **GAP-12/13** | QED running ratio 15/14, Higgs mass formula — found by matching. | NB113, NB120 |
 
 ## Working Rules
