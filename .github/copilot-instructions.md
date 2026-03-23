@@ -207,7 +207,7 @@ The core algebraic module. Provides:
 - `SA.Z_star` — the 48 elements of Z*₂₁₀
 - `SA.decompose(k)` — returns raw CRT residue tuple for k ∈ Z*₂₁₀
 - `SA.character(chi_index, k)` — evaluates character χ at group element k
-- `SA.primes`, `SA.N`, `SA.phi_N`, etc.
+- `SA.primes`, `SA.P`, `SA.PHI`, etc.
 
 **Physical constants (module-level, importable directly):**
 - `RHO = 1/√210` — primorial coupling constant (= KAPPA = EPSILON)
