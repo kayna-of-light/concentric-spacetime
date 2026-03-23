@@ -1,18 +1,18 @@
 # Complete Scorecard — Concentric Spacetime
 
 > **Living document** — updated as new identities are established.
-> Last updated after NB174. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². NB172: cascade visualization on 6×5×7 lattice — hierarchical prime activation discovered. NB173: icosahedral truncation — A₅ as geometric truncation of S² harmonics, 8 new identities (#282–#289). NB174: algebraic bridge — A₅ ↔ Z*₂₁₀ via McKay correspondence, character-geometry factorization, 5 new identities (#290–#294).
+> Last updated after NB175. NB138–147: single action, gauge emergence, mass formula. NB148–155: mass pipeline, window-0 selection, wave propagation, inter-gen dynamics. NB156–162: spatial reinterpretation, kappa resonance, exponent derivation, inter-gen scaling. NB163–168: CKM from dynamics, sector-resolved pipeline (V_us derived 0.029%), x_q mechanism (475 ppm structural gap). NB169: comprehensive t/b analysis — cascade does NOT determine m_t/m_b (GAP-15 confirmed in gauge sector). NB170: x_q = 100/63 CONFIRMED (0.01σ), factored as (4/7)(25/9). NB171: cross-level 25/9 mechanism identified — transient wrapping + SS amplification ≈ p₃². NB172: cascade visualization on 6×5×7 lattice — hierarchical prime activation discovered. NB173: icosahedral truncation — A₅ as geometric truncation of S² harmonics, 8 new identities (#282–#289). NB174: algebraic bridge — A₅ ↔ Z*₂₁₀ via McKay correspondence, character-geometry factorization, 5 new identities (#290–#294). NB175: monodromy dynamics — tower genus preservation, monodromy coupling theorem, balanced branching structure, 3 new identities (#295–#297).
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **Structural identities** | 294+ |
+| **Structural identities** | 297+ |
 | **Free parameters** | 0 |
 | **Dimensional anchors** | 1 (M_Z = 91.1876 GeV) |
 | **Input** | The four primes {2, 3, 5, 7}, equivalently P₄ = 210 |
 | **Genuine nulls** | 2 (#214, #215 — phase-sampling artifacts of +1 time offset) |
-| **Notebooks** | 174 (NB01–NB174) |
+| **Notebooks** | 175 (NB01–NB175) |
 | **Causal gaps resolved** | 8/10 + GAP-15, GAP-20 partially open (see causal_gaps.md) |
 | **Mass pipeline** | 9/9 PASS, mean |dev| = 0.65%, sector-resolved (NB167), 8/9 within 1σ |
 | **Mass mechanism** | Coherence: non-wrapping fraction across 4 levels × P₃ = exponent |
@@ -152,6 +152,7 @@ Everything follows from the arithmetic of Z*₂₁₀, the multiplicative group 
 | **Cascade Visualization** | NB172 | Spatial projection on 6×5×7 lattice reveals hierarchical prime activation | 0 new identities (visualization). 210 branches → (2×3)×5×7 grid. Each cascade level activates exactly one prime's spatial dimension: R₀=binary(p₁), R₁=6-fold(p₂), R₂=5-stripe(p₃), R₃=full 5×7(p₄). Filmstrip shows transient→SS transition. SS amplification 25.46≈p₃² confirmed visually. Mass ratios = contrast between structured (g1) and uniform (g2) spatial fields. |
 | **The Icosahedral Truncation** | NB173 | A₅ as geometric truncation of S² harmonics; Platonic nesting of branch points; two-group architecture; termination theorem | 8 identities (#282–#289): φ(P₄)+λ(P₄)=|A₅|=60 (termination), B_p=2φ(p) (Riemann-Hurwitz), Platonic vertex nesting 2<4<8<12, d(210)=sum(A₅ irreps)=harmonics(l≤3)=16 (16-network), gcd(60,48)=12=λ(210), P₄/|A₅|=p₄/p₁, B₇=ico vertices=λ(210)=12, termination theorem at k=4 (A₅ last exceptional SO(3) subgroup). |
 | **The Algebraic Bridge** | NB174 | A₅ ↔ Z*₂₁₀ bridge via McKay correspondence; character-geometry factorization 48=16×3; binary polyhedral prime chain; A₄ as geometric-algebraic intersection | 5 identities (#290–#294): φ(P₄)=d(P₄)×3 (character-geometry factorization), |2O|=φ(P₄)=48 (McKay E₇ bridge), lcm(|A₅|,φ(P₄))=240=roots(E₈)=Tr(L) (E₈ root LCM), A₄ bridge group with prime indices (|A₅|/|A₄|=p₃, |S₄|/|A₄|=p₁), McKay prime chain (all binary polyhedral orders are primorial expressions). |
+| **Monodromy Dynamics** | NB175 | S² branched covering tower: Riemann-Hurwitz genus preservation, monodromy coupling theorem, balanced branching with Berry phase | 3 identities (#295–#297): tower genus preservation (B=2(p-1) → genus 0 at every level), monodromy coupling theorem (branch points generate Z₂₁₀, IS the coupling — no sin perturbation needed), balanced branching (13 conjugate pairs, Berry phase = 2π×593/210 with P₄ denominator). κ = 1/√210 from Haar metric. |
 
 ---
 
@@ -433,6 +434,22 @@ NB173 established A₅ (geometry, order 60) and Z*₂₁₀ (algebra, order 48) 
 **Key finding — McKay placement**: The concentric system sits at the intersection of E₇ (fiber: φ(P₄) = 48 = |2O|) and E₈ (unifier: lcm = 240 = roots), with the bridge at E₆ (2T: order 24 = 2λ(P₄)).
 
 **Key finding — Three paths to 16**: (a) A₅ irrep dimension sum = 1+3+3'+4+5 = 16, (b) divisor count d(210) = 16, (c) fiber quotient φ(P₄)/3 = 16, (d) Z*₂₁₀ orbits on Z₂₁₀ = 16.
+
+### Monodromy Dynamics (NB175)
+
+The S¹ solenoid has unramified coverings (no branch points), so the inter-level coupling was INVENTED (sin perturbation). On S², branched coverings provide NATURAL coupling via monodromy around branch points. This notebook formalizes the S² covering tower.
+
+| # | Identity | Description | Verdict |
+|---|----------|-------------|--------|
+| 295 | Tower Genus Preservation | Riemann-Hurwitz with B = 2(p−1) simple branch points: 2g−2 = p(−2) + 2(p−1) = −2 → genus 0 at every level. Tower: S² ←₂ S² ←₃ S² ←₅ S² ←₇ S² | **PASS** — exact (algebraic identity for all p) |
+| 296 | Monodromy Coupling Theorem | Branch point monodromy generates Z₂₁₀ = Z₂ × Z₃ × Z₅ × Z₇ (full cyclic fiber). Deck symmetry is Z*₂₁₀ (48 units). Monodromy IS the inter-level coupling — no external perturbation | **PASS** — exact (topological) |
+| 297 | Balanced Branching Structure | Σ(p_k − 1) = 1+2+4+6 = 13 conjugate branch point pairs. Total Berry phase = 2π × 593/210 (denominator = P₄). 173 (fractional numerator) is prime | **PASS** — exact (arithmetic) |
+
+**Key finding — Coupling upgrade**: The S¹ solenoid was the RIGHT GROUP THEORY on the WRONG GEOMETRY. Moving to S² preserves all 294 algebra-based identities while upgrading the dynamics from invented (sin perturbation) to topological (monodromy).
+
+**Key finding — κ derivation**: κ = 1/√P₄ from Haar metric normalization on the covering space (each of 210 sheets contributes equally). Same value as NB143, but now derived from the metric rather than imposed as convention.
+
+**Key finding — Berry phase**: The total Berry phase 2π × 593/210 has P₄ = 210 as denominator (primorial appears naturally). The fractional part 173/210 has prime numerator.
 
 ### The Totient Density Tower
 
