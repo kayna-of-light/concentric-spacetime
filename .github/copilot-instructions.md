@@ -498,10 +498,11 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | Spectral Bridge | NB179 | Natural per-factor Cayley graph on Z*₂₁₀: |S| = p₃ = 5 (unique). Integer eigenvalues 0..10, palindromic (bipartite). det'(L) = 2²⁵ × 3¹⁶ × 5¹³ × 7⁸. Spectral bridge: H = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — EXACT. Canonical: H = p₁^λ × P₄^ω × p₄^{p₃}. 7 identities (#314–320). |
 | p-Adic Bridge Derivation | NB180 | All four p-adic valuations of det'(L) determined by v₂ = p₃² = |S|². Pairwise differences = framework invariants. Bridge exponents forced by Λ_max = p₁·p₃ consistency. Fundamental identity p₃² = σ₃(p₁) + p₁^{ω(P₄)}. GAP-19 RESOLVED. 5 identities (#321–325). |
 | SS Amplification Mechanism | NB181 | Frequency gradient drives SS₃/SS₀ ≈ P₃ = 30 (not p₃² = 25). Jacobian: lower-triangular, eigenvalue −κ (stable). FFT confirms ω/P_k descent. CORRECTION of NB171 SS claim. 0 new identities. |
+| Bottom Yukawa | NB182 | 42 = P₄/p₃ charge-neutral sub-covering. λ(P₄) = p₁p₂(p₄−p₃) (also holds for {3,5,7,11}). m_t/m_b = 42×√(29/30) at 0.40σ. D₄ wreath product context. GAP-15 NARROWED. 2 identities (#326–327). |
 
-### Current State (Post-NB181)
+### Current State (Post-NB182)
 
-- **325+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **327+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
 - **Reconstruction**: Phases 0–3 RESOLVED. Cascade = S² gradient flow. All dynamics grounded.
@@ -514,7 +515,7 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | Gap | Description | Where |
 |-----|-------------|-------|
 | **GAP-19** | Gravity hierarchy M_Pl/M_Z = 240⁴ × 7⁹. **RESOLVED** (NB180): bridge exponents σ₃(p₁) and λ(P₄) forced by p-adic consistency of det'(L). All valuations determined by v₂ = p₃² = |S|². Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)}. Full causal chain established. | NB121, NB178–180 |
-| **GAP-15** | Bottom Yukawa y_b has no derivation. m_t/m_b = 42 is structural (pattern-matched). Cascade does NOT determine it — both crossings in steady-state. Gap is in the **gauge sector** (SU(2) breaking). | NB169 |
+| **GAP-15** | Bottom Yukawa NARROWED (NB182). 42 = charge-neutral sub-covering degree (P₄/p₃). m_t/m_b = 42×√(29/30) at 0.40σ. Formula structural, √(1−α₂) mechanism not derived. Gap remains in gauge sector (SU(2) breaking via D₄ wreath product). | NB169, NB182 |
 | **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
 | **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |
 | **GAP-20** | Quark mass exponent x_q = 100/63 CONFIRMED (NB170, 0.01σ). Base x(R₀) = 4/7 DERIVED. Cross-level 25/9 MECHANISM IDENTIFIED (NB171). **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 (frequency gradient), not p₃² = 25. Remaining: re-examine how P₃ enters NB171 formula as p₃². | NB170–171, NB181 |

@@ -2,7 +2,7 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB181. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism UNDERSTOOD: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification (NB171, 0.018% analytical match). **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 (frequency gradient), not p₃² = 25 as claimed. **GAP-19 RESOLVED** (NB180): bridge exponents σ₃(p₁) and λ(P₄) forced by p-adic consistency of det'(L). All valuations determined by v₂ = p₃² = |S|². Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)}.
+**Status**: Post-NB182. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism UNDERSTOOD: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification (NB171, 0.018% analytical match). **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 (frequency gradient), not p₃² = 25 as claimed. **GAP-19 RESOLVED** (NB180): bridge exponents σ₃(p₁) and λ(P₄) forced by p-adic consistency of det'(L). All valuations determined by v₂ = p₃² = |S|². Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)}.
 
 **Reconstruction (NB173–178)**: Phases 0–3 RESOLVED. The cascade ODE is the S² gradient flow — all components derived from covering topology or grounded in S² geometry. Key results: A₅ icosahedral truncation gives non-circular reason for exactly 4 primes (NB173). A₅ ↔ Z*₂₁₀ bridge via McKay correspondence (NB174). Monodromy IS the coupling — sin forcing is the leading Fourier mode of topological monodromy, not an invention (NB175). κ = ε = 1/√P₄ from Haar metric (NB176). Concentric sphere arena: primorial radii r_k = P_k, area ratios = Γ̃ eigenvalues, Γ_geom = 2K_k (NB177). Geometric gravity dictionary: D·Γ_geom·D = path graph Laplacian, metric radii sum (D·g⁻¹·D)_kk = r_k + r_{k+1}, gauge-gravity bridge r₃+r₄ = Tr(L) = 240 unique to {2,3,5,7}, consecutive quartet p₃,P₂,p₄,φ(P₃) = 5,6,7,8 unique (NB178). GAP-19 upgraded: gravity hierarchy now expressible in pure curvature language K_k = 1/P_k².
 
@@ -52,7 +52,7 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 |----------|---------|-------|-----|
 | m_t/M_Z | p₂²/√(πp₄) × (1 − H₃²/p₄) | solenoid_mass.py L279, NB118 | **GAP-21** |
 | y_t = 1/√P₁ | Top Yukawa from √(cos²θ_W × α₂) | NB118, but WHY this cancellation? | **GAP-21** |
-| m_t/m_b = 42 | P₄/p₃ | NB127, arithmetic search | **GAP-15** |
+| m_t/m_b = 42×√(29/30) | P₄/p₃ × √(1−1/P₃) | NB127, NB182 | **GAP-15** (NARROWED) |
 | p₃/p₄ in m_τ | m_τ = m_μ × R_lep² ^ x_l_inter × 5/7 | solenoid_mass.py L331 | **GAP-22** |
 | H₃²/π coupling | Cascade oscillation to top mass | solenoid_mass.py L279 | **GAP-21** |
 
@@ -154,7 +154,7 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 **Still open**: Deriving A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 from the cascade dynamics rather than from group arithmetic.
 
-### GAP-15: Bottom Yukawa / m_t/m_b Ratio [NEW, OPEN]
+### GAP-15: Bottom Yukawa / m_t/m_b Ratio [NARROWED — NB182]
 
 **What we have**: m_t/m_b = P₄/p₃ = 42 (NB127, arithmetic search). Gives m_b at 2.3σ.
 
@@ -162,11 +162,15 @@ The mass mechanism is spatial coherence: the non-wrapping fraction across all 4 
 
 **NB169 comprehensive analysis**: 12 analyses at full 210-point resolution confirm the cascade has NOTHING to say about m_t/m_b. Both crossings (ci=149, ci=191) are in steady-state with RMS ratio 1.07. The gap is conclusively in the GAUGE SECTOR — specifically, in how SU(2) breaking (Z₂ ≀ Z₂ from NB144) creates the up-down Yukawa asymmetry.
 
-**Candidate**: m_t/m_b = 42 × √(1−α₂) = 42 × √(29/30) = 41.294 (0.025% from PDG). Uses the derived SU(2) coupling α₂ = 1/P₃. Found by searching, NOT derived.
+**NB182 structural analysis**:
+- 42 = P₄/p₃ = degree of charge-neutral sub-covering {2,3,7} (p₃=5 excised). Physical: isospin doublet (t,b) lives on covering where charge sector cancels.
+- λ(P₄) = p₁p₂(p₄−p₃) = 12 (#326, EXACT). Also holds for {3,5,7,11} — captures consecutive-prime gap structure, not unique to our primes.
+- m_t/m_b = 42 × √(1−α₂) = 42 × √(29/30) = 41.294 (#327, 0.075% from PDG, 0.40σ). Uses derived α₂ = 1/P₃ = 1/30. FOUND, not derived.
+- D₄ = Z₂ ≀ Z₂ wreath product provides the isospin breaking framework. The √(1−α₂) correction is plausible as SU(2) vacuum alignment amplitude but the mechanism connecting D₄ irreps to mass splitting is not established.
 
-**Would resolve**: m_b from 2.3σ to 0.6σ. And establish whether the Higgs mechanism contributes √(1−α₂) to the isospin mass splitting.
+**Would resolve**: m_b from 2.3σ to 0.4σ. Remaining: derive WHY √(1−α₂) enters the isospin mass splitting from the D₄ wreath product structure.
 
-5. *Key obstacle*: The solenoid mass matrix is DIAGONAL in the CRT basis. The F-N relation requires off-diagonal texture. The off-diagonal elements must come from the wrapping nonlinearity mixing generations at wrapping crossings.
+*Key obstacle*: The solenoid mass matrix is DIAGONAL in the CRT basis. The F-N relation requires off-diagonal texture. The off-diagonal elements must come from the wrapping nonlinearity mixing generations at wrapping crossings.
 
 **Fundamental obstacle**: The solenoid mass matrix is DIAGONAL in the CRT basis (each crossing = one generation, no off-diagonal elements). Diagonal matrices commute → CKM = Identity. The CKM requires OFF-DIAGONAL mass matrix elements, which come from the Higgs VEV on the covering tower (NB53-55), NOT from the cascade dynamics. The cascade gives masses (diagonal). The Higgs gives mixing (off-diagonal). These are different layers of the solenoid.
 
@@ -351,7 +355,7 @@ Based on which gaps would unlock the most understanding:
 
 2. **GAP-21 (Top mass anchor)** — y_t = 1/√P₁ = √(cos²θ_W × α₂) may be a one-loop identity connecting the gauge sector to the Yukawa sector. If derived, the entire top mass becomes mechanism-free.
 
-3. **GAP-15 (Bottom Yukawa / m_t/m_b)** — The cascade conclusively has nothing to say (NB169). The gap is in the gauge sector (SU(2) breaking). The candidate √(1−α₂) correction connects to derived quantities but needs a mechanism.
+3. **GAP-15 (Bottom Yukawa / m_t/m_b)** — NARROWED (NB182). 42 = charge-neutral sub-covering degree. m_t/m_b = 42×√(29/30) at 0.40σ. Formula structural, mechanism (√(1−α₂) from D₄ irreps) interpretive. Gap remains in gauge sector.
 
 4. **GAP-14 (CKM Wolfenstein A, ρ̄, η̄)** — V_us is derived. The remaining 3 Wolfenstein parameters are structural. The profinite tower limit is the theoretically correct approach but computationally demanding.
 
