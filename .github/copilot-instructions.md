@@ -495,21 +495,23 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | Exponent Derivation | NB170–171 | x_q = 100/63 confirmed (0.01σ). Factored: (4/7)(25/9). Base derived. Cross-level 25/9 mechanism: transient wrapping + SS amplification ≈ p₃² (NB171, 0.018%). 3 new identities (#279–281). |
 | S² Reconstruction | NB172–176 | Cascade visualization (NB172). A₅ icosahedral truncation → non-circular reason for 4 primes (NB173, #282–289). A₅ ↔ Z*₂₁₀ McKay bridge (NB174, #290–294). Monodromy IS the coupling (NB175, #295–297). Cascade = S² gradient flow, all dynamics grounded (NB176, #298–302). Reconstruction Phases 0–3 RESOLVED. |
 | Concentric Geometry | NB177–178 | Primorial radii r_k = P_k from covering constraint. Area ratios = Γ̃ eigenvalues. Geometric Laplacian = 2K_k. Path graph reduction. Metric radii sum. Gauge-gravity bridge r₃+r₄ = Tr(L) = 240 (unique). Consecutive quartet 5,6,7,8 (unique). Gravity in curvature language. 11 identities (#303–313). |
+| Spectral Bridge | NB179 | Natural per-factor Cayley graph on Z*₂₁₀: |S| = p₃ = 5 (unique). Integer eigenvalues 0..10, palindromic (bipartite). det'(L) = 2²⁵ × 3¹⁶ × 5¹³ × 7⁸. Spectral bridge: H = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — EXACT. Canonical: H = p₁^λ × P₄^ω × p₄^{p₃}. 7 identities (#314–320). |
 
-### Current State (Post-NB178)
+### Current State (Post-NB179)
 
-- **313+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **320+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
 - **Reconstruction**: Phases 0–3 RESOLVED. Cascade = S² gradient flow. All dynamics grounded.
 - **Concentric sphere arena**: r_k = P_k, K_k = 1/P_k², Tr(L) = r₃+r₄ = 240, gravity in curvature language
+- **Spectral bridge**: M_Pl/M_Z = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — exact (NB179)
 - **Causal gaps**: see `docs/causal_gaps.md` for full classification (DERIVED / PATTERN-MATCHED / OPEN)
 
 ### Open Frontier
 
 | Gap | Description | Where |
 |-----|-------------|-------|
-| **GAP-19** | Gravity hierarchy M_Pl/M_Z = 240⁴ × 7⁹. Constituents now geometric (240 = r₃+r₄, 9 = K₁/K₂). Full formula in curvature language (#313). But WHY these specific exponents? Derivation from concentric sphere curvature gradient is the next target. | NB121, NB178 |
+| **GAP-19** | Gravity hierarchy M_Pl/M_Z = 240⁴ × 7⁹. Now connected to spectral determinant of natural Cayley graph (NB179, #317): H = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}), EXACT. Canonical factorization H = p₁^λ × P₄^ω × p₄^{p₃}. Remaining: derive WHY these specific exponents appear in the bridge denominator — σ₃(p₁) and λ(P₄) are framework invariants but their appearance as normalizing exponents needs structural explanation. | NB121, NB178, NB179 |
 | **GAP-15** | Bottom Yukawa y_b has no derivation. m_t/m_b = 42 is structural (pattern-matched). Cascade does NOT determine it — both crossings in steady-state. Gap is in the **gauge sector** (SU(2) breaking). | NB169 |
 | **GAP-11** | Gauge coupling ρ-corrections: WHY +p₄ρ (strong), −λ(p₄)ρ (weak)? Found by matching, not derived. | NB111 |
 | **GAP-14** | CKM Wolfenstein A = 4/5, ρ̄ = 1/(2π), η̄ = √3/5 — structural, not dynamical. V_cb from algebra, not F-N. | NB109, NB168 |

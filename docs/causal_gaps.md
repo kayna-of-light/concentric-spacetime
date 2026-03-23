@@ -2,9 +2,11 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB178. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism identified: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification ≈ p₃² (NB171, 0.018% analytical match). Remaining target: SS amplification law.
+**Status**: Post-NB179. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism identified: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification ≈ p₃² (NB171, 0.018% analytical match). Remaining target: SS amplification law.
 
 **Reconstruction (NB173–178)**: Phases 0–3 RESOLVED. The cascade ODE is the S² gradient flow — all components derived from covering topology or grounded in S² geometry. Key results: A₅ icosahedral truncation gives non-circular reason for exactly 4 primes (NB173). A₅ ↔ Z*₂₁₀ bridge via McKay correspondence (NB174). Monodromy IS the coupling — sin forcing is the leading Fourier mode of topological monodromy, not an invention (NB175). κ = ε = 1/√P₄ from Haar metric (NB176). Concentric sphere arena: primorial radii r_k = P_k, area ratios = Γ̃ eigenvalues, Γ_geom = 2K_k (NB177). Geometric gravity dictionary: D·Γ_geom·D = path graph Laplacian, metric radii sum (D·g⁻¹·D)_kk = r_k + r_{k+1}, gauge-gravity bridge r₃+r₄ = Tr(L) = 240 unique to {2,3,5,7}, consecutive quartet p₃,P₂,p₄,φ(P₃) = 5,6,7,8 unique (NB178). GAP-19 upgraded: gravity hierarchy now expressible in pure curvature language K_k = 1/P_k².
+
+**Spectral bridge (NB179)**: Natural per-factor Cayley graph on Z*₂₁₀ with |S| = p₃ = 5. Integer eigenvalues 0..10, palindromic. det'(L) = 2²⁵ × 3¹⁶ × 5¹³ × 7⁸. EXACT spectral bridge: H = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}). Canonical: H = p₁^λ × P₄^ω × p₄^{p₃}. GAP-19 upgraded to spectral determinant identified.
 
 ---
 
@@ -276,7 +278,7 @@ Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The c
 
 **Would resolve**: Cosmology from solenoid spatial structure.
 
-### GAP-19: Gravity Hierarchy Exponents [PARTIALLY DERIVED → GEOMETRY IDENTIFIED]
+### GAP-19: Gravity Hierarchy Exponents [PARTIALLY DERIVED → SPECTRAL DETERMINANT IDENTIFIED]
 
 **What we have**: M_Pl/M_Z = 240⁴ × 7⁹ = Tr(L)^{ω(P₄)} × p₄^{σ₃(p₁)} (#261, NB121). Dev: 0.003%.
 
@@ -289,7 +291,15 @@ Also: H₃² ≡ harmonic oscillation amplitude of the cascade at level 3. The c
 - The concentric sphere geometry (NB177) shows the curvature gradient from K₀=1 (innermost) to K₄=1/44100 (outermost) is the gravitational hierarchy.
 - Consecutive quartet p₃, P₂, p₄, φ(P₃) = 5, 6, 7, 8 — four consecutive integers, unique to {2,3,5,7} (#312). This interlocking constrains the gauge-gravity bridge.
 
-**What remains**: The exponent structure — WHY Tr(L)⁴ × p₄⁹ specifically? The geometry gives the constituents (240, 9) a concrete meaning (radii sum, curvature ratio) but doesn't yet DERIVE why the Planck-to-Z ratio takes this particular power-law form from the nesting.
+**NB179 spectral bridge** (major upgrade):
+- Natural per-factor Cayley graph on Z*₂₁₀ with |S| = p₃ = 5 generators (#314).
+- Integer eigenvalues 0..10 with palindromic multiplicities; bipartite Cayley graph (#315).
+- Exact spectral determinant: det'(L) = 2²⁵ × 3¹⁶ × 5¹³ × 7⁸ (#316).
+- **Spectral bridge formula** (#317, HEADLINE): H = det'(L) · p₄ / (Λ_max^{σ₃(p₁)} · p₂^{λ(P₄)}) — EXACT algebraic identity. Every component is a framework invariant.
+- Canonical factorization: H = p₁^{λ(P₄)} × P₄^{ω(P₄)} × p₄^{p₃} = 2¹² × 210⁴ × 7⁵ (#318).
+- Supporting: σ₃(p₁) = ω(P₄) + p₃ → 9 = 4 + 5 (#319); λ(P₄) + ω(P₄) = p₁^{ω(P₄)} → 16 = 16 (#320).
+
+**What remains**: The spectral bridge connects H to the spectral determinant of the Cayley graph — a well-defined algebraic invariant. The denominator uses σ₃(p₁) and λ(P₄), both framework invariants. Remaining question: derive WHY the normalizing exponents are σ₃(p₁) and λ(P₄) specifically — i.e., what structural principle selects these as the bridge denominators.
 
 ---
 
