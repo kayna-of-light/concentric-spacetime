@@ -394,14 +394,14 @@ The foundational questions asked "what IS this arena?" The next phase asks "what
 
 | # | Direction | What we have | What we need | Why it's accessible now |
 |---|-----------|-------------|-------------|------------------------|
-| **GD-1** | **Full geometric action** | V_covering on S¹ (NB139), Γ̃ = K·A⁻¹ (NB143), cascade = S² gradient flow (NB176) | Action functional on the full 4D arena with per-axis metric (NB189). Euler-Lagrange → what emerges beyond the l=0 cascade? | Per-axis metric now known. The action should be writable. |
+| **GD-1** | **Full geometric action** — **COMPLETE** | V_covering on S¹ (NB139), Γ̃ = K·A⁻¹ (NB143), cascade = S² gradient flow (NB176). NB190: 80×80 quadratic form on S². NB191: Euler-Lagrange. | **DONE**. L-sector decoupling theorem: C_pol(l'>0, 0; m) = 0 by Legendre orthogonality → S¹ cascade = exact l=0 invariant subspace. Even-parity block upper triangular. C_pol(0,2;0) = 8/35 = sin²θ_W. GD-1 complete. | — |
 | **GD-2** | **Geometric C₀** | C₀(lep) = √35 ≈ √(p₃p₄), C₀(quark) = 21/√10 (NB184). Mechanism at R₃-level, branch-averaged, κ-dependent (NB185) | Analytic derivation: C₀ as geometric invariant (curvature integral, spectral ratio, geodesic length ratio) without ODE | Curvature ratios established (NB177), axis assignment fixes the integration domain (NB189) |
 | **GD-3** | **200/189 per-axis decomposition** | 200/189 = p₁³p₃²/(p₂³p₄) confirmed as S¹ mechanism, not per-ℓ damping (NB187) | Decompose per axis: φ contributes p₁³=8, r contributes p₃²=25, θ contributes p₂³=27, arc contributes p₄=7. Volume ratio? Eigenvalue ratio? | Axis assignment (NB189) enables per-axis factorization of this number |
 | **GD-4** | **Mass anchors from geometry** | m_t/m_b = 42×√(29/30) where 42 = P₄/p₃ charge-neutral sub-covering (NB182). m_t/M_Z pattern-matched (NB109) | Derive anchor formulas from arena geometry. 42 = charge-neutral states on sphere system. √(29/30) correction? | Full sphere counting now available (shells + modes + covering) |
 | **GD-5** | **Full 4D Laplacian spectrum** | Per-axis eigenvalue contributions (NB189). Per-ℓ cascade at ℓ=0,2,3 (NB187). Innermost sphere controls mass exponents (NB186) | Full Laplacian on product arena combining angular + radial + solenoid sectors. Does the spectrum organize the entire particle spectrum? | All axes characterized, metric known, covering maps as connections |
 | **GD-6** | **x_l_inter from geometry** | x_l_inter ≈ 1.273 ≈ φ(P₃)/(2π). Hardcoded. | Derive inter-generation spacing from the sphere system | Per-ℓ cascade (NB187) + shell geometry may constrain this |
 
-**Priority**: GD-1 (geometric action) is foundational — if the full action is written, variations may resolve GD-2 through GD-6 as consequences. GD-3 (200/189) is the most concrete and immediately testable with existing tools. GD-2 (C₀) is the highest-value target for the mass pipeline.
+**Priority**: GD-1 is now COMPLETE (NB190+NB191). GD-2 (C₀) is the highest-value target — C₀ does NOT come from cross-l coupling (NB191 closes this). GD-3 (200/189) is the most concrete and immediately testable. GD-5 (full 4D Laplacian) builds on the NB190 action.
 
 ### Answered Structural Questions (Archive)
 
