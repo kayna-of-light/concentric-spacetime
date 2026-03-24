@@ -382,7 +382,7 @@ The reconstruction (NB172-178) established the arena but never derived dynamics 
 | Radii r_k = P_k | What the radial coordinate (p=5) does |
 | Curvatures K_k = 1/P_k² | Whether mass ratios come from curvature ratios |
 | A₅ truncation → 4 primes | Spherical harmonics Y_l^m as the natural basis |
-| Monodromy = coupling | Oriented axes (2→φ, 3→θ, 5→r, 7→arc) |
+| Monodromy = coupling | Oriented axes (2→φ, 3→θ, 5→r, 7→arc) — ANSWERED (NB189) |
 | κ from Haar metric | Discrete degrees (quantization from geometry) |
 | Cascade = S² gradient flow | What S² gives BEYOND what S¹ gives |
 
@@ -398,7 +398,7 @@ If yes, the hardcoded exponents and pattern-matched anchors are replaced by geom
 
 3. **Spherical harmonic decomposition**: The cascade on S¹ uses Fourier modes e^{inθ}. On S², the natural basis is Y_l^m(θ,φ). What does the covering constraint look like in the Y_l^m basis? Does the harmonic structure produce quantized mass ratios?
 
-4. **Oriented axes**: The reports assign 2→φ (azimuthal), 3→θ (polar), 5→r (radial), 7→arc (developmental). What does this axis assignment mean mathematically for the dynamics?
+4. **Oriented axes**: **ANSWERED (NB189)**. The axis assignment 2→φ, 3→θ, 5→r, 7→arc is the UNIQUE (1/24) geometrically natural mapping. Four constraints force it: (C1) {2,3} → angular (S² has 2 angular coords), (C2) {5,7} → non-angular, (C3) 2 → φ (bilateral = full circle), (C4) 5 → r (NB188). CRT–coordinate correspondence: each CRT factor maps to one axis carrying one quantum number. Covering monodromy: p₂=3 branch-point monodromy requires 3|m → quark/lepton split. Per-axis metric: g_φ = P_k²sin²θ, g_θ = P_k², g_r = 1, g_arc = 1/P₄. Cascade residuals are inter-axis interfaces. Angular state count 12 = λ(P₄) is coincidental (NULL). 1 identity (#346).
 
 5. **Radial structure**: **ANSWERED (NB188)**. Prime 5 controls the radial metric — shell distances, localization, and hydrogen-like (n,l) structure. Covering Jacobian J (4×5) has stiffness JᵀJ with kernel norm p₃=5. Cauchy-Binet: det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ eigenvalues pair via golden ratio. Hydrogen pattern: Σn²=30=P₃ on 4 shells. Double truncation: l_max=3 from A₅ AND ω(P₄). All modes localize on primorial shells (PR < 1.16). Z₄ charge connection dimensional only (p₃≡0 mod 5). 5 identities (#341–#345).
 
