@@ -506,10 +506,11 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | Per-ℓ Cascade Dynamics | NB187 | Full JAX integration of 210 branches at ℓ=0,2,3 with correct inter-level coupling ODE. ℓ=0 matches standard pipeline to 10⁻¹². Primorial screening theorem: S² geometric damping screened at R₃ — quark C₀ changes 0.058% (ℓ=0→ℓ=2), lepton 5.3% (ℓ=0→ℓ=3). 200/189 NOT absorbed by per-ℓ damping. Division of labor: S²(ℓ>0) selects modes, S¹(ℓ=0) computes masses. Inner-sphere products: 35/12 = p₃p₄/λ(P₄) at ℓ=2, 16/3 = d(P₄)/p₂ at ℓ=3. 4 identities (#337–340). |
 | Radial Structure | NB188 | GEO-5: prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ with golden ratio eigenvalue pairing. Hydrogen Σn²=30=P₃. Double truncation l_max=3. Primorial localization. Z₄ connection dimensional not structural. 5 identities (#341–#345). |
 | Oriented Axes | NB189 | GEO-4: axis assignment 2→φ, 3→θ, 5→r, 7→arc is UNIQUE (1/24). Forced by 4 constraints: {2,3}→angular, {5,7}→non-angular, 2→φ (bilateral=full circle), 5→r (NB188). CRT–coordinate correspondence: each CRT factor Z_{φ(p)} maps to one axis. Per-axis metric. Cascade = inter-axis coupling. Angular state count 12 = λ(P₄) coincidental (NULL). 1 identity (#346). |
+| Full S² Covering Action | NB190 | GD-1: complete covering energy E = T + V as 80×80 quadratic form. Azimuthal C_az (p₁=2) kills 8/16 modes. Polar C_pol (p₂=3) creates l-mixing via Chebyshev T₃. l-parity conservation: even-l {0,2} / odd-l {1,3} decouple (forced by T₃ odd symmetry). Physical mode count = ω(P₄)=4 per parity (1+3 structure). l=0 recovers S¹ cascade exactly. Three-cluster spectrum at P_k² scales. Upper cluster spread = λ(P₄)=12. C₀, 200/189 confirmed dynamical not spectral. 3 identities (#348–350). |
 
-### Current State (Post-NB189)
+### Current State (Post-NB190)
 
-- **346+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **349+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
 - **Reconstruction**: Phases 0–3 RESOLVED. Cascade = S² gradient flow. All dynamics grounded.
@@ -517,6 +518,7 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 - **Per-ℓ cascade** (NB187): Full JAX integration at ℓ=0,2,3. Primorial screening: S² geometric damping screened at R₃ (quark 0.058%, lepton 5.3%). 200/189 NOT absorbed by per-ℓ damping — confirmed as S¹ cascade mechanism. Division of labor: S²(ℓ>0) selects modes, S¹(ℓ=0) computes masses.
 - **Radial structure** (NB188): Prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)², golden ratio eigenvalue pairing, hydrogen Σn²=30=P₃, double truncation l_max=3, primorial localization. GEO-5 ANSWERED.
 - **Oriented axes** (NB189): Axis assignment 2→φ, 3→θ, 5→r, 7→arc is UNIQUE (1/24), forced by S² coordinate structure + covering monodromy + NB188 radial confirmation. CRT–coordinate correspondence. Per-axis metric. Cascade = inter-axis interfaces. GEO-4 ANSWERED. Geometric program ALL 5 questions RESOLVED/ANSWERED.
+- **Full S² covering action** (NB190): Complete covering energy as 80×80 quadratic form on 5 shells × 16 modes. l-parity conservation (even/odd decouple, forced by Chebyshev T₃ odd symmetry). Physical mode count ω(P₄)=4 per parity with 1+3 structure. l=0 recovers S¹ exactly. Three-cluster spectrum at P_k² scales. C₀ and 200/189 are dynamical, not spectral. GD-1: action structure established.
 - **Concentric sphere arena**: r_k = P_k, K_k = 1/P_k², Tr(L) = r₃+r₄ = 240, gravity in curvature language
 - **C₀ atlas**: cascade base ratios = curvature ratios (NB184), mechanism identified — C₀ lives at R₃ level, requires κ = 1/√P₄, emerges from p₄=7 branch averaging (NB185). GEO-2: curvature hierarchies approximate but need dynamics.
 - **Spectral bridge**: M_Pl/M_Z = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — exact (NB179). Bridge exponents derived from p-adic consistency (NB180). GAP-19 RESOLVED.

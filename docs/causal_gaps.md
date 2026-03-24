@@ -2,13 +2,15 @@
 
 > **Principle**: Every formula is a pattern until we understand the mechanism that produces it. A formula found by matching to PDG is an observation, not a derivation. This document tracks what is genuinely derived vs what is pattern-matched, and what work remains to close each gap.
 
-**Status**: Post-NB187. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism UNDERSTOOD: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification (NB171, 0.018% analytical match). **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 (frequency gradient), not p₃² = 25 as claimed. **GAP-19 RESOLVED** (NB180): bridge exponents σ₃(p₁) and λ(P₄) forced by p-adic consistency of det'(L). All valuations determined by v₂ = p₃² = |S|². Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)}.
+**Status**: Post-NB189. Mass mechanism resolved (coherence). Sector-resolved pipeline (NB167): 9/9 PASS, 0.65% mean dev, 8/9 within 1σ. CKM: V_us derived to 0.029% (NB167). m_b 2.3σ gap traced to unresolved bottom Yukawa (GAP-15, NB169). Three gaps added (GAP-20 through GAP-22) for mass pipeline quantities previously misclassified as "derived." GAP-20 mechanism UNDERSTOOD: x_q = 100/63 = (4/7)(25/9) confirmed (NB170); cross-level 25/9 decomposed into transient wrapping + SS amplification (NB171, 0.018% analytical match). **NB181 CORRECTION**: raw SS₃/SS₀ ≈ P₃ = 30 (frequency gradient), not p₃² = 25 as claimed. **GAP-19 RESOLVED** (NB180): bridge exponents σ₃(p₁) and λ(P₄) forced by p-adic consistency of det'(L). All valuations determined by v₂ = p₃² = |S|². Fundamental identity: p₃² = σ₃(p₁) + p₁^{ω(P₄)}.
 
 **Reconstruction (NB173–178)**: Phases 0–3 RESOLVED. The cascade ODE is the S² gradient flow — all components derived from covering topology or grounded in S² geometry. Key results: A₅ icosahedral truncation gives non-circular reason for exactly 4 primes (NB173). A₅ ↔ Z*₂₁₀ bridge via McKay correspondence (NB174). Monodromy IS the coupling — sin forcing is the leading Fourier mode of topological monodromy, not an invention (NB175). κ = ε = 1/√P₄ from Haar metric (NB176). Concentric sphere arena: primorial radii r_k = P_k, area ratios = Γ̃ eigenvalues, Γ_geom = 2K_k (NB177). Geometric gravity dictionary: D·Γ_geom·D = path graph Laplacian, metric radii sum (D·g⁻¹·D)_kk = r_k + r_{k+1}, gauge-gravity bridge r₃+r₄ = Tr(L) = 240 unique to {2,3,5,7}, consecutive quartet p₃,P₂,p₄,φ(P₃) = 5,6,7,8 unique (NB178). GAP-19 upgraded: gravity hierarchy now expressible in pure curvature language K_k = 1/P_k².
 
 **Spectral bridge (NB179)**: Natural per-factor Cayley graph on Z*₂₁₀ with |S| = p₃ = 5. Integer eigenvalues 0..10, palindromic. det'(L) = 2²⁵ × 3¹⁶ × 5¹³ × 7⁸. EXACT spectral bridge: H = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}). Canonical: H = p₁^λ × P₄^ω × p₄^{p₃}. GAP-19 upgraded to spectral determinant identified.
 
 **S² geometry (NB183–187)**: GEO-1 RESOLVED for mass exponents and selection rules (NB186). S¹ cascade ≡ l=0 sector of S² gradient flow (embedding theorem, machine precision). Per-l geometric damping κ_eff(l,k) = κ(1 + l(l+1)/P_k²) PRODUCES mass exponents: x_lep = 3 at l=3, x_q base = 3/2 at l=2, with 200/189 arithmetic correction → 100/63. Covering p₂=3 filter creates singlet (l=2, quarks) / triplet (l=3, leptons). **NB187**: Full per-ℓ cascade integration (JAX, 210 branches × 3 ℓ values). Primorial screening theorem: S² geometric damping is screened at R₃ by primorial hierarchy — quark C₀ changes only 0.058% from ℓ=0→ℓ=2. The 200/189 correction is NOT absorbed by per-ℓ damping; it is confirmed as an S¹-level cascade mechanism. Division of labor: S²(ℓ>0) selects modes, S¹(ℓ=0) computes masses.
+
+**Geometric foundation (NB188–189)**: All five GEO questions RESOLVED/ANSWERED. **NB188** (GEO-5): Prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ with golden ratio eigenvalue pairing. Hydrogen Σn²=30=P₃. Double truncation l_max=3. Primorial localization. **NB189** (GEO-4): Axis assignment 2→φ, 3→θ, 5→r, 7→arc is UNIQUE (1/24), forced by 4 constraints. CRT–coordinate correspondence: each CRT factor Z_{φ(p)} maps to one axis. Per-axis metric: g_φ = P_k²sin²θ, g_θ = P_k², g_r = 1, g_arc = 1/P₄. Cascade residuals = inter-axis interfaces. The arena is now fully characterized — the question shifts from "what IS the geometry?" to "what does the geometry PRODUCE?"
 
 ---
 
@@ -372,35 +374,42 @@ The mass pipeline (solenoid_mass.py) contains three layers of phenomenological i
    - The reconstruction (NB175-176) proved this is the S² gradient flow projection
    - But the S² arena has structure the S¹ projection cannot see: oriented axes, radial coordinate, spherical harmonics, curvature eigenmodes
 
-### What the Geometric Program Must Address
+### Geometric Foundation — ESTABLISHED (NB183–189)
 
-The reconstruction (NB172-178) established the arena but never derived dynamics FROM it:
+All five structural GEO questions are now RESOLVED/ANSWERED:
 
-| Established (NB172-178) | NOT yet explored |
-|------------------------|------------------|
-| Arena = concentric spheres | Dynamics ON those spheres |
-| Radii r_k = P_k | What the radial coordinate (p=5) does |
-| Curvatures K_k = 1/P_k² | Whether mass ratios come from curvature ratios |
-| A₅ truncation → 4 primes | Spherical harmonics Y_l^m as the natural basis |
-| Monodromy = coupling | Oriented axes (2→φ, 3→θ, 5→r, 7→arc) — ANSWERED (NB189) |
-| κ from Haar metric | Discrete degrees (quantization from geometry) |
-| Cascade = S² gradient flow | What S² gives BEYOND what S¹ gives |
+| Question | Answer | Notebook |
+|----------|--------|----------|
+| GEO-1: Laplacian spectrum | S¹ cascade = l=0 sector of S² gradient flow; per-l damping produces mass exponents | NB186 |
+| GEO-2: Curvature → mass? | Approximate — sets hierarchy scale, dynamics needed for exact values | NB184 |
+| GEO-3: What do spherical harmonics add? | l-dependent dynamics, selection rules, mode splitting — S¹ is the l=0 sector | NB186 |
+| GEO-4: Oriented axes | UNIQUE assignment (1/24), CRT–coordinate correspondence, per-axis metric | NB189 |
+| GEO-5: Radial structure | Prime 5 = radial metric, Jacobian stiffness, golden ratio pairing, primorial localization | NB188 |
 
-The central question: **Do the Laplacian eigenvalues on nested concentric spheres with Gaussian curvatures K_k = 1/P_k² produce mass ratios, coupling constants, and mixing angles WITHOUT need for the current phenomenological pipeline?**
+The arena is fully characterized: 4 concentric spheres at radii P_k, Gaussian curvatures K_k = 1/P_k², per-axis metric from NB189, covering maps connecting adjacent shells. The S¹ cascade on covering residuals is the l=0 sector of S² gradient flow (NB186, embedding theorem at machine precision). This is the foundation — not the end.
 
-If yes, the hardcoded exponents and pattern-matched anchors are replaced by geometric derivations. If partially, we identify exactly which quantities are geometric and which remain phenomenological.
+### What the Foundation OPENS — Geometric Dynamics Program
 
-### Concrete Next Steps
+The foundational questions asked "what IS this arena?" The next phase asks "what does the arena PRODUCE?" The mass pipeline still runs on S¹ phenomenological machinery. The geometry should produce — not just describe — the dynamics, C₀ values, mass anchors, and correction factors.
 
-1. **Laplacian on concentric sphere system**: Compute the eigenvalues of the Laplace-Beltrami operator on the nested sphere system {S²(P_1), S²(P_2), S²(P_3), S²(P_4)} with covering map connections. What is the spectrum?
+| # | Direction | What we have | What we need | Why it's accessible now |
+|---|-----------|-------------|-------------|------------------------|
+| **GD-1** | **Full geometric action** | V_covering on S¹ (NB139), Γ̃ = K·A⁻¹ (NB143), cascade = S² gradient flow (NB176) | Action functional on the full 4D arena with per-axis metric (NB189). Euler-Lagrange → what emerges beyond the l=0 cascade? | Per-axis metric now known. The action should be writable. |
+| **GD-2** | **Geometric C₀** | C₀(lep) = √35 ≈ √(p₃p₄), C₀(quark) = 21/√10 (NB184). Mechanism at R₃-level, branch-averaged, κ-dependent (NB185) | Analytic derivation: C₀ as geometric invariant (curvature integral, spectral ratio, geodesic length ratio) without ODE | Curvature ratios established (NB177), axis assignment fixes the integration domain (NB189) |
+| **GD-3** | **200/189 per-axis decomposition** | 200/189 = p₁³p₃²/(p₂³p₄) confirmed as S¹ mechanism, not per-ℓ damping (NB187) | Decompose per axis: φ contributes p₁³=8, r contributes p₃²=25, θ contributes p₂³=27, arc contributes p₄=7. Volume ratio? Eigenvalue ratio? | Axis assignment (NB189) enables per-axis factorization of this number |
+| **GD-4** | **Mass anchors from geometry** | m_t/m_b = 42×√(29/30) where 42 = P₄/p₃ charge-neutral sub-covering (NB182). m_t/M_Z pattern-matched (NB109) | Derive anchor formulas from arena geometry. 42 = charge-neutral states on sphere system. √(29/30) correction? | Full sphere counting now available (shells + modes + covering) |
+| **GD-5** | **Full 4D Laplacian spectrum** | Per-axis eigenvalue contributions (NB189). Per-ℓ cascade at ℓ=0,2,3 (NB187). Innermost sphere controls mass exponents (NB186) | Full Laplacian on product arena combining angular + radial + solenoid sectors. Does the spectrum organize the entire particle spectrum? | All axes characterized, metric known, covering maps as connections |
+| **GD-6** | **x_l_inter from geometry** | x_l_inter ≈ 1.273 ≈ φ(P₃)/(2π). Hardcoded. | Derive inter-generation spacing from the sphere system | Per-ℓ cascade (NB187) + shell geometry may constrain this |
 
-2. **Curvature ratios and mass**: The curvature ratio K_k/K_{k+1} = p_{k+1}² is a primorial square ratio. Test whether mass hierarchies emerge from these ratios without ODE integration.
+**Priority**: GD-1 (geometric action) is foundational — if the full action is written, variations may resolve GD-2 through GD-6 as consequences. GD-3 (200/189) is the most concrete and immediately testable with existing tools. GD-2 (C₀) is the highest-value target for the mass pipeline.
 
-3. **Spherical harmonic decomposition**: The cascade on S¹ uses Fourier modes e^{inθ}. On S², the natural basis is Y_l^m(θ,φ). What does the covering constraint look like in the Y_l^m basis? Does the harmonic structure produce quantized mass ratios?
+### Answered Structural Questions (Archive)
 
-4. **Oriented axes**: **ANSWERED (NB189)**. The axis assignment 2→φ, 3→θ, 5→r, 7→arc is the UNIQUE (1/24) geometrically natural mapping. Four constraints force it: (C1) {2,3} → angular (S² has 2 angular coords), (C2) {5,7} → non-angular, (C3) 2 → φ (bilateral = full circle), (C4) 5 → r (NB188). CRT–coordinate correspondence: each CRT factor maps to one axis carrying one quantum number. Covering monodromy: p₂=3 branch-point monodromy requires 3|m → quark/lepton split. Per-axis metric: g_φ = P_k²sin²θ, g_θ = P_k², g_r = 1, g_arc = 1/P₄. Cascade residuals are inter-axis interfaces. Angular state count 12 = λ(P₄) is coincidental (NULL). 1 identity (#346).
+These questions established the geometric foundation. Kept for reference.
 
-5. **Radial structure**: **ANSWERED (NB188)**. Prime 5 controls the radial metric — shell distances, localization, and hydrogen-like (n,l) structure. Covering Jacobian J (4×5) has stiffness JᵀJ with kernel norm p₃=5. Cauchy-Binet: det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ eigenvalues pair via golden ratio. Hydrogen pattern: Σn²=30=P₃ on 4 shells. Double truncation: l_max=3 from A₅ AND ω(P₄). All modes localize on primorial shells (PR < 1.16). Z₄ charge connection dimensional only (p₃≡0 mod 5). 5 identities (#341–#345).
+**GEO-4 — Oriented axes** (NB189): Axis assignment 2→φ, 3→θ, 5→r, 7→arc is UNIQUE (1/24). Four constraints: (C1) {2,3} → angular, (C2) {5,7} → non-angular, (C3) 2 → φ (bilateral = full circle), (C4) 5 → r (NB188). CRT–coordinate correspondence. Per-axis metric. Cascade = inter-axis interfaces. 1 identity (#346).
+
+**GEO-5 — Radial structure** (NB188): Prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ with golden ratio pairing. Hydrogen Σn²=30=P₃. Double truncation l_max=3. Primorial localization. 5 identities (#341–#345).
 
 ---
 
