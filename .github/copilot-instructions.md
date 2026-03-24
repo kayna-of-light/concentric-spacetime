@@ -511,13 +511,15 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | Chebyshev Coupling Formulas | NB192 | Universal analytic formulas for per-prime Chebyshev coupling on S². C_T_p(0,2;0) = (p²−1)/(4p²−1) for any covering degree p (sympy-verified p=2..10). C_T_p(2,2;0) = −15p²/[(4p²−1)(4p²−9)] for any p≥1 (sympy-verified p=2..8). Three-way Weinberg chain: sin²θ_W = (p₂²−1)/(4p₂²−1) = p₁³/(p₃p₄) = φ(P₄)/P₄ via Catalan (3²−2³=1 unique). Self-coupling at p₂=3: C(2,2) = −1/p₄. Even-parity block: [[1, φ(P₄)/P₄], [0, −1/p₄]]. 200/189 classified as algebraic bridge (GD-3 ANSWERED). 5 identities (#354–358). |
 | Chebyshev Coupling Algebra | NB193 | C_T_p(1,1;0) = −3/(p²−4) for odd p (sympy-proved). Bilateral spectral democracy: C_T_2(0,l) = (−1)^l/(2l+1) for all l (sympy-proved). Cross-level resonance: C₃(2,2) = C₅(1,1) = −1/p₄, forced by three arithmetic identities specific to {2,3,5,7}. Uniqueness: {2,3,5,7} is the only prime quadruple satisfying p₃=p₁+p₂, p₄=p₁+p₃ (mod 3 proof). −1/p₄ appears at three independent positions. 4 identities (#359–362). |
 | Odd-Parity Block | NB194 | Complete l-parity decomposition: odd block (l=1,3) fully characterized. Bilateral Annihilation Theorem: C₂(l,l')=0 for ALL l when l' odd. p=3 odd block has complex eigenvalues (rotation), p=5,7 real (scaling). Framework constants: C₃(1,1)=−p₂/p₃, C₃(1,3)=p₁³/p₃ (unique positive off-diagonal), C₇(1,1)=−1/(p₂·p₃). Composite det numerator = p₂²·p₃³·p₄² (framework primes only). 6 identities (#363–368). |
+| C₀ Mechanism | NB195 | C₀ mechanism characterization. κ-sensitivity: C₀(κ) extremely steep near κ₀ = 1/√P₄ (32% change over 4% κ variation). IC-diversity decomposition: g1 is 99.7% inter-branch variance, g2 is 55% mean² + 45% variance. j₄ decomposition: quark odd/even alternation, lepton bell-shaped. Effective decay γ₃/κ ≈ 0.893. Honest null: simple wrapping model fails (43% off) — cascade cross-coupling essential. 0 identities. GD-2 OPEN. |
 
-### Current State (Post-NB194)
+### Current State (Post-NB195)
 
 - **368+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
 - **Reconstruction**: Phases 0–3 RESOLVED. Cascade = S² gradient flow. All dynamics grounded.
+- **C₀ mechanism** (NB195): C₀ = √(p₃p₄) is genuinely dynamical — requires full cascade ODE, κ = 1/√P₄ specifically (extreme κ-sensitivity), 210-branch IC diversity (99.7% variance at g1), and cascade cross-coupling from lower levels. Simple wrapping model fails (43% off). Effective decay γ₃/κ ≈ 0.893. GD-2 (analytic derivation): OPEN.
 - **S² covering energy** (NB186): S¹ cascade ≡ l=0 sector of S² gradient flow (embedding theorem). Per-l geometric damping PRODUCES mass exponents (x_lep = 3 at l=3, x_q = 100/63 at l=2). Covering selection rules PRODUCE quark/lepton split. GEO-1 RESOLVED for mass exponents and selection rules.
 - **Per-ℓ cascade** (NB187): Full JAX integration at ℓ=0,2,3. Primorial screening: S² geometric damping screened at R₃ (quark 0.058%, lepton 5.3%). 200/189 NOT absorbed by per-ℓ damping — confirmed as S¹ cascade mechanism. Division of labor: S²(ℓ>0) selects modes, S¹(ℓ=0) computes masses.
 - **Radial structure** (NB188): Prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)², golden ratio eigenvalue pairing, hydrogen Σn²=30=P₃, double truncation l_max=3, primorial localization. GEO-5 ANSWERED.
@@ -547,7 +549,7 @@ The reconstruction (NB172–178) established the S² × R⁺ arena with concentr
 The current mass pipeline phenomenological inputs that the geometric program should replace:
 - Hardcoded exponents: x_q = 1.587, x_l = 3.000 — NOW DERIVED from S² Laplacian (NB186). x_l_inter from cascade measurement (S¹ = l=0 sector)
 - Pattern-matched anchors: m_t/M_Z = p₂²/√(πp₄)×..., m_t/m_b = 42×...
-- C₀ values: now known to be curvature ratios (√35, 21/√10) and computationally confirmed from cascade dynamics (NB185), but no analytic derivation yet
+- C₀ values: now known to be curvature ratios (√35, 21/√10) and computationally confirmed from cascade dynamics (NB185). NB195 establishes mechanism (IC diversity + cross-coupling) but no analytic derivation yet. GD-2 OPEN.
 - S¹ dynamics projected from S² arena (cascade ODE on covering residuals)
 
 ### Algebraic Gaps (SECONDARY — tracked, not actively pursued)
