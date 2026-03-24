@@ -504,15 +504,17 @@ The project has progressed through 171 notebooks. The full per-notebook Phase Ma
 | C₀ Atlas Derivation | NB185 | C₀ mechanism identified. C₀ lives at cascade R₃ level (not R₀). R₀-level C₀(lepton) = 8.77, transforms through 3 nonlinear cascade levels to R₃ = 5.912 ≈ √35 (0.070%). NOT topological — requires κ = 1/√P₄ (κ-sensitive, resonance structure). NOT single-branch — p₄=7 branch averaging gives C₀² ≈ p₃p₄. Effective decay rate γ₃/κ ≈ λ(7)/p₄ = 6/7 (0.14%). #333, #334 status: PATTERN-MATCHED → COMP. CONFIRMED. 0 new identities. |
 | S² Covering Energy | NB186 | S² geometry PRODUCES cascade dynamics that S¹ topology only DESCRIBES. Embedding theorem: S¹ cascade ≡ l=0 sector of S² covering energy gradient flow (machine precision, 0.00e+00). Per-l cascade ODE with geometric damping κ_eff(l,k) = κ(1 + l(l+1)/P_k²). Mass exponents from innermost sphere Laplacian: x_lep = l(l+1)/P₁² at l=3 = 3 (EXACT), x_q base = 3/2 at l=2 (×200/189 → 100/63 EXACT). Covering selection: p₂=3 filter on Y_l^m creates singlet at l=2 (quarks), triplet at l=3 (leptons). Mode splitting visible on nontrivial branches. Explanatory gain: S² resolves 6/6 observables vs S¹'s 2/6. #328–#331 status: PATTERN-MATCHED → DERIVED. 1 new identity (#336). |
 | Per-ℓ Cascade Dynamics | NB187 | Full JAX integration of 210 branches at ℓ=0,2,3 with correct inter-level coupling ODE. ℓ=0 matches standard pipeline to 10⁻¹². Primorial screening theorem: S² geometric damping screened at R₃ — quark C₀ changes 0.058% (ℓ=0→ℓ=2), lepton 5.3% (ℓ=0→ℓ=3). 200/189 NOT absorbed by per-ℓ damping. Division of labor: S²(ℓ>0) selects modes, S¹(ℓ=0) computes masses. Inner-sphere products: 35/12 = p₃p₄/λ(P₄) at ℓ=2, 16/3 = d(P₄)/p₂ at ℓ=3. 4 identities (#337–340). |
+| Radial Structure | NB188 | GEO-5: prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ with golden ratio eigenvalue pairing. Hydrogen Σn²=30=P₃. Double truncation l_max=3. Primorial localization. Z₄ connection dimensional not structural. 5 identities (#341–#345). |
 
-### Current State (Post-NB187)
+### Current State (Post-NB188)
 
-- **340+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
+- **345+ structural identities**, 0 free parameters, 1 dimensional anchor (M_Z)
 - **Mass pipeline**: 9/9 PASS, mean |dev| = 0.65%, 8/9 within 1σ (NB167)
 - **CKM**: 9/9 within 2σ, χ²/9 = 1.92, V_us derived to 0.029%
 - **Reconstruction**: Phases 0–3 RESOLVED. Cascade = S² gradient flow. All dynamics grounded.
 - **S² covering energy** (NB186): S¹ cascade ≡ l=0 sector of S² gradient flow (embedding theorem). Per-l geometric damping PRODUCES mass exponents (x_lep = 3 at l=3, x_q = 100/63 at l=2). Covering selection rules PRODUCE quark/lepton split. GEO-1 RESOLVED for mass exponents and selection rules.
 - **Per-ℓ cascade** (NB187): Full JAX integration at ℓ=0,2,3. Primorial screening: S² geometric damping screened at R₃ (quark 0.058%, lepton 5.3%). 200/189 NOT absorbed by per-ℓ damping — confirmed as S¹ cascade mechanism. Division of labor: S²(ℓ>0) selects modes, S¹(ℓ=0) computes masses.
+- **Radial structure** (NB188): Prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)², golden ratio eigenvalue pairing, hydrogen Σn²=30=P₃, double truncation l_max=3, primorial localization. GEO-5 ANSWERED.
 - **Concentric sphere arena**: r_k = P_k, K_k = 1/P_k², Tr(L) = r₃+r₄ = 240, gravity in curvature language
 - **C₀ atlas**: cascade base ratios = curvature ratios (NB184), mechanism identified — C₀ lives at R₃ level, requires κ = 1/√P₄, emerges from p₄=7 branch averaging (NB185). GEO-2: curvature hierarchies approximate but need dynamics.
 - **Spectral bridge**: M_Pl/M_Z = det'(L)·p₄/(Λ_max^{σ₃(p₁)}·p₂^{λ(P₄)}) — exact (NB179). Bridge exponents derived from p-adic consistency (NB180). GAP-19 RESOLVED.
@@ -528,7 +530,7 @@ The reconstruction (NB172–178) established the S² × R⁺ arena with concentr
 | **GEO-2** | Do curvature ratios K_k/K_{k+1} = p_{k+1}² produce mass hierarchies without ODE integration? | NB184: APPROXIMATE. Curvature ratios set hierarchy SCALE: m_μ/m_e ≈ 35^{3/2} (0.14%), m_τ/m_μ ≈ 9^{9/7} (0.26%). Exponents are prime ratios. Dynamics still needed for exact values. |
 | **GEO-3** | Covering constraint in Y_l^m basis — what do spherical harmonics give that Fourier modes on S¹ don't? | NB186: ANSWERED. S² gives l-dependent dynamics (per-l damping, selection rules, mode splitting) that S¹ cannot access. The l=0 sector IS S¹. The l>0 sectors produce mass exponents, quark/lepton discrimination, and degeneracy values. Full explanatory gain: 6/6 vs 2/6 observables. |
 | **GEO-4** | Oriented axes (2→φ, 3→θ, 5→r, 7→arc) — mathematical content of axis assignment | NOT STARTED |
-| **GEO-5** | Radial structure — what does the radial coordinate (prime 5) contribute? Currently unused. | NOT STARTED |
+| **GEO-5** | Radial structure — what does the radial coordinate (prime 5) contribute? | ANSWERED (NB188). Prime 5 = radial metric. Covering Jacobian J (4×5), stiffness JᵀJ, Cauchy-Binet det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ with golden ratio eigenvalue pairing. Hydrogen Σn²=30=P₃. Double truncation l_max=3. Primorial localization. Z₄ connection dimensional not structural. 5 identities (#341–#345). |
 
 The current mass pipeline phenomenological inputs that the geometric program should replace:
 - Hardcoded exponents: x_q = 1.587, x_l = 3.000 — NOW DERIVED from S² Laplacian (NB186). x_l_inter from cascade measurement (S¹ = l=0 sector)

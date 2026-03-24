@@ -400,7 +400,7 @@ If yes, the hardcoded exponents and pattern-matched anchors are replaced by geom
 
 4. **Oriented axes**: The reports assign 2→φ (azimuthal), 3→θ (polar), 5→r (radial), 7→arc (developmental). What does this axis assignment mean mathematically for the dynamics?
 
-5. **Radial structure**: Prime 5 is the radial prime but the current pipeline completely ignores the radial coordinate. What do discrete radial shells at r = P_k contribute?
+5. **Radial structure**: **ANSWERED (NB188)**. Prime 5 controls the radial metric — shell distances, localization, and hydrogen-like (n,l) structure. Covering Jacobian J (4×5) has stiffness JᵀJ with kernel norm p₃=5. Cauchy-Binet: det(JJᵀ) = Σ(P₄/Pₖ)². Path graph T₄ eigenvalues pair via golden ratio. Hydrogen pattern: Σn²=30=P₃ on 4 shells. Double truncation: l_max=3 from A₅ AND ω(P₄). All modes localize on primorial shells (PR < 1.16). Z₄ charge connection dimensional only (p₃≡0 mod 5). 5 identities (#341–#345).
 
 ---
 
